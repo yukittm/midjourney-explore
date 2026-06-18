@@ -1,6 +1,6 @@
 # PROGRESS.md
 
-**Updated**: 2026-06-18 | **Project**: midjourney-explore | **Branch**: master [uncommitted: yes]
+**Updated**: 2026-06-18 | **Project**: midjourney-explore | **Branch**: master [uncommitted: no]
 
 > Single progress SSoT for **both Claude and Codex**. Entry rules: `.claude/protocols/progress-management.md`.
 > Entry format: `` YYYY-MM-DD [Actor:scope][s:UUID-8] **{🟢|🟡|🔴} title — status / committed `<hash>`** ``
@@ -19,11 +19,11 @@ Project scaffolded from template; folder structure created and Midjourney best-p
 - [ ] Build Instagram auto-upload pipeline → `automation/`
 
 ## Entries (newest first)
-2026-06-18 [Claude:style] **🟢 sref sweep worksheet — PASS / `PENDING_COMMIT`**
+2026-06-18 [Claude:style] **🟢 sref sweep worksheet — PASS / committed `b08eeff`**
   - Created `docs/style/sref-sweep.md`: divergence-stage worksheet to find a personal style by holding the prompt constant and varying `--sref`. Includes Personalization-control pre-flight, neutral probe prompts per lane, candidate-code table, sweep command patterns, evaluation log, and convergence step.
   - Cross-refs research files 03/05/06. Next: user collects candidate sref codes and runs the sweep.
 
-2026-06-18 [Claude:setup] **🟢 project scaffold + structure + research import — PASS / `PENDING_COMMIT`**
+2026-06-18 [Claude:setup] **🟢 project scaffold + structure + research import — PASS / committed `b08eeff`**
   - Expanded `00_template` (CLAUDE.md / AGENTS.md / .claude / .gitignore); filled Project name + adoption-history + Project Context (Midjourney explore → style → IG automation).
   - Created folders with self-documenting READMEs: `docs/research`, `docs/style`, `prompts`, `moodboards`, `outputs/candidates`, `automation`. Added outputs binary ignores to `.gitignore`.
   - Copied 8-file Midjourney V7 best-practices bundle from `marketing-ops` → `docs/research/2026-05-11_midjourney-prompt-best-practices/`.
