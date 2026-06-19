@@ -34,3 +34,10 @@ outputs/**/*.webp
 outputs/**/*.gif
 outputs/**/*.mp4
 outputs/**/*.mov
+
+# Reference material from others' accounts — keep manifests/notes, ignore image binaries (private, IP)
+references/**/*.png
+references/**/*.jpg
+references/**/*.jpeg
+references/**/*.webp
+references/**/*.mp4
