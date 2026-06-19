@@ -1,6 +1,6 @@
 # PROGRESS.md
 
-**Updated**: 2026-06-20 | **Project**: midjourney-explore | **Branch**: master [uncommitted: yes]
+**Updated**: 2026-06-20 | **Project**: midjourney-explore | **Branch**: master [uncommitted: no]
 
 > Single progress SSoT for **both Claude and Codex**. Entry rules: `.claude/protocols/progress-management.md`.
 > Entry format: `` YYYY-MM-DD [Actor:scope][s:UUID-8] **{🟢|🟡|🔴} title — status / committed `<hash>`** ``
@@ -19,7 +19,7 @@ Project scaffolded from template; folder structure created and Midjourney best-p
 - [ ] Build Instagram auto-upload pipeline → `automation/`
 
 ## Entries (newest first)
-2026-06-20 [Claude:style] **🟢 reference accounts analyzed + blend direction + reference pool imported — PASS / `PENDING_COMMIT`**
+2026-06-20 [Claude:style] **🟢 reference accounts analyzed + blend direction + reference pool imported — PASS / committed `bb8bc37`**
   - Confirmed & analyzed reference accounts `giz.akdag` (crisp editorial) + `marianopeccinetti` (retro collage); recorded the two-axis framing (A: taste / B: subject) and the **blend** direction in `docs/style/{reference-accounts,style-definition}.md`.
   - Imported 30 manually-downloaded media into `references/` (18 giz / 7 mariano / 5 unattributed video) via `scripts/import_references.py` + `references/manifest.jsonl` (sha256/provenance). Binaries gitignored; **self-contained — no marketing-ops reuse** (investigated its capture tool but rejected reuse to avoid cross-project contamination).
   - Boundary: no generation yet (MJ plan pending). Next: capture giz SREF codes (Phase 0 remainder); Phase 1 diverge needs the plan.
