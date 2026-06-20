@@ -1,6 +1,6 @@
 # PROGRESS.md
 
-**Updated**: 2026-06-20 | **Project**: midjourney-explore | **Branch**: master [uncommitted: yes]
+**Updated**: 2026-06-20 | **Project**: midjourney-explore | **Branch**: master [uncommitted: no]
 
 > Single progress SSoT for **both Claude and Codex**. Entry rules: `.claude/protocols/progress-management.md`.
 > Entry format: `` YYYY-MM-DD [Actor:scope][s:UUID-8] **{🟢|🟡|🔴} title — status / committed `<hash>`** ``
@@ -22,7 +22,7 @@ Style-establishment phase, divergence prep done: reference accounts analyzed (`g
 - [ ] Build Instagram auto-upload pipeline → `automation/`
 
 ## Entries (newest first)
-2026-06-20 [Claude:docs] **🟢 doc cleanup: de-template contracts + frontmatter convention — PASS / `PENDING_COMMIT`**
+2026-06-20 [Claude:docs] **🟢 doc cleanup: de-template contracts + frontmatter convention — PASS / committed `dd7c6f4`**
   - Removed legacy "Template-Specific Rules" from `CLAUDE.md` + `AGENTS.md` (project is no longer a template); relocated Project Context to a top-level section + added real Source-of-truth / Verification notes (mirrored in both).
   - Added a minimal frontmatter convention (`docs/CONVENTIONS.md`, no linter) and applied `updated/status/type` frontmatter to `docs/**` + folder READMEs. Removed a stale `mobileeditingclub` reference from `style-definition.md`.
   - Refreshed this PROGRESS (Current State, Roadmap, filled the Approach / Context sections).
