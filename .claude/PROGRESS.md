@@ -1,12 +1,12 @@
 # PROGRESS.md
 
-**Updated**: 2026-06-20 | **Project**: midjourney-explore | **Branch**: master [uncommitted: no]
+**Updated**: 2026-06-21 | **Project**: midjourney-explore | **Branch**: master [uncommitted: yes]
 
 > Single progress SSoT for **both Claude and Codex**. Entry rules: `.claude/protocols/progress-management.md`.
 > Entry format: `` YYYY-MM-DD [Actor:scope][s:UUID-8] **{🟢|🟡|🔴} title — status / committed `<hash>`** ``
 
 ## Current State
-Style-establishment phase, divergence prep done: reference accounts analyzed (`giz.akdag` + `marianopeccinetti`), **blend** direction set, reference image pool imported (`references/`). Docs cleaned (de-templated contracts + minimal frontmatter convention). **Blocked on the Midjourney plan** for Phase 1 generation. No automation code yet.
+Phase 1 underway (MJ plan renewed). Built & verified the `blend-v1` moodboard (12 curated refs; Personalization = blend-v1 only, Global profile off) — the blend renders coherently (not muddy). Exploring world-views + prompt craft; adopted a project **prompt convention** (detailed/specific). Axis B (subject) leaning **surreal fine-art × figure × nature/cosmos**, not yet locked. No automation code yet.
 
 > Solo project (Claude only) — §0 simplification in effect: entries use `[Claude:scope]`, `[s:UUID-8]` omitted. Rule 1 (commit hash on PASS) still applies.
 
@@ -17,11 +17,18 @@ Style-establishment phase, divergence prep done: reference accounts analyzed (`g
 - [x] Analyze reference accounts + set **blend** direction → `docs/style/`
 - [x] Import reference image pool → `references/`
 - [x] Doc cleanup: de-template contracts + frontmatter convention (`docs/CONVENTIONS.md`)
-- [ ] **Style establishment (Phase 1 — needs MJ plan)**: build blended moodboard from `references/`, probe-generate, decide Axis B (subject) → converge SSoT `docs/style/style-definition.md`
+- [x] Phase 1 start: build & verify `blend-v1` moodboard (blend renders coherently); set prompt convention (`docs/style/prompting-guide.md`) + world-view candidates (`docs/style/world-views.md`)
+- [ ] **Converge style**: pick a world-view → focused moodboard → lock base prompts → decide Axis B → `style-definition.md` draft → active
 - [ ] Lock base prompt templates per lane → `prompts/`
 - [ ] Build Instagram auto-upload pipeline → `automation/`
 
 ## Entries (newest first)
+2026-06-21 [Claude:style] **🟢 Phase 1: blend-v1 moodboard built & verified; world-views + prompt convention — PASS / `PENDING_COMMIT`**
+  - MJ plan renewed. Built `blend-v1` moodboard (12 curated refs from `references/`, user-uploaded via browser; `file_upload` tool blocked on session-shared-files, so curated set staged to `~/Desktop/reference-blend-v1/` for manual add). Personalization = blend-v1 only (Global V7/V8 Profile + other moodboards deselected). Verified the blend applies and renders coherently (not muddy).
+  - Creative direction explored: `docs/style/world-views.md` (10 world-view candidates), `prompts/idea-bank.md` (conceptual moves). Axis B leaning surreal fine-art × figure × nature/cosmos (not locked).
+  - Validated detailed-prompt reproduction (giz tennis court): learned **stylize↓ = fidelity↑**, **specificity narrows range**. Created `docs/style/prompting-guide.md`; adopted **project prompt convention = detailed/specific** (independent agent cross-review → PROCEED WITH CHANGES, applied; research bundle left frozen, sref-sweep probes unchanged).
+  - Boundary: no style locked yet (`style-definition.md` still `draft`); no automation.
+
 2026-06-20 [Claude:docs] **🟢 doc cleanup: de-template contracts + frontmatter convention — PASS / committed `dd7c6f4`**
   - Removed legacy "Template-Specific Rules" from `CLAUDE.md` + `AGENTS.md` (project is no longer a template); relocated Project Context to a top-level section + added real Source-of-truth / Verification notes (mirrored in both).
   - Added a minimal frontmatter convention (`docs/CONVENTIONS.md`, no linter) and applied `updated/status/type` frontmatter to `docs/**` + folder READMEs. Removed a stale `mobileeditingclub` reference from `style-definition.md`.
@@ -53,4 +60,6 @@ Once the Midjourney plan is renewed: (1) browser pre-flight — Personalization 
 ## Context (Don't Lose)
 - **Reference downloads**: scripted IG scraping (gallery-dl, yt-dlp) is blocked by IG auth + Chrome cookie decryption; browser URL-harvest is blocked by the harness redacting signed CDN URLs. Working method = user manually downloads → `scripts/import_references.py` imports into `references/` with a manifest. Self-contained (no marketing-ops reuse, by user request).
 - **giz.akdag SREF codes**: not harvested — highlight slides are videos (unreadable) and the codes look like a paid product on her Contra. Blend uses the moodboard route instead.
-- **Style = two axes**: A taste (sref/moodboard) = blend (decided); B subject world = decided by probing (pending plan).
+- **Style = two axes**: A taste (sref/moodboard) = blend (`blend-v1` built & working); B subject world = being probed (leaning surreal fine-art × figure × nature/cosmos).
+- **Moodboard upload gotcha**: MJ moodboard image upload needs the browser; the `file_upload` tool rejects project/temp paths ("session-shared files only"), so the user uploads manually (stage curated files to `~/Desktop/` for an easy drag-add).
+- **Prompt convention**: this project defaults to detailed/specific prompts (subject+composition richly, ~30–40 words; style on the moodboard); loosen for exploration. SSoT: `docs/style/prompting-guide.md`.

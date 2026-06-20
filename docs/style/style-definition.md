@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-20
+updated: 2026-06-21
 status: draft
 type: style
 ---
@@ -91,6 +91,10 @@ curated moodboard** (or our own derived sref) so the final style is ours, not a 
 What you choose to depict — the recurring subjects/themes that make the body of work coherent and
 recognizably yours. This is the **prompt side**, a personal/creative choice, and it also defines what
 the Instagram account is "about".
+
+**Prompt convention (this project's prompt side)**: default to **detailed/specific** prompts — richly
+specify subject + composition + light (the detailed end of the ~30–40-word envelope; style stays on the
+moodboard). Default for production/lock; loosen for exploration. See [[prompting-guide]].
 
 Each reference account pairs a taste WITH a subject world:
 - `giz.akdag`: fashion-forward figures in witty surreal scenarios.
