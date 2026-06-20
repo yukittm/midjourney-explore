@@ -1,3 +1,9 @@
+---
+updated: 2026-06-20
+status: active
+type: guide
+---
+
 # moodboards
 
 Registry of Midjourney moodboards used by the project.

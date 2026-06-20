@@ -1,3 +1,9 @@
+---
+updated: 2026-06-20
+status: active
+type: index
+---
+
 # docs/style
 
 **SSoT for the project's own visual style.** The authoritative definition of "my style" lives here — what aesthetic we are converging on, which style references / moodboard codes express it, and why.

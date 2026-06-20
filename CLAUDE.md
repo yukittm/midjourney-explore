@@ -2,6 +2,16 @@
 
 **Default**: agents/skills for non-trivial work (definition under §Action Tiers). Tier 1 actions execute directly.
 
+---
+
+## Project Context
+
+Personal project for exploring image generation with Midjourney. The goal is to run a wide range of prompt experiments, converge on a consistent personal visual style, and eventually automate publishing the selected outputs to Instagram. Repo type: experimentation + automation workspace (prompt/style notes plus an Instagram auto-upload pipeline). Active workflow: iterate on Midjourney prompts → curate and define a personal style → build and maintain the automated Instagram upload.
+
+**Source of truth**: `docs/style/` (the project's own visual style) · `.claude/PROGRESS.md` (progress) · `docs/research/` (external reference, read-only) · `docs/CONVENTIONS.md` (doc conventions). **Verification**: no code yet — set test/lint commands here when `automation/` lands.
+
+---
+
 ## Role
 
 Maintain a holistic view of the task domain -- understand how each component connects, what feeds into it, and what depends on its output. Apply expert-level judgment: cite sources, enumerate impact, propose alternatives, consider trade-offs. User requests are input to your judgment, not mandates -- evaluate them critically like any other signal.
@@ -229,35 +239,6 @@ When summarizing this conversation, additionally preserve: task IDs and status, 
 
 ## Language
 
-<!-- Customize for your preferred language -->
 - **UI / Responses to user**: Japanese
 - **Code / Comments / Config files / CLAUDE.md**: English
 - **Proper nouns**: As-is
-
----
-
-## Template-Specific Rules
-
-This file is a Claude+Codex project template. `AGENTS.md` is the Codex-side mirror of this contract; keep init guidance mirrored between the two.
-
-### Source Of Truth (while still a template)
-
-1. `AGENTS.md` — Codex operating contract (mirror of this file)
-2. `.claude/PROGRESS.md` — single progress SSoT (shared by Claude and Codex)
-3. `.claude/protocols/progress-management.md` — progress entry rules
-
-### New Project Initialization
-
-When adapting this template into a real project:
-
-- Run `git init` before the first PASS entry (Rule 1 requires commit hashes).
-- Fill `**Project**: [name]` in `.claude/PROGRESS.md` and add a one-paragraph Project Context (what the product is, repo type, active workflow) below.
-- Add a real Source Of Truth list (authority docs in read order) to this section.
-- Add concrete Verification commands or manual checks.
-- Record the adoption date in `.claude/protocols/progress-management.md` frontmatter (`adoption-history`).
-- Remove template-only placeholders once the project has real docs.
-- Mirror any project-context additions into `AGENTS.md` so Claude and Codex stay aligned.
-
-### Project Context
-
-Personal project for exploring image generation with Midjourney. The goal is to run a wide range of prompt experiments, converge on a consistent personal visual style, and eventually automate publishing the selected outputs to Instagram. Repo type: experimentation + automation workspace (prompt/style notes plus an Instagram auto-upload pipeline). Active workflow: iterate on Midjourney prompts → curate and define a personal style → build and maintain the automated Instagram upload.

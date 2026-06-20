@@ -1,3 +1,9 @@
+---
+updated: 2026-06-20
+status: active
+type: index
+---
+
 # docs/research
 
 External research brought into the project. Read-only reference material — not the project's own decisions (those live in `docs/style/` and elsewhere).

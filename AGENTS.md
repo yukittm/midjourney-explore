@@ -6,6 +6,8 @@ Personal project for exploring image generation with Midjourney. The goal is to 
 
 Use this file as a standalone operating contract for coding, review, debugging, documentation, and project maintenance — kept mirrored with `CLAUDE.md` so Claude and Codex stay aligned.
 
+**Source of truth**: `docs/style/` (the project's own visual style) · `.claude/PROGRESS.md` (progress) · `docs/research/` (external reference, read-only) · `docs/CONVENTIONS.md` (doc conventions). **Verification**: no code yet — set test/lint commands here when `automation/` lands.
+
 ## Common Operating Contract
 
 **Default**: use applicable Codex skills and fresh independent executors for non-trivial work. Tier 1 actions execute directly.
@@ -255,33 +257,3 @@ For high-impact changes, present the delta and rollback path before applying unl
 - User-facing explanations: Japanese.
 - Code, identifiers, filenames, config, and comments: English.
 - Proper nouns: keep as-is.
-
-## Template-Specific Rules
-
-### Source Of Truth
-
-When this is still a template, use these files as the initial authority:
-
-1. `CLAUDE.md` as the Claude operating contract (full mirror of this file)
-2. `.claude/PROGRESS.md` as the single progress SSoT (shared by Claude and Codex)
-3. `.claude/protocols/progress-management.md` for progress entry rules
-4. `AGENTS.md` as the Codex operating contract to copy into new projects
-
-### New Project Initialization
-
-When adapting this template:
-
-- Run `git init` before the first PASS entry (Rule 1 requires commit hashes).
-- Replace the Purpose section with the real project purpose.
-- Add a Project Context section with the actual product, repo type, and active workflow.
-- Add a Source Of Truth section listing the real authority docs in read order.
-- Add Verification with concrete commands or manual checks.
-- Remove template-only placeholders after the project has real docs.
-- Record the adoption date in `.claude/protocols/progress-management.md` frontmatter (`adoption-history`).
-- Keep `.claude/PROGRESS.md` and `.claude/rules/LESSONS.md` as the shared continuity files (single SSoT for both Claude and Codex; do not create `.codex/PROGRESS.md`).
-
-### Template Safety
-
-- Do not treat example files as live project state.
-- Do not preserve stale placeholder text in a generated project.
-- `.claude/` is the active continuity home (progress + lessons), shared by Claude and Codex; do not introduce `.codex/PROGRESS.md`.

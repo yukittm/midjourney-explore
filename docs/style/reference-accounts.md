@@ -1,3 +1,9 @@
+---
+updated: 2026-06-20
+status: active
+type: reference
+---
+
 # Reference Accounts — style inspiration
 
 Instagram accounts the user wants to reference for visual taste. These form the **reference pool**:

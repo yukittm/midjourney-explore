@@ -1,3 +1,9 @@
+---
+updated: 2026-06-20
+status: draft
+type: style
+---
+
 # Style Definition — SSoT (WORKING DRAFT / hypothesis)
 
 > Status: **hypothesis, not yet validated by generation** (MJ plan expired as of 2026-06-18).
@@ -60,12 +66,15 @@ The "blend" maps to concrete MJ levers (see research 03/05):
 Use others' published sref codes + their images as **inputs / learning**, but **converge on our own
 curated moodboard** (or our own derived sref) so the final style is ours, not a borrowed fingerprint.
 
-## Reference material available now (offline, no plan needed)
+## Reference material in hand
 
-- The two accounts (`giz.akdag`, `marianopeccinetti`) + `mobileeditingclub`.
-- An existing downloaded pool in `marketing-ops/workspace/assets/candidates/instagram-discovery/`
-  (incl. `mobileeditingclub`) with `manifest.jsonl` provenance — reusable as reference inputs.
-- giz.akdag's public **SREF Collection** codes (candidate crisp-editorial sref inputs).
+- **Imported reference pool** in `../../references/` (self-contained to this project): 18 `giz.akdag`
+  + 7 `marianopeccinetti` images + 5 videos; provenance in `references/manifest.jsonl`. This is the
+  **moodboard-build input** for the blend.
+- **giz.akdag SREF codes — NOT harvested** (decided 2026-06-20): the "SREF Collection" highlight
+  slides are videos (unreadable via capture) and the codes appear to be a **paid product** on her
+  Contra. Route: build the blend from the imported image pool (moodboard), not by borrowing her
+  codes. For the optional two-sref technique, use community/random codes instead.
 
 ## Exploration plan
 
@@ -86,7 +95,6 @@ the Instagram account is "about".
 Each reference account pairs a taste WITH a subject world:
 - `giz.akdag`: fashion-forward figures in witty surreal scenarios.
 - `marianopeccinetti`: cosmic & natural dreamscapes, few/no figures.
-- `mobileeditingclub`: TBD — review the existing pool.
 
 Candidate subject directions to react to (not exhaustive):
 - People / portraits / fashion figures

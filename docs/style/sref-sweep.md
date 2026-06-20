@@ -1,3 +1,9 @@
+---
+updated: 2026-06-20
+status: active
+type: guide
+---
+
 # Style Sweep — `--sref` discovery worksheet
 
 Purpose: find a personal style by holding the **prompt constant** and varying the **aesthetic reference**.

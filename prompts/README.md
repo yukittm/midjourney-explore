@@ -1,3 +1,9 @@
+---
+updated: 2026-06-20
+status: active
+type: guide
+---
+
 # prompts
 
 Prompt templates and experiment logs.

@@ -1,3 +1,9 @@
+---
+updated: 2026-06-20
+status: active
+type: guide
+---
+
 # automation
 
 Instagram auto-upload pipeline (code). Empty until the automation phase begins.

@@ -1,3 +1,9 @@
+---
+updated: 2026-06-20
+status: active
+type: guide
+---
+
 # outputs
 
 Generated images and their metadata.
