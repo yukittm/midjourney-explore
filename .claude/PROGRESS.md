@@ -1,6 +1,6 @@
 # PROGRESS.md
 
-**Updated**: 2026-06-21 | **Project**: midjourney-explore | **Branch**: master [uncommitted: yes]
+**Updated**: 2026-06-21 | **Project**: midjourney-explore | **Branch**: master [uncommitted: no]
 
 > Single progress SSoT for **both Claude and Codex**. Entry rules: `.claude/protocols/progress-management.md`.
 > Entry format: `` YYYY-MM-DD [Actor:scope][s:UUID-8] **{🟢|🟡|🔴} title — status / committed `<hash>`** ``
@@ -23,7 +23,7 @@ Phase 1 underway (MJ plan renewed). Built & verified the `blend-v1` moodboard (1
 - [ ] Build Instagram auto-upload pipeline → `automation/`
 
 ## Entries (newest first)
-2026-06-21 [Claude:style] **🟢 Phase 1: blend-v1 moodboard built & verified; world-views + prompt convention — PASS / `PENDING_COMMIT`**
+2026-06-21 [Claude:style] **🟢 Phase 1: blend-v1 moodboard built & verified; world-views + prompt convention — PASS / committed `17e3466`**
   - MJ plan renewed. Built `blend-v1` moodboard (12 curated refs from `references/`, user-uploaded via browser; `file_upload` tool blocked on session-shared-files, so curated set staged to `~/Desktop/reference-blend-v1/` for manual add). Personalization = blend-v1 only (Global V7/V8 Profile + other moodboards deselected). Verified the blend applies and renders coherently (not muddy).
   - Creative direction explored: `docs/style/world-views.md` (10 world-view candidates), `prompts/idea-bank.md` (conceptual moves). Axis B leaning surreal fine-art × figure × nature/cosmos (not locked).
   - Validated detailed-prompt reproduction (giz tennis court): learned **stylize↓ = fidelity↑**, **specificity narrows range**. Created `docs/style/prompting-guide.md`; adopted **project prompt convention = detailed/specific** (independent agent cross-review → PROCEED WITH CHANGES, applied; research bundle left frozen, sref-sweep probes unchanged).
