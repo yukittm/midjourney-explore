@@ -4,109 +4,102 @@ status: draft
 type: style
 ---
 
-# Style Definition — SSoT (WORKING DRAFT / hypothesis)
+# Style Definition — SSoT
 
-> Status: **hypothesis, not yet validated by generation** (MJ plan expired as of 2026-06-18).
-> This is the anchor to steer exploration, NOT a fixed conclusion — the real style emerges from
-> Phase 1 generations and gets revised here. See [[sref-sweep]], [[reference-accounts]].
+> Working SSoT for the project's own visual style. Still pre-full-Phase-1: refined as generations
+> validate. The model below was corrected by a multi-agent `/verify` pass (2026-06-21) — see the
+> Decision log. Craft/how-to lives in [[prompting]]; source analysis in [[reference-accounts]].
 
-## Two axes (the user's framing, 2026-06-18)
+## Two axes
 
-"My style" = two independent decisions, which map **1:1 onto Midjourney's content/style split**:
+"My style" = two independent decisions, mapping onto Midjourney's content/style split:
 
-| Axis | what it is | MJ lever | Status |
-|---|---|---|---|
-| **A. Reference taste** | how it looks (aesthetic / style) | `--sref` / moodboard | direction decided → blend (below) |
-| **B. Subject world** | what is depicted | the text **prompt** | **TO DECIDE** (see end) |
-
-Independent levers: hold the taste fixed and vary subjects, or vice versa — also how we run
-experiments. A coherent creator-style holds **both** consistent.
-
-## Axis A — Reference taste: blend (decided 2026-06-18)
-
-**Blend** of the two reference accounts — keep their shared axis, mix their differing registers.
-
-- **Shared axis (the spine)**: AI-driven **surreal / conceptual** imagery with single-or-few figures,
-  scale-play, poster-like editorial composition, "visual poetry" concepts.
-- **Take from `giz.akdag`**: bold **color-blocking** confidence, clean daylight, contemporary
-  fashion-forward subjects, wit.
-- **Take from `marianopeccinetti`**: **retro / grainy matte film texture**, cosmic & natural
-  dreamscape motifs, faded nostalgic undertone, collage juxtaposition.
-
-## Working style hypothesis (one sentence)
-
-> Contemporary surreal-editorial figures with **bold color-blocking and strong concepts**, rendered
-> with a **retro, grainy film-collage finish** and dreamlike cosmic/natural staging.
-
-Attribute targets to test:
-- **Palette**: confident color-blocking (giz) BUT slightly faded/print-toned (Mariano) — saturated yet nostalgic.
-- **Light**: clean daylight, but matte/soft rather than glossy.
-- **Texture/finish**: visible film grain, paper/collage matte — NOT clean digital gloss.
-- **Subject**: a clear hero figure or object in a surreal, concept-driven scene.
-- **Composition**: graphic, poster-like, scale-play.
-- **Mood**: witty-but-poetic; optimistic surrealism with a nostalgic edge.
-
-## How to realize the blend in Midjourney (technique map)
-
-The "blend" maps to concrete MJ levers (see research 03/05):
-
-1. **Two-sref blend with weights** (sref honors `::` weights; moodboard does not):
-   `[probe] --sref <crisp-editorial-code>::2 <retro-film-code>::1 --v 7 --ar 4:5`
-   Tune the ratio to slide between giz-crisp and Mariano-retro.
-2. **Moodboard mixing both registers**: curate a single moodboard with images from BOTH accounts +
-   our own picks; tune dominance via `--s` (more retro images → more retro average). Updatable, "ours".
-3. **Grain/finish cues in the prompt** to push the retro finish: e.g. "35mm film grain, matte print"
-   — and decide `--style raw` per test (raw = literal photo; off = painterly — the collage look may
-   actually want the painterly default dialed via `--s`, TBD by experiment).
-
-> ⚠️ Which lever wins is an empirical question — resolve by running Phase 1, not by assertion.
-
-## Originality stance
-
-Use others' published sref codes + their images as **inputs / learning**, but **converge on our own
-curated moodboard** (or our own derived sref) so the final style is ours, not a borrowed fingerprint.
-
-## Reference material in hand
-
-- **Imported reference pool** in `../../references/` (self-contained to this project): 18 `giz.akdag`
-  + 7 `marianopeccinetti` images + 5 videos; provenance in `references/manifest.jsonl`. This is the
-  **moodboard-build input** for the blend.
-- **giz.akdag SREF codes — NOT harvested** (decided 2026-06-20): the "SREF Collection" highlight
-  slides are videos (unreadable via capture) and the codes appear to be a **paid product** on her
-  Contra. Route: build the blend from the imported image pool (moodboard), not by borrowing her
-  codes. For the optional two-sref technique, use community/random codes instead.
-
-## Exploration plan
-
-| Phase | Action | Needs MJ plan? |
+| Axis | what it is | MJ lever |
 |---|---|---|
-| 0 prep | Collect candidate references (both accounts + pool) + giz's published sref codes into the sweep table | No — can do now |
-| 1 diverge | Fixed probe prompts × {two-sref blends, moodboard, image-srefs}; collect keepers | Yes |
-| 2 characterize | Update the hypothesis above from what actually resonated | Yes (after 1) |
-| 3 converge | Lock the blend as a curated moodboard (or a chosen sref pair) | Yes |
-| 4 validate | Run across varied subjects; feed good outputs back into the moodboard | Yes |
+| **A. Reference taste** | how it looks | moodboard / `--sref` / `--s` |
+| **B. Subject world** | what is depicted | the text **prompt** |
 
-## Axis B — Subject world (TO DECIDE)
+Independent: hold taste fixed and vary subjects, or vice versa. A coherent creator-style holds both.
 
-What you choose to depict — the recurring subjects/themes that make the body of work coherent and
-recognizably yours. This is the **prompt side**, a personal/creative choice, and it also defines what
-the Instagram account is "about".
+## Axis A — taste: giz-based blend (now **giz-dominant**)
 
-**Prompt convention (this project's prompt side)**: default to **detailed/specific** prompts — richly
-specify subject + composition + light (the detailed end of the ~30–40-word envelope; style stays on the
-moodboard). Default for production/lock; loosen for exploration. See [[prompting-guide]].
+- **Origin**: a blend of `giz.akdag` (crisp, bold color-blocking, surreal-editorial) × `marianopeccinetti`
+  (retro, grainy, dreamy collage).
+- **Current basis (2026-06-21)**: the curated `blend-v1` moodboard is **giz-only — 11 images**
+  (`~/Desktop/reference-blend-v1/`; Mariano dropped + swaps in curation). The blend has shifted
+  **giz-dominant**.
+- **The unifying look = the moodboard's bold color-blocking + saturated color grade**, constant across modes.
 
-Each reference account pairs a taste WITH a subject world:
-- `giz.akdag`: fashion-forward figures in witty surreal scenarios.
-- `marianopeccinetti`: cosmic & natural dreamscapes, few/no figures.
+### The render model — 2 dials (corrected 2026-06-21 via `/verify`)
 
-Candidate subject directions to react to (not exhaustive):
-- People / portraits / fashion figures
-- Still-life & objects (sculptural, product-like)
-- Landscapes / nature / cosmic
-- Architecture / interiors / urban
-- Surreal conceptual scenes (figure + object juxtaposition)
-- Food / everyday objects
+Realism is **NOT** derived from subject type (an earlier 1-dial model claimed it was; falsified by the
+curated set itself — the soft/graphic sheep, the soft-photoreal baobab & island, the painterly ibises).
+The style varies along **two independent dials**:
 
-→ Decision: pick **1–2 subject worlds** to start. Can brainstorm if helpful. This + Axis A together
-become the locked style.
+1. **Subject dominance** — pure-landscape (**heroless is first-class**) → minor subject → photoreal hero.
+2. **Render register (3-stop)** — flat-graphic / **soft-painterly (the characteristic middle, most at risk
+   of being engineered out)** / crisp-photoreal. Sampled **independently** of subject; set in MJ by
+   `--s` / `--style raw` + the moodboard.
+
+There is a content *tendency* (human figures → photoreal; built / bare-landscape forms → graphic) but it
+is a lean, not a law — register must stay an independent control.
+
+### Finish
+
+Driven by **subject + motion**, **not** shot distance. **Crisp is the default** in the current giz basis;
+**film-grain / matte is absent** from it (a Mariano artifact) → future scope, not now.
+
+### Color
+
+Strong unity in the giz-only basis: **red/orange field + green + deep-blue sky** color-blocking. **Leave
+color to the (color-coherent) moodboard** — don't specify it in-prompt — to keep batch unity.
+
+## Axis B — subject world: **giz-based surreal natural world** (decided 2026-06-21)
+
+Natural / geological landscapes as the **stage**, optionally inhabited by giz-signature elements. The
+spine (the actual discriminator, per `/verify`): **bold color-blocking + a single graphic gesture against
+negative space** — the natural world is the stage, not the theme.
+
+Subject range (breadth within unity):
+- **Terrain (base)**: hills, plains, desert, water, rock, plateau.
+- **Architecture/structure**: a **lone tiny house/cottage on a hill — the signature recurring motif (~7/11)**;
+  geometric pavilion / cube.
+- **Flora**: cacti, a lone iconic tree, flowering shrubs.
+- **Fauna**: horse, antelope, birds; **figure-on-animal composite** (e.g. the antelope rider).
+- **Figures**: a lone person, dancers, small groups.
+- **Devices**: scale-play, mirroring, **motion (a giz signature)**, color-blocking.
+
+**Heroless color-field landscapes are first-class** (~5 of the 11 keepers), not a defect.
+
+Prompt convention: **detailed/specific** (richly specify subject + composition + light; style on the
+moodboard). See [[prompting]].
+
+## Future scope (generalized)
+
+Registers **beyond the core giz natural-landscape world** — including the Mariano-derived **cosmic / sea /
+film-grain** registers — are **deferred**. Revisit as future lanes after the core is locked. (Fuller
+candidate directions from the earlier "world-views" exploration are in git history; revive if wanted.)
+
+Deferred future lanes (names kept here; fuller detail in git): Still Poetry · Bold Play (sport/dynamic) ·
+Editorial Mirage (fashion) · Scale Theater · Domestic Cosmos · Quiet Rituals · Elemental Companions ·
+Solitary Wonder · Dreamt Weather · Chromatic Solitude.
+
+## Reference material
+
+- Imported pool in `../../references/` (giz 18 + mariano 7 + 5 videos; provenance `references/manifest.jsonl`).
+- **Curated moodboard basis = `~/Desktop/reference-blend-v1/` (11 giz).**
+- giz SREF codes **not harvested** (a paid product on her Contra) — route is the moodboard. See [[reference-accounts]].
+
+## Decision / verification log
+
+- **2026-06-18**: two-axis framing; blend direction set.
+- **2026-06-20**: reference pool imported; prompt convention = detailed/specific; doc cleanup + frontmatter.
+- **2026-06-21**: Phase-1 moodboard built & rendering coherently. Multi-agent `/verify` ×2 (full, then re-run
+  scoped to the curated 11) → **2-dial model** (not 1-dial; realism *not* subject-derived); **heroless =
+  first-class**; **figure-on-animal** hero added; cosmic/sea/grain → future scope; **prompt-gen skill
+  DEFERRED** (validate via Phase 1 first; later a thin sampler-only skill). Docs consolidated 7→4.
+
+## Status
+
+**Hypothesis → being validated by Phase-1 generation.** Promote `draft → active` once the 2-dial model and
+finish hold across a test set.

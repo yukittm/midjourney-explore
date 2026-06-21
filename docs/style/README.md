@@ -1,19 +1,20 @@
 ---
-updated: 2026-06-20
+updated: 2026-06-21
 status: active
 type: index
 ---
 
 # docs/style
 
-**SSoT for the project's own visual style.** The authoritative definition of "my style" lives here — what aesthetic we are converging on, which style references / moodboard codes express it, and why.
+**SSoT for the project's own visual style** — the project's own decisions (distinct from `docs/research/`,
+which is external reference).
 
-Distinct from `docs/research/` (external reference) — this folder is the project's own decisions.
+- **`style-definition.md`** — the SSoT: the style model (2 dials), the giz-based surreal natural world,
+  color / finish, reference summary, and the decision / verification log.
+- **`prompting.md`** — the craft: prompt convention + the generation recipe (axes / modes / anti-patterns)
+  + conceptual moves + idea seeds.
+- **`reference-accounts.md`** — the reference artists (`giz.akdag`, `marianopeccinetti`) analysis + the
+  imported reference pool.
 
-Suggested contents (add as the style-establishment phase progresses):
-
-- `style-definition.md` — the current house aesthetic in words (medium, lighting, palette, mood) + reference examples.
-- `sref-shortlist.md` — candidate `--sref` codes under evaluation, with sample outputs and verdicts.
-- `moodboard-registry.md` — moodboard snapshot codes + their image lists (for reproducibility; codes change on edit).
-
-Naming: descriptive kebab-case `.md`. Version style decisions with dated entries, do not overwrite history.
+Naming: kebab-case `.md`; frontmatter per `../CONVENTIONS.md`; record style decisions as dated log entries
+(don't overwrite history).

@@ -1,6 +1,6 @@
 # PROGRESS.md
 
-**Updated**: 2026-06-21 | **Project**: midjourney-explore | **Branch**: master [uncommitted: no]
+**Updated**: 2026-06-21 | **Project**: midjourney-explore | **Branch**: master [uncommitted: yes]
 
 > Single progress SSoT for **both Claude and Codex**. Entry rules: `.claude/protocols/progress-management.md`.
 > Entry format: `` YYYY-MM-DD [Actor:scope][s:UUID-8] **{🟢|🟡|🔴} title — status / committed `<hash>`** ``
@@ -23,6 +23,12 @@ Phase 1 underway (MJ plan renewed). Built & verified the `blend-v1` moodboard (1
 - [ ] Build Instagram auto-upload pipeline → `automation/`
 
 ## Entries (newest first)
+2026-06-21 [Claude:docs] **🟢 consolidate docs/style 7→4 + apply 2-dial corrections — PASS / `PENDING_COMMIT`**
+  - Folded `prompting-guide` + `prompt-skill-spec`(recipe) + `idea-bank` → new `docs/style/prompting.md` (craft) with the **corrected recipe** (heroless = first-class, reject = idea-less, `--iw` not `--oref`, element-type defined, single-lane override, soft-painterly register, figure-on-animal hero).
+  - Rewrote `style-definition.md` (SSoT) with the **2-dial model** + giz natural-world direction + color/finish corrections + decision log; absorbed world-views' decided direction + future-lane names.
+  - **Removed (content folded first; checkpoint `f5d0423` + git history)**: `sref-sweep`, `world-views`, `prompt-skill-spec`, `prompting-guide`, `prompts/idea-bank`. Fixed wikilinks/paths in `reference-accounts` + READMEs.
+  - `docs/style/` now: `style-definition` / `prompting` / `reference-accounts` / `README`.
+
 2026-06-21 [Claude:style] **🟢 prompt-model re-verified (2-dial) + doc-consolidation plan — PASS / committed `f5d0423`**
   - Drafted `docs/style/prompt-skill-spec.md` (recipe). Ran multi-agent `/verify` (Full A–E), then a RE-RUN scoped to the user's curated **11-image giz-only** set at `~/Desktop/reference-blend-v1/` (Mariano dropped + swaps).
   - **Model corrected → 2 dials**: subject-dominance × a **3-stop render register** (flat-graphic / soft-painterly / crisp-photoreal), register **NOT derived from subject** (falsified in-set by the sheep / baobab / ibis). Heroless landscapes are **first-class** (~5/11); the real reject is **idea-less**, not heroless. Add **figure-on-animal composite hero** (G01). Demote non-core natural registers (cosmic/sea/grain) to **future scope**. Color-unity is **better** in the giz-only set. `--oref` invalid on V8.1 → use `--iw`; preset table missing; element-type undefined. **Skill DEFERRED** (validate via Phase 1 first; later a thin sampler-only skill).

@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-20
+updated: 2026-06-21
 status: active
 type: reference
 ---
@@ -8,7 +8,7 @@ type: reference
 
 Instagram accounts the user wants to reference for visual taste. These form the **reference pool**:
 curate representative images → Midjourney moodboard (or image-URL `--sref`) → drives "similar taste"
-generation. See `sref-sweep.md` and `../research/2026-05-11_midjourney-prompt-best-practices/03_*`.
+generation. See [[style-definition]] (the model), [[prompting]] (the craft), and `../research/2026-05-11_midjourney-prompt-best-practices/03_*`.
 
 > Goal: distill the *aesthetic qualities* (palette, light, composition, subject, mood, finish) into
 > the user's **own original style** — inspiration, not cloning a specific creator's work.
@@ -42,7 +42,7 @@ Per account and/or combined, capture:
 - **Medium/finish**: believable photo + painterly/surreal elements; subtle film grain & color.
 - **Mood**: playful, witty, optimistic, surreal-but-elegant — "quiet-luxury meets surreal concept".
 - **Recurring motifs**: lush vegetation (cactus, banana leaves), water, color-blocked wardrobe, scale-play & figure/material morphing (e.g. a person made of liquid marble), conceptual juxtaposition.
-- **🎯 Direct lead**: her **SREF Collection** highlight publishes the Midjourney sref codes behind these looks → prime candidate `--sref` inputs for our sweep (`sref-sweep.md` §2). To capture: open the highlight, read each slide's code, log into the sweep table. (Not yet done.)
+- **SREF Collection note**: her highlight publishes sref codes, but they appear to be a **paid product** (Contra) and the slides are videos (not capturable) — **not harvested** (decided 2026-06-20). Our route is the curated moodboard, not her codes.
 - Representative posts seen: NYC subway editorial ("refund hits different"), cactus tennis court, tree-house hybrid with dancers, favela + pink ladder/scale-play, pink wave-sofa by the sea, man walking a horse with a Polaroid, ocean-swimmers aerial, folk-art juice stall, red-dress figure in banana leaves, liquid-marble soccer figure.
 
 ### marianopeccinetti (Mariano Peccinetti) — first-pass analysis (2026-06-18, from top ~12 grid posts)
@@ -77,5 +77,5 @@ tracked in `references/manifest.jsonl` (sha256, source, attribution).
 
 Attribution was by IG media-id filename group, with one sample per group visually verified.
 
-→ Next: pick the strongest ~8–15 across both → build a blended moodboard (register its snapshot
-code in `../../moodboards/`) and translate into `style-definition.md`. Needs MJ plan (Phase 1+).
+→ Status: the curated `blend-v1` moodboard (now **giz-only, 11 images** at `~/Desktop/reference-blend-v1/`)
+is built and rendering. The locked model + direction live in [[style-definition]].
