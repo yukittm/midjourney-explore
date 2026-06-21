@@ -1,6 +1,6 @@
 # PROGRESS.md
 
-**Updated**: 2026-06-21 | **Project**: midjourney-explore | **Branch**: master [uncommitted: no]
+**Updated**: 2026-06-21 | **Project**: midjourney-explore | **Branch**: master [uncommitted: yes]
 
 > Single progress SSoT for **both Claude and Codex**. Entry rules: `.claude/protocols/progress-management.md`.
 > Entry format: `` YYYY-MM-DD [Actor:scope][s:UUID-8] **{🟢|🟡|🔴} title — status / committed `<hash>`** ``
@@ -23,6 +23,11 @@ Phase 1 underway (MJ plan renewed). Built & verified the `blend-v1` moodboard (1
 - [ ] Build Instagram auto-upload pipeline → `automation/`
 
 ## Entries (newest first)
+2026-06-21 [Claude:style] **🟢 prompt-model re-verified (2-dial) + doc-consolidation plan — PASS / `PENDING_COMMIT`**
+  - Drafted `docs/style/prompt-skill-spec.md` (recipe). Ran multi-agent `/verify` (Full A–E), then a RE-RUN scoped to the user's curated **11-image giz-only** set at `~/Desktop/reference-blend-v1/` (Mariano dropped + swaps).
+  - **Model corrected → 2 dials**: subject-dominance × a **3-stop render register** (flat-graphic / soft-painterly / crisp-photoreal), register **NOT derived from subject** (falsified in-set by the sheep / baobab / ibis). Heroless landscapes are **first-class** (~5/11); the real reject is **idea-less**, not heroless. Add **figure-on-animal composite hero** (G01). Demote non-core natural registers (cosmic/sea/grain) to **future scope**. Color-unity is **better** in the giz-only set. `--oref` invalid on V8.1 → use `--iw`; preset table missing; element-type undefined. **Skill DEFERRED** (validate via Phase 1 first; later a thin sampler-only skill).
+  - Next: consolidate `docs/style/` **7 → 4** (style-definition SSoT + prompting craft + reference-accounts + README; fold sref-sweep/world-views/prompt-skill-spec/idea-bank, then remove sources — content moved first, no loss) and apply the 2-dial corrections. This entry is the **checkpoint before the restructure**.
+
 2026-06-21 [Claude:style] **🟢 Phase 1: blend-v1 moodboard built & verified; world-views + prompt convention — PASS / committed `17e3466`**
   - MJ plan renewed. Built `blend-v1` moodboard (12 curated refs from `references/`, user-uploaded via browser; `file_upload` tool blocked on session-shared-files, so curated set staged to `~/Desktop/reference-blend-v1/` for manual add). Personalization = blend-v1 only (Global V7/V8 Profile + other moodboards deselected). Verified the blend applies and renders coherently (not muddy).
   - Creative direction explored: `docs/style/world-views.md` (10 world-view candidates), `prompts/idea-bank.md` (conceptual moves). Axis B leaning surreal fine-art × figure × nature/cosmos (not locked).
