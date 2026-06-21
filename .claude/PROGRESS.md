@@ -1,6 +1,6 @@
 # PROGRESS.md
 
-**Updated**: 2026-06-21 | **Project**: midjourney-explore | **Branch**: master [uncommitted: yes]
+**Updated**: 2026-06-21 | **Project**: midjourney-explore | **Branch**: master [uncommitted: no]
 
 > Single progress SSoT for **both Claude and Codex**. Entry rules: `.claude/protocols/progress-management.md`.
 > Entry format: `` YYYY-MM-DD [Actor:scope][s:UUID-8] **{🟢|🟡|🔴} title — status / committed `<hash>`** ``
@@ -23,7 +23,7 @@ Phase 1 underway (MJ plan renewed). Built & verified the `blend-v1` moodboard (1
 - [ ] Build Instagram auto-upload pipeline → `automation/`
 
 ## Entries (newest first)
-2026-06-21 [Claude:docs] **🟢 consolidate docs/style 7→4 + apply 2-dial corrections — PASS / `PENDING_COMMIT`**
+2026-06-21 [Claude:docs] **🟢 consolidate docs/style 7→4 + apply 2-dial corrections — PASS / committed `da4244f`**
   - Folded `prompting-guide` + `prompt-skill-spec`(recipe) + `idea-bank` → new `docs/style/prompting.md` (craft) with the **corrected recipe** (heroless = first-class, reject = idea-less, `--iw` not `--oref`, element-type defined, single-lane override, soft-painterly register, figure-on-animal hero).
   - Rewrote `style-definition.md` (SSoT) with the **2-dial model** + giz natural-world direction + color/finish corrections + decision log; absorbed world-views' decided direction + future-lane names.
   - **Removed (content folded first; checkpoint `f5d0423` + git history)**: `sref-sweep`, `world-views`, `prompt-skill-spec`, `prompting-guide`, `prompts/idea-bank`. Fixed wikilinks/paths in `reference-accounts` + READMEs.
