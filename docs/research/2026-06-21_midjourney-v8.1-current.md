@@ -101,4 +101,4 @@ Sweep `--s` 60/110/200 and `--sw` 120/180/250 → the crossing of "subject photo
 ## 7. Confidence & caveats
 - **High**: three-cause diagnosis + two-channel fix; raw+low-`--s` for realism; sref(image-URL)+`--sw` for color; oref forces V7; old codes drift; `--iw 0–3`; moodboard untunable by `--sw`/`--sv`; HD-by-default; `/tune`+Personalization as the consistency path; giz blending / Mariano not a token.
 - **Medium / verify in-app**: exact `--s`/`--sw` bands & `--sv` default (6 vs 7); `--exp` range; whether a moodboard *silently* disables `--sw` when both are on; `--hd` exact behavior; whether a V8-native omni has shipped since.
-- **Open task**: `2026-05-11_.../07_future-automation-option.md` is an internal pipeline plan mis-filed under `docs/research/` (external-only) — relocate to a project-planning dir.
+- The V7-era MJ-automation idea formerly bundled here was relocated to `automation/` (it is an internal plan, not external research), keeping `docs/research/` external-only.

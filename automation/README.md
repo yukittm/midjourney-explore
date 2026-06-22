@@ -8,7 +8,7 @@ type: guide
 
 Instagram auto-upload pipeline (code). Empty until the automation phase begins.
 
-Planned scope (see `docs/research/2026-05-11_midjourney-prompt-best-practices/07_future-automation-option.md`):
+Planned scope (see `./2026-05-13_mj-moodboard-automation-idea-archived.md`, an archived V7-era idea carried over from marketing-ops):
 curate → generate via Midjourney → download outputs → publish selected ones to Instagram.
 
 When code lands here, set the project's **Verification commands** (test/lint/build) in
