@@ -1,6 +1,6 @@
 # PROGRESS.md
 
-**Updated**: 2026-06-21 | **Project**: midjourney-explore | **Branch**: master [uncommitted: yes]
+**Updated**: 2026-06-21 | **Project**: midjourney-explore | **Branch**: master [uncommitted: no]
 
 > Single progress SSoT for **both Claude and Codex**. Entry rules: `.claude/protocols/progress-management.md`.
 > Entry format: `` YYYY-MM-DD [Actor:scope][s:UUID-8] **{🟢|🟡|🔴} title — status / committed `<hash>`** ``
