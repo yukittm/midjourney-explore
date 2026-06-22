@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-20
+updated: 2026-06-21
 status: active
 type: index
 ---
@@ -10,6 +10,15 @@ External research brought into the project. Read-only reference material — not
 
 Naming: `YYYY-MM-DD_slug/` per research bundle, preserving the original authored date.
 
-## Contents
+## Current (latest — use this)
 
-- `2026-05-11_midjourney-prompt-best-practices/` — Midjourney V7 prompt + moodboard + style-reference best practices (8 files). Originally authored 2026-05-11–13 in the `marketing-ops` project. ⚠️ Spec values target MJ V7 (default as of 2026-05); re-verify against current Midjourney before production, since V8 may have since become default.
+- **`2026-06-21_midjourney-v8.1-current.md`** — Midjourney **V8.1** reference (current default): the
+  two-channel realism/color model, the V8.1 parameter table, the reference-matching workflow, sref
+  sourcing, and the delta from V7. **The authoritative MJ research doc.**
+
+## Archive (V7-era — history & sourcing only, superseded)
+
+- **`2026-05-11_midjourney-prompt-best-practices/`** — Midjourney **V7** prompt/moodboard/sref
+  best-practices (8 files), authored 2026-05-11–13. ⚠️ **Superseded** by the V8.1 doc above for all
+  parameter behavior; kept for the sourced V7 record + still-useful conceptual mechanics (moodboard/sref
+  concepts, token economy). Do not use its V7 spec values as current.

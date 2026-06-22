@@ -1,6 +1,6 @@
 # PROGRESS.md
 
-**Updated**: 2026-06-21 | **Project**: midjourney-explore | **Branch**: master [uncommitted: no]
+**Updated**: 2026-06-21 | **Project**: midjourney-explore | **Branch**: master [uncommitted: yes]
 
 > Single progress SSoT for **both Claude and Codex**. Entry rules: `.claude/protocols/progress-management.md`.
 > Entry format: `` YYYY-MM-DD [Actor:scope][s:UUID-8] **{🟢|🟡|🔴} title — status / committed `<hash>`** ``
@@ -23,6 +23,12 @@ Phase 1 underway (MJ plan renewed). Built & verified the `blend-v1` moodboard (1
 - [ ] Build Instagram auto-upload pipeline → `automation/`
 
 ## Entries (newest first)
+2026-06-21 [Claude:research] **🟢 V8.1 research doc (web-researched + cross-reviewed) + prompt-length fix — PASS / `PENDING_COMMIT`**
+  - Created `docs/research/2026-06-21_midjourney-v8.1-current.md` (current MJ SSoT). Classified the V7 bundle as **ARCHIVE** (banner + README split: latest vs archive).
+  - Built from a 4-agent web-research pass, then a **4-agent web-verified cross-review** (A/C/D/E). Corrections applied: `--sv 4` retained (not removed), `--iw` **0–3** (not 0–2), `--sw` color-band lowered to ~150–250 (300+ experimental), **moodboard untunable by `--sw`/`--sv`**, added **`--hd` (HD-by-default)** + `--exp` + **`/tune` Style Tuner + trained Personalization** (the consistency path for our goal) + `--no` syntax & grammar promoted from archive. **Thesis validated**: two-channel (raw+low-`--s` = realism / sref = color); the moodboard-only route was the wrong tool.
+  - Also hardened `docs/style/prompting.md` to a **~40-word target** + added a LESSONS entry (repeated under-delivery on prompt length).
+  - Open: relocate the mis-filed `2026-05-11_.../07_future-automation-option.md` out of `docs/research/`.
+
 2026-06-21 [Claude:docs] **🟢 consolidate docs/style 7→4 + apply 2-dial corrections — PASS / committed `da4244f`**
   - Folded `prompting-guide` + `prompt-skill-spec`(recipe) + `idea-bank` → new `docs/style/prompting.md` (craft) with the **corrected recipe** (heroless = first-class, reject = idea-less, `--iw` not `--oref`, element-type defined, single-lane override, soft-painterly register, figure-on-animal hero).
   - Rewrote `style-definition.md` (SSoT) with the **2-dial model** + giz natural-world direction + color/finish corrections + decision log; absorbed world-views' decided direction + future-lane names.

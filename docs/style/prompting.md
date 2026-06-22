@@ -17,7 +17,9 @@ giz natural world, color/finish) lives in [[style-definition]]; this is the craf
 ```
 - Specify **subject / scene / light**; **do NOT write style/medium** — the moodboard owns aesthetic.
   The one allowed exception is a **finish cue** (grain / blur / matte), used sparingly.
-- Front-load the load-bearing words; ~30–40 words (a soft V7-era heuristic, non-official — not a hard cap).
+- Front-load the load-bearing words. **TARGET ~40 richly-detailed words** — the detailed end, NOT a
+  sparse ~25–30. Specify objects, textures, spatial relations, and light concretely; **count and confirm
+  before output.** (The ~40 ceiling is a soft V7-era heuristic.)
 - Params at the end; no commas inside a param block.
 
 ## 2. Detail convention (the dial)
@@ -27,8 +29,9 @@ giz natural world, color/finish) lives in [[style-definition]]; this is the craf
 | **Lock / produce** | a specific look, consistency | **high** (kill degrees of freedom) |
 | **Explore / ideate** | find new images | **looser** (room = variety & serendipity) |
 
-**Project default = the detailed end of the ~30–40-word envelope** — richly specify subject + composition
-+ light; style stays on the moodboard. Loosen for exploration. (Research agrees on direction: "describe
+**Project default = ~40 richly-detailed words** (the detailed end) — specify subject + composition + light
+with concrete objects/textures/spatial relations; style stays on the moodboard. **Sparse ~25–30-word
+prompts under-deliver this convention.** Loosen only for explicit exploration. (Research agrees on direction: "describe
 the subject and scene, not the art style" — research 06 Q1; the bundle's "~30-word" floor is left frozen.)
 
 ## 3. Narrowing slots (vague → concrete)

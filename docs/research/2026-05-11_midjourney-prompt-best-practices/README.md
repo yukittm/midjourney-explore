@@ -31,6 +31,9 @@ source-urls:
 sandbox-note: docs.midjourney.com returned 403 from this sandbox; spec values are extracted via WebSearch result snippets that quote the official pages, plus fetched secondary sources. Where a number is purely from a secondary source, it is flagged in the relevant doc.
 ---
 
+> **⚠️ ARCHIVED (V7-era).** Superseded by `../2026-06-21_midjourney-v8.1-current.md` for all current
+> parameter behavior. Kept for history + sourcing. Do not use its V7 spec values as current.
+
 # Midjourney Prompt Best Practices — Index
 
 Project: `@softslowedit` Instagram. Reference image generation for editorial / fashion / surface (texture, material) / object still-life. Reference workflow: user manually curates `04_production/assets/candidates/` → handpicks subset → uploads to Midjourney **Moodboard** → generates with prompt.
