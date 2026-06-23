@@ -25,7 +25,7 @@ Style model **formalized** (validated in-app 2026-06-23). **Foreground = photore
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
-2026-06-23 [Claude:docs] **🟢 formalize the `/archive/` convention (durable / memory-reset-proof) — PASS / committed `PENDING_COMMIT`**
+2026-06-23 [Claude:docs] **🟢 formalize the `/archive/` convention (durable / memory-reset-proof) — PASS / committed `e14fdde`**
   - Made `/archive/` the single, self-documenting home for legacy. Added an **Archiving** section to `docs/CONVENTIONS.md` (move-not-delete procedure + `archived` status + the banner format); rebuilt `archive/README.md` as an index recording **archived-date · why · superseded-by** per item + a "how to add" procedure; added a self-identifying `⚠️ ARCHIVED YYYY-MM-DD — why → superseded-by` banner to each archived doc (and fixed the V7 bundle banner's stale path).
   - Goal: after a memory reset, **what / when / why / replaced-by** is recoverable from the files alone (banner) + `/archive/README.md` (index), without prior context.
 
