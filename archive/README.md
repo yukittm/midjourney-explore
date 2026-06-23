@@ -1,6 +1,6 @@
 ---
 updated: 2026-06-23
-status: archive
+status: archived
 type: index
 ---
 
@@ -10,10 +10,20 @@ Superseded / historical material — **not current**. Kept for provenance and so
 use as current guidance; the live sources of truth are `docs/style/` (the project's own style) and
 `docs/research/2026-06-21_midjourney-v8.1-current.md` (current MJ mechanics).
 
-| Item | What it was | Superseded by |
-|---|---|---|
-| `2026-05-11_midjourney-prompt-best-practices/` | V7-era Midjourney prompt / moodboard / sref best-practices bundle (7 files), authored 2026-05-11–13 | `docs/research/2026-06-21_midjourney-v8.1-current.md` |
-| `2026-05-13_mj-moodboard-automation-idea.md` | V7-era moodboard-automation idea (carried over from marketing-ops) | `automation/README.md` (current north-star + one-pass policy) |
+Everything that becomes legacy lands **here** (sub-folders allowed), each row recording **when** and
+**why** it was archived and **what replaced it** — so a future reader (even after a memory reset) never
+loses the thread. Procedure: see `docs/CONVENTIONS.md` → "Archiving".
 
-Policy: when a doc is superseded, **move it here** (don't leave it in the live tree, don't delete it) and
-record what replaced it in the table above.
+## Index
+
+| Item | Archived | Why archived | Superseded by |
+|---|---|---|---|
+| `2026-05-11_midjourney-prompt-best-practices/` | 2026-06-23 | V7-era bundle; MJ moved to V8.1, so its V7 parameter specifics are no longer current (kept for the sourced record + still-useful conceptual mechanics). | `docs/research/2026-06-21_midjourney-v8.1-current.md` |
+| `2026-05-13_mj-moodboard-automation-idea.md` | 2026-06-23 | V7-era moodboard-automation idea (carried from marketing-ops); superseded by the current one-pass automation policy. | `automation/README.md` |
+
+## How to add to the archive
+
+When a doc is superseded: `git mv` it here → add a row above (item · archived date · why · superseded-by)
+→ add a `> **⚠️ ARCHIVED YYYY-MM-DD — <why>.** Superseded by <path>.` banner at the top of the moved doc
+→ repoint every live reference to the new `/archive/...` path. Never delete; never leave it in the live
+tree. (Full rule: `docs/CONVENTIONS.md`.)

@@ -25,6 +25,10 @@ Style model **formalized** (validated in-app 2026-06-23). **Foreground = photore
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
+2026-06-23 [Claude:docs] **🟢 formalize the `/archive/` convention (durable / memory-reset-proof) — PASS / committed `PENDING_COMMIT`**
+  - Made `/archive/` the single, self-documenting home for legacy. Added an **Archiving** section to `docs/CONVENTIONS.md` (move-not-delete procedure + `archived` status + the banner format); rebuilt `archive/README.md` as an index recording **archived-date · why · superseded-by** per item + a "how to add" procedure; added a self-identifying `⚠️ ARCHIVED YYYY-MM-DD — why → superseded-by` banner to each archived doc (and fixed the V7 bundle banner's stale path).
+  - Goal: after a memory reset, **what / when / why / replaced-by** is recoverable from the files alone (banner) + `/archive/README.md` (index), without prior context.
+
 2026-06-23 [Claude:docs] **🟢 introduce `/archive/` + relocate V7-era legacy out of the live tree — PASS / committed `309d582`**
   - Created top-level **`archive/`** (README + supersede table). `git mv`'d the V7-era research bundle `2026-05-11_midjourney-prompt-best-practices/` (out of `docs/research/`) and the V7-era moodboard-automation idea (out of `automation/`) into it; removed the vestigial empty `agent-memory/design-reviewer/` dir.
   - Updated all pointers (research doc frontmatter + body; `docs/research/README.md` archive section, "8 files"→"7"; `automation/README.md`). `docs/research/` is now current-only (V8.1 doc + README); `automation/` is README-only. No broken refs.

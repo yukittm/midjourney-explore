@@ -9,6 +9,10 @@ parent-context:
 session: Claude:orchestration
 ---
 
+> **⚠️ ARCHIVED 2026-06-23 (V7-era).** Moved to `/archive/` — a V7-era moodboard-automation idea
+> (carried from marketing-ops), superseded by the current one-pass automation policy in
+> `../automation/README.md`. Historical only; NOT the active plan. See `/archive/README.md`.
+
 # Midjourney Moodboard Automation — Future Menu Option
 
 ## Why (= user の design intent、2026-05-13 会話)

@@ -31,8 +31,10 @@ source-urls:
 sandbox-note: docs.midjourney.com returned 403 from this sandbox; spec values are extracted via WebSearch result snippets that quote the official pages, plus fetched secondary sources. Where a number is purely from a secondary source, it is flagged in the relevant doc.
 ---
 
-> **⚠️ ARCHIVED (V7-era).** Superseded by `../2026-06-21_midjourney-v8.1-current.md` for all current
-> parameter behavior. Kept for history + sourcing. Do not use its V7 spec values as current.
+> **⚠️ ARCHIVED 2026-06-23 (V7-era).** Moved to `/archive/` because Midjourney moved to V8.1 and these V7
+> parameter specifics are no longer current. Superseded by
+> `../../docs/research/2026-06-21_midjourney-v8.1-current.md`. Historical / sourcing only — do not use its
+> V7 spec values as current. See `/archive/README.md`.
 
 # Midjourney Prompt Best Practices — Index
 
