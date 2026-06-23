@@ -1,12 +1,12 @@
 # PROGRESS.md
 
-**Updated**: 2026-06-21 | **Project**: midjourney-explore | **Branch**: master [uncommitted: no]
+**Updated**: 2026-06-23 | **Project**: midjourney-explore | **Branch**: master [uncommitted: yes]
 
 > Single progress SSoT for **both Claude and Codex**. Entry rules: `.claude/protocols/progress-management.md`.
 > Entry format: `` YYYY-MM-DD [Actor:scope][s:UUID-8] **{🟢|🟡|🔴} title — status / committed `<hash>`** ``
 
 ## Current State
-Phase 1 underway (MJ plan renewed). Built & verified the `blend-v1` moodboard (12 curated refs; Personalization = blend-v1 only, Global profile off) — the blend renders coherently (not muddy). Exploring world-views + prompt craft; adopted a project **prompt convention** (detailed/specific). Axis B (subject) leaning **surreal fine-art × figure × nature/cosmos**, not yet locked. No automation code yet.
+Style model **formalized** (validated in-app 2026-06-23). **Foreground = photoreal invariant** (kernel: `--style raw` + low `--s` + photo cues + `--no painting/illustration/3d/cgi`); **color = single bold image `--sref`** (`--sw` 150–250, `--sv 7`) — the averaging moodboard is retired as the color tool. **The bridge**: name an abstract background as a real drone-photographable phenomenon → one-pass abstract-feel + photoreal figure (R3 validated). **3 background registers** (R1 Color-Block Terrain / R2 Geometric Landform / R3 Chromatic Wave; deferred Pure Color-Field) + a separate **explore lane** (`--c 15–30`). Reference artist = unnamed private `--sref` (name out of system vocabulary). **Automation north-star**: one-pass full-auto (theme → Claude-in-Chrome → IG); user = creative director; **home base deferred**. Observation phase — policy not locked. No automation code yet.
 
 > Solo project (Claude only) — §0 simplification in effect: entries use `[Claude:scope]`, `[s:UUID-8]` omitted. Rule 1 (commit hash on PASS) still applies.
 
@@ -17,13 +17,23 @@ Phase 1 underway (MJ plan renewed). Built & verified the `blend-v1` moodboard (1
 - [x] Analyze reference accounts + set **blend** direction → `docs/style/`
 - [x] Import reference image pool → `references/`
 - [x] Doc cleanup: de-template contracts + frontmatter convention (`docs/CONVENTIONS.md`)
-- [x] Phase 1 start: build & verify `blend-v1` moodboard (blend renders coherently); set prompt convention (`docs/style/prompting-guide.md`) + world-view candidates (`docs/style/world-views.md`)
-- [ ] **Converge style**: pick a world-view → focused moodboard → lock base prompts → decide Axis B → `style-definition.md` draft → active
-- [ ] Lock base prompt templates per lane → `prompts/`
-- [ ] Build Instagram auto-upload pipeline → `automation/`
+- [x] Phase 1 start: build & verify the moodboard; set prompt convention + world-view candidates (since consolidated into `docs/style/prompting.md` + `style-definition.md`)
+- [x] Validate the V8.1 model in-app (2026-06-23): photoreal kernel + `--sref` color + the bridge + registers R1/R2/R3
+- [x] Formalize the model into `docs/style/` + research + automation policy (2026-06-23; 3-agent audit + cross-review)
+- [ ] **Promote `style-definition.md` `draft → active`** once a Phase-1 test set holds across R1/R2/R3 + the one-pass path is confirmed end-to-end
+- [ ] Lock base prompt templates per register + explore lane → `prompts/`
+- [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
-2026-06-21 [Claude:research] **🟢 V8.1 research doc (web-researched + cross-reviewed) + prompt-length fix — PASS / `PENDING_COMMIT`**
+2026-06-23 [Claude:style] **🟢 formalize validated V8.1 style model — photoreal invariant + 3 background registers + the bridge + automation policy — PASS / committed `PENDING_COMMIT`**
+  - In-app validation (2026-06-23) replaced the moodboard/2-dial model. New SSoT model: **foreground INVARIANT = photoreal** (kernel = `--style raw` + low `--s ~90–120` + photo cues + `--no painting, illustration, 3d render, cgi`); **color = single-image `--sref`** (`--sw` 150–250, `--sv 7`), push color via `--sw` not `--s` — averaging moodboard retired as the color tool.
+  - **THE BRIDGE**: ground abstract/flowing backgrounds in REAL drone-photographable phenomena (crop/tulip bands, painted-desert strata, terraced/contour fields, salt ponds, aerial bands) → one raw pass yields abstract-feel + real figure. Breakpoint: drone-photographable = one-pass; pure-paint = compositing.
+  - **3 neutral-named background registers** (artist name OUT of system vocabulary; reference artist = unnamed private `--sref`): R1 Color-Block Terrain · R2 Geometric Landform · R3 Chromatic Wave (validated); deferred Pure Color-Field (2-step, manual). Separate **explore lane** (`--c 15–30`).
+  - **Prompt-length ~40-word cap RETIRED** — V8.1 honors detailed prompts; lever = kernel + real-phenomenon naming + sref, not word count (LESSONS updated).
+  - **Automation north-star** recorded in `automation/`: full auto (theme/prompt-gen → Claude-in-Chrome → IG); user = creative director; one-pass only (compositing manual — V8.1 Editor=V6.1, no official API, unofficial=ToS); **home base deferred** (emerges from `--p` training); consistency = `--p` + image-sref + post-grade LUT.
+  - Process: 3-agent audit (style-definition / prompting / cross-doc legacy sweep) → synthesized + authored → **pending Round-2 cross-review + commit**. Rewrote `style-definition.md` + `prompting.md`; added GLOBAL-realism + bridge + reproducibility-ranking + API-state pointer to the V8.1 research doc; fixed `prompts/README` + `moodboards/README` V7 templates; neutralized giz-as-identity in `reference-accounts`/`README`; resolved prior entry hash `PENDING_COMMIT`→`6b0efbe`.
+
+2026-06-21 [Claude:research] **🟢 V8.1 research doc (web-researched + cross-reviewed) + prompt-length fix — PASS / committed `6b0efbe`**
   - Created `docs/research/2026-06-21_midjourney-v8.1-current.md` (current MJ SSoT). Classified the V7 bundle as **ARCHIVE** (banner + README split: latest vs archive).
   - Built from a 4-agent web-research pass, then a **4-agent web-verified cross-review** (A/C/D/E). Corrections applied: `--sv 4` retained (not removed), `--iw` **0–3** (not 0–2), `--sw` color-band lowered to ~150–250 (300+ experimental), **moodboard untunable by `--sw`/`--sv`**, added **`--hd` (HD-by-default)** + `--exp` + **`/tune` Style Tuner + trained Personalization** (the consistency path for our goal) + `--no` syntax & grammar promoted from archive. **Thesis validated**: two-channel (raw+low-`--s` = realism / sref = color); the moodboard-only route was the wrong tool.
   - Also hardened `docs/style/prompting.md` to a **~40-word target** + added a LESSONS entry (repeated under-delivery on prompt length).
@@ -72,11 +82,11 @@ Phase 1 underway (MJ plan renewed). Built & verified the `blend-v1` moodboard (1
 - outputs binaries git-ignored, metadata sidecars tracked — preserves provenance without bloating the repo.
 
 ## Approach for Next Session
-Once the Midjourney plan is renewed: (1) browser pre-flight — Personalization **OFF**; (2) build a **blended moodboard** from `references/` (giz + mariano), register its snapshot code in `moodboards/`; (3) run neutral probe prompts (`docs/style/sref-sweep.md`) to diverge — this also surfaces Axis B (subject world); (4) characterize keepers and converge `style-definition.md` from `draft` → `active`.
+Run a Phase-1 **test set per register** (R1/R2/R3) using the kernel + a single bold `--sref` + real-phenomenon background naming; confirm one-pass abstract-feel + photoreal figure holds → promote `style-definition.md` `draft → active`. Then lock per-register base templates in `prompts/`. Track the user's selections (they reveal the home-base register mix + train `--p`). Defer compositing/home-base until the one-pass core is locked. **Pending: Round-2 cross-review of this formalization, then commit (resolve the new entry's `PENDING_COMMIT`).**
 
 ## Context (Don't Lose)
 - **Reference downloads**: scripted IG scraping (gallery-dl, yt-dlp) is blocked by IG auth + Chrome cookie decryption; browser URL-harvest is blocked by the harness redacting signed CDN URLs. Working method = user manually downloads → `scripts/import_references.py` imports into `references/` with a manifest. Self-contained (no marketing-ops reuse, by user request).
-- **giz.akdag SREF codes**: not harvested — highlight slides are videos (unreadable) and the codes look like a paid product on her Contra. Blend uses the moodboard route instead.
-- **Style = two axes**: A taste (sref/moodboard) = blend (`blend-v1` built & working); B subject world = being probed (leaning surreal fine-art × figure × nature/cosmos).
-- **Moodboard upload gotcha**: MJ moodboard image upload needs the browser; the `file_upload` tool rejects project/temp paths ("session-shared files only"), so the user uploads manually (stage curated files to `~/Desktop/` for an easy drag-add).
-- **Prompt convention**: this project defaults to detailed/specific prompts (subject+composition richly, ~30–40 words; style on the moodboard); loosen for exploration. SSoT: `docs/style/prompting-guide.md`.
+- **giz.akdag SREF codes**: not harvested — highlight slides are videos (unreadable) and the codes look like a paid product on her Contra. Color route = a self-uploaded bold `--sref` image, not a moodboard.
+- **Style model (formalized 2026-06-23)**: foreground photoreal invariant (kernel) + color via single bold `--sref` + 3 background registers R1/R2/R3 + the bridge. The artist name is out of the system vocabulary (unnamed private `--sref`). SSoT: `docs/style/style-definition.md`.
+- **Reference-image upload gotcha**: MJ image upload (moodboard or `--sref`) needs the browser; the `file_upload` tool rejects project/temp paths ("session-shared files only"), so the user uploads manually (stage curated files to `~/Desktop/` for an easy drag-add).
+- **Prompt convention**: detailed/specific, but **length is not the lever** (no ~40-word cap) — the levers are the kernel + naming the real subject/phenomenon + the `--sref`. SSoT: `docs/style/prompting.md`.

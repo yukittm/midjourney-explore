@@ -1,23 +1,27 @@
 ---
-updated: 2026-06-20
+updated: 2026-06-23
 status: active
 type: guide
 ---
 
 # moodboards
 
-Registry of Midjourney moodboards used by the project.
+> **Note (2026-06-23): the moodboard is no longer the project's color tool.** Per
+> `docs/style/style-definition.md`, color now comes from a **single bold image `--sref`** (a moodboard
+> *averages* its images toward a muted centre and **can't be weighted**). Cross-image *taste* is held by
+> a **trained Personalization `--p`** profile, not a per-image moodboard. This folder is retained only
+> for historical moodboard records (e.g. `blend-v1`/`blend-v2`) and any future trained-`--p` notes — it
+> is not part of the live generation recipe.
 
-Why a registry: a moodboard's **snapshot code** (`--profile <code>`) persists across deletion but
-**changes every time an image is added/removed**, and the `m...ID` form invalidates on deletion.
-To keep outputs reproducible, record the snapshot code + the exact image list at each generation run.
+Registry of Midjourney moodboards / trained `--p` profiles used by the project (historical + taste-layer).
 
-Per-moodboard file (`<lane>.md`) should capture:
+Per-record file (`<name>.md`) should capture:
 
-- Lane / purpose (editorial / fashion / texture / still-life ...)
-- Current snapshot code + date captured
+- Purpose (historical color experiment / trained taste profile)
+- The code (`--p` / snapshot) + date captured (note: a moodboard snapshot code **changes** when images
+  are added/removed; the `m...ID` form invalidates on deletion)
 - Image list (filenames or source URLs) at that snapshot
-- Notes: what aesthetic it averages toward, known drift
+- Notes: what it averages toward, known drift
 
-See `docs/research/2026-05-11_midjourney-prompt-best-practices/03_image-prompts-and-moodboard.md`
-and `06_moodboard-semantics-and-starter-recipe.md`.
+See `docs/research/2026-06-21_midjourney-v8.1-current.md` (current mechanics; §1 on why the moodboard
+mutes color, §3C on trained `--p` as the taste layer).

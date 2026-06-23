@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-21
+updated: 2026-06-23
 status: active
 type: guide
 ---
@@ -8,13 +8,14 @@ type: guide
 
 Prompt templates and experiment logs.
 
-- Lane-based organization (e.g. `editorial/`, `fashion/`, `still-life/`, `texture/`) once lanes emerge.
-- A prompt template pins the base structure per the research convention:
-  `[medium] of [subject], [scene], [light], [color/mood] --style raw --v 7 --ar X:Y --profile <code>`
-- Specify the **subject/scene richly** within the ~40-word budget; the moodboard/sref carries the
-  **style** (don't spend words on style). Project convention = detailed/specific prompts —
-  see `docs/style/prompting.md`. (Research's ~30-word floor is kept on record at
-  `docs/research/2026-05-11_midjourney-prompt-best-practices/01_prompt-anatomy.md`.)
+- Register-based organization (`R1-color-block-terrain/`, `R2-geometric-landform/`,
+  `R3-chromatic-wave/`, `explore/`) once templates emerge — the registers from
+  `docs/style/style-definition.md`.
+- A prompt template pins the base structure on the realism **kernel** + a single bold image `--sref`:
+  `[shot] of [photoreal subject + action], [real terrain/phenomenon = the register], editorial photograph, [lens], [film stock] --style raw --s ~110 --sref <bold image URL> --sw 150–250 --sv 7 --ar 4:5 --no painting, illustration, 3d render, cgi`
+- Specify the **subject + the real background noun richly**; the **`--sref`** carries the color, the
+  kernel carries realism — don't spend words on style and **don't chase a word count** (length is not
+  the lever). See `docs/style/prompting.md` §7.
 
-Naming: `<lane>-<intent>.md` for templates; `YYYY-MM-DD_<topic>.md` for experiment logs.
-Record `--seed` and the moodboard snapshot code with any output worth reproducing.
+Naming: `<register>-<intent>.md` for templates; `YYYY-MM-DD_<topic>.md` for experiment logs.
+Record `--seed` and the `--sref` image used with any output worth reproducing.

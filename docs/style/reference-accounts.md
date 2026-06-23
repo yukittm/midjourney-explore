@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-21
+updated: 2026-06-23
 status: active
 type: reference
 ---
@@ -7,17 +7,22 @@ type: reference
 # Reference Accounts — style inspiration
 
 Instagram accounts the user wants to reference for visual taste. These form the **reference pool**:
-curate representative images → Midjourney moodboard (or image-URL `--sref`) → drives "similar taste"
-generation. See [[style-definition]] (the model), [[prompting]] (the craft), and `../research/2026-05-11_midjourney-prompt-best-practices/03_*`.
+curate representative images → use one bold image as a **`--sref`** (the project's color channel) →
+drives "similar taste" generation. See [[style-definition]] (the model), [[prompting]] (the craft), and
+`../research/2026-06-21_midjourney-v8.1-current.md` (current mechanics).
 
 > Goal: distill the *aesthetic qualities* (palette, light, composition, subject, mood, finish) into
 > the user's **own original style** — inspiration, not cloning a specific creator's work.
+>
+> **Naming note:** the reference artists are analyzed here as *inspiration only*. The artist's name does
+> **not** appear in the project's style vocabulary (registers, prompts) — it survives only as an
+> **unnamed private `--sref` image**. See [[style-definition]].
 
 ## Accounts
 
 | Handle | URL | Status | Notes |
 |--------|-----|--------|-------|
-| `giz.akdag` | https://instagram.com/giz.akdag | ✅ confirmed (verified, public, 461K followers, 1,098 posts) | "Gizem Akdag — AI Explorer / Creative Director". AI-generated (Midjourney) editorial art. Has a public **SREF Collection** highlight = shares the actual MJ sref codes. Also `@gizakdag`; bio links contra.com/gizemakdag. |
+| `giz.akdag` | https://instagram.com/giz.akdag | ✅ confirmed (verified, public, 461K followers, 1,098 posts) | "Gizem Akdag — AI Explorer / Creative Director". AI-generated (Midjourney) editorial art. Has a public **SREF Collection** highlight, but the codes appear to be a **paid product** (Contra) and the slides are videos — not harvested (see below). Also `@gizakdag`; bio links contra.com/gizemakdag. |
 | `marianopeccinetti` | https://instagram.com/marianopeccinetti | ✅ confirmed (verified, public, 446K followers, 600 posts) | "Mariano Peccinetti — Digital Collages since 2012 · Imaginary Concepts · AI Explorer · Visual poetry". Clients: Gucci/Vogue/Netflix/Guardian/GQ. linktr.ee/marianopeccinetti. (Earlier `marianpoccinetti` was a misspelling.) |
 
 ## Aesthetic analysis (fill once images are viewed — do NOT guess)
@@ -42,7 +47,7 @@ Per account and/or combined, capture:
 - **Medium/finish**: believable photo + painterly/surreal elements; subtle film grain & color.
 - **Mood**: playful, witty, optimistic, surreal-but-elegant — "quiet-luxury meets surreal concept".
 - **Recurring motifs**: lush vegetation (cactus, banana leaves), water, color-blocked wardrobe, scale-play & figure/material morphing (e.g. a person made of liquid marble), conceptual juxtaposition.
-- **SREF Collection note**: her highlight publishes sref codes, but they appear to be a **paid product** (Contra) and the slides are videos (not capturable) — **not harvested** (decided 2026-06-20). Our route is the curated moodboard, not her codes.
+- **SREF Collection note**: her highlight publishes sref codes, but they appear to be a **paid product** (Contra) and the slides are videos (not capturable) — **not harvested** (decided 2026-06-20). Our route is a self-uploaded bold reference image as `--sref`, not her codes.
 - Representative posts seen: NYC subway editorial ("refund hits different"), cactus tennis court, tree-house hybrid with dancers, favela + pink ladder/scale-play, pink wave-sofa by the sea, man walking a horse with a Polaroid, ocean-swimmers aerial, folk-art juice stall, red-dress figure in banana leaves, liquid-marble soccer figure.
 
 ### marianopeccinetti (Mariano Peccinetti) — first-pass analysis (2026-06-18, from top ~12 grid posts)
@@ -77,5 +82,6 @@ tracked in `references/manifest.jsonl` (sha256, source, attribution).
 
 Attribution was by IG media-id filename group, with one sample per group visually verified.
 
-→ Status: the curated `blend-v1` moodboard (now **giz-only, 11 images** at `~/Desktop/reference-blend-v1/`)
-is built and rendering. The locked model + direction live in [[style-definition]].
+→ Status: this pool feeds a **single bold `--sref` image** (the project's color channel) — the earlier
+`blend-v1` moodboard (giz-only, 11 images) is superseded as the color tool (a moodboard mutes color; see
+[[style-definition]] Color channel). The locked model + direction live in [[style-definition]].

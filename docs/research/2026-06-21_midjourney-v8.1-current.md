@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-21
+updated: 2026-06-23
 status: active
 type: research
 version-target: Midjourney V8.1 (current default since 2026-06-10/11)
@@ -19,6 +19,7 @@ sourcing-note: >
 ## 0. Model era
 - **V8.1 = current default (announced 2026-06-10/11).** No newer model as of 2026-06. V8.0 alpha 2026-03-17 (unconfirmed day), V8.1 alpha 2026-04-30. *(High)*
 - **V8.1's headline feature = HD by default** + a more **literal/neutral base** render than V7 (so `--style raw` is *less load-bearing* than on V7, but still the realism lever). *(High)*
+- **Realism is GLOBAL in V8.1** — `--style raw`/`--s` apply to the *whole* frame; there is **no per-region control**. `::` sets concept *emphasis/weight*, NOT spatial placement, and there is no ControlNet analogue. So a photoreal foreground + a truly painterly/abstract background can't be forced in one pass — use §8 (the bridge). *(High)*
 
 ## 1. Core problem & fix — realism and color are INDEPENDENT channels
 
@@ -69,12 +70,20 @@ Cinestill 800T, bold saturated color-blocking
 ### C. Consistent **personal** style (best fit for THIS project's goal)
 For a stable house look across many images (not one-off matching), prefer V8-native reproducibility:
 - **`/tune` Style Tuner → a custom `--style <code>`**: build a code from image-pair picks; encodes *your*
-  aesthetic, far more reproducible than per-prompt `--sref` juggling.
+  aesthetic. Portable, but **subject-fragile** (carries bias from its training prompt) — a domain accent,
+  not a global base lock (see the reproducibility ranking below).
 - **Personalization profile (`--p`)** *trained* via the like/dislike loop = the platform's intended
   mechanism for a stable personal look (distinct from the averaging-moodboard misuse in §1).
 - **Image-URL sref** of our own bold reference = exact palette, unambiguously sv7-compatible.
 - **Post-grade as a PRIMARY, deterministic color lever**: a saved Lightroom/Capture One preset (or a LUT in
   `automation/`) gives the *exact* editorial color reproducibly — MJ color sampling is not deterministic.
+- **Reproducibility ranking** (most→least deterministic, for a cross-*subject* house look): post-grade
+  LUT/preset (exact) > trained `--p` profile (taste, prompt-agnostic) > image-URL `--sref` (palette) >
+  `--seed` (same prompt+seed+model only — does NOT transfer across prompts). *(High dir)*
+- **Programmatic access / Editor internals** (drives the automation **one-pass-only** constraint): see
+  `.claude/agent-memory/researcher/reference_mj-api-automation-state.md` — no official MJ API; the V8.1 web
+  Editor/inpaint runs on the **V6.1 model**; Discord Vary Region unavailable on V8.1; unofficial wrappers =
+  ToS risk. *(High)*
 
 ### HD / upscale
 HD jobs are already 2048² (don't upscale). For SD, use **Subtle** (Creative/Magnific hallucinate & drift).
@@ -99,6 +108,12 @@ Sweep `--s` 60/110/200 and `--sw` 120/180/250 → the crossing of "subject photo
 - `--oref`/`--cref` = V7-only (drop you off V8.1). `--sv 4` retained (NOT removed) for legacy codes; default ~sv6. `--sref` fidelity better on V8.1. `--style raw` still valid, less load-bearing. **HD-by-default + `--exp` are new.** The V7 bundle's parameter specifics are otherwise superseded by this doc; its prompt *grammar* (§5) and over-styling pitfalls are carried forward here.
 
 ## 7. Confidence & caveats
-- **High**: three-cause diagnosis + two-channel fix; raw+low-`--s` for realism; sref(image-URL)+`--sw` for color; oref forces V7; old codes drift; `--iw 0–3`; moodboard untunable by `--sw`/`--sv`; HD-by-default; `/tune`+Personalization as the consistency path; giz blending / Mariano not a token.
-- **Medium / verify in-app**: exact `--s`/`--sw` bands & `--sv` default (6 vs 7); `--exp` range; whether a moodboard *silently* disables `--sw` when both are on; `--hd` exact behavior; whether a V8-native omni has shipped since.
+- **High**: three-cause diagnosis + two-channel fix; raw+low-`--s` for realism; sref(image-URL)+`--sw` for color; **realism is global (no per-region; `::`=emphasis)**; oref forces V7; old codes drift; `--iw 0–3`; moodboard untunable by `--sw`/`--sv`; HD-by-default; trained `--p`+post-grade as the consistency path (ranking: post-grade > `--p` > image-sref > seed); **no official MJ API (web Editor runs on V6.1)**; giz blending / Mariano not a token.
+- **Medium / verify in-app**: exact `--s`/`--sw` bands & `--sv` default (6 vs 7); `--exp` range; whether a moodboard *silently* disables `--sw` when both are on; `--hd` exact behavior; the **bridge breakpoint** (how far toward pure abstraction grounding-in-a-real-phenomenon holds before the photoreal foreground breaks); whether a V8-native omni has shipped since.
 - The V7-era MJ-automation idea formerly bundled here was relocated to `automation/` (it is an internal plan, not external research), keeping `docs/research/` external-only.
+
+## 8. The real-phenomenon bridge (general technique)
+
+Because realism is global (§0), you cannot mix a photoreal subject with a painterly/abstract background in one pass. The workaround: **name the background as a real, drone-photographable phenomenon** and let `--style raw` + low `--s` render it *photographically* — the composition still reads abstract, but every pixel is a photo, so a photoreal figure survives in the same pass. Real flowing/blocked-color phenomena to name: multicolor crop/tulip bands, painted-desert / Zhangye Danxia mineral strata, contour-plowed or terraced fields, salt-evaporation ponds, aerial color bands of farmland/coastline.
+
+**Breakpoint:** if a human could photograph it from a drone → one MJ pass; if it's pure paint/gradient with no physical referent → it needs a 2-step composite. Same principle as §1's *"raw mutes automatic color, not specified color."* *(Med — validated in-app 2026-06-23; the project adopts it as registers R1–R3 in `docs/style/`.)*
