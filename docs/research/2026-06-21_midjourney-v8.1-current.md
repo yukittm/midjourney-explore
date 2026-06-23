@@ -3,7 +3,7 @@ updated: 2026-06-23
 status: active
 type: research
 version-target: Midjourney V8.1 (current default since 2026-06-10/11)
-supersedes: ./2026-05-11_midjourney-prompt-best-practices/ (V7-era — now ARCHIVE)
+supersedes: ../../archive/2026-05-11_midjourney-prompt-best-practices/ (V7-era — moved to /archive/)
 sourcing-note: >
   Synthesized from a 4-agent web-research pass + a 4-agent web-verified cross-review (2026-06-21).
   Sources: updates.midjourney.com (authoritative) + multiple 2026 community guides. docs.midjourney.com
@@ -13,8 +13,8 @@ sourcing-note: >
 
 # Midjourney V8.1 — Current Reference (the project's core problem)
 
-**This is the CURRENT research doc.** The `2026-05-11_midjourney-prompt-best-practices/` bundle is
-**V7-era ARCHIVE** — use it only for history/sourcing.
+**This is the CURRENT research doc.** The V7-era bundle was moved to
+`../../archive/2026-05-11_midjourney-prompt-best-practices/` — use it only for history/sourcing.
 
 ## 0. Model era
 - **V8.1 = current default (announced 2026-06-10/11).** No newer model as of 2026-06. V8.0 alpha 2026-03-17 (unconfirmed day), V8.1 alpha 2026-04-30. *(High)*

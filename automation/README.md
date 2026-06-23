@@ -25,7 +25,7 @@ Selections double as the like/dislike training signal for the consistency stack.
 - **Home base deferred** — the register mix emerges from the user's selections, not pre-set.
 
 Pipeline shape: pick `(subject, register ∈ {R1,R2,R3}, optional seed)` → kernel + `--sref` →
-generate HD (one pass) → apply LUT → publish. (The `./2026-05-13_mj-moodboard-automation-idea-archived.md`
+generate HD (one pass) → apply LUT → publish. (The `../archive/2026-05-13_mj-moodboard-automation-idea.md`
 is an archived V7-era moodboard idea — historical, NOT the active plan.)
 
 When code lands here, set the project's **Verification commands** (test/lint/build) in

@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-21
+updated: 2026-06-23
 status: active
 type: index
 ---
@@ -16,9 +16,9 @@ Naming: `YYYY-MM-DD_slug/` per research bundle, preserving the original authored
   two-channel realism/color model, the V8.1 parameter table, the reference-matching workflow, sref
   sourcing, and the delta from V7. **The authoritative MJ research doc.**
 
-## Archive (V7-era — history & sourcing only, superseded)
+## Archive (V7-era — moved to `/archive/`)
 
-- **`2026-05-11_midjourney-prompt-best-practices/`** — Midjourney **V7** prompt/moodboard/sref
-  best-practices (8 files), authored 2026-05-11–13. ⚠️ **Superseded** by the V8.1 doc above for all
-  parameter behavior; kept for the sourced V7 record + still-useful conceptual mechanics (moodboard/sref
-  concepts, token economy). Do not use its V7 spec values as current.
+The V7-era bundle **`2026-05-11_midjourney-prompt-best-practices/`** (7 files, authored 2026-05-11–13)
+was **moved to `../../archive/`** — superseded by the V8.1 doc above for all parameter behavior, kept
+only for the sourced V7 record + still-useful conceptual mechanics. Do not use its V7 spec values as
+current. See `../../archive/README.md`.

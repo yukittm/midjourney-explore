@@ -25,6 +25,11 @@ Style model **formalized** (validated in-app 2026-06-23). **Foreground = photore
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
+2026-06-23 [Claude:docs] **🟢 introduce `/archive/` + relocate V7-era legacy out of the live tree — PASS / committed `PENDING_COMMIT`**
+  - Created top-level **`archive/`** (README + supersede table). `git mv`'d the V7-era research bundle `2026-05-11_midjourney-prompt-best-practices/` (out of `docs/research/`) and the V7-era moodboard-automation idea (out of `automation/`) into it; removed the vestigial empty `agent-memory/design-reviewer/` dir.
+  - Updated all pointers (research doc frontmatter + body; `docs/research/README.md` archive section, "8 files"→"7"; `automation/README.md`). `docs/research/` is now current-only (V8.1 doc + README); `automation/` is README-only. No broken refs.
+  - Added a LESSONS entry: move superseded docs into `/archive/` (don't delete, don't leave in place) to keep the live tree clean.
+
 2026-06-23 [Claude:style] **🟢 formalize validated V8.1 style model — photoreal invariant + 3 background registers + the bridge + automation policy — PASS / committed `ef27769`**
   - In-app validation (2026-06-23) replaced the moodboard/2-dial model. New SSoT model: **foreground INVARIANT = photoreal** (kernel = `--style raw` + low `--s ~90–120` + photo cues + `--no painting, illustration, 3d render, cgi`); **color = single-image `--sref`** (`--sw` 150–250, `--sv 7`), push color via `--sw` not `--s` — averaging moodboard retired as the color tool.
   - **THE BRIDGE**: ground abstract/flowing backgrounds in REAL drone-photographable phenomena (crop/tulip bands, painted-desert strata, terraced/contour fields, salt ponds, aerial bands) → one raw pass yields abstract-feel + real figure. Breakpoint: drone-photographable = one-pass; pure-paint = compositing.
