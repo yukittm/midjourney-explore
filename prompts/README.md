@@ -12,7 +12,8 @@ Prompt templates and experiment logs.
   `R3-chromatic-wave/`, `explore/`) once templates emerge — the registers from
   `docs/style/style-definition.md`.
 - A prompt template pins the base structure on the realism **kernel** + a single bold image `--sref`:
-  `[shot] of [photoreal subject + action], [real terrain/phenomenon = the register], editorial photograph, [lens], [film stock] --style raw --s ~110 --sref <bold image URL> --sw 150–250 --sv 7 --ar 4:5 --no painting, illustration, 3d render, cgi`
+  `[shot] of [photoreal subject + action], [real terrain/phenomenon = the register], editorial photograph, [lens], [film stock] --style raw --s ~110 --sref <bold image URL> --sw 150–250 --ar 4:5 --no painting, illustration, 3d render, cgi`
+  (set the `--sref` **image via the UI**; **omit `--sv`** on V8.1 — `--sv 7` is rejected)
 - Specify the **subject + the real background noun richly**; the **`--sref`** carries the color, the
   kernel carries realism — don't spend words on style and **don't chase a word count** (length is not
   the lever). See `docs/style/prompting.md` §7.

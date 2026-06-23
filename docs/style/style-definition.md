@@ -58,7 +58,7 @@ checklist, not a vibe.
 
 | Axis | what it is | MJ lever |
 |---|---|---|
-| **A. Render + color** | how it looks | the realism **kernel** (`--style raw` + low `--s`) + a single bold image **`--sref`** (`--sw`, `--sv 7`) |
+| **A. Render + color** | how it looks | the realism **kernel** (`--style raw` + low `--s`) + a single bold image **`--sref`** (`--sw`; omit `--sv` on V8.1) |
 | **B. Subject world** | what is depicted | the text **prompt** |
 
 Independent: hold the look fixed and vary subjects, or vice versa. **Correction vs. earlier drafts** — the
@@ -86,7 +86,9 @@ rides on the `--sref` + `--sw` channel. Raw + a bold sref = vivid AND photograph
 Color = **one bold IMAGE `--sref`** (a self-uploaded reference image), **not** the averaging moodboard.
 
 - **`--sw ~150–250`** — the color-push knob; stay in band (`>300` washes out).
-- **`--sv 7`** — image-ref sref version (numeric *codes* would pair with sv6/sv4 instead).
+- **Omit `--sv`** for an image sref on V8.1 — `--sv 7` is **rejected** ("Unsupported Style Reference version 7
+  for --version 8.1") and `--sv 6` is incompatible with `--hd`; let MJ use its default. (`--sv` is only for
+  pinning numeric sref-CODE versions: `--sv 4` = old codes / forces V7.)
 - **Push color via `--sw`, never `--s`.** Raising `--s` applies more of the (muted, averaged) style + painterly
   flair — it is not a saturation knob.
 
@@ -207,7 +209,7 @@ Design implication: anything not reachable in one pass is **out of the automated
 Cross-image cohesion, in priority order:
 
 1. **Trained Personalization `--p`** — encodes *taste*, trained via the user's like/dislike selections.
-2. **Fixed image `--sref` + `--sw` + `--sv 7`** — locks the *palette*.
+2. **Fixed image `--sref` + `--sw`** (omit `--sv` on V8.1) — locks the *palette*.
 3. **Deterministic post-grade (LUT / preset)** — the **only exact color lock** (MJ color is non-deterministic
    even at a fixed seed); a saved LUT/preset in `automation/` guarantees reproducible editorial color.
 
@@ -250,10 +252,10 @@ dominant register isn't required now. Revisit once selection history reveals a l
   background in a real photographable phenomenon → abstract-feel + photoreal + surviving figure in ONE pass; R3
   validated). Locked the **3 registers R1/R2/R3** (neutral names — **no artist name in the system vocab**).
   **Superseded** the 2-dial model: render pinned to photoreal, variation = background-register. **Moodboard →
-  single bold `--sref`** (`--sw ~150–250`, `--sv 7`); push color via `--sw`, never `--s`. Confirmed V8.1 realism
+  single bold `--sref`** (`--sw ~150–250`); push color via `--sw`, never `--s`. Confirmed V8.1 realism
   is **global** (no per-region; `::` = emphasis) → automated path is **one-pass only**, pure-abstraction
   compositing is **manual-only**. **Home base = deferred** (emerges from selections = `--p` signal). Added the
-  **Explore lane** (`--c 15–30`) + the **consistency stack** (`--p` + fixed `--sref`+`--sw`+`--sv 7` +
+  **Explore lane** (`--c 15–30`) + the **consistency stack** (`--p` + fixed `--sref`+`--sw` +
   post-grade LUT). Formalized via a 3-agent audit + cross-review.
 - **2026-06-23 (signature lock)**: Re-grounded the style on the **full 11-image curated set** (3 independent
   reads + an adversarial check) after an earlier **2-image over-generalization** was caught (see
@@ -265,6 +267,10 @@ dominant register isn't required now. Revisit once selection history reveals a l
   subject = heroless-leaning / balanced; palette = giz-bold-saturation now, **exact personal palette deferred**
   (Mariano + own best outputs, later). **"Claude-alone" bounded honestly:** prompt-gen + post-grade LUT are
   automatable; **sref-upload, browser-driving, `--p` training, selection, publish stay human/assisted.**
+- **2026-06-23 (param fix)**: **`--sv 7` removed from all recipes** — V8.1 rejects it ("Unsupported Style
+  Reference version 7 for --version 8.1", confirmed in-app). For an image `--sref` on V8.1, **omit `--sv`** (the
+  default applies); `--sv 6` is incompatible with `--hd`, `--sv 4` forces V7. The earlier "`--sv 7` = image-ref
+  version" claim (flagged "verify in-app" in the research doc) was wrong and had been baked into the prompts.
 
 ## Status
 

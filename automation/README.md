@@ -21,7 +21,7 @@ Selections double as the like/dislike training signal for the consistency stack.
   the V8.1 web Editor runs on the V6.1 model, there is **no official MJ API**, and unofficial wrappers
   carry ToS/ban risk. See `.claude/agent-memory/researcher/reference_mj-api-automation-state.md`.
 - **Consistency stack** to apply: trained Personalization `--p` (taste) + a fixed image `--sref`
-  (`--sw`/`--sv 7`, palette) + a deterministic **post-grade LUT/preset** (the only exact color lock).
+  (`--sw`, palette; **omit `--sv`** on V8.1) + a deterministic **post-grade LUT/preset** (the only exact color lock).
 - **Home base deferred** — the register mix emerges from the user's selections, not pre-set.
 - **"Claude-alone" boundary (honest scope).** Claude automates **ideation → prompt-string generation →
   reward-gate self-scoring** and the **post-grade LUT**. **Human / assisted:** uploading the `--sref` image

@@ -25,6 +25,9 @@ Style model **formalized** (validated in-app 2026-06-23). **Foreground = photore
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
+2026-06-23 [Claude:fix] **🟢 remove `--sv 7` from all recipes (V8.1 rejects it) — PASS / committed `PENDING_COMMIT`**
+  - Live submit error *"Unsupported Style Reference version 7 for --version 8.1"* traced to `--sv 7` baked into every prompt recipe (from a research-doc claim flagged "verify in-app"). **Fix: for an image `--sref` on V8.1, OMIT `--sv`** (model default; `--sv 6` incompatible with `--hd`, `--sv 4` forces V7). Scrubbed `--sv 7` from style-definition / prompting / automation / prompts; corrected the research-doc `--sv` row to in-app fact. LESSONS updated (verify load-bearing params in-app before baking into recipes). Re-issued the test prompts without `--sv 7`.
+
 2026-06-23 [Claude:style] **🟢 lock the style signature (full-evidence) + reward gate + decisive-light lever — PASS / committed `2052e9c`**
   - Re-grounded the giz signature on the **full 11-image curated set** (3 independent reads + an adversarial check) after catching a **2-image over-generalization** (LESSONS updated). **Falsified** the proposed "two-mode flat-graphic / warm-photographic split" — all 11 are photoreal; "graphic" = composition + hard light. **ONE photoreal render mode kept.**
   - **Added the on-style REWARD GATE** (① photoreal · ② saturated red/green/blue chord · ③ one surreal idea + restraint · ④ **decisive light**) as the anti-drift objective ("on-style" = a checklist, not a vibe), and the **decisive-light lever** (hard-graphic ⇄ golden-warm). Surgical additions; kernel/registers/bridge/explore/one-pass all kept (no rewrite).

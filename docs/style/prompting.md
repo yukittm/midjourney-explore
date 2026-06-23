@@ -34,10 +34,12 @@ kernel — it does not vary by subject or mood:
 ## 2. The color channel (one bold image sref)
 
 Color = a **single bold image `--sref`** (a saturated reference image), **not** the moodboard — a moodboard
-*averages* toward a muted centre and **can't be weighted** (`--sw`/`--sv` don't apply). Push color with **`--sw`
-(~150–250)** and **`--sv 7`** (image-based refs). To make color more vivid, raise **`--sw`** — **never `--s`**.
+*averages* toward a muted centre and **can't be weighted** (`--sw`/`--sv` don't apply to it). Push color with
+**`--sw` (~150–250)**. **Do NOT add `--sv`** for an image sref on V8.1 — `--sv 7` is **rejected** ("Unsupported
+Style Reference version 7 for --version 8.1") and `--sv 6` is incompatible with `--hd`; let MJ use its default.
+To make color more vivid, raise **`--sw`** — **never `--s`**.
 
-    --sref <bold image URL> --sw 180 --sv 7
+    --sref <bold image URL> --sw 180
 
 ## 3. Mechanics — V8.1 realism is global
 
@@ -69,31 +71,31 @@ Neutral names — **never put an artist name in the prompt or vocabulary.** Each
 
 ### R1 — Color-Block Terrain
 Bold color on **real terrain** (a field, a hillside, a plain). Color is in the land, not in a "style".
-- **Params:** `--style raw --s 110 --sref <URL> --sw 180 --sv 7 --ar 4:5 --no painting, illustration, 3d render, cgi`
+- **Params:** `--style raw --s 110 --sref <URL> --sw 180 --ar 4:5 --no painting, illustration, 3d render, cgi`
 - **Example:**
 
       a woman in a cobalt coat standing on a vast red-earth plain under a clear deep-blue sky, editorial
       photograph, sharp realistic skin texture, 85mm f/1.8, Cinestill 800T
-      --style raw --s 110 --sref <bold URL> --sw 180 --sv 7 --ar 4:5 --no painting, illustration, 3d render, cgi
+      --style raw --s 110 --sref <bold URL> --sw 180 --ar 4:5 --no painting, illustration, 3d render, cgi
 
 ### R2 — Geometric Landform
 Geometry from **real geometric land** — terraced fields, basalt columns, salt-pond grids — **not** the words
 "geometric" / "minimalist". Name the real noun.
-- **Params:** `--style raw --s 100–120 --sref <URL> --sw 150 --sv 7 --ar 4:5 --no painting, illustration, 3d render, cgi`
+- **Params:** `--style raw --s 100–120 --sref <URL> --sw 150 --ar 4:5 --no painting, illustration, 3d render, cgi`
 - **Example:**
 
       a lone figure walking across stepped emerald rice terraces at golden hour, hexagonal basalt columns at the
       ridge, editorial photograph, sharp skin texture, 85mm f/1.8, Kodak Portra 400
-      --style raw --s 110 --sref <bold URL> --sw 150 --sv 7 --ar 4:5 --no painting, illustration, 3d render, cgi
+      --style raw --s 110 --sref <bold URL> --sw 150 --ar 4:5 --no painting, illustration, 3d render, cgi
 
 ### R3 — Chromatic Wave  (validated)
 Flowing multicolor via the **bridge** (§4) — a real flowing-color phenomenon behind a photoreal figure.
-- **Params:** `--style raw --s 100–110 --sref <URL> --sw 220–250 --sv 7 --ar 4:5 --no painting, illustration, 3d render, cgi`
+- **Params:** `--style raw --s 100–110 --sref <URL> --sw 220–250 --ar 4:5 --no painting, illustration, 3d render, cgi`
 - **Example:**
 
       a dancer in white mid-turn before sweeping multicolor tulip-field bands stretching to the horizon,
       editorial photograph, sharp realistic skin, 85mm f/1.8, Cinestill 800T
-      --style raw --s 105 --sref <bold URL> --sw 240 --sv 7 --ar 4:5 --no painting, illustration, 3d render, cgi
+      --style raw --s 105 --sref <bold URL> --sw 240 --ar 4:5 --no painting, illustration, 3d render, cgi
 
 ### Deferred — Pure Color-Field
 A true paint/gradient field with no real referent → needs a **2-step composite**; **out of the automated
@@ -113,7 +115,7 @@ outputs had flat/auto light; committing to one decisive light is the fix that ma
 ## 6. Anatomy & slots
 
     [shot/angle] , [photoreal subject + attributes + action] , [real terrain/phenomenon = the register] ,
-    [kernel cues: editorial photograph, lens, film stock]   --style raw --s --sref --sw --sv 7 --ar --no …
+    [kernel cues: editorial photograph, lens, film stock]   --style raw --s --sref --sw --ar --no …
 
 Narrow vague → concrete (specify the **few key elements richly**; MJ can't honor many-element micro-layout):
 - **who/what + attributes** — `a woman in a long red coat`, not `a figure`
@@ -139,7 +141,7 @@ levers are the **kernel + naming the real subject/phenomenon (incl. the bridge) 
 - **`--style raw`** — always on (kernel); the photographic base.
 - **`--s` (stylize, ~90–120)** — literalness only. Low = prompt-faithful; high overrides prompt detail and
   re-muddies. Never use it for realism or color.
-- **`--sw` (~150–250) + `--sv 7`** — the color channel; raise `--sw` to push color.
+- **`--sw` (~150–250)** — the color channel; raise `--sw` to push color. **Omit `--sv`** for an image sref (V8.1 rejects `--sv 7`; `--sv 6` is incompatible with `--hd`).
 - **`--no painting, illustration, 3d render, cgi`** — one flag, comma-list; each word parsed independently
   (moderation trap: `--no modern clothing` = "no modern" + "no clothing").
 - **`--c` (chaos)** — 0 for production; **15–30 for the explore lane** (§9).
@@ -219,7 +221,7 @@ For a stable house look across many images (the IG-automation goal), stack deter
 `--sref` juggling alone:
 
 - **Trained Personalization `--p`** — the platform's stable-taste layer (trained via the like/dislike loop).
-- **Fixed image `--sref --sw --sv 7`** — pin the exact palette with one bold reference image.
+- **Fixed image `--sref --sw`** — pin the exact palette with one bold reference image (omit `--sv` on V8.1).
 - **Deterministic post-grade LUT** — a saved Lightroom/Capture One preset or a LUT in `automation/` gives the
   *exact* editorial color reproducibly (MJ color sampling is not deterministic).
 
