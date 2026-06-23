@@ -25,7 +25,7 @@ Style model **formalized** (validated in-app 2026-06-23). **Foreground = photore
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
-2026-06-23 [Claude:docs] **🟢 introduce `/archive/` + relocate V7-era legacy out of the live tree — PASS / committed `PENDING_COMMIT`**
+2026-06-23 [Claude:docs] **🟢 introduce `/archive/` + relocate V7-era legacy out of the live tree — PASS / committed `309d582`**
   - Created top-level **`archive/`** (README + supersede table). `git mv`'d the V7-era research bundle `2026-05-11_midjourney-prompt-best-practices/` (out of `docs/research/`) and the V7-era moodboard-automation idea (out of `automation/`) into it; removed the vestigial empty `agent-memory/design-reviewer/` dir.
   - Updated all pointers (research doc frontmatter + body; `docs/research/README.md` archive section, "8 files"→"7"; `automation/README.md`). `docs/research/` is now current-only (V8.1 doc + README); `automation/` is README-only. No broken refs.
   - Added a LESSONS entry: move superseded docs into `/archive/` (don't delete, don't leave in place) to keep the live tree clean.
