@@ -25,7 +25,7 @@ Style model **formalized** (validated in-app 2026-06-23). **Foreground = photore
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
-2026-06-23 [Claude:research] **🟢 4-agent web re-verification of the MJ doc — corrected the `--sv` rationale; all else confirmed current — PASS / committed `PENDING_COMMIT`**
+2026-06-23 [Claude:research] **🟢 4-agent web re-verification of the MJ doc — corrected the `--sv` rationale; all else confirmed current — PASS / committed `c1a805f`**
   - User asked to web-verify the whole MJ research doc is current + "absolutely not wrong" after the `--sv 7` error. 4 background agents (model/render · style-ref · refs/automation · recipe-contamination audit).
   - **Key correction:** the first-pass `--sv` *rationale* was itself wrong. Truth (4 sources): `--sv 7` is the V8.1 **default** for image srefs + moodboards and is **`--hd`-compatible**; the live error was an explicit-`--sv 7` / numeric-code quirk, NOT a ban; numeric CODES need sv4/sv6. The *action* (omit `--sv` for image-URL srefs) was already right. Also corrected: "moodboards ignore `--sv`" (wrong — they default to sv7); `--sw` bands → documented heuristic; `--exp` 0–100 (dropped "verify"); added `--q` **unsupported on V8.1**.
   - **Confirmed current (no change):** V8.1 still the default (no V8.2/V9); **no V8-native omni / editor / official API** → the one-pass + manual-compositing + ToS-risk policy holds; `--style raw` / `--s` (50–150 photoreal) / `--no` / `--iw 0–3` / `--hd` / `--seed` / `--c` all hold. Contamination audit: **no residual `--sv 7`**; recipe `--s 90–120` is safe (inside 50–150).
