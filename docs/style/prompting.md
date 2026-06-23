@@ -14,7 +14,8 @@ this is the craft. Pairs with [[reference-accounts]].
 via a fixed **realism kernel** (§1). **Color** comes from one bold **image `--sref`**, not the moodboard (§2).
 Because V8.1 realism is **global** (§3), an abstract-feeling background is reached not by mixing styles in one
 pass but by **grounding it in a real, photographable phenomenon** — the **bridge** (§4) — expressed through one
-of **three background registers** R1/R2/R3 (§5).
+of **three background registers** R1/R2/R3 (§5), each lit with **one decisive light** (§5b) and scored against
+the **reward gate** (§10) before shipping.
 
 ## 1. The realism kernel (foreground invariant — all modes)
 
@@ -98,6 +99,17 @@ Flowing multicolor via the **bridge** (§4) — a real flowing-color phenomenon 
 A true paint/gradient field with no real referent → needs a **2-step composite**; **out of the automated
 one-pass path** (see the §4 breakpoint).
 
+## 5b. Decisive light (commit to one — both photoreal)
+
+Always **commit to ONE light logic** — never flat/auto. Two on-style treatments, both photoreal:
+- **Hard / high-key graphic light** — flat, clean, poster light; large saturated color blocks; pairs with
+  heroless / geometric / color-field scenes. Cue: `hard high-key midday light, flat bold color blocks, crisp shadows`.
+- **Golden warm-directional light** — low sun, long warm shadows, rich material texture; pairs with a present
+  human/animal subject. Cue: `golden low directional light, long warm shadows, rich texture`.
+
+This is a light lever *within* the photoreal kernel — **NOT a second render mode**. (Our early R1/R2 "thin"
+outputs had flat/auto light; committing to one decisive light is the fix that makes an image read "finished.")
+
 ## 6. Anatomy & slots
 
     [shot/angle] , [photoreal subject + attributes + action] , [real terrain/phenomenon = the register] ,
@@ -153,7 +165,7 @@ kernel + a register (R1/R2/R3) for production. Don't mix the explore lane into a
 - **Compositional device (exactly ONE = the "idea")**: mirroring / scale-tension / leading-line / juxtaposition
   / framing / negative-space / motion-echo.
 - **Background register** — pick R1 / R2 / R3 (§5); the subject stays photoreal regardless.
-- **Mood**: witty / tender / sublime / melancholy / kinetic. **Light**: golden / clean-midday / dusk / overcast.
+- **Mood**: witty / tender / sublime / melancholy / kinetic. **Light (decisive — pick one, §5b)**: hard high-key graphic OR golden warm-directional. Never flat/auto.
 
 ### Conceptual moves (the idea engine)
 1. **Scale inversion** — giant / tiny.
@@ -178,6 +190,8 @@ kernel + a register (R1/R2/R3) for production. Don't mix the explore lane into a
 - **Idea-less inventory** (no device) — this, NOT "heroless", is the real failure (heroless color-field is valid).
 - **Element-listing / >3 element-types** — richness = one element's texture, not element count.
 - **Lazy 2-word prompt** — name the subject and the real background noun (§7).
+- **Flat / auto / ambiguous light** — always commit to ONE decisive light (§5b); flat "auto" light reads thin.
+- **Muddy literal in-between** — neither clean-graphic (hard light + flat color blocks) nor warm-rich (golden light + texture). Pick a side and commit.
 
 ### Batch diversity (generating N)
 - Rotate **shot distance** (≥1 close-up; cap wide).
@@ -188,9 +202,16 @@ kernel + a register (R1/R2/R3) for production. Don't mix the explore lane into a
 - **Color → the `--sref` + `--sw`** (one bold image sref gives unity; never push color via `--s`).
 
 ### Output
-- N prompts, each = the kernel + a register; **color via `--sref` + `--sw`**.
+- N prompts, each = the kernel + a register + **one decisive light** (§5b); **color via `--sref` + `--sw`**.
 - For a **photoreal hero**, optionally anchor with a real photo as image prompt (`--iw ~2`).
-- Tag each prompt: **register · device · shot** (for curation).
+- Tag each prompt: **register · device · shot · light** (for curation).
+
+### The reward gate (score every output before shipping)
+Before surfacing a generation, score it against [[style-definition]] → *The objective & the reward*. **Reject
+and re-sample any image that fails a GATE:** ① photoreal subject · ② saturated signature chord (not
+washed/muted) · ③ exactly ONE surreal idea + restraint (idea-less = reject; **heroless OK**) · ④ **decisive
+light** (not flat/auto). Only gate-passing images reach the user's selection. This gate **is** the definition
+of "on-style" — it is the anti-drift check.
 
 ## 11. Consistency stack (for automation)
 
@@ -212,16 +233,16 @@ on-style.
 
 ## 13. Idea seeds (running list — rate, then feed keepers into the `--sref` / `--p` training)
 
-| # | Move | Prompt | Verdict |
-|---|------|--------|---------|
-| 1 | swap | `a footballer dribbling a glowing planet across a dark field of stars` | ☐ |
-| 2 | scale | `a goalkeeper leaping to catch a falling moon over an empty grass stadium` | ☐ |
-| 3 | juxtaposition | `two teams playing football on the rings of a distant planet, dust and starlight` | ☐ |
-| 4 | mundane×vast | `a lone sprinter trailing a comet's tail across an endless white salt flat` | ☐ |
-| 5 | scale + animal | `a tiny figure leading a herd of cloud-sized white horses over the hills` | ☐ |
-| 6 | object-monument | `a grand piano half-buried in a desert dune, a small figure playing it at dusk` | ☐ |
+| # | Move | Prompt | Light | Verdict |
+|---|------|--------|-------|---------|
+| 1 | scale-inversion | `a lone figure beside a single colossal white egg resting on a vast green hill, deep cobalt sky` | hard graphic | ☐ |
+| 2 | impossible-juxtaposition | `a small wooden rowboat adrift on a perfectly still mirror lake set into a red flowering field` | golden warm | ☐ |
+| 3 | object-as-monument | `a giant brass key half-buried upright in a pale salt flat, tiny figure at its base` | hard graphic | ☐ |
+| 4 | material-swap | `a flock of birds turning to drifting white smoke over an ochre badland ridge` | golden warm | ☐ |
+| 5 | mundane×vast | `a beekeeper tending a single tall white hive on an immense striped tulip-field slope` | golden warm | ☐ |
+| 6 | mirroring | `a lone cypress and its reflection bisecting a turquoise salt pond under a hard noon sun` | hard graphic | ☐ |
 
-_Note: seeds 1–4 lean cosmic/starfield (a deferred/future register per [[style-definition]]); fine as a log,
-don't promote to production R1/R2/R3 templates._
+_All seeds sit in the surreal-natural world; each names ONE decisive light. Keep subjects fresh — invent new
+ones, don't recycle these verbatim._
 
 _Kept / loved:_ (record prompt + frame as favorites are picked)

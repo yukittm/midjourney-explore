@@ -60,6 +60,24 @@ Per account and/or combined, capture:
 - **Mood**: dreamy, nostalgic, poetic, contemplative surrealism — his own words: "visual poetry".
 - **Representative posts seen**: flowers floating on a sea with a swimmer, appaloosa horse on a pink/green hill, giant rainbow arc over a dune with a tiny yellow car, horses galloping among clouds & fish, cotton-candy-cloud legs with soccer ball, people seated on a Saturn ring, motion-blur coastal cars, leaping cat with radial blur, pink rock formations.
 
+### Converged giz signature — from the FULL 11-image curated set (2026-06-23)
+
+Derived from **3 independent reads of all 11 curated images** (`~/Desktop/reference-blend-v1/`) — an independent
+characterization + an adversarial check — after an earlier 2-image over-generalization was caught (see
+`.claude/rules/LESSONS.md`). This is the project's working signature (the **calibration anchor for our OWN
+style**; the curated 11 = the user's chosen *direction*, not all of giz):
+
+- **Heroless / minimal is the majority** (~7/11); a dominant human/animal hero is the minority (~3-4/11).
+- **Saturated red/orange + green + deep-blue CHORD** is the core palette; deep-cobalt sky is the default (~7/11, not universal).
+- **ONE clear, often surreal, idea per frame**; never busy/multi-idea. **Generous negative space + restraint.**
+- **Richness = saturation + the single idea + a few present elements + decisive light — NOT element count or hero dominance** (~8/11 "striking via few"; only ~3/11 "rich via density").
+- **ONE render mode: photoreal.** The "graphic / color-block" look is **composition + hard light on real subjects**, not a flat/illustrated render. (A proposed "two-mode flat-graphic vs photographic" split was *falsified* — all 11 are photoreal.)
+- **Decisive light**, two treatments: hard high-key/graphic (heroless/color-field) ⇄ golden warm-directional (with a subject).
+- Recurring motifs: a small **white-cube / white-house geometry** (~6/11); **motion-blur** as a deliberate device; 3:4 vertical with strong horizontal banding.
+
+The locked model + the on-style **reward gate** derived from this live in [[style-definition]]. **Mariano stays
+a deferred input** — referenced later when the project converges its **own** house palette (not yet locked).
+
 ### Synthesis — what the two have in common vs. differ (for finding "my style")
 
 - **Common ground**: both are **AI-driven surreal/conceptual** image-makers with single or few figures, strong concepts, scale-play, and a poster/editorial sensibility.

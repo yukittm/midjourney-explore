@@ -25,6 +25,33 @@ consistency stack.
 **Currently in the observation / exploration phase — policy NOT locked.** The model below is the working
 state, refined as generations validate; written so the *automatable* (one-pass) path stays explicit.
 
+## The objective & the reward (what "on-style" means)
+
+**Objective:** a **consistent personal style** — *inspired by* the reference artist, **not** a clone. The
+reference artist is only the **calibration anchor for the look**; the target is our own signature. The basis
+is the **user-curated 11-image set** (the user's chosen *direction* — not the artist's full body of work).
+
+**Per-image reward — the gate** (any GATE fail → reject; QUALITY grades the keepers):
+- **GATE 1 — Photoreal subject.** Any person/animal renders as a photograph (the invariant). *There is ONE
+  render mode: photoreal. A "graphic / flat-color" look is achieved by **composition + hard light on real
+  subjects**, NEVER by a flat / illustrated render.*
+- **GATE 2 — Saturated signature palette.** The bold chord (saturated red/orange + green + deep-blue) is
+  clearly present — not washed out (`--sw` too high) nor muted/grey. Carried by `--sref` + `--sw`.
+- **GATE 3 — One surreal idea + restraint.** Exactly ONE clear, surreal compositional idea, against generous
+  negative space. *Idea-less* is the reject; **heroless is fine**.
+- **GATE 4 — Decisive light.** One committed light logic — **hard high-key/graphic** OR **golden
+  warm-directional** — never flat/auto. *(This is the lever the early R1/R2 failures were missing.)*
+- **QUALITY (grades keepers, not gates):** element *presence* (specific/weighty, not generic); composition
+  / negative-space discipline; register legibility (not a muddy literal in-between).
+
+**Feed reward = "one author, many ideas":** coherence (the shared kernel + fixed `--sref` guarantee it) ×
+variety (genuinely fresh subjects — no recycling — across the registers, leaning heroless). The two failure
+modes to police are **monotony** and **subject-recycling**; incoherence is already handled by the kernel.
+
+Claude self-scores each generation against the gate before surfacing it; only passing images reach the
+user's selection (which trains `--p`). This gate is the **anti-drift mechanism** — "on-style" is now a
+checklist, not a vibe.
+
 ## Two axes (the grammar)
 
 "My style" = two independent decisions, mapping onto Midjourney's content/style split:
@@ -68,6 +95,25 @@ the sref image and held constant across registers — this is what gives a batch
 the full palette in-prompt; let the sref own it. Hue *accents* or colored *lighting* (neon / gels / golden
 hour) read physically plausible, not painterly.
 
+**Personal palette — being found (deferred).** The bold giz-derived *saturation* is the principle now, but the
+project's **own house palette is not yet locked** — it will be converged later from additional references and
+the project's own best outputs. Keep these style docs **general** about palette; do **not** hard-code specific
+subjects as palette sources.
+
+## Light treatment (the decisive-light lever)
+
+The signature always **commits to ONE light logic per image** — this is what makes the references read
+"finished," and what the early flat outputs lacked. Two committed treatments, **both photoreal**:
+
+- **Hard / high-key graphic light** — flat, clean, poster-like; large saturated color regions read as blocks;
+  pairs with heroless / geometric / color-field scenes.
+- **Golden warm-directional light** — low sun, long warm shadows, rich material texture (fur / bark / foliage
+  / still water); pairs with a present human/animal subject.
+
+Pick one and commit; never "auto" / flat-ambiguous light. This is a light **lever within the photoreal
+kernel** — NOT a second render mode. (The proposed "two-mode flat-graphic vs photographic" split was
+falsified: the whole reference set is photoreal; "graphic" is composition + hard light, not a flat render.)
+
 ## The dial model (integrated)
 
 The earlier **2-dial** model (subject-dominance × a free 3-stop render register: flat-graphic / soft-painterly
@@ -77,11 +123,14 @@ The earlier **2-dial** model (subject-dominance × a free 3-stop render register
 1. **Subject dominance** — heroless color-field landscape (**first-class, not a defect**) → minor subject →
    photoreal hero. Each background register spans this full range freely.
 2. **Background register** — **R1 / R2 / R3** (next section). This is where look-variety now lives.
+3. **Light treatment** — **hard-graphic ⇄ golden-warm** (see *Light treatment*); commit to one decisive light.
 
 What happened to the old render stops: **crisp-photoreal** became the invariant; the **soft-painterly middle**
-survives only in the separate **Explore lane** (it can't be forced on a real subject in the production path);
-**flat-graphic** is not in the automated path. Set everything with the **kernel + `--sref --sw`** — never "+
-the moodboard".
+survives only in the separate **Explore lane** (it can't be forced on a real subject in the production path). A
+**flat / illustrated render** is not in the automated path (the invariant forbids it) — but a **graphic,
+flat-color *look*** is fully on-style, achieved by **composition + hard high-key light on real subjects**, not
+by a flat render. Set everything with the **kernel + `--sref --sw` + a decisive light** — never "+ the
+moodboard".
 
 ## Background registers
 
@@ -133,9 +182,10 @@ Subject range (breadth within unity):
 - **Figures**: a lone person, dancers, small groups. (All people/animals → photoreal, per the invariant.)
 - **Devices**: scale-play, mirroring, motion, color-blocking.
 
-**Heroless color-field landscapes are first-class**, not a defect. **Keep subjects fresh** — the surreal natural
-*world* is the constant; the specific subject/scene must be newly invented each time, not recycled (see
-`.claude/rules/LESSONS.md`). Prompt convention: **detailed / specific** — richly specify subject + composition
+**Heroless color-field landscapes are first-class**, not a defect — and the feed **leans heroless / balanced**
+(mostly landscapes with occasional human/animal subjects; the *idea*, not a hero, carries the frame). **Keep
+subjects fresh** — the surreal natural *world* is the constant; the specific subject/scene must be newly
+invented each time, not recycled (see `.claude/rules/LESSONS.md`). Prompt convention: **detailed / specific** — richly specify subject + composition
 + light; the *look* (palette, render) stays on the kernel + `--sref`. See [[prompting]].
 
 ## Automation reality (one-pass constraint)
@@ -205,10 +255,20 @@ dominant register isn't required now. Revisit once selection history reveals a l
   compositing is **manual-only**. **Home base = deferred** (emerges from selections = `--p` signal). Added the
   **Explore lane** (`--c 15–30`) + the **consistency stack** (`--p` + fixed `--sref`+`--sw`+`--sv 7` +
   post-grade LUT). Formalized via a 3-agent audit + cross-review.
+- **2026-06-23 (signature lock)**: Re-grounded the style on the **full 11-image curated set** (3 independent
+  reads + an adversarial check) after an earlier **2-image over-generalization** was caught (see
+  `.claude/rules/LESSONS.md`). **Confirmed:** ONE photoreal render mode — the proposed "two-mode flat-graphic /
+  warm-photographic split" was **falsified** (all 11 are photoreal; "graphic" = composition + hard light).
+  **Added:** the **reward gate** (photoreal / saturated-chord / one-surreal-idea+restraint / **decisive light**)
+  as the anti-drift objective, and the **decisive-light lever** (hard-graphic ⇄ golden-warm). **User decisions:**
+  objective = own style (giz = look-anchor; curated 11 = chosen direction, not all-of-giz); home base = deferred;
+  subject = heroless-leaning / balanced; palette = giz-bold-saturation now, **exact personal palette deferred**
+  (Mariano + own best outputs, later). **"Claude-alone" bounded honestly:** prompt-gen + post-grade LUT are
+  automatable; **sref-upload, browser-driving, `--p` training, selection, publish stay human/assisted.**
 
 ## Status
 
 **Working model — being validated by ongoing generation (observation phase; policy not locked).** Promote
-`draft → active` once the **realism kernel, the bridge, and registers R1–R3 hold across a test set** and the
-**one-pass automated path** is confirmed end-to-end. Home base stays deferred until selection history reveals a
-lean.
+`draft → active` once **R1/R2/R3 + both light treatments pass the reward gate across a fresh-subject test
+set** and the **one-pass automated path** is confirmed end-to-end. (R3 validated; R1/R2 + the decisive-light
+lever still to test.) Home base + the exact personal palette stay deferred.
