@@ -86,9 +86,10 @@ rides on the `--sref` + `--sw` channel. Raw + a bold sref = vivid AND photograph
 Color = **one bold IMAGE `--sref`** (a self-uploaded reference image), **not** the averaging moodboard.
 
 - **`--sw ~150–250`** — the color-push knob; stay in band (`>300` washes out).
-- **Omit `--sv`** for an image sref on V8.1 — `--sv 7` is **rejected** ("Unsupported Style Reference version 7
-  for --version 8.1") and `--sv 6` is incompatible with `--hd`; let MJ use its default. (`--sv` is only for
-  pinning numeric sref-CODE versions: `--sv 4` = old codes / forces V7.)
+- **Omit `--sv`** for an image-URL sref on V8.1 → it defaults to **`--sv 7`** (the V8.1 default for srefs &
+  moodboards, `--hd`-compatible). Don't write `--sv 7` explicitly — it errored in-app (2026-06-23, "Unsupported
+  Style Reference version 7"; likely an sv7×numeric-code / explicit-write quirk). **Numeric CODES** need
+  `--sv 4` (legacy) or `--sv 6`, not sv7.
 - **Push color via `--sw`, never `--s`.** Raising `--s` applies more of the (muted, averaged) style + painterly
   flair — it is not a saturation knob.
 
@@ -267,10 +268,13 @@ dominant register isn't required now. Revisit once selection history reveals a l
   subject = heroless-leaning / balanced; palette = giz-bold-saturation now, **exact personal palette deferred**
   (Mariano + own best outputs, later). **"Claude-alone" bounded honestly:** prompt-gen + post-grade LUT are
   automatable; **sref-upload, browser-driving, `--p` training, selection, publish stay human/assisted.**
-- **2026-06-23 (param fix)**: **`--sv 7` removed from all recipes** — V8.1 rejects it ("Unsupported Style
-  Reference version 7 for --version 8.1", confirmed in-app). For an image `--sref` on V8.1, **omit `--sv`** (the
-  default applies); `--sv 6` is incompatible with `--hd`, `--sv 4` forces V7. The earlier "`--sv 7` = image-ref
-  version" claim (flagged "verify in-app" in the research doc) was wrong and had been baked into the prompts.
+- **2026-06-23 (param fix + 4-agent web re-verify)**: `--sv 7` removed from all recipes after a live error.
+  **Action = omit `--sv` for image-URL srefs** (correct, kept). Web-verification (4 sources) then corrected the
+  *rationale*: `--sv 7` is the V8.1 **default** for srefs/moodboards and **is `--hd`-compatible** — the error was
+  an explicit-`--sv 7` / numeric-code quirk, NOT a ban on sv7; numeric CODES need sv4/sv6. Also web-confirmed:
+  **V8.1 still current** (no V8.2/V9), **no V8-native omni / editor / official API** (so the one-pass +
+  manual-compositing + ToS-risk policy holds), `--style raw`/`--s`(50–150 photoreal)/`--sw`/`--no`/`--iw 0–3`/
+  `--hd`/`--seed`/`--c` all confirmed; `--exp` 0–100 (drop the "verify" flag); **`--q` unsupported on V8.1**.
 
 ## Status
 

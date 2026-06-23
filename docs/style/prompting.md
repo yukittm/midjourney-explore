@@ -23,7 +23,7 @@ the **reward gate** (§10) before shipping.
 kernel — it does not vary by subject or mood:
 
 - **`--style raw`** — always on (the photographic base, not an A/B option).
-- **low `--s` (~90–120)** — `--s` is the realism/literalness knob; keep it low.
+- **low `--s` (~90–120)** — `--s` is the realism/literalness knob; keep it low (the project's tightened band inside the web-verified photoreal zone ~50–150).
 - **photographic cues** in the prompt text: a camera/lens (`85mm f/1.8`), a film stock (`Cinestill 800T`,
   `Kodak Portra 400`), and `editorial photograph, sharp realistic skin/texture`.
 - **`--no painting, illustration, 3d render, cgi`** — one flag, comma-list.
@@ -35,8 +35,8 @@ kernel — it does not vary by subject or mood:
 
 Color = a **single bold image `--sref`** (a saturated reference image), **not** the moodboard — a moodboard
 *averages* toward a muted centre and **can't be weighted** (`--sw`/`--sv` don't apply to it). Push color with
-**`--sw` (~150–250)**. **Do NOT add `--sv`** for an image sref on V8.1 — `--sv 7` is **rejected** ("Unsupported
-Style Reference version 7 for --version 8.1") and `--sv 6` is incompatible with `--hd`; let MJ use its default.
+**`--sw` (~150–250)**. **Do NOT write `--sv`** for an image-URL sref on V8.1 → it defaults to **sv7** (the V8.1
+default, `--hd`-compatible). Writing `--sv 7` explicitly errored in-app; numeric CODES need sv4/sv6.
 To make color more vivid, raise **`--sw`** — **never `--s`**.
 
     --sref <bold image URL> --sw 180
@@ -141,7 +141,7 @@ levers are the **kernel + naming the real subject/phenomenon (incl. the bridge) 
 - **`--style raw`** — always on (kernel); the photographic base.
 - **`--s` (stylize, ~90–120)** — literalness only. Low = prompt-faithful; high overrides prompt detail and
   re-muddies. Never use it for realism or color.
-- **`--sw` (~150–250)** — the color channel; raise `--sw` to push color. **Omit `--sv`** for an image sref (V8.1 rejects `--sv 7`; `--sv 6` is incompatible with `--hd`).
+- **`--sw` (~150–250)** — the color channel; raise `--sw` to push color. **Omit `--sv`** for an image-URL sref (it defaults to sv7, the V8.1 default; writing `--sv 7` errored in-app; numeric codes need sv4/sv6).
 - **`--no painting, illustration, 3d render, cgi`** — one flag, comma-list; each word parsed independently
   (moderation trap: `--no modern clothing` = "no modern" + "no clothing").
 - **`--c` (chaos)** — 0 for production; **15–30 for the explore lane** (§9).

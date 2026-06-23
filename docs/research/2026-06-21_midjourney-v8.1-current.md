@@ -24,7 +24,7 @@ sourcing-note: >
 ## 1. Core problem & fix — realism and color are INDEPENDENT channels
 
 Our failing stack = **moodboard + no raw + high `--s`** → muted + painterly. Three stacking causes:
-1. **Moodboards AVERAGE their images** → multiple hues regress to a muted centre; **a moodboard cannot be weighted** (`--sw`/`--sv` do NOT apply to it). Built for brand *range*, not for reproducing one bold reference. *(High)*
+1. **Moodboards AVERAGE their images** → multiple hues regress to a muted centre; built for brand *range*, not for reproducing one bold reference (so they **mute** a bold palette). (They default to `--sv 7` like image srefs; whether `--sw` weights a moodboard is **unverified** — the earlier "`--sv` doesn't apply to moodboards" claim was wrong.) *(High on the averaging/muting; sv7-default High)*
 2. **`--s` (stylize) with a moodboard/profile = "how strongly to apply that (averaged, muted) style"** + adds painterly flair off the same dial → raising it to 1000 made output *more* muted+painterly. `--s` is **not** a realism or saturation knob. *(High — matches our in-app test)*
 3. **No `--style raw`** → MJ's default aesthetic. *(High)*
 
@@ -41,13 +41,14 @@ Our failing stack = **moodboard + no raw + high `--s`** → muted + painterly. T
 | `--style raw` (Raw toggle) | on/off | Strips painterly bias → photographic; works with moodboard/sref; less dramatic on V8.1. *(High)* |
 | `--hd` / `--sd` | HD = native **2048²** (**cannot be upscaled further**); SD = 1024² → upscale to 2048² | HD-by-default is V8.1's headline. For IG: HD, or SD + Subtle upscale. *(High / verify exact)* |
 | `--sref <URL>` / `--sref <code>` | — | Carries **color/light/contrast/texture/composition, NOT subject**. URL = your image's style (preferred). V8.1 sref is higher-fidelity than V7. *(High)* |
-| `--sw` (style weight) | 0–1000, default 100 | **Sweet spot ~65–175**; ~**200–250 to push color**; **>300 = experimental/unpredictable** (can wash out / over-stylize — the very failure we're escaping). *(Med — corrected down from earlier draft)* |
-| `--sv` (sref version) | 4 / 6 (**NOT 7 on V8.1**) | **`--sv 7` is REJECTED on V8.1** ("Unsupported Style Reference version 7 for --version 8.1", confirmed in-app 2026-06-23). **For an IMAGE `--sref` on V8.1, OMIT `--sv`** (the model default applies — this is the project's path). `--sv 6` works for sref-CODES but is **incompatible with `--hd`** (4× GPU); `--sv 4` = legacy codes / forces V7. *(High — in-app)* |
+| `--sw` (style weight) | 0–1000, default 100 | Documented bands: **0–50 subtle / 50–150 balanced / 150–300 strong / 300+ dominant**. Our recipes use **~150–250** (strong→push); R3 sits at 220–250. No documented `--hd` interaction. *(range/default High; exact bands = tuned heuristics, Med)* |
+| `--sv` (sref version) | 6 / 7 (V8 family) | **`--sv 7` is the V8.1 DEFAULT** for image srefs AND moodboards, and is **`--hd`-compatible** (4× faster/cheaper than the old version). **For an IMAGE-URL `--sref` (our path): OMIT `--sv`** → it defaults to sv7 (the desired behavior). **Numeric/random CODES need `--sv 4` (legacy) or `--sv 6` — NOT sv7.** ⚠️ In-app (2026-06-23) writing `--sv 7` **explicitly** with `--version 8.1` threw "Unsupported Style Reference version 7" — likely an sv7×numeric-code / explicit-write quirk; the safe action is simply **don't write `--sv`** (the default is already sv7). *(sv7-default + hd-compat: High; exact error trigger: Med)* |
 | `--oref` / `--ow` | ow 0–1000, default 100 | **V7-only — using it FORCES the job onto V7** (forfeits V8.1 realism). No V8-native omni yet ("improved version in training"). Identity-lock only. `--ow 400–600` strong face; 25–75 lets scene dominate. *(High)* |
 | `--iw` (image weight) | **0–3, default 1** | Image-prompt strength (corrected: NOT 0–2). *(High)* |
-| `--exp` | experimental "more aesthetic" dial; competes with `--s` for influence | Live in V8 era; **verify range/effect in-app.** *(Low — verify)* |
-| `--p` (moodboard / personalization) | code | Broad/averaged taste; **`--sw`/`--sv` do NOT apply**. You may mix moodboard + sref, but then `--sw`/`--sv` tune only the sref (moodboard stays untunable). *(High)* |
-| `--cref` | — | Not on V8.1 (V6/V7). *(High)* |
+| `--exp` | 0–100, integers, default 0 | A **2nd dimension to `--stylize`** — pushes detail/creativity at the expense of prompt accuracy. **>25 can overpower `--s`/`--p`** (keep ≤25 when combined). On V8.1. *(High)* |
+| `--p` (moodboard / personalization) | code | Broad/averaged taste. **Moodboards default to `--sv 7`** (so `--sv` DOES apply); whether `--sw` weights a moodboard is **unverified**. Trained personalization is the consistency layer. *(sv7-default High; --sw-on-moodboard unverified)* |
+| `--cref` | — | **V6 / Niji-V6 only** (superseded by `--oref` on V7; not on V8.1). `--cw` 0–100. *(High)* |
+| `--q` (quality) | — | **Unsupported on V8.1** (HD/SD replaces it); `--q 2`/`--q 4` workflows require V7. *(High)* |
 | `--c` (chaos) | 0–100, default 0 | Grid variety. `--ar` any (4:5 for IG). *(High)* |
 
 ## 3. Recommended workflow
@@ -59,7 +60,7 @@ Cinestill 800T, bold saturated color-blocking
 --style raw --s 110 --sref <YOUR bold giz image URL> --sw 200 --ar 4:5
 --no painting, illustration, 3d render, cgi
 ```
-- **For an IMAGE `--sref` (our path): OMIT `--sv`** — V8.1 **rejects `--sv 7`**, and `--sv 6` is incompatible with `--hd`; let the model default apply. **If using a numeric CODE**: `--sv 4` (old codes / forces V7); `--sv 6` works but not with `--hd`.
+- **For an IMAGE-URL `--sref` (our path): OMIT `--sv`** → it defaults to **sv7** (the V8.1 default, `--hd`-compatible). Don't write `--sv 7` explicitly (it errored in-app — see §2). **Numeric/random CODES** need `--sv 4` (legacy) or `--sv 6`, not sv7.
 - Film-stock keyword is high-leverage: `Cinestill 800T` (saturated+photographic), `Kodak Portra 400` (skin).
 - Color via *light* (neon/gels/golden hour) reads physically-plausible, not painterly.
 
@@ -93,7 +94,7 @@ Sweep `--s` 60/110/200 and `--sw` 120/180/250 → the crossing of "subject photo
 
 ## 4. Sref sourcing
 - **Best for our palette**: upload one **bold giz reference image** into MJ → set it as **Style Reference**
-  (= `--sref <that image>`). Exact palette, no purchase; **no `--sv` needed** on V8.1 (the default applies).
+  (= `--sref <that image>`). Exact palette, no purchase; **no `--sv` needed** on V8.1 (defaults to sv7). Image-URL srefs work with the default sv7; only numeric codes are version-restricted (sv4/sv6).
 - **Free code galleries**: SrefHunt, Midlibrary, srefs.co, sref-midjourney.com, Lummi (all live).
 - **Paid**: giz.akdag's packs (lemonsqueezy, 400+ codes incl. Photorealism) — **V7/V6.1-targeted**; expect drift on V8.1 (pin `--sv 6`).
 - **giz's method = blending 2–3 sref codes**; she does not publish her stylize/raw/post values. Mariano Peccinetti is NOT a sref token (collage artist; Photoshop rework).
@@ -105,11 +106,11 @@ Sweep `--s` 60/110/200 and `--sw` 120/180/250 → the crossing of "subject photo
 - **Over-styling antidotes** (our core problem): add `--style raw`; lower `--s`; specify film/grain; don't stack adjectives.
 
 ## 6. Delta vs the archived V7 research
-- `--oref`/`--cref` = V7-only (drop you off V8.1). `--sv 4` retained (NOT removed) for legacy codes; default ~sv6. `--sref` fidelity better on V8.1. `--style raw` still valid, less load-bearing. **HD-by-default + `--exp` are new.** The V7 bundle's parameter specifics are otherwise superseded by this doc; its prompt *grammar* (§5) and over-styling pitfalls are carried forward here.
+- `--oref`/`--cref` = V7-only (drop you off V8.1). **Default sref version = `--sv 7`** (V8 family); `--sv 4`/`--sv 6` are for legacy numeric codes. `--sref` fidelity better on V8.1. `--style raw` still valid, less load-bearing. **HD-by-default + `--exp` are new.** The V7 bundle's parameter specifics are otherwise superseded by this doc; its prompt *grammar* (§5) and over-styling pitfalls are carried forward here.
 
 ## 7. Confidence & caveats
-- **High**: three-cause diagnosis + two-channel fix; raw+low-`--s` for realism; sref(image-URL)+`--sw` for color; **realism is global (no per-region; `::`=emphasis)**; oref forces V7; old codes drift; `--iw 0–3`; moodboard untunable by `--sw`/`--sv`; HD-by-default; **`--sv 7` rejected on V8.1 — omit `--sv` for image srefs (`--sv 6` ✗ with `--hd`)**; trained `--p`+post-grade as the consistency path (ranking: post-grade > `--p` > image-sref > seed); **no official MJ API (web Editor runs on V6.1)**; giz blending / Mariano not a token.
-- **Medium / verify in-app**: exact `--s`/`--sw` bands; `--exp` range; whether a moodboard *silently* disables `--sw` when both are on; `--hd` exact behavior; the **bridge breakpoint** (how far toward pure abstraction grounding-in-a-real-phenomenon holds before the photoreal foreground breaks); whether a V8-native omni has shipped since.
+- **High**: three-cause diagnosis + two-channel fix; raw+low-`--s` for realism; sref(image-URL)+`--sw` for color; **realism is global (no per-region; `::`=emphasis)**; oref forces V7; old codes drift; `--iw 0–3`; HD-by-default; **`--sv 7` = the V8.1 DEFAULT for image srefs/moodboards & is `--hd`-compatible — for an image-URL sref just OMIT `--sv` (numeric codes need sv4/sv6; writing `--sv 7` explicitly errored in-app)**; trained `--p`+post-grade as the consistency path (ranking: post-grade > `--p` > image-sref > seed); **no official MJ API (web Editor runs on V6.1)**; giz blending / Mariano not a token.
+- **Medium / verify in-app**: exact `--s`/`--sw` bands; the precise trigger of the explicit-`--sv 7` in-app error; whether `--sw` weights a moodboard; **exact V8.1 `--iw` max** (0–3 well-sourced for V7; the V8.1 number is on the 403-blocked page); `--hd` exact behavior; the **bridge breakpoint** (how far toward pure abstraction grounding-in-a-real-phenomenon holds before the photoreal foreground breaks). *(Resolved 2026-06-23: no V8-native omni / no V8-native editor / no official API — all confirmed still absent.)*
 - The V7-era MJ-automation idea formerly bundled here was relocated to `automation/` (it is an internal plan, not external research), keeping `docs/research/` external-only.
 
 ## 8. The real-phenomenon bridge (general technique)
