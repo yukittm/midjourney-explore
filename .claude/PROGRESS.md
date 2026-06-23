@@ -25,7 +25,7 @@ Style model **formalized** (validated in-app 2026-06-23). **Foreground = photore
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
-2026-06-23 [Claude:style] **🟢 lock the style signature (full-evidence) + reward gate + decisive-light lever — PASS / committed `PENDING_COMMIT`**
+2026-06-23 [Claude:style] **🟢 lock the style signature (full-evidence) + reward gate + decisive-light lever — PASS / committed `2052e9c`**
   - Re-grounded the giz signature on the **full 11-image curated set** (3 independent reads + an adversarial check) after catching a **2-image over-generalization** (LESSONS updated). **Falsified** the proposed "two-mode flat-graphic / warm-photographic split" — all 11 are photoreal; "graphic" = composition + hard light. **ONE photoreal render mode kept.**
   - **Added the on-style REWARD GATE** (① photoreal · ② saturated red/green/blue chord · ③ one surreal idea + restraint · ④ **decisive light**) as the anti-drift objective ("on-style" = a checklist, not a vibe), and the **decisive-light lever** (hard-graphic ⇄ golden-warm). Surgical additions; kernel/registers/bridge/explore/one-pass all kept (no rewrite).
   - **User decisions locked:** objective = own style (giz = look-anchor; curated 11 = chosen direction, not all-of-giz); home base = deferred; subject = heroless-leaning/balanced; palette = giz-bold-saturation now, **exact personal palette deferred** (Mariano + own outputs, later); removed "soccer"/specific-subject words from the style docs; "Claude-alone" bounded honestly (prompt-gen + LUT automatable; sref-upload/browser/`--p`/selection/publish human-assisted).

@@ -40,7 +40,7 @@ Per account and/or combined, capture:
 ### giz.akdag — first-pass analysis (2026-06-18, from top ~17 grid posts)
 
 - **Medium**: AI-generated (Midjourney) conceptual/editorial imagery — photographic realism with a surreal twist.
-- **Subject matter**: single hero human figures (often fashion-forward, Black subjects), surreal scenarios; sport/leisure motifs (tennis, soccer, swimming, horse-walking); occasional still-life / market scenes.
+- **Subject matter**: single hero human figures (often fashion-forward, Black subjects), surreal scenarios; sport/leisure motifs (tennis, swimming, horse-walking); occasional still-life / market scenes.
 - **Palette**: saturated yet filmic; **bold color-blocking** with complementary contrasts — cobalt/cornflower blue, emerald/forest green, terracotta & red-orange, cream/putty. High color confidence, not muted.
 - **Lighting**: clean natural daylight, crisp, lightly cinematic — bright and optimistic, NOT moody/dark.
 - **Composition**: graphic, poster-like, strong central subject, balanced negative space; portrait crops (~4:5).
@@ -48,7 +48,7 @@ Per account and/or combined, capture:
 - **Mood**: playful, witty, optimistic, surreal-but-elegant — "quiet-luxury meets surreal concept".
 - **Recurring motifs**: lush vegetation (cactus, banana leaves), water, color-blocked wardrobe, scale-play & figure/material morphing (e.g. a person made of liquid marble), conceptual juxtaposition.
 - **SREF Collection note**: her highlight publishes sref codes, but they appear to be a **paid product** (Contra) and the slides are videos (not capturable) — **not harvested** (decided 2026-06-20). Our route is a self-uploaded bold reference image as `--sref`, not her codes.
-- Representative posts seen: NYC subway editorial ("refund hits different"), cactus tennis court, tree-house hybrid with dancers, favela + pink ladder/scale-play, pink wave-sofa by the sea, man walking a horse with a Polaroid, ocean-swimmers aerial, folk-art juice stall, red-dress figure in banana leaves, liquid-marble soccer figure.
+- Representative posts seen: NYC subway editorial ("refund hits different"), cactus tennis court, tree-house hybrid with dancers, favela + pink ladder/scale-play, pink wave-sofa by the sea, man walking a horse with a Polaroid, ocean-swimmers aerial, folk-art juice stall, red-dress figure in banana leaves, a liquid-marble figure.
 
 ### marianopeccinetti (Mariano Peccinetti) — first-pass analysis (2026-06-18, from top ~12 grid posts)
 
@@ -58,7 +58,7 @@ Per account and/or combined, capture:
 - **Lighting/finish**: matte, soft, **grainy vintage photographic texture**; dreamy rather than crisp.
 - **Composition**: collage juxtaposition & **scale play** (tiny car/figures vs huge cosmic elements); poster-like, often portrait.
 - **Mood**: dreamy, nostalgic, poetic, contemplative surrealism — his own words: "visual poetry".
-- **Representative posts seen**: flowers floating on a sea with a swimmer, appaloosa horse on a pink/green hill, giant rainbow arc over a dune with a tiny yellow car, horses galloping among clouds & fish, cotton-candy-cloud legs with soccer ball, people seated on a Saturn ring, motion-blur coastal cars, leaping cat with radial blur, pink rock formations.
+- **Representative posts seen**: flowers floating on a sea with a swimmer, appaloosa horse on a pink/green hill, giant rainbow arc over a dune with a tiny yellow car, horses galloping among clouds & fish, cotton-candy-cloud legs with a ball, people seated on a Saturn ring, motion-blur coastal cars, leaping cat with radial blur, pink rock formations.
 
 ### Converged giz signature — from the FULL 11-image curated set (2026-06-23)
 
