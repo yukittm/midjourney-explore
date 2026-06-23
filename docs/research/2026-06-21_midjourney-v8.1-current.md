@@ -74,7 +74,7 @@ For a stable house look across many images (not one-off matching), prefer V8-nat
   not a global base lock (see the reproducibility ranking below).
 - **Personalization profile (`--p`)** *trained* via the like/dislike loop = the platform's intended
   mechanism for a stable personal look (distinct from the averaging-moodboard misuse in §1).
-- **Image-URL sref** of our own bold reference = exact palette, unambiguously sv7-compatible.
+- **Image-URL sref** of our own bold reference = exact palette; on V8.1 use it as the Style Reference with **no `--sv`** (the model default applies).
 - **Post-grade as a PRIMARY, deterministic color lever**: a saved Lightroom/Capture One preset (or a LUT in
   `automation/`) gives the *exact* editorial color reproducibly — MJ color sampling is not deterministic.
 - **Reproducibility ranking** (most→least deterministic, for a cross-*subject* house look): post-grade
@@ -93,7 +93,7 @@ Sweep `--s` 60/110/200 and `--sw` 120/180/250 → the crossing of "subject photo
 
 ## 4. Sref sourcing
 - **Best for our palette**: upload one **bold giz reference image** into MJ → set it as **Style Reference**
-  (= `--sref <that image>`). Exact palette, no purchase, sv7-compatible.
+  (= `--sref <that image>`). Exact palette, no purchase; **no `--sv` needed** on V8.1 (the default applies).
 - **Free code galleries**: SrefHunt, Midlibrary, srefs.co, sref-midjourney.com, Lummi (all live).
 - **Paid**: giz.akdag's packs (lemonsqueezy, 400+ codes incl. Photorealism) — **V7/V6.1-targeted**; expect drift on V8.1 (pin `--sv 6`).
 - **giz's method = blending 2–3 sref codes**; she does not publish her stylize/raw/post values. Mariano Peccinetti is NOT a sref token (collage artist; Photoshop rework).
