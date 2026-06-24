@@ -9,9 +9,9 @@ type: index
 **SSoT for the project's own visual style** — the project's own decisions (distinct from `docs/research/`,
 which is external reference).
 
-- **`style-definition.md`** — the SSoT: the foreground **photoreal invariant** + the **3 background
-  registers** (R1/R2/R3) + the **bridge**, the surreal natural world, the color channel (`--sref`), the
-  automation north-star, and the decision / verification log.
+- **`style-definition.md`** — the SSoT: the **render rule** (realism scoped to subject + anchors), the **base
+  (Flowing Color Waves) + sibling registers** + the **bridge**, the surreal natural world, the color channel
+  (`--sref`), the **reward gate**, the automation north-star, and the decision / verification log.
 - **`prompting.md`** — the craft: the realism kernel + color channel + the 3 registers (with examples) +
   the bridge + idea engine + anti-patterns + idea seeds.
 - **`reference-accounts.md`** — the reference artists analysis + the imported reference pool (inspiration

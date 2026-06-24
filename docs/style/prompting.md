@@ -10,17 +10,17 @@ The single place for **how to write prompts** for this project. The style *model
 [[style-definition]]; current MJ parameter behavior in `../research/2026-06-21_midjourney-v8.1-current.md`;
 this is the craft. Pairs with [[reference-accounts]].
 
-**Core method (validated in-app 2026-06-23):** every real subject (person/animal) is rendered **photoreal**
-via a fixed **realism kernel** (§1). **Color** comes from one bold **image `--sref`**, not the moodboard (§2).
-Because V8.1 realism is **global** (§3), an abstract-feeling background is reached not by mixing styles in one
-pass but by **grounding it in a real, photographable phenomenon** — the **bridge** (§4) — expressed through one
-of **three background registers** R1/R2/R3 (§5), each lit with **one decisive light** (§5b) and scored against
-the **reward gate** (§10) before shipping.
+**Core method (validated in-app 2026-06-23):** **realism is scoped to the subject + hard anchors** — rendered
+**photo-textured** via the kernel (§1) or **clean/legible** in the smooth-wave base route. **Color** comes from
+one bold **image `--sref`**, not the moodboard (§2). An abstract-feeling background is reached by **grounding it
+in a real, photographable phenomenon** — the **bridge** (§4) — across the **base + sibling registers** (BASE =
+R3 Flowing Color Waves; SIBLINGS = R1/R2, §5), each with **one decisive light or a clean color-flow** (§5b) and
+scored against the **reward gate** (§10) before shipping.
 
-## 1. The realism kernel (foreground invariant — all modes)
+## 1. The realism kernel (realism scoped to subject + anchors)
 
-**Real subjects (people, animals) are ALWAYS photoreal**, in every register. Lock realism with this fixed
-kernel — it does not vary by subject or mood:
+**The subject + hard anchors read as real** — **photo-textured** via this kernel (the photoreal route), or
+**clean/legible** in the smooth-wave base route (profile + higher `--s` + no-raw). The kernel (photoreal route):
 
 - **`--style raw`** — always on (the photographic base, not an A/B option).
 - **low `--s` (~90–120)** — `--s` is the realism/literalness knob; keep it low (the project's tightened band inside the web-verified photoreal zone ~50–150).
@@ -64,12 +64,13 @@ Real flowing/blocked-color phenomena to name (the noun, not "abstract" / "gradie
 > **Breakpoint:** drone-photographable → one-pass works. Pure paint / gradient / no real referent → not
 > one-pass; defer to a 2-step composite (out of the automated path).
 
-## 5. Three background registers (R1 / R2 / R3)
+## 5. Background registers — base + siblings
 
-Neutral names — **never put an artist name in the prompt or vocabulary.** Each register pairs the §1 kernel
-(always on) with a background recipe and a fixed param band.
+Neutral names — **never put an artist name in the prompt or vocabulary.** **BASE = R3 Chromatic Wave (Flowing
+Color Waves)** — most batches center here; **SIBLINGS = R1 Color-Block Terrain · R2 Geometric Landform**. Each
+pairs the §1 kernel (photoreal route) — or, for R3, the smooth-wave route — with a background recipe + param band.
 
-### R1 — Color-Block Terrain
+### R1 — Color-Block Terrain (SIBLING)
 Bold color on **real terrain** (a field, a hillside, a plain). Color is in the land, not in a "style".
 - **Params:** `--style raw --s 110 --sref <URL> --sw 180 --ar 4:5 --no painting, illustration, 3d render, cgi`
 - **Example:**
@@ -78,7 +79,7 @@ Bold color on **real terrain** (a field, a hillside, a plain). Color is in the l
       photograph, sharp realistic skin texture, 85mm f/1.8, Cinestill 800T
       --style raw --s 110 --sref <bold URL> --sw 180 --ar 4:5 --no painting, illustration, 3d render, cgi
 
-### R2 — Geometric Landform
+### R2 — Geometric Landform (SIBLING)
 Geometry from **real geometric land** — terraced fields, basalt columns, salt-pond grids — **not** the words
 "geometric" / "minimalist". Name the real noun.
 - **Params:** `--style raw --s 100–120 --sref <URL> --sw 150 --ar 4:5 --no painting, illustration, 3d render, cgi`
@@ -88,10 +89,13 @@ Geometry from **real geometric land** — terraced fields, basalt columns, salt-
       ridge, editorial photograph, sharp skin texture, 85mm f/1.8, Kodak Portra 400
       --style raw --s 110 --sref <bold URL> --sw 150 --ar 4:5 --no painting, illustration, 3d render, cgi
 
-### R3 — Chromatic Wave  (validated)
-Flowing multicolor via the **bridge** (§4) — a real flowing-color phenomenon behind a photoreal figure.
-- **Params:** `--style raw --s 100–110 --sref <URL> --sw 220–250 --ar 4:5 --no painting, illustration, 3d render, cgi`
-- **Example:**
+### R3 — Chromatic Wave  (BASE — Flowing Color Waves; validated)
+The flowing multicolor "wave" world. **Two routes:** **photoreal** (the bridge §4 — a real flowing-color
+phenomenon behind a photo-textured subject) or **smooth-painterly** (profile `--p` + higher `--s` + no-raw —
+subject clean/legible; this is the keepers' route).
+- **Params (photoreal route):** `--style raw --s 100–110 --sref <URL> --sw 220–250 --ar 4:5 --no painting, illustration, 3d render, cgi`
+- **Params (smooth-wave route):** `--p <profile> --s ~250 --c 10 --ar 4:5` (no raw)
+- **Example (photoreal route):**
 
       a dancer in white mid-turn before sweeping multicolor tulip-field bands stretching to the horizon,
       editorial photograph, sharp realistic skin, 85mm f/1.8, Cinestill 800T
@@ -101,16 +105,17 @@ Flowing multicolor via the **bridge** (§4) — a real flowing-color phenomenon 
 A true paint/gradient field with no real referent → needs a **2-step composite**; **out of the automated
 one-pass path** (see the §4 breakpoint).
 
-## 5b. Decisive light (commit to one — both photoreal)
+## 5b. Decisive treatment (commit to one — never flat/auto, never a muddy blur)
 
-Always **commit to ONE light logic** — never flat/auto. Two on-style treatments, both photoreal:
+For the **photoreal route**, commit to ONE light:
 - **Hard / high-key graphic light** — flat, clean, poster light; large saturated color blocks; pairs with
   heroless / geometric / color-field scenes. Cue: `hard high-key midday light, flat bold color blocks, crisp shadows`.
 - **Golden warm-directional light** — low sun, long warm shadows, rich material texture; pairs with a present
   human/animal subject. Cue: `golden low directional light, long warm shadows, rich texture`.
 
-This is a light lever *within* the photoreal kernel — **NOT a second render mode**. (Our early R1/R2 "thin"
-outputs had flat/auto light; committing to one decisive light is the fix that makes an image read "finished.")
+These are the photoreal route's lights — **NOT a second render mode**. The **smooth-wave route** instead commits
+to a **clean, legible, directional color-flow** (not a muddy smear). Either way the treatment is *decisive*;
+flat/auto light or a directionless blur is the "thin" failure.
 
 ## 6. Anatomy & slots
 
@@ -166,7 +171,7 @@ kernel + a register (R1/R2/R3) for production. Don't mix the explore lane into a
   Richness = one element's texture, not element count.
 - **Compositional device (exactly ONE = the "idea")**: mirroring / scale-tension / leading-line / juxtaposition
   / framing / negative-space / motion-echo.
-- **Background register** — pick R1 / R2 / R3 (§5); the subject stays photoreal regardless.
+- **Register** — BASE R3 (Flowing Color Waves) / SIBLINGS R1, R2 (§5); realism stays scoped to subject + anchors.
 - **Mood**: witty / tender / sublime / melancholy / kinetic. **Light (decisive — pick one, §5b)**: hard high-key graphic OR golden warm-directional. Never flat/auto.
 
 ### Conceptual moves (the idea engine)
@@ -181,8 +186,7 @@ kernel + a register (R1/R2/R3) for production. Don't mix the explore lane into a
 > subject; see `.claude/rules/LESSONS.md`).
 
 ### Anti-patterns (reject + re-sample)
-- **Painterly / illustrated subjects** — a real subject must be photoreal; if it reads painted, the kernel is
-  missing or `--s` is too high.
+- **Painterly / illustrated *subject*** — the subject + hard anchors must read real (photo-textured, or clean/legible in the wave route). A smooth painterly *background/world* in the wave route is fine; only a flat/illustrated *subject* fails.
 - **Abstract style words for the background** — "geometric", "minimalist", "abstract", "gradient" don't render
   reliably; name a **real noun** (terraces, basalt columns, tulip bands) — §4.
 - **Color pushed via `--s`** — re-muddies; push color with `--sw`.
@@ -208,12 +212,13 @@ kernel + a register (R1/R2/R3) for production. Don't mix the explore lane into a
 - For a **photoreal hero**, optionally anchor with a real photo as image prompt (`--iw ~2`).
 - Tag each prompt: **register · device · shot · light** (for curation).
 
-### The reward gate (score every output before shipping)
-Before surfacing a generation, score it against [[style-definition]] → *The objective & the reward*. **Reject
-and re-sample any image that fails a GATE:** ① photoreal subject · ② saturated signature chord (not
-washed/muted) · ③ exactly ONE surreal idea + restraint (idea-less = reject; **heroless OK**) · ④ **decisive
-light** (not flat/auto). Only gate-passing images reach the user's selection. This gate **is** the definition
-of "on-style" — it is the anti-drift check.
+### The reward gate (score every output before shipping — positive tests, must PASS all four)
+- **GATE ① — Subject & hard anchors read as real** (photo-textured in the kernel route, or clean/legible in the smooth-wave route). *Fails if* the subject reads flat/illustrated, or an anchor dissolves into the background.
+- **GATE ② — Saturated signature chord present** (not washed / pastel / grey).
+- **GATE ③ — Exactly ONE surreal idea + restraint** (≤3 element-types; **heroless OK**). *Fails if* idea-less or busy.
+- **GATE ④ — Decisive, legible color/light** — a clean directional color-flow or block PASSES; a muddy/directionless blur, flat/auto light, or muddy literal in-between FAILS.
+
+Only gate-passing images reach the user's selection. This gate **is** the definition of "on-style" — the anti-drift check (full text: [[style-definition]] → *The objective & the reward*).
 
 ## 11. Consistency stack (for automation)
 
@@ -229,15 +234,15 @@ Not for consistency: **`/tune`** is **subject-fragile**; **`--seed`** is **same-
 
 ## 12. Per-register base templates
 
-Don't write from scratch. Keep a base template **per register** (R1/R2/R3 — the §5/§6 slots pre-filled, the
-kernel + params fixed) and swap only the photoreal subject + the real background noun. Fast, consistent,
-on-style.
+Don't write from scratch. Keep a base template **per register** (BASE R3 + SIBLINGS R1/R2 — the §5/§6 slots
+pre-filled, the kernel/route + params fixed) and swap only the subject + the real background noun. Fast,
+consistent, on-style.
 
 ## 13. Idea seeds (running list — rate, then feed keepers into the `--sref` / `--p` training)
 
 | # | Move | Prompt | Light | Verdict |
 |---|------|--------|-------|---------|
-| 1 | scale-inversion | `a lone figure beside a single colossal white egg resting on a vast green hill, deep cobalt sky` | hard graphic | ☐ |
+| 1 | scale-inversion | `a lone figure beside a single colossal leaning monolith on a vast green hill, deep cobalt sky` | hard graphic | ☐ |
 | 2 | impossible-juxtaposition | `a small wooden rowboat adrift on a perfectly still mirror lake set into a red flowering field` | golden warm | ☐ |
 | 3 | object-as-monument | `a giant brass key half-buried upright in a pale salt flat, tiny figure at its base` | hard graphic | ☐ |
 | 4 | material-swap | `a flock of birds turning to drifting white smoke over an ochre badland ridge` | golden warm | ☐ |

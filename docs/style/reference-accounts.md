@@ -71,7 +71,7 @@ style**; the curated 11 = the user's chosen *direction*, not all of giz):
 - **Saturated red/orange + green + deep-blue CHORD** is the core palette; deep-cobalt sky is the default (~7/11, not universal).
 - **ONE clear, often surreal, idea per frame**; never busy/multi-idea. **Generous negative space + restraint.**
 - **Richness = saturation + the single idea + a few present elements + decisive light — NOT element count or hero dominance** (~8/11 "striking via few"; only ~3/11 "rich via density").
-- **ONE render mode: photoreal.** The "graphic / color-block" look is **composition + hard light on real subjects**, not a flat/illustrated render. (A proposed "two-mode flat-graphic vs photographic" split was *falsified* — all 11 are photoreal.)
+- **giz's set is photoreal** — the "graphic / color-block" look is **composition + hard light on real subjects**, not a flat/illustrated render (the "two-mode" render-mode split was *falsified* — all 11 are photoreal). *Our* style relaxes this: **realism is scoped to the subject + hard anchors**, so OUR wave world may render smooth — a deliberate departure (see [[style-definition]] → *The render rule*).
 - **Decisive light**, two treatments: hard high-key/graphic (heroless/color-field) ⇄ golden warm-directional (with a subject).
 - Recurring motifs: a small **white-cube / white-house geometry** (~6/11); **motion-blur** as a deliberate device; 3:4 vertical with strong horizontal banding.
 

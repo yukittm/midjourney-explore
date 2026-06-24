@@ -8,9 +8,9 @@ type: style
 
 > Working SSoT for the project's own visual style. The model below was **validated in-app on 2026-06-23**
 > (the realism kernel + the bridge produced on-style one-pass results; **R3 validated**, R1/R2 follow from
-> the same kernel pending the Phase-1 test set) — it supersedes the earlier 2-dial framing: render is now
-> **pinned to photoreal** for any real subject, and
-> variation moves to the **background-register** axis. North star = near-full pipeline automation (below).
+> the same kernel pending the Phase-1 test set) — it supersedes the earlier 2-dial framing: **realism is now
+> scoped to the subject + hard anchors** (one rule, two recipes — see *The render rule*), and variation moves
+> to the **base + sibling register** axis. North star = near-full pipeline automation (below).
 > Craft/how-to: [[prompting]]. Source analysis: [[reference-accounts]]. Current MJ mechanics:
 > `../research/2026-06-21_midjourney-v8.1-current.md`.
 
@@ -31,18 +31,21 @@ state, refined as generations validate; written so the *automatable* (one-pass) 
 reference artist is only the **calibration anchor for the look**; the target is our own signature. The basis
 is the **user-curated 11-image set** (the user's chosen *direction* — not the artist's full body of work).
 
-**Per-image reward — the gate** (any GATE fail → reject; QUALITY grades the keepers):
-- **GATE 1 — Photoreal subject.** Any person/animal renders as a photograph (the invariant). *There is ONE
-  render mode: photoreal. A "graphic / flat-color" look is achieved by **composition + hard light on real
-  subjects**, NEVER by a flat / illustrated render.*
-- **GATE 2 — Saturated signature palette.** The bold chord (saturated red/orange + green + deep-blue) is
-  clearly present — not washed out (`--sw` too high) nor muted/grey. Carried by `--sref` + `--sw`.
-- **GATE 3 — One surreal idea + restraint.** Exactly ONE clear, surreal compositional idea, against generous
-  negative space. *Idea-less* is the reject; **heroless is fine**.
-- **GATE 4 — Decisive light.** One committed light logic — **hard high-key/graphic** OR **golden
-  warm-directional** — never flat/auto. *(This is the lever the early R1/R2 failures were missing.)*
-- **QUALITY (grades keepers, not gates):** element *presence* (specific/weighty, not generic); composition
-  / negative-space discipline; register legibility (not a muddy literal in-between).
+**Per-image reward — the gate (positive tests; an image must PASS all four):**
+- **GATE ① — Subject & hard anchors read as real.** The subject and the load-bearing real objects/structures
+  it touches are rendered convincingly — **photo-textured** in the kernel route, or **clean/legible** in the
+  smooth-wave route; realism stays SCOPED to subject + anchors. *Fails if* the subject reads flat/illustrated/
+  painted, or an anchor dissolves into the background.
+- **GATE ② — Saturated signature chord present.** The bold chord (saturated red/orange + green + deep-blue) is
+  clearly readable — not washed out (`--sw` too high), pastel-faded, or muted/grey.
+- **GATE ③ — Exactly ONE surreal idea, with restraint.** One clear idea against generous negative space (≤3
+  element-types; **heroless is fine**). *Fails if* idea-less (an inventory) OR multi-idea / busy.
+- **GATE ④ — Decisive, legible color/light.** Color and light commit to ONE logic; the image reads as a
+  **clean directional color-flow or block** — a legible flow PASSES. *Fails if* a muddy/directionless blur,
+  flat/auto/ambiguous light, OR a muddy literal in-between (neither clean-graphic nor warm-rich).
+
+Any GATE fail → reject and re-sample. QUALITY (element presence, composition / negative-space discipline,
+register legibility) grades the keepers, not the gate.
 
 **Feed reward = "one author, many ideas":** coherence (the shared kernel + fixed `--sref` guarantee it) ×
 variety (genuinely fresh subjects — no recycling — across the registers, leaning heroless). The two failure
@@ -66,11 +69,20 @@ look is no longer set by an averaging **moodboard**, and color is **not** pushed
 averages its images toward a muted centre and can't be weighted; a single bold `--sref` carries the bold
 palette and *can* be pushed via `--sw`. See Color channel + `../research/2026-06-21_midjourney-v8.1-current.md` §1.
 
-## The foreground invariant (non-negotiable, all modes)
+## The render rule — realism is SCOPED (not a second mode)
 
-**Real subjects — people and animals — always render PHOTOREAL, never painterly.** Holds across every
-register and mode; a **law, not a lean** (the earlier "content tendency" framing is superseded). The realism
-**kernel** that enforces it:
+**Realism is scoped to the subject + the hard anchors** (any person/animal, plus the load-bearing real
+objects/structures they touch). It is **not** a global photoreal-vs-painterly toggle, and it does **not**
+revive the falsified two-mode split (that was about the whole-frame *render*; this is about *where* realism is
+required). Two on-style recipes reach the look:
+
+- **Smooth-painterly wave route** (the flowing color world) — trained **profile (`--p`)** + a **higher `--s`**
+  + **no `--style raw`**, letting MJ render the color field as a smooth painterly flow. The subject is **clean
+  and legible** (a crisp, well-formed hero), not photo-textured — that trade is on-style.
+- **Photoreal-textured route** — the realism **kernel** (below) + **the bridge**: the subject keeps full
+  photo-texture and survives in one pass.
+
+The **kernel** (the photoreal-textured route's tool):
 
 - **`--style raw`** + **low `--s` (~90–120)** — the realism lever; keep `--s` low so the prompt + photographic
   cues dominate, not MJ's automatic aesthetic.
@@ -113,39 +125,44 @@ The signature always **commits to ONE light logic per image** — this is what m
 - **Golden warm-directional light** — low sun, long warm shadows, rich material texture (fur / bark / foliage
   / still water); pairs with a present human/animal subject.
 
-Pick one and commit; never "auto" / flat-ambiguous light. This is a light **lever within the photoreal
-kernel** — NOT a second render mode. (The proposed "two-mode flat-graphic vs photographic" split was
-falsified: the whole reference set is photoreal; "graphic" is composition + hard light, not a flat render.)
+Pick one and commit; never "auto" / flat-ambiguous light. This is the **photoreal route's** light lever — NOT a
+second render mode. (The smooth-wave route instead commits to a **clean legible color-flow**; the earlier
+"two-mode flat-graphic vs photographic" split was falsified — "graphic" is composition + hard light, not a flat
+illustrated render.)
 
 ## The dial model (integrated)
 
-The earlier **2-dial** model (subject-dominance × a free 3-stop render register: flat-graphic / soft-painterly
-/ crisp-photoreal) is **refined, not discarded**. With the foreground invariant in force, render-register is
-**pinned to photoreal** for any real subject — no longer a free production dial. Live variation is now:
+The earlier **2-dial** model (subject-dominance × a free 3-stop render register) is **refined, not discarded**.
+Realism is now **scoped to the subject + hard anchors** (see *The render rule*), not a global dial. Live
+variation is:
 
 1. **Subject dominance** — heroless color-field landscape (**first-class, not a defect**) → minor subject →
-   photoreal hero. Each background register spans this full range freely.
-2. **Background register** — **R1 / R2 / R3** (next section). This is where look-variety now lives.
-3. **Light treatment** — **hard-graphic ⇄ golden-warm** (see *Light treatment*); commit to one decisive light.
+   photoreal hero. Each register spans this full range freely.
+2. **Register** — **BASE = R3 Chromatic Wave (Flowing Color Waves)** · **SIBLINGS = R1 / R2** (next section).
+3. **Light / flow treatment** — **hard-graphic ⇄ golden-warm** for the photoreal route (see *Light treatment*);
+   a **clean legible color-flow** for the wave route. Commit to one — never flat/auto, never a muddy blur.
 
-What happened to the old render stops: **crisp-photoreal** became the invariant; the **soft-painterly middle**
-survives only in the separate **Explore lane** (it can't be forced on a real subject in the production path). A
-**flat / illustrated render** is not in the automated path (the invariant forbids it) — but a **graphic,
-flat-color *look*** is fully on-style, achieved by **composition + hard high-key light on real subjects**, not
-by a flat render. Set everything with the **kernel + `--sref --sw` + a decisive light** — never "+ the
-moodboard".
+A **flat / illustrated render of the subject** is still out (a real subject reads real). A **graphic, flat-color
+*look*** of the world is on-style — via composition + hard light (photoreal route) or the smooth wave route. Set
+it with the **kernel + `--sref --sw`** (photoreal route) or the **profile + higher `--s`** (wave route) — never
+"+ the averaging moodboard".
 
-## Background registers
+## Background registers (base + siblings)
 
 Three production registers — **neutral names; no artist name in the system vocabulary** (the reference artist
-exists only as an unnamed private style-ref image). The **foreground invariant holds across all three**, and
-each still spans subject-dominance freely (heroless landscape → photoreal hero).
+exists only as an unnamed private style-ref image). Re-slotted at the 2026-06-23 selection event (**PROVISIONAL**
+— firms up as the `--p`/selection loop runs):
+- **BASE — Flowing Color Waves** (= R3): the home look; most batches center here.
+- **SIBLINGS — R1 Color-Block Terrain · R2 Geometric Landform**: variation lanes off the base.
 
-| Register | What it is | Params (one-pass) |
-|---|---|---|
-| **R1 Color-Block Terrain** | Bold saturated color on **real photographable terrain** — salt flats, badlands, dunes, ridgelines. Easiest, most reliable. | `--style raw --s 110 --sw 180` |
-| **R2 Geometric Landform** | Clean **real** geometric land — stepped terraces, basalt columns, salt-pond grids, conical volcano. Geometry from real *nouns*, **not** "geometric/minimalist" *style* words. | `--style raw --s 100–120 --sw 150` |
-| **R3 Chromatic Wave** | Flowing multicolor "wave" via **the bridge** (below). **Validated in-app 2026-06-23.** | `--style raw --s 100–110 --sw 220–250` |
+The **render rule holds across all three** (realism scoped to subject + anchors), and each spans
+subject-dominance freely (heroless → photoreal hero).
+
+| Register | Tier | What it is | Params (one-pass) |
+|---|---|---|---|
+| **R3 Chromatic Wave** | **BASE** | The flowing multicolor "wave" world (*Flowing Color Waves*). | photoreal route: `--style raw --s 100–110 --sw 220–250` + the bridge · smooth-wave route: profile (`--p`) + higher `--s` + no-raw |
+| **R1 Color-Block Terrain** | SIBLING | Bold saturated color on **real photographable terrain** — salt flats, badlands, dunes, ridgelines. | `--style raw --s 110 --sw 180` |
+| **R2 Geometric Landform** | SIBLING | Clean **real** geometric land — stepped terraces, basalt columns, salt-pond grids, conical volcano. Geometry from real *nouns*, **not** "geometric/minimalist" *style* words. | `--style raw --s 100–120 --sw 150` |
 
 All three are **one-pass**. A fourth, **Pure Color-Field** (non-representational), needs a 2-step composite and
 is OUT of the automated path — see Deferred.
@@ -217,12 +234,13 @@ Cross-image cohesion, in priority order:
 Caveats: a `/tune` custom `--style` code is a **subject-fragile accent**, not a base lock; **`--seed` repeats
 the *same* prompt only** — not a cross-subject style lever.
 
-## Home base — deferred
+## Home base — Flowing Color Waves (PROVISIONAL)
 
-A single dominant "home" register is **deliberately NOT pre-decided.** It should **emerge from the user's
-selections** over time — and those selections double as the `--p` training signal. Cohesion is **already
-guaranteed by the shared kernel** (every image = raw + low `--s` + photoreal subject + one bold `--sref`), so a
-dominant register isn't required now. Revisit once selection history reveals a lean.
+**Provisional home base = Flowing Color Waves (R3)** — a *center of gravity, not a cage*. Set at the first
+selection event (2026-06-23, one keeper-curation round), so **PROVISIONAL**: it firms up as the
+`--p`/selection loop accumulates history, and may still shift. The siblings (R1/R2) stay fully on-style
+variation lanes; cohesion doesn't depend on this lock (the shared kernel/profile + fixed `--sref` already
+guarantee it). Promote to "decided" only once accumulated selections (not a single round) confirm the lean.
 
 ## Deferred / out-of-automated-path
 
@@ -275,10 +293,19 @@ dominant register isn't required now. Revisit once selection history reveals a l
   **V8.1 still current** (no V8.2/V9), **no V8-native omni / editor / official API** (so the one-pass +
   manual-compositing + ToS-risk policy holds), `--style raw`/`--s`(50–150 photoreal)/`--sw`/`--no`/`--iw 0–3`/
   `--hd`/`--seed`/`--c` all confirmed; `--exp` 0–100 (drop the "verify" flag); **`--q` unsupported on V8.1**.
+- **2026-06-23 (home-base + render-scope, from selections)**: First **selection event** (one keeper-curation
+  round) → set a **PROVISIONAL home base = Flowing Color Waves (R3)** (center of gravity, not a cage; firms up
+  as the `--p`/selection loop runs — not yet "decided," per the deferral clause + the over-fit LESSON).
+  Re-slotted the registers into **base + siblings**: BASE = R3 (Flowing Color Waves); SIBLINGS = R1, R2.
+  Clarified **render scope**: realism is **scoped to the subject + hard anchors** (not a global toggle, not a
+  revived two-mode split) — two on-style recipes: a **smooth-painterly wave route** (profile + higher `--s` +
+  no-raw; subject clean/legible) and the **photoreal-textured kernel + bridge route**. Rewrote the **reward
+  gate** as four positive tests (GATE ④ now PASSES a clean legible color-flow but FAILS a muddy/directionless
+  blur). Reviewed via design-reviewer ×2.
 
 ## Status
 
 **Working model — being validated by ongoing generation (observation phase; policy not locked).** Promote
 `draft → active` once **R1/R2/R3 + both light treatments pass the reward gate across a fresh-subject test
 set** and the **one-pass automated path** is confirmed end-to-end. (R3 validated; R1/R2 + the decisive-light
-lever still to test.) Home base + the exact personal palette stay deferred.
+lever still to test.) Home base = **provisional** (Flowing Color Waves); exact personal palette stays deferred.
