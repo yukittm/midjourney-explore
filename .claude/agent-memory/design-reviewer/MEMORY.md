@@ -1,0 +1,1 @@
+- [Home-base decision state](project_home-base-decision-state.md) — style SSoT home-base register: deferred-vs-decided history + the evidence-sufficiency tension that recurs in reviews
