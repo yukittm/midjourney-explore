@@ -29,11 +29,9 @@ we are the former.) [research: AI-art playbook]
   (a DM-share reads as an active recommendation; a save = "worth returning to"). 🟡 exact weight ratios are analyst estimates.
 
 ## 2. Positioning (fill in the blanks)
-- **Handle:** TBD · **Name field (the SEO field, not the handle):** plain searchable keywords, e.g.
-  `Abstract Color Art · Surreal AI Art` ✅ (name field is high-weight in IG search).
-  **Trade-off:** leading with "AI" optimizes for the *prompt-curious*, not *art buyers* — for a collector/print
-  path, lead with `Surreal Color Art` and keep "AI" secondary.
-- **One-liner:** surreal, flowing-color editorial art — *"where color becomes motion."*
+- **Handle:** `@timbankrupt` (Tim Bankrupt) · **Name field (SEO):** **`Digital · AI Art`** ✅ (high-weight in IG search).
+  **Trade-off:** leading with "AI / Digital art" optimizes for the *prompt-curious / creators*, not *art buyers* — fine while growth-first; revisit for a collector/print path.
+- **One-liner:** flowing-color, geometric editorial art — *"where color becomes motion."*
 - **Self-label AI honestly** via the in-app toggle. ✅ Meta says the label is for transparency and does
   **not** itself cut reach; severe penalties attach to **deepfakes/face-body manipulation**, not stylized
   generative art. (Blog claims of "15-80% reach loss" 🟡 contradict Meta's own statement — treat as unverified.)
@@ -95,7 +93,16 @@ render risks reading as generic AI.
 
 ---
 
-## 9. Profile bio — three options (pick/remix)
+## 9. Profile bio — LOCKED + earlier options
+
+**LOCKED (2026-06-24):**
+- Username: `@timbankrupt` (verify availability in-app)
+- Name field: `Digital · AI Art`
+- Bio: `Geometry, Wavelength, Objects 🌊`
+- No link yet (add when a destination exists). Self-label AI on.
+- Axes: Geometry = form/structure · Wavelength = color/light · Objects = the placed subject/thing.
+
+Earlier exploration options (kept for reference):
 **A — Keyword-first (max discovery):**
 - Name field: `Abstract Color Art · Surreal AI Art`
 - Bio: `Flowing color waves & surreal editorial art 🌊 New piece weekly · prints ↓`
