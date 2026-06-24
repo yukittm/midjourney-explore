@@ -130,16 +130,23 @@ Narrow vague → concrete (specify the **few key elements richly**; MJ can't hon
   `an abstract field` (this noun IS the register; §4–5)
 - **time / light**, **framing**
 
-## 7. Length is not the lever
+## 7. Length & differentiation — rich is the PRODUCTION default
 
-Write **as much detail as needed** to pin (a) the real subject/phenomenon and (b) the kernel — no more. V8.1
-honors length, so a detailed prompt is fine; but length is **not** the goal and **don't pad**.
-In-app (2026-06-23) a ~85-word body and the simple ~20-word originals **both** produced the look — so the
-levers are the **kernel + naming the real subject/phenomenon (incl. the bridge) + the sref**, not word count.
+Two different jobs — don't conflate them:
+- **Hitting the LOOK** — length is **not** the lever; the **kernel + sref/profile + naming the real
+  phenomenon** do that (a short prompt can hit the look). Short prompts are for a quick style-check **only**.
+- **DIFFERENTIATION at scale** — **DETAIL is the lever.** Under-specifying hands MJ its *average*, so a mass of
+  prompts **collapses to sameness**. For production/variety, write a **rich ~80-word scene spec**: specific
+  subject + attributes + action · the **named flowing phenomenon / terrain** · light · composition (fore /
+  mid / background) · atmosphere · camera. The detail is what makes each variant genuinely distinct.
 
-- **Do** front-load the load-bearing words; cut filler past ~74 tokens (it loses influence).
-- **Don't** ship a lazy 2-word prompt — specify the subject and the real background noun.
-- **Don't** chase a word target. A precise short prompt can beat a padded long one.
+**Default to a rich ~80-word prompt for production.** (Short is the exception.) This requires **low `--s`** so
+the detail is honored — **high `--s` (the smooth-wave / profile route) overrides prompt detail and re-averages**,
+so it is the LOW-differentiation route. For differentiated scenes use the **bridge / photoreal route**
+(raw + low `--s` + rich prompt + sref).
+
+- Front-load load-bearing words; the ~74-token influence cap still applies — spend the budget on the *scene*,
+  not filler. **Never ship a short, under-specified prompt for production** (it averages → sameness).
 
 ## 8. Knobs (quick reference — full table in `../research/2026-06-21_midjourney-v8.1-current.md`)
 
