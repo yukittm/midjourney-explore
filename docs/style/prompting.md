@@ -39,7 +39,11 @@ Color = a **single bold image `--sref`** (a saturated reference image), **not** 
 default, `--hd`-compatible). Writing `--sv 7` explicitly errored in-app; numeric CODES need sv4/sv6.
 To make color more vivid, raise **`--sw`** — **never `--s`**.
 
-    --sref <bold image URL> --sw 180
+**Convention: set the `--sref` IMAGE in the MJ UI** (Style Reference slot) — do **not** paste `--sref <URL>`
+into the prompt body (a placeholder URL won't run). When a reference image is needed, state it **separately**
+from the prompt body; keep only **`--sw`** in the text:
+
+    --sw 180   (with the bold reference image set in the UI)
 
 ## 3. Mechanics — V8.1 realism is global
 
@@ -72,34 +76,34 @@ pairs the §1 kernel (photoreal route) — or, for R3, the smooth-wave route —
 
 ### R1 — Color-Block Terrain (SIBLING)
 Bold color on **real terrain** (a field, a hillside, a plain). Color is in the land, not in a "style".
-- **Params:** `--style raw --s 110 --sref <URL> --sw 180 --ar 4:5 --no painting, illustration, 3d render, cgi`
+- **Params:** `--style raw --s 110 --sw 180 --ar 4:5 --no painting, illustration, 3d render, cgi`
 - **Example:**
 
       a woman in a cobalt coat standing on a vast red-earth plain under a clear deep-blue sky, editorial
       photograph, sharp realistic skin texture, 85mm f/1.8, Cinestill 800T
-      --style raw --s 110 --sref <bold URL> --sw 180 --ar 4:5 --no painting, illustration, 3d render, cgi
+      --style raw --s 110 --sw 180 --ar 4:5 --no painting, illustration, 3d render, cgi
 
 ### R2 — Geometric Landform (SIBLING)
 Geometry from **real geometric land** — terraced fields, basalt columns, salt-pond grids — **not** the words
 "geometric" / "minimalist". Name the real noun.
-- **Params:** `--style raw --s 100–120 --sref <URL> --sw 150 --ar 4:5 --no painting, illustration, 3d render, cgi`
+- **Params:** `--style raw --s 100–120 --sw 150 --ar 4:5 --no painting, illustration, 3d render, cgi`
 - **Example:**
 
       a lone figure walking across stepped emerald rice terraces at golden hour, hexagonal basalt columns at the
       ridge, editorial photograph, sharp skin texture, 85mm f/1.8, Kodak Portra 400
-      --style raw --s 110 --sref <bold URL> --sw 150 --ar 4:5 --no painting, illustration, 3d render, cgi
+      --style raw --s 110 --sw 150 --ar 4:5 --no painting, illustration, 3d render, cgi
 
 ### R3 — Chromatic Wave  (BASE — Flowing Color Waves; validated)
 The flowing multicolor "wave" world. **Two routes:** **photoreal** (the bridge §4 — a real flowing-color
 phenomenon behind a photo-textured subject) or **smooth-painterly** (profile `--p` + higher `--s` + no-raw —
 subject clean/legible; this is the keepers' route).
-- **Params (photoreal route):** `--style raw --s 100–110 --sref <URL> --sw 220–250 --ar 4:5 --no painting, illustration, 3d render, cgi`
+- **Params (photoreal route):** `--style raw --s 100–110 --sw 220–250 --ar 4:5 --no painting, illustration, 3d render, cgi`
 - **Params (smooth-wave route):** `--p <profile> --s ~250 --c 10 --ar 4:5` (no raw)
 - **Example (photoreal route):**
 
       a dancer in white mid-turn before sweeping multicolor tulip-field bands stretching to the horizon,
       editorial photograph, sharp realistic skin, 85mm f/1.8, Cinestill 800T
-      --style raw --s 105 --sref <bold URL> --sw 240 --ar 4:5 --no painting, illustration, 3d render, cgi
+      --style raw --s 105 --sw 240 --ar 4:5 --no painting, illustration, 3d render, cgi
 
 ### Deferred — Pure Color-Field
 A true paint/gradient field with no real referent → needs a **2-step composite**; **out of the automated
@@ -120,7 +124,7 @@ flat/auto light or a directionless blur is the "thin" failure.
 ## 6. Anatomy & slots
 
     [shot/angle] , [photoreal subject + attributes + action] , [real terrain/phenomenon = the register] ,
-    [kernel cues: editorial photograph, lens, film stock]   --style raw --s --sref --sw --ar --no …
+    [kernel cues: editorial photograph, lens, film stock]   --style raw --s --sw --ar --no …   (sref image set in the UI)
 
 Narrow vague → concrete (specify the **few key elements richly**; MJ can't honor many-element micro-layout):
 - **who/what + attributes** — `a woman in a long red coat`, not `a figure`
