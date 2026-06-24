@@ -25,7 +25,7 @@ Style model **formalized** (validated in-app 2026-06-23). **Foreground = photore
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
-2026-06-23 [Claude:style] **🟢 formalize the personal style from selections — base = Flowing Color Waves (PROVISIONAL) + render-scope + base/sibling + gate v2 — PASS / committed `PENDING_COMMIT`**
+2026-06-23 [Claude:style] **🟢 formalize the personal style from selections — base = Flowing Color Waves (PROVISIONAL) + render-scope + base/sibling + gate v2 — PASS / committed `eb0a642`**
   - Reviewed the user's curated keepers → **PROVISIONAL home base = Flowing Color Waves (R3)**; registers re-slotted **base (R3) + siblings (R1/R2)**. **Render rule rescoped:** realism is scoped to the **subject + hard anchors** (two on-style recipes — kernel/photoreal-textured + smooth-painterly-wave via profile/high-`--s`/no-raw, subject clean/legible there); the "two-mode" *render* split stays falsified (this is a SCOPE statement, not a mode). **Reward gate rewritten as positive tests** (GATE④ passes a clean legible color-flow, fails a muddy blur). **3-layer variation** (within-base / sibling / explore-lane); proportion emerges from selections. Dropped "white sphere" as a featured motif (the sphere *placement* was disliked; geometric objects stay a normal option — no demotion note, per user).
   - Process: design-reviewer ×2 (caught that the first draft re-opened drift + inverted the axiom → tightened to scope + positive-gate). Edited style-definition / prompting / README / reference-accounts. PROVISIONAL (not "decided") per the deferral clause + the over-fit LESSON. Next: run the variation batch; promote home base to "decided" once selection history confirms it.
 
