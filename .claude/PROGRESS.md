@@ -25,7 +25,7 @@ Style model **formalized** (validated in-app 2026-06-23). **Foreground = photore
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
-2026-06-23 [Claude:method] **🟢 capture the Remix-Fidelity production lane (prompting.md §9b) — PASS / committed `PENDING_COMMIT`**
+2026-06-23 [Claude:method] **🟢 capture the Remix-Fidelity production lane (prompting.md §9b) — PASS / committed `3e8edfa`**
   - In-app, the highest source-fidelity results (dancers / surfer sets) came from: keeper in **BOTH** the Image-Prompt(Remix) **and** Style Reference slots + `--style raw --s 110 --sw 220 --no painting, illustration, 3d render, cgi` (profile/moodboard OFF) + a **rich** prompt. = high look-fidelity (source in both slots) + a **differentiated subject** (raw + low-`--s` + rich prompt). Recorded as **§9b Remix-Fidelity lane**: variation-around-a-keeper — rewrite the prompt text → new subject, ~same texture/color/composition. Validates the photoreal/bridge route + the rich-prompt principle (high `--s`/smooth-wave was lower-fidelity). Caveat: inherits the source's composition (big departures → from-scratch §5/§7 or explore §9).
 
 2026-06-23 [Claude:style] **🟢 formalize the personal style from selections — base = Flowing Color Waves (PROVISIONAL) + render-scope + base/sibling + gate v2 — PASS / committed `eb0a642`**
