@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-23
+updated: 2026-06-24
 status: active
 type: guide
 ---
@@ -10,7 +10,7 @@ type: guide
 > `docs/style/style-definition.md`, color now comes from a **single bold image `--sref`** (a moodboard
 > *averages* its images toward a muted centre and **can't be weighted**). Cross-image *taste* is held by
 > a **trained Personalization `--p`** profile, not a per-image moodboard. This folder is retained only
-> for historical moodboard records (e.g. `blend-v1`/`blend-v2`) and any future trained-`--p` notes — it
+> for historical moodboard records (e.g. `blend-v1`) and any future trained-`--p` notes — it
 > is not part of the live generation recipe.
 
 Registry of Midjourney moodboards / trained `--p` profiles used by the project (historical + taste-layer).

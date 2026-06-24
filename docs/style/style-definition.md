@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-23
+updated: 2026-06-24
 status: draft
 type: style
 ---
@@ -118,7 +118,7 @@ subjects as palette sources.
 ## Light treatment (the decisive-light lever)
 
 The signature always **commits to ONE light logic per image** — this is what makes the references read
-"finished," and what the early flat outputs lacked. Two committed treatments, **both photoreal**:
+"finished," and what the early flat outputs lacked. Two committed light treatments for the **photoreal route**:
 
 - **Hard / high-key graphic light** — flat, clean, poster-like; large saturated color regions read as blocks;
   pairs with heroless / geometric / color-field scenes.
@@ -199,7 +199,7 @@ Subject range (breadth within unity):
 - **Architecture / structure**: a lone tiny house/cottage on a hill; a geometric pavilion / cube.
 - **Flora**: cacti, a lone iconic tree, flowering shrubs.
 - **Fauna**: horse, antelope, birds; a **figure-on-animal composite** as one hero.
-- **Figures**: a lone person, dancers, small groups. (All people/animals → photoreal, per the invariant.)
+- **Figures**: a lone person, dancers, small groups. (Subjects + hard anchors read as real — photo-textured on the kernel route, clean/legible on the wave route — per the render rule.)
 - **Devices**: scale-play, mirroring, motion, color-blocking.
 
 **Heroless color-field landscapes are first-class**, not a defect — and the feed **leans heroless / balanced**

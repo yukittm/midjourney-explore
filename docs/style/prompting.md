@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-23
+updated: 2026-06-24
 status: active
 type: guide
 ---
@@ -243,10 +243,10 @@ a genuinely different composition or a different palette, use the from-scratch r
 - Tag each prompt: **register · device · shot · light** (for curation).
 
 ### The reward gate (score every output before shipping — positive tests, must PASS all four)
-- **GATE ① — Subject & hard anchors read as real** (photo-textured in the kernel route, or clean/legible in the smooth-wave route). *Fails if* the subject reads flat/illustrated, or an anchor dissolves into the background.
-- **GATE ② — Saturated signature chord present** (not washed / pastel / grey).
-- **GATE ③ — Exactly ONE surreal idea + restraint** (≤3 element-types; **heroless OK**). *Fails if* idea-less or busy.
-- **GATE ④ — Decisive, legible color/light** — a clean directional color-flow or block PASSES; a muddy/directionless blur, flat/auto light, or muddy literal in-between FAILS.
+- **GATE ① — Subject & hard anchors read as real.** The subject and the load-bearing real objects/structures it touches are rendered convincingly — **photo-textured** in the kernel route, or **clean/legible** in the smooth-wave route; realism stays SCOPED to subject + anchors. *Fails if* the subject reads flat/illustrated/painted, or an anchor dissolves into the background.
+- **GATE ② — Saturated signature chord present.** The bold chord (saturated red/orange + green + deep-blue) is clearly readable — not washed out (`--sw` too high), pastel-faded, or muted/grey.
+- **GATE ③ — Exactly ONE surreal idea, with restraint.** One clear idea against generous negative space (≤3 element-types; **heroless is fine**). *Fails if* idea-less (an inventory) OR multi-idea / busy.
+- **GATE ④ — Decisive, legible color/light.** Color and light commit to ONE logic; the image reads as a **clean directional color-flow or block** — a legible flow PASSES. *Fails if* a muddy/directionless blur, flat/auto/ambiguous light, OR a muddy literal in-between (neither clean-graphic nor warm-rich).
 
 Only gate-passing images reach the user's selection. This gate **is** the definition of "on-style" — the anti-drift check (full text: [[style-definition]] → *The objective & the reward*).
 
