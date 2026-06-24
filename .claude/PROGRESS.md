@@ -25,7 +25,7 @@ Style model **formalized** (validated in-app 2026-06-23). **Render rule = realis
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
-2026-06-24 [Claude:marketing] **🟢 research-grounded IG growth strategy + bio/captions; PFP/icon standalone menu — PASS / committed `PENDING`**
+2026-06-24 [Claude:marketing] **🟢 research-grounded IG growth strategy + bio/captions; PFP/icon standalone menu — PASS / committed `3b54fca`**
   - Pivot to the **publish phase**. IG = Business/Creator + FB-linked (official Graph API viable later; **publishing MANUAL for now**, no paid APIs, creative-director-led). Built a research-grounded growth strategy: 3 parallel researchers (algorithm/growth · AI-art big-account playbook = giz/Mariano · bio+caption craft) → synthesized `docs/marketing/ig-growth-strategy.md` → independent design-reviewer pass (no CRITICAL; applied HIGH/MED fixes: Google-index scope, "velocity"/"7s" flag corrections, **added Phase 0 cold-start**, de-baited captions, deferred prints-in-bio to Phase 2). Confidence-flagged ✅Meta-confirmed / 🟡analyst-directional.
   - Key model: IG = search/discovery engine; **Reels = the only cold-reach surface at 0 followers**; **signature-consistency = #1 growth lever**; keyword-SEO (name/bio/caption/alt) replaces hashtags (≤5); self-label AI. Handle = **Tim Bankrupt** (EN-primary). First 3 moves: 9-12-piece runway → positioning(bio B, no-sell) → Reels-first + Trial Reels.
   - Also formalized the **PFP/icon line-art** work as a **standalone menu** (`prompts/icon-pfp/README.md`; adopted V1 = no-theme abstract wave circle). Flat-graphic params kept **LOCAL — NOT merged into core style** (PROGRESS Context guard). Finding: the `--sref` pick dominates from-scratch output.
