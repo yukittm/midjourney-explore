@@ -171,6 +171,25 @@ Separate from the production registers: a discovery lane that drops the fixed sr
 with **`--c 15–30`** to find new looks. Surface candidates here; once something lands, re-express it through the
 kernel + a register (R1/R2/R3) for production. Don't mix the explore lane into a production batch.
 
+## 9b. Remix-Fidelity lane (variation around a keeper)
+
+When a keeper's color/look is good and you want **more of that world** — vary the same subject, or swap to a
+new subject while keeping **~the same texture / palette / composition**:
+
+- Put the keeper in **BOTH** the **Image-Prompt (Remix)** slot **and** the **Style Reference** slot.
+- `--style raw --s 110 --sw ~220 --ar 4:5 --no painting, illustration, 3d render, cgi` (Personalization /
+  moodboard **OFF** — the look comes from the source in both slots).
+- **Keep the prompt** → variations of the same subject. **Rewrite the prompt (rich ~80 words)** → a NEW subject,
+  same texture/color/world.
+
+Why it works: the source in **both slots** locks the look (color + composition); raw + low `--s` + the rich
+prompt render the (new) subject with detail, not averaged → **high source-fidelity + a differentiated subject**.
+Validated in-app 2026-06-23 (the dancers / surfer sets: `raw · s110 · sw 220–230 · source in both slots`).
+
+Caveat: it **also inherits the source's composition** — ideal for a subject swap that fits a similar layout. For
+a genuinely different composition or a different palette, use the from-scratch route (§5/§7) or the explore lane
+(§9). Remix **Subtle** = stay very close to the source; **Strong** = let the new prompt push further.
+
 ## 10. The idea engine
 
 ### Variation axes (pick one value each = the artistic intention)
