@@ -1,6 +1,6 @@
 ---
 updated: 2026-06-25
-status: draft
+status: active
 type: design
 ---
 

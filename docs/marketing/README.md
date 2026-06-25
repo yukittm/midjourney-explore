@@ -13,4 +13,4 @@ publish **mechanics** (the pipeline).
 - [`ig-growth-strategy.md`](ig-growth-strategy.md) — research-grounded IG growth & content strategy + the
   LOCKED profile bio + caption templates. Confidence-flagged (✅ Meta-confirmed / 🟡 analyst-directional).
 
-Account (locked): **@timbankrupt** · Name field `Digital · AI Art` · bio `Geometry, Wavelength, Objects 🌊`.
+Account (locked): **@tim.bankrupt** · Name field `Digital · AI Art` · bio `Geometry, Wavelength, Objects 🌊`.

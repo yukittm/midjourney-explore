@@ -1,10 +1,10 @@
 ---
 updated: 2026-06-25
-status: draft
+status: active
 type: design
 ---
 
-# Asset + Posting-Queue Model (DRAFT 叩き台)
+# Asset + Posting-Queue Model
 
 > Converged from a 4-agent design pass (data-model · storage/host · scheduling · extensibility/holes),
 > 2026-06-25. **Adversarially verified 2026-06-25** (1 critical + 6 high folded in). Goal: a near-best, hole-free, highly-extensible model
