@@ -25,7 +25,7 @@ Style model **formalized** (validated in-app 2026-06-23). **Render rule = realis
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
-2026-06-25 [Claude:automation] **🟢 Phase-0 slice 2 — host=GitHub Pages locked + queue/config/hosting + validate CLI + CI — PASS / committed `PENDING`**
+2026-06-25 [Claude:automation] **🟢 Phase-0 slice 2 — host=GitHub Pages locked + queue/config/hosting + validate CLI + CI — PASS / committed `3907924`**
   - **Host decided = GitHub Pages on the public main repo** ($0, no domain, no extra account, git-versioned provenance; swappable via the host adapter → R2/Cloudinary later, esp. for video/Reels). Design doc updated. **Reels deferred** (user will likely add later). Confirmed the design is UI-/swap-flexible: headless core + adapters + data-contract queue → changing host/clock/UI is one localized piece, not a rewrite.
   - Landed: `igpub/hosting.py` (`ImageHost` adapter + `GitHubPagesHost` URL-mapper + `build_host`), `igpub/queue.py` (YAML load/list/save/move-to-published), `igpub/config.py` (config + token-from-env), `automation/validate.py` (queue-validator CLI, non-zero on failure), `config.example.yml`, `queue/_EXAMPLE.yml`, `assets/`+`published/` dirs, `.github/workflows/validate.yml` (CI: validate + tests). Tests: **24 total — 22 green + 2 queue tests skipped in-sandbox (no PyYAML) → run in CI**.
   - **Next (final slice):** Graph publish client `igpub/graph.py` (container → bounded poll → media_publish → media-id idempotency → `content_publishing_limit` pre-check → healthcheck) + `publish.py` orchestration + CLI. Then user-side prereqs: Meta System User token + enable GitHub Pages.
