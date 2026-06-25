@@ -13,7 +13,7 @@ from .imaging import aspect_ok, read_jpeg_size
 from .models import MediaType, Post, VALID_MODES, assemble_caption
 
 CAPTION_MAX = 2200
-HASHTAG_MAX = 30
+HASHTAG_MAX = 5  # IG cap (Mosseri, Dec 18 2025, posts+Reels) + firmed policy: ≤5 relevant tags, hashtags ≠ reach
 CAROUSEL_MIN = 2
 CAROUSEL_MAX = 10
 _AR_TOL = 0.02  # carousel children must share one aspect ratio within this tolerance

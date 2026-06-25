@@ -65,8 +65,9 @@ render risks reading as generic AI.
 - **Keyword SEO** ✅ — IG indexes username, **Name field**, bio (**first ~80 chars weighted**), captions
   (write a real first sentence with natural keywords), and **alt text** (a descriptive sentence per post —
   also feeds Google since Jul 2025; describe, don't keyword-stuff).
-- **Hashtags:** **3-5 niche** tags max, caption **or** first comment (both work the same now). Niche
-  descriptors over mega-tags (`#art` = invisible). A weak topical hint, not a reach driver. ✅ cap = 5.
+- **Discovery-lever priority (2026, 0 followers — 3-agent research 2026-06-25):** Reels cold-reach (completion + DM-sends) ≫ **collab posts** (borrow audience, no follower min) > **keyword-SEO** (caption/bio/Name/alt) > Explore (downstream of a winning post) > Google indexing (slow, pull-based) ≫ **hashtags (lowest)**. ⚠️ **Trial Reels is gated ≥1,000 followers → unavailable at launch.** Put the effort at the top of this list.
+- **Hashtags — FIRMED policy (2026-06-25, 3-agent research):** a **topic LABEL, not a reach lever** (Mosseri on record: hashtags don't increase reach ✅). Hard **5-per-post cap** (Dec 18 2025, posts+Reels ✅). So: **use ≤5, all relevant, in the CAPTION** (first-comment gives no benefit; Reels need them in-caption), **zero reach expectation**, and **vet each in-app** (a banned/restricted tag now wastes 1/5 of the budget). Per-post mix ≈ **2 niche/community + 2 topic + 1 broad-or-branded**, **rotated** from a per-theme library (never paste the same block). Only real 2026 upside: classification + minor Google-crawl topical context (post-Jul-2025 indexing).
+  - **Library (candidates — VERIFY each in-app for size/restriction; volumes NOT asserted):** community `aiartcommunity · aiartists · thisisaiart · midjourneyart · midjourneygallery` · topic `generativeart · abstractart · digitalart · aiartwork` · color/abstract `abstractdigitalart · colorfield · colorfulart · surrealart · editorialart` · branded — define one for future UGC (e.g. a series name), don't spend a weekly slot on it yet.
 
 ## 6. Engagement & growth amplifiers
 - **Reply fast to early comments** — early replies tend to seed a comment thread. 🟡
