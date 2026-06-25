@@ -25,7 +25,7 @@ Style model **formalized** (validated in-app 2026-06-23). **Render rule = realis
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
-2026-06-25 [Claude:automation] **🟢 Phase-0 final slice — Graph publish client + orchestration + publish CLI (mock-tested); pipeline code COMPLETE — PASS / committed `PENDING`**
+2026-06-25 [Claude:automation] **🟢 Phase-0 final slice — Graph publish client + orchestration + publish CLI (mock-tested); pipeline code COMPLETE — PASS / committed `3494515`**
   - `igpub/graph.py` (GraphClient: image/carousel containers · container_status · media_publish · permalink · content_publishing_limit; token never logged; `requests` lazy-imported → mock-testable). `igpub/publish.py` (`publish_one` over injected deps: idempotent media-id skip → claim PUBLISHING → create → **bounded poll** (ERROR/EXPIRED/timeout=fail) → publish → record media-id → PUBLISHED + move; FAILED on error; `is_due`). `automation/publish.py` (CLI: `--id` or due-now · token-from-env · 25/24h pre-check · healthcheck ping) + `tests/test_publish.py`. **Suite = 31 tests (29 green + 2 queue skipped in-sandbox → run in CI). Phase-0 pipeline code COMPLETE.**
   - **Go-live (user-side):** create Meta **System User non-expiring token** → env `IG_SYSTEM_USER_TOKEN`; **enable GitHub Pages** on the public repo; copy `automation/config.example.yml`→`config.yml` with `ig_user_id` + `host.pages_base`. Then Phase-0 test: `python automation/publish.py --id <id>`.
   - **In flight:** a 2-agent **doc-freshness audit** (post direction-changes) is running — fixes to be applied next.
