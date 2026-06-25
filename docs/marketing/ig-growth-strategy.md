@@ -121,7 +121,13 @@ Rules: front-load the niche keyword in the **first 80 chars**; one **single dire
 **At launch (0 followers) use B (no sell), or A without `prints ↓` — defer the `prints`/`commissions` bio
 lines to Phase 2** (selling before an audience exists converts poorly, §8 #3).
 
-## 10. Caption templates (no product story needed)
+## 10. Caption voice, consistency & templates
+
+**Voice (the caption signature — keep CONSTANT across the feed):** calm, sensory, observational; let the work lead; no hype, no engagement-bait, no hashtag-dump in the body. Restrained, lowercase-leaning.
+**Structure:** L1 = a fresh sensory line specific to THIS image (content-aware — read the actual image first); (optional) L2 = a rotating **axis signature** weaving `Geometry / Wavelength / Objects` — e.g. "Geometry, holding a wavelength" · "Objects, learning to flow" · "Wavelength, folded into geometry" — a recurring motif that **unifies the feed**; don't force it on every post.
+**Consistency ≠ repetition — the ANTI-SAMENESS rule (load-bearing once captions are run at scale/automated):** the VOICE stays constant, the EXPRESSION must vary. BEFORE writing each caption, **scan the last ~10 captions in `automation/published/`** and deliberately diverge — rotate the template (T1–T5 below), vary the opening pattern, don't reuse the same key phrasings or the same axis-pairing back-to-back, and **rotate/omit the emoji (never mandatory — 🌊 included)**. Goal: *one voice, many sentences* — never a template on repeat. This is the caption-level guard against the project's #1 fear (sameness at scale); it mirrors the image cross-diversity concern and MUST be enforced by the future automated/Claude-in-Chrome caption step, not just manual writing.
+
+**Templates (no product story needed):**
 > Across all: **line 1 = hook** (only ~125 chars show before "more"), **white space between lines**,
 > **one specific SAVE/SHARE CTA** (the compounding metrics for art), hashtags last or in first comment,
 > emoji as sparse anchors only (rotate/omit 🌊 — don't make one emoji mandatory). Use a genuine open
