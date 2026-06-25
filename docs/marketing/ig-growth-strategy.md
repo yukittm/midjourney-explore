@@ -9,7 +9,7 @@ type: strategy
 > Research-grounded (3 parallel research passes, 2026-06-24). **Confidence flags inline:**
 > ✅ = Meta-confirmed / first-party · 🟡 = analyst/blog estimate (directional, magnitude unverified).
 > **Working assumptions** (correct if wrong): EN-primary for global reach (the niche + our reference
-> accounts are global-English), **growth-first** (monetization later/optional), handle/name **locked** (`@tim.bankrupt` / `Digital · AI Art`).
+> accounts are global-English), **growth-first** (monetization later/optional), handle/name **locked** (`@tim.bankrupt` / `Digital Art / AI Visual`).
 > Account type confirmed = Business/Creator + FB-linked (official API viable later; publishing is **manual for now**).
 
 ## 0. The one root cause of growth
@@ -29,7 +29,7 @@ we are the former.) [research: AI-art playbook]
   (a DM-share reads as an active recommendation; a save = "worth returning to"). 🟡 exact weight ratios are analyst estimates.
 
 ## 2. Positioning (fill in the blanks)
-- **Handle:** `@tim.bankrupt` (Tim Bankrupt) · **Name field (SEO):** **`Digital · AI Art`** ✅ (high-weight in IG search).
+- **Handle:** `@tim.bankrupt` (Tim Bankrupt) · **Name field (SEO):** **`Digital Art / AI Visual`** ✅ (high-weight in IG search).
   **Trade-off:** leading with "AI / Digital art" optimizes for the *prompt-curious / creators*, not *art buyers* — fine while growth-first; revisit for a collector/print path.
 - **One-liner:** flowing-color, geometric editorial art — *"where color becomes motion."*
 - **Self-label AI honestly** via the in-app toggle. ✅ Meta says the label is for transparency and does
@@ -95,10 +95,10 @@ render risks reading as generic AI.
 
 ## 9. Profile bio — LOCKED + earlier options
 
-**LOCKED (2026-06-24):**
+**LOCKED (2026-06-24; profile finalized 2026-06-25):**
 - Username: `@tim.bankrupt` (confirmed live 2026-06-25)
-- Name field: `Digital · AI Art`
-- Bio: `Geometry, Wavelength, Objects 🌊`
+- Name field: `Digital Art / AI Visual`
+- Bio: `Geometry, Wavelength, Objects 🌊` — **triad only**; a 2nd descriptor line was considered (2026-06-25) and **deliberately omitted** for a cleaner, more distinctive look. Add a short keyworded line later only if cold-start conversion needs it (Name field carries the SEO; bio SEO is a minor lever).
 - No link yet (add when a destination exists). Self-label AI on.
 - Axes: Geometry = form/structure · Wavelength = color/light · Objects = the placed subject/thing.
 
