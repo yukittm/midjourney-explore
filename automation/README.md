@@ -1,12 +1,12 @@
 ---
-updated: 2026-06-23
+updated: 2026-06-25
 status: active
 type: guide
 ---
 
 # automation
 
-Instagram auto-upload pipeline (code). **Architecture decided 2026-06-25 → see [`ig-publish-pipeline.md`](ig-publish-pipeline.md)** (Option 1: self-owned DIY — git-file queue + Python Graph publisher + Cloudflare R2 host; manual-first → scheduled-auto, no connectors on the publish path). Code pending build.
+Instagram auto-upload pipeline (code). **Architecture decided 2026-06-25 → see [`ig-publish-pipeline.md`](ig-publish-pipeline.md)** (Option 1: self-owned DIY — git-file queue + Python Graph publisher + GitHub Pages host (R2/Cloudinary swappable later, esp. video); manual-first → scheduled-auto, no connectors on the publish path). **Phase-0 pipeline code complete + tested** (`igpub/` + `validate.py`/`publish.py` CLIs + CI); go-live = user-side token + enable Pages.
 
 ## North star & policy (decided 2026-06-23; observation phase, not yet built)
 

@@ -23,7 +23,7 @@ type: design
 - **Queue** — one **YAML file per post**: `automation/queue/<YYYY-MM-DD>_<slug>.yml`. **Approval = a commit** that sets `status: approved` + `publish_at`. On success the file moves to `automation/published/`. **git history = the approval/audit trail.**
 - **Assets** — final graded JPEGs committed under `automation/assets/<id>/` and served by **GitHub Pages**. The queue file holds repo-relative image paths; the host adapter derives the public Pages URL (`igpub/hosting.py`).
 - **Publisher** — `automation/publish.py` (~100 lines, Python + `requests`). For each **due + approved** item:
-  1. create media container(s) (`POST /{ig-user-id}/media`, `image_url` = R2 URL + caption; carousel = N child containers → 1 parent `media_type=CAROUSEL`);
+  1. create media container(s) (`POST /{ig-user-id}/media`, `image_url` = the host's public Pages URL + caption; carousel = N child containers → 1 parent `media_type=CAROUSEL`);
   2. for carousel/Reels, **poll `status_code` with backoff + a hard timeout**; treat **`ERROR`/`EXPIRED`/timeout as a failed post that alerts** (never an unbounded loop);
   3. `POST /{ig-user-id}/media_publish`;
   4. **write the returned `media_id` immediately** = the **idempotency key** (on startup, skip any record that already has a `media_id`; the file-move is cosmetic, not the dedupe guarantee);
@@ -35,7 +35,7 @@ type: design
 
 ## Queue schema (per-post YAML)
 `id` · `status` (draft→approved→publishing→published|failed) · `media_type` (image|carousel|reels) ·
-`publish_at` (ISO 8601 + TZ) · `image_urls` (R2) · `caption` (≤2200) · `hashtags` (≤30) · `alt_text` ·
+`publish_at` (ISO 8601 + TZ) · `images` (repo-relative JPEG paths; host adapter → public Pages URL) · `caption` (≤2200) · `hashtags` (≤30) · `alt_text` ·
 `provenance` {mj_prompt, sref, lut} · `result` {container_id, media_id, published_at, error}.
 
 ## Scope & caveats

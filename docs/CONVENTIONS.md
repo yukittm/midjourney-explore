@@ -66,3 +66,4 @@ Goal: after a memory reset, a future reader can tell — from the file itself **
 - `automation/` — own IG publish-pipeline design + code (SSoT for the publish mechanics).
 - `/archive/` — superseded / legacy material (see `/archive/README.md`).
 - `.claude/PROGRESS.md` — progress SSoT.
+- `docs/CONVENTIONS.md` — doc conventions (this file).

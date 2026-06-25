@@ -1,6 +1,6 @@
 ---
-updated: 2026-06-24
-status: draft
+updated: 2026-06-25
+status: active
 type: strategy
 ---
 
@@ -9,7 +9,7 @@ type: strategy
 > Research-grounded (3 parallel research passes, 2026-06-24). **Confidence flags inline:**
 > ✅ = Meta-confirmed / first-party · 🟡 = analyst/blog estimate (directional, magnitude unverified).
 > **Working assumptions** (correct if wrong): EN-primary for global reach (the niche + our reference
-> accounts are global-English), **growth-first** (monetization later/optional), handle & name TBD.
+> accounts are global-English), **growth-first** (monetization later/optional), handle/name **locked** (`@timbankrupt` / `Digital · AI Art`).
 > Account type confirmed = Business/Creator + FB-linked (official API viable later; publishing is **manual for now**).
 
 ## 0. The one root cause of growth

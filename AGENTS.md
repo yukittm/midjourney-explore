@@ -6,7 +6,7 @@ Personal project for exploring image generation with Midjourney. The goal is to 
 
 Use this file as a standalone operating contract for coding, review, debugging, documentation, and project maintenance — kept mirrored with `CLAUDE.md` so Claude and Codex stay aligned.
 
-**Source of truth**: `docs/style/` (own visual style) · `docs/marketing/` (marketing/growth decisions) · `.claude/PROGRESS.md` (progress) · `docs/research/` (external reference, read-only) · `automation/` (IG publish-pipeline design+code) · `docs/CONVENTIONS.md` (doc conventions). **Verification**: `PYTHONPATH=automation python3 -m unittest discover -s automation/tests` (install deps first: `pip install -r automation/requirements.txt`).
+**Source of truth**: `docs/style/` (own visual style) · `docs/marketing/` (marketing/growth decisions) · `.claude/PROGRESS.md` (progress) · `docs/research/` (external reference, read-only) · `automation/` (IG publish-pipeline design+code) · `/archive/` (superseded material) · `docs/CONVENTIONS.md` (doc conventions). **Verification**: `PYTHONPATH=automation python3 -m unittest discover -s automation/tests` (install deps first: `pip install -r automation/requirements.txt`).
 
 ## Common Operating Contract
 
