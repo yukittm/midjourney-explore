@@ -1,0 +1,3 @@
+# IG publish pipeline runtime deps (stdlib-only domain/validation core; these are for I/O layers).
+PyYAML>=6.0      # queue files
+requests>=2.31   # Meta Graph API calls (publish layer)

@@ -8,7 +8,7 @@
 
 Personal project for exploring image generation with Midjourney. The goal is to run a wide range of prompt experiments, converge on a consistent personal visual style, and eventually automate publishing the selected outputs to Instagram. Repo type: experimentation + automation workspace (prompt/style notes plus an Instagram auto-upload pipeline). Active workflow: iterate on Midjourney prompts → curate and define a personal style → build and maintain the automated Instagram upload.
 
-**Source of truth**: `docs/style/` (own visual style) · `docs/marketing/` (marketing/growth decisions) · `.claude/PROGRESS.md` (progress) · `docs/research/` (external reference, read-only) · `automation/` (IG publish-pipeline design+code) · `docs/CONVENTIONS.md` (doc conventions). **Verification**: no code yet — set test/lint commands here when `automation/` lands.
+**Source of truth**: `docs/style/` (own visual style) · `docs/marketing/` (marketing/growth decisions) · `.claude/PROGRESS.md` (progress) · `docs/research/` (external reference, read-only) · `automation/` (IG publish-pipeline design+code) · `docs/CONVENTIONS.md` (doc conventions). **Verification**: `PYTHONPATH=automation python3 -m unittest discover -s automation/tests` (install deps first: `pip install -r automation/requirements.txt`).
 
 ---
 
