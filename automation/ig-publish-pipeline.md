@@ -28,7 +28,7 @@ type: design
   3. `POST /{ig-user-id}/media_publish`;
   4. **write the returned `media_id` immediately** = the **idempotency key** (on startup, skip any record that already has a `media_id`; the file-move is cosmetic, not the dedupe guarantee);
   5. flip `status: published` / move file; **ping a healthcheck URL** (dead-man's-switch).
-  - **Pre-check `GET /{ig-user-id}/content_publishing_limit`** before publishing; defer if the ~25/24h quota is exhausted (matters when flushing a backlog).
+  - **Pre-check `GET /{ig-user-id}/content_publishing_limit`** before publishing; defer if the ~100/24h quota is exhausted (matters when flushing a backlog).
 - **Validation** — `automation/validate.py`, run as a **pre-commit hook / CI check on the queue file** (NOT only at runtime): caption ≤2200 chars, ≤30 hashtags, carousel ≤10, **aspect 4:5–1.91:1** (read JPEG dims), JPEG-only, required fields + URLs present. A bad post is rejected **at approval**, not at 3am.
 - **Secrets** — the non-expiring System User token lives in **macOS Keychain** (Phase 0) / the **clock-host's secret store** (Phase 1) — never a committed file; **scrub `access_token` from all logs**; `.gitignore` + a `gitleaks` guard.
 - **Monitoring** — failures write `error` to the record + send an email alert; the **healthcheck ping** (e.g. healthchecks.io free) fires an alert if the runner goes silent. This single mitigation closes DIY's only real gap vs a managed SaaS.
@@ -45,7 +45,7 @@ The calendar is **DERIVED** from approved posts + `schedule.yml` (run `automatio
 ## Scope & caveats
 - **The auto-pipeline covers: single images + carousels (≤10) + silent / pre-baked-audio Reels.**
 - **Trending/licensed-audio Reels CANNOT be auto-published via ANY API** (Graph or Buffer). → Those **stay manual** (native app). The marketing strategy's "Reels-first cold start" → **cold-start trending-audio Reels are manual for now**; the pipeline carries images/carousels (+ silent Reels). See [[../docs/marketing/ig-growth-strategy]].
-- Rate limit ~25/24h shared across formats (pre-checked); carousel ≤10 is an API-wide cap.
+- Rate limit ~100/24h shared across formats (pre-checked); carousel ≤10 is an API-wide cap.
 
 ## Data flow
 ```

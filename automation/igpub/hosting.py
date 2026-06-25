@@ -18,7 +18,7 @@ class GitHubPagesHost:
     """
 
     def __init__(self, pages_base: str) -> None:
-        # e.g. https://timbankrupt.github.io/midjourney-explore
+        # e.g. https://yukittm.github.io/midjourney-explore
         self.pages_base = pages_base.rstrip("/")
 
     def url_for(self, repo_relative_path: str) -> str:

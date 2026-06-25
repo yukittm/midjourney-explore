@@ -9,10 +9,10 @@ from igpub.hosting import GitHubPagesHost, build_host  # noqa: E402
 
 class TestGitHubPagesHost(unittest.TestCase):
     def test_url_for_strips_slashes(self):
-        h = GitHubPagesHost("https://timbankrupt.github.io/midjourney-explore/")
+        h = GitHubPagesHost("https://yukittm.github.io/midjourney-explore/")
         self.assertEqual(
             h.url_for("/automation/assets/x/01.jpg"),
-            "https://timbankrupt.github.io/midjourney-explore/automation/assets/x/01.jpg",
+            "https://yukittm.github.io/midjourney-explore/automation/assets/x/01.jpg",
         )
 
     def test_build_host_github_pages(self):
