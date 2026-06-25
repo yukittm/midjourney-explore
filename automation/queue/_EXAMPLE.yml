@@ -1,0 +1,20 @@
+# Example queue entry — IGNORED by the runner (filename starts with "_").
+# Copy to  automation/queue/2026-07-02_my-slug.yml , fill in, commit the JPEG under
+# automation/assets/<id>/, then APPROVE by a commit that sets  status: approved .
+id: 2026-07-02_example-chromatic-wave
+status: draft            # draft -> approved (the gate) -> publishing -> published | failed
+media_type: image        # image | carousel | reels
+publish_at: 2026-07-02T19:00:00+09:00   # ISO 8601 with offset (JST here)
+images:                  # repo-relative local JPEG paths (4:5 .. 1.91:1, JPEG only)
+  - automation/assets/2026-07-02_example-chromatic-wave/01.jpg
+caption: |
+  Teal folding into gold, the moment before it spills over.
+
+  Save this for a grey day.
+hashtags: [abstractart, colorart, aiart]   # without '#', <= 30 total
+alt_text: abstract flowing color waves of teal and amber, surreal editorial color art
+provenance:
+  mj_prompt: "..."
+  sref: "..."
+  lut: "..."
+result: {}

@@ -1,0 +1,16 @@
+# Copy to  automation/config.yml  (gitignored) and fill in.
+# NON-SECRET — the access token is NOT here; it is read from the IG_SYSTEM_USER_TOKEN env var only.
+ig_user_id: "<your-ig-business-account-id>"
+graph_version: "v21.0"
+timezone: "Asia/Tokyo"
+
+host:
+  kind: github_pages
+  # Serves automation/assets/... as public JPEGs. Enable GitHub Pages on the (public) repo.
+  pages_base: "https://<user>.github.io/<repo>"
+
+poll:
+  timeout_seconds: 300     # hard cap waiting for a carousel/Reels container to finish processing
+  interval_seconds: 5
+
+healthcheck_url: ""        # optional dead-man's-switch ping (e.g. a healthchecks.io URL)
