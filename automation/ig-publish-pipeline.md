@@ -34,9 +34,13 @@ type: design
 - **Monitoring** — failures write `error` to the record + send an email alert; the **healthcheck ping** (e.g. healthchecks.io free) fires an alert if the runner goes silent. This single mitigation closes DIY's only real gap vs a managed SaaS.
 
 ## Queue schema (per-post YAML)
-`id` · `status` (draft→approved→publishing→published|failed) · `media_type` (image|carousel|reels) ·
-`publish_at` (ISO 8601 + TZ) · `images` (repo-relative JPEG paths; host adapter → public Pages URL) · `caption` (≤2200) · `hashtags` (≤30) · `alt_text` ·
-`provenance` {mj_prompt, sref, lut} · `result` {container_id, media_id, published_at, error}.
+A post is an ordered list of `assets` discriminated by `media_type`. Full spec + per-type examples:
+[`asset-queue-model.md`](asset-queue-model.md).
+`id` · `schema_version` · `status` (draft→approved→scheduled→publishing→published|failed) ·
+`media_type` (image|carousel|reels|story) · `publish_at` (ISO 8601 + offset; set by `plan.py` for auto posts) ·
+`schedule_mode` (auto|pinned|hold) · `priority` · `assets` [{kind, key, alt_text, user_tags, provenance}] ·
+`caption` (≤2200) · `hashtags` (≤30) · `result` {container_id, media_id, permalink, published_at, error}.
+The calendar is **DERIVED** from approved posts + `schedule.yml` (run `automation/plan.py`); the queue stays the SSoT.
 
 ## Scope & caveats
 - **The auto-pipeline covers: single images + carousels (≤10) + silent / pre-baked-audio Reels.**

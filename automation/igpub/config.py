@@ -4,8 +4,6 @@ from __future__ import annotations
 
 import os
 
-import yaml
-
 CONFIG_PATH = "automation/config.yml"
 TOKEN_ENV = "IG_SYSTEM_USER_TOKEN"
 
@@ -14,6 +12,7 @@ def load_config(repo_root: str = ".", path: str = CONFIG_PATH) -> dict:
     full = os.path.join(repo_root, path)
     if not os.path.isfile(full):
         return {}
+    import yaml  # lazy — keeps the package importable without PyYAML (consistency w/ queue/schedule/graph)
     with open(full, "r", encoding="utf-8") as f:
         return yaml.safe_load(f) or {}
 

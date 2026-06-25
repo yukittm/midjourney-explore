@@ -7,15 +7,14 @@ import unittest
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from igpub.imaging import aspect_ok, read_jpeg_size  # noqa: E402
-from igpub.models import MediaType, Post, Status  # noqa: E402
+from igpub.models import MediaType, Post, Status, image_asset  # noqa: E402
 from igpub.validate import validate_meta, validate_post  # noqa: E402
 
 
-def make_post(**kw) -> Post:
-    base = dict(
-        id="t", status=Status.APPROVED, media_type=MediaType.IMAGE,
-        publish_at="2026-07-02T19:00:00+09:00", images=["a.jpg"],
-    )
+def make_post(images=("a.jpg",), **kw) -> Post:
+    assets = kw.pop("assets", None) or [image_asset(i) for i in images]
+    base = dict(id="t", status=Status.APPROVED, media_type=MediaType.IMAGE,
+                publish_at="2026-07-02T19:00:00+09:00", assets=assets)
     base.update(kw)
     return Post(**base)
 
@@ -76,6 +75,25 @@ class TestMeta(unittest.TestCase):
         errs = validate_meta(make_post(media_type=MediaType.CAROUSEL, images=["a.jpg"]))
         self.assertTrue(any("carousel needs" in e for e in errs))
 
+    def test_bad_schedule_mode(self):
+        errs = validate_meta(make_post(schedule_mode="whenever"))
+        self.assertTrue(any("schedule_mode" in e for e in errs))
+
+    def test_scheduled_needs_publish_at(self):
+        errs = validate_meta(make_post(status=Status.SCHEDULED, publish_at=""))
+        self.assertTrue(any("publish_at is required" in e for e in errs))
+
+    def test_reels_needs_video_asset(self):
+        errs = validate_meta(make_post(media_type=MediaType.REELS, images=["a.jpg"]))
+        self.assertTrue(any("reels needs exactly 1 video" in e for e in errs))
+
+    def test_story_rejects_caption(self):
+        from igpub.models import Asset
+        post = make_post(media_type=MediaType.STORY, assets=[Asset(kind="image", key="a.jpg")],
+                         caption="hello")
+        errs = validate_meta(post)
+        self.assertTrue(any("story posts cannot carry caption" in e for e in errs))
+
 
 class TestImages(unittest.TestCase):
     def test_good_image_passes(self):
@@ -95,6 +113,24 @@ class TestImages(unittest.TestCase):
                 f.write(minimal_jpeg(1000, 3000))
             errs = validate_post(make_post(), repo_root=d)
             self.assertTrue(any("aspect ratio" in e for e in errs))
+
+    def test_carousel_mixed_aspect_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            with open(os.path.join(d, "a.jpg"), "wb") as f:
+                f.write(minimal_jpeg(1080, 1080))   # 1:1
+            with open(os.path.join(d, "b.jpg"), "wb") as f:
+                f.write(minimal_jpeg(1080, 1350))   # 4:5
+            post = make_post(media_type=MediaType.CAROUSEL, images=["a.jpg", "b.jpg"])
+            errs = validate_post(post, repo_root=d)
+            self.assertTrue(any("share one aspect ratio" in e for e in errs))
+
+    def test_carousel_same_aspect_ok(self):
+        with tempfile.TemporaryDirectory() as d:
+            for n in ("a.jpg", "b.jpg"):
+                with open(os.path.join(d, n), "wb") as f:
+                    f.write(minimal_jpeg(1080, 1350))
+            post = make_post(media_type=MediaType.CAROUSEL, images=["a.jpg", "b.jpg"])
+            self.assertEqual(validate_post(post, repo_root=d), [])
 
 
 if __name__ == "__main__":

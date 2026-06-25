@@ -6,8 +6,10 @@ timezone: "Asia/Tokyo"
 
 host:
   kind: github_pages
-  # Serves automation/assets/... as public JPEGs. Enable GitHub Pages on the (public) repo.
+  # Serves automation/assets/... as public JPEGs. Enable GitHub Pages on the (public) repo with
+  # source = main branch, "/" (root). Public URL = pages_base + "/" + the asset key (repo path).
   pages_base: "https://<user>.github.io/<repo>"
+  # Video (Reels) host (Cloudflare R2) is added in the FULL build — see asset-queue-model.md §10.
 
 poll:
   timeout_seconds: 300     # hard cap waiting for a carousel/Reels container to finish processing

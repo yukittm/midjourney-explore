@@ -1,0 +1,17 @@
+# Posting cadence — the DERIVED calendar is a pure function of (approved posts + this file).
+# `python automation/plan.py` assigns each approved auto-mode post to the next free slot here.
+# This file is editorial (version-worthy); change it to reshape the calendar, then re-run plan.
+
+timezone: "Asia/Tokyo"          # IANA tz; slot times below are wall-clock in this zone (DST-correct)
+
+slots:                          # one post is placed per slot, earliest-free first
+  - time: "19:00"               # 19:00 JST daily (evening engagement window)
+    # days: [mon, tue, wed, thu, fri, sat, sun]   # optional — default: every day
+    # media_types: [image, carousel, reels]       # optional — default: any type
+
+rate:
+  max_per_24h: 22               # self-imposed cap (Meta's real content-publishing limit is ~100/24h)
+  min_gap_minutes: 180          # never schedule two posts closer than this
+
+horizon_days: 21                # how far ahead the planner will fill
+blackout: []                    # YYYY-MM-DD dates to skip, e.g. [2026-12-31]

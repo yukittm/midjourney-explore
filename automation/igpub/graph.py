@@ -50,13 +50,17 @@ class GraphClient:
         return data
 
     # --- containers ---
-    def create_image_container(self, image_url: str, caption: str) -> str:
-        return self._post(f"{self.ig_user_id}/media",
-                          {"image_url": image_url, "caption": caption})["id"]
+    def create_image_container(self, image_url: str, caption: str, alt_text: str = "") -> str:
+        params = {"image_url": image_url, "caption": caption}
+        if alt_text:
+            params["alt_text"] = alt_text
+        return self._post(f"{self.ig_user_id}/media", params)["id"]
 
-    def create_carousel_child(self, image_url: str) -> str:
-        return self._post(f"{self.ig_user_id}/media",
-                          {"image_url": image_url, "is_carousel_item": "true"})["id"]
+    def create_carousel_child(self, image_url: str, alt_text: str = "") -> str:
+        params = {"image_url": image_url, "is_carousel_item": "true"}
+        if alt_text:
+            params["alt_text"] = alt_text
+        return self._post(f"{self.ig_user_id}/media", params)["id"]
 
     def create_carousel(self, child_ids: list[str], caption: str) -> str:
         return self._post(f"{self.ig_user_id}/media",

@@ -1,20 +1,38 @@
 # Example queue entry — IGNORED by the runner (filename starts with "_").
-# Copy to  automation/queue/2026-07-02_my-slug.yml , fill in, commit the JPEG under
+# Copy to  automation/queue/2026-07-02_my-slug.yml , fill in, commit the JPEG(s) under
 # automation/assets/<id>/, then APPROVE by a commit that sets  status: approved .
+# Run  python automation/plan.py --apply  to assign a publish_at slot (status -> scheduled).
+#
+# A post is an ordered list of `assets`; `media_type` selects which fields apply.
+# Types: image (1 image) | carousel (2-10, image/video mix) | reels (1 video) | story (1 asset).
 id: 2026-07-02_example-chromatic-wave
-status: draft            # draft -> approved (the gate) -> publishing -> published | failed
-media_type: image        # image | carousel | reels
-publish_at: 2026-07-02T19:00:00+09:00   # ISO 8601 with offset (JST here)
-images:                  # repo-relative local JPEG paths (4:5 .. 1.91:1, JPEG only)
-  - automation/assets/2026-07-02_example-chromatic-wave/01.jpg
+schema_version: 1
+status: draft            # draft -> approved (the gate) -> scheduled -> publishing -> published | failed
+media_type: image        # image | carousel | reels | story
+publish_at: ""           # set by plan.py for auto posts; or pin it yourself (ISO 8601 + offset)
+schedule_mode: auto      # auto (planner picks the slot) | pinned (keep my publish_at) | hold (skip)
+priority: 0              # higher = assigned a slot first
+
+assets:                  # ordered; each maps to a Graph child container
+  - kind: image          # image | video
+    key: automation/assets/2026-07-02_example-chromatic-wave/01.jpg   # repo-relative (4:5..1.91:1, JPEG)
+    alt_text: abstract flowing color waves of teal and amber, surreal editorial color art
+    # user_tags: []      # image only (product/user tags)
+    provenance:          # PER-asset (kept with the image, not the post)
+      mj_prompt: "..."
+      sref: "..."
+      sv: ""
+      lut: "..."
+
 caption: |
   Teal folding into gold, the moment before it spills over.
 
   Save this for a grey day.
-hashtags: [abstractart, colorart, aiart]   # without '#', <= 30 total
-alt_text: abstract flowing color waves of teal and amber, surreal editorial color art
-provenance:
-  mj_prompt: "..."
-  sref: "..."
-  lut: "..."
-result: {}
+hashtags: [abstractart, colorart, aiart]   # without '#', <= 30 total (assembled into the caption)
+
+result: {}               # runner-written: container_id / media_id / permalink / published_at / error
+# --- carousel example (replace media_type + assets above) ---
+# media_type: carousel
+# assets:
+#   - {kind: image, key: automation/assets/<id>/01.jpg, alt_text: "..."}   # all children:
+#   - {kind: image, key: automation/assets/<id>/02.jpg, alt_text: "..."}   # the SAME aspect ratio

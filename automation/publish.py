@@ -17,8 +17,23 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))  # make `import i
 from igpub.config import get_token, load_config  # noqa: E402
 from igpub.graph import GraphClient  # noqa: E402
 from igpub.hosting import build_host  # noqa: E402
-from igpub.publish import DAILY_LIMIT, is_due, publish_one  # noqa: E402
+from igpub.publish import DAILY_LIMIT, id_publishable, is_due, publish_one  # noqa: E402
 from igpub.queue import list_posts, move_to_published, save_post  # noqa: E402
+
+
+def _reachable(url: str) -> bool:
+    """HEAD-probe a public asset URL before the Graph call. A 4xx/5xx (e.g. Pages/R2 not yet
+    propagated) → not reachable (retriable); a network hiccup → treat as reachable (let the real
+    Graph call surface it, don't block a publish on the probe)."""
+    import urllib.error
+    import urllib.request
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, method="HEAD"), timeout=10) as r:
+            return 200 <= getattr(r, "status", 200) < 400
+    except urllib.error.HTTPError as e:
+        return e.code < 400
+    except Exception:  # noqa: BLE001
+        return True
 
 
 def main() -> int:
@@ -38,9 +53,21 @@ def main() -> int:
     host = build_host(config)
     poll = config.get("poll", {}) or {}
     now = datetime.fromisoformat(args.now) if args.now else datetime.now(timezone.utc)
+    if now.tzinfo is None:        # a naive --now would crash is_due / mis-time the comparison → treat as UTC
+        now = now.replace(tzinfo=timezone.utc)
 
     posts = list_posts(repo_root)
-    targets = [p for p in posts if p.id == args.id] if args.id else [p for p in posts if is_due(p, now)]
+    if args.id:
+        # --id is a manual override of the schedule, but NOT of the approval gate.
+        targets = []
+        for p in (p for p in posts if p.id == args.id):
+            ok, reason = id_publishable(p)
+            if ok:
+                targets.append(p)
+            else:
+                print(f"skip {p.id}: {reason}")
+    else:
+        targets = [p for p in posts if is_due(p, now)]
     if not targets:
         print("nothing to publish")
         return 0
@@ -58,7 +85,8 @@ def main() -> int:
         try:
             publish_one(post, graph, host, save_post, lambda p: move_to_published(p, repo_root),
                         poll_timeout=poll.get("timeout_seconds", 300),
-                        poll_interval=poll.get("interval_seconds", 5))
+                        poll_interval=poll.get("interval_seconds", 5),
+                        head_check=_reachable)
             published += 1
             print(f"✓ published {post.id} -> {post.result.media_id}")
         except Exception as e:  # noqa: BLE001
