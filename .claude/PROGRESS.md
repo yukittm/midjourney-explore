@@ -25,7 +25,7 @@ Style model **formalized** (validated in-app 2026-06-23). **Render rule = realis
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
-2026-06-25 [Claude:docs] **🟢 doc-freshness pass (2-agent audit) — R2→Pages drift + locked-profile + SoT congruence fixed — PASS / committed `PENDING`**
+2026-06-25 [Claude:docs] **🟢 doc-freshness pass (2-agent audit) — R2→Pages drift + locked-profile + SoT congruence fixed — PASS / committed `8aab6c2`**
   - 2 independent doc-audit agents (host-change/SoT · xrefs/conventions) after the session's many direction-changes → repo mostly clean; fixed: `automation/README.md` (stale "Cloudflare R2 host" + "Code pending build" + date→2026-06-25), `ig-publish-pipeline.md` (2 residual "R2" schema/flow tags → Pages / repo-relative paths), `ig-growth-strategy.md` (`draft`→`active` + "handle/name TBD"→locked `@timbankrupt` + date), `docs/style/README.md` date→2026-06-24, and made the **§Source-of-truth lists congruent** across CONVENTIONS/CLAUDE/AGENTS (added `/archive/` to CLAUDE/AGENTS, `CONVENTIONS.md` to CONVENTIONS). Historical R2 PROGRESS entries left as the append-only log (accurate as-of-their-time). All wikilinks/relative paths resolve; no live `moodboards/` refs.
 
 2026-06-25 [Claude:automation] **🟢 Phase-0 final slice — Graph publish client + orchestration + publish CLI (mock-tested); pipeline code COMPLETE — PASS / committed `3494515`**

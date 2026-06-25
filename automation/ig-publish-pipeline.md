@@ -76,7 +76,7 @@ low-maintenance design** that makes customization and a future UI a bolt-on, not
   read-only dashboard) is **another thin caller of the same core** → zero core changes.
 - **Queue = the data contract** — the per-post YAML schema IS the API any front-end reads/writes; the
   git queue stays the single source of truth regardless of interface.
-- **Side-effects behind adapters** — Graph API, R2 upload, and git ops each sit behind a small interface,
+- **Side-effects behind adapters** — Graph API, the image-host (commit for Pages / upload for R2), and git ops each sit behind a small interface,
   so they are swappable + mockable (host/clock/store change without touching core logic; unit-testable).
 - **Config-driven** — account id, defaults, cadence in `config.yml` → behavior customizable without code edits.
 - **Module boundaries** — `igpub/{models,queue,validate,publish,adapters}/` · `cli/` · (future) `web/`.
