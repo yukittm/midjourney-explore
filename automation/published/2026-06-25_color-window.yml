@@ -1,0 +1,40 @@
+id: 2026-06-25_color-window
+schema_version: 1
+status: published
+media_type: image
+publish_at: ''
+assets:
+- kind: image
+  key: automation/assets/2026-06-25_color-window/01.jpg
+  alt_text: A surreal landscape of green and deep-red terraced hills beneath blue
+    mountains, with a central geometric window framing a flowing wave of teal, white
+    and blue liquid color.
+  provenance:
+    mj_prompt: geometric scene (Midjourney V8.1)
+    params: --chaos 10 --ar 4:5 --profile g2sx9a7
+    sref: (private reference)
+    model: midjourney v8.1
+caption: 'A quiet valley, and a window the color won''t sit still in.
+
+
+  Geometry, holding a wavelength. 🌊
+
+  '
+hashtags:
+- geometry
+- wavelength
+- digitalart
+- generativeart
+- midjourneyart
+schedule_mode: pinned
+priority: 0
+result:
+  container_id: '17892061119514972'
+  media_id: '18126888094652044'
+  permalink: https://www.instagram.com/p/DaA4NtuH9Xo/
+  published_at: '2026-06-25T15:22:24.370650+00:00'
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []
