@@ -1,6 +1,6 @@
 # PROGRESS.md
 
-**Updated**: 2026-06-25 | **Project**: midjourney-explore | **Branch**: master [uncommitted: yes]
+**Updated**: 2026-06-25 | **Project**: midjourney-explore | **Branch**: master [working tree: clean — go-live infra committed+pushed]
 
 > Single progress SSoT for **both Claude and Codex**. Entry rules: `.claude/protocols/progress-management.md`.
 > Entry format: `` YYYY-MM-DD [Actor:scope][s:UUID-8] **{🟢|🟡|🔴} title — status / committed `<hash>`** ``
@@ -25,6 +25,13 @@ Style model **formalized** (validated in-app 2026-06-23). **Render rule = realis
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
+2026-06-25 [Claude:repo] **🟢 clean-state pass — must-fix doc↔code gaps + cruft removed; CI secret-scan added — in working tree**
+  - User: reach a completely clean state (fix all must-fix · modernize structure · archive legacy · zero cruft) BEFORE the Meta-wiring switch. Inventory + actions:
+  - **doc↔code lie fixed:** `ig-publish-pipeline.md` promised a `gitleaks` guard that never existed → implemented a **dependency-free CI secret-scan** (`validate.yml` job: Meta token-pattern `EAA…` + `.env`/`config.yml`-not-tracked; verified it passes locally) and aligned the doc.
+  - **cruft removed:** empty `agent-memory/security-auditor/` (left by the user-rejected security agent); committed the dangling agent-memory (researcher rate-limit note →100/24h, code-reviewer idempotency-model note).
+  - **honesty touches:** `config.yml` ig_user_id comment `@tim.bankrupt`→locked `@timbankrupt` + RE-CONFIRM flag (ties to the go-live blocker); `ig-publish-pipeline.md` "image paths"→"asset keys" + Secrets section now describes the real env-var/`.env` setup; `outputs/README` cross-refs the `automation/assets/` publish-subset.
+  - **Structure verdict** (this session's Lens-2 + the `41d345d` audit): **sound, right-sized — no restructure/archive needed**; the two design docs are complementary (not redundant), the folder tree is clean. Deliberately left craft choices (`--c 10`) and did not over-merge docs (balance: no 重箱の隅). **Next = the Meta-wiring switch (assign Page→System User, regen token, reconfirm ig_user_id) → first post.**
+
 2026-06-25 [Claude:review] **🟡 holistic 4-agent project review (balanced: load-bearing, not nitpicks) — project healthy; 1 go-live BLOCKER found + hygiene fixed — in working tree**
   - 4 parallel review agents (coherence/SSoT · architecture/extensibility · strategy-coherence · completeness/risk) over the WHOLE project, balance = rework/extensibility-risk not 重箱の隅. **Verdict: healthy — no one-way doors, code already vetted, no over-build; structure right-sized.**
   - **★CRITICAL (found by verification): go-live token wiring is broken.** Saved System User token is valid (graph.facebook.com SYSTEM_USER) but `/me/accounts`=empty + `ig_user_id 17841475449138178` inaccessible + `graph.instagram.com` rejects it → the Page/IG asset isn't assigned to the System User. **Blocks the first post.** Fix = assign Page to System User (Business Settings) + regen token (pages_show_list/business_management) + reconfirm ig_user_id. (Earlier "go-live setup DONE" was over-optimistic — the publish path was never exercised.)

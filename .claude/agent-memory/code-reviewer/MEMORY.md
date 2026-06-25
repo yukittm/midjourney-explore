@@ -1,0 +1,1 @@
+- [igpub idempotency model](project_igpub_idempotency_model.md) — how the IG publish pipeline guards double-posting + the crash-window gap in that guard

@@ -21,7 +21,7 @@ type: design
 
 ## Components
 - **Queue** — one **YAML file per post**: `automation/queue/<YYYY-MM-DD>_<slug>.yml`. **Approval = a commit** that sets `status: approved` + `publish_at`. On success the file moves to `automation/published/`. **git history = the approval/audit trail.**
-- **Assets** — final graded JPEGs committed under `automation/assets/<id>/` and served by **GitHub Pages**. The queue file holds repo-relative image paths; the host adapter derives the public Pages URL (`igpub/hosting.py`).
+- **Assets** — final graded JPEGs committed under `automation/assets/<id>/` and served by **GitHub Pages**. The queue file holds repo-relative asset keys; the host adapter derives the public Pages URL (`igpub/hosting.py`).
 - **Publisher** — `automation/publish.py` (~100 lines, Python + `requests`). For each **due + approved** item:
   1. create media container(s) (`POST /{ig-user-id}/media`, `image_url` = the host's public Pages URL + caption; carousel = N child containers → 1 parent `media_type=CAROUSEL`);
   2. for carousel/Reels, **poll `status_code` with backoff + a hard timeout**; treat **`ERROR`/`EXPIRED`/timeout as a failed post that alerts** (never an unbounded loop);
@@ -30,7 +30,7 @@ type: design
   5. flip `status: published` / move file; **ping a healthcheck URL** (dead-man's-switch).
   - **Pre-check `GET /{ig-user-id}/content_publishing_limit`** before publishing; defer if the ~100/24h quota is exhausted (matters when flushing a backlog).
 - **Validation** — `automation/validate.py`, run as a **pre-commit hook / CI check on the queue file** (NOT only at runtime): caption ≤2200 chars, ≤30 hashtags, carousel ≤10, **aspect 4:5–1.91:1** (read JPEG dims), JPEG-only, required fields + URLs present. A bad post is rejected **at approval**, not at 3am.
-- **Secrets** — the non-expiring System User token lives in **macOS Keychain** (Phase 0) / the **clock-host's secret store** (Phase 1) — never a committed file; **scrub `access_token` from all logs**; `.gitignore` + a `gitleaks` guard.
+- **Secrets** — the non-expiring System User token lives in the **`IG_SYSTEM_USER_TOKEN` env var** (Phase 0, from `automation/.env`, gitignored + chmod 600) / the **clock-host's secret store** (Phase 1) — never a committed file; **scrub `access_token` from all logs** (the Graph client never logs it); `.gitignore` + a **CI secret-scan** (`.github/workflows/validate.yml`: Meta token-pattern + `.env`/`config.yml`-not-tracked).
 - **Monitoring** — failures write `error` to the record + send an email alert; the **healthcheck ping** (e.g. healthchecks.io free) fires an alert if the runner goes silent. This single mitigation closes DIY's only real gap vs a managed SaaS.
 
 ## Queue schema (per-post YAML)
@@ -88,7 +88,7 @@ low-maintenance design** that makes customization and a future UI a bolt-on, not
 
 ## Build roadmap
 **Phase 0 — manual (build the durable core; publishing stays by-hand meanwhile):**
-1. *(assistant)* scaffold `automation/{queue,published}/`, `config.yml`, the YAML schema; `.gitignore` + gitleaks.
+1. *(assistant)* scaffold `automation/{queue,published}/`, `config.yml`, the YAML schema; `.gitignore` + the CI secret-scan.
 2. *(assistant)* `publish.py` + `validate.py` + a CI validation workflow.
 3. *(user — auth only)* Meta: confirm IG↔Page link; create a **System User**; generate the **non-expiring token** with `instagram_business_basic` + `instagram_business_content_publish` (+ `pages_show_list`, `business_management`); record the IG user ID.
 4. *(user)* Enable **GitHub Pages** on the (public) repo serving `automation/assets/`; confirm a sample JPEG URL fetches as raw bytes. *(No domain, $0.)*

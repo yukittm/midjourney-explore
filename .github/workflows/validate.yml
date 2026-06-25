@@ -18,3 +18,20 @@ jobs:
         run: python automation/validate.py
       - name: Unit tests
         run: PYTHONPATH=automation python -m unittest discover -s automation/tests -p "test_*.py"
+
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: No tracked secrets (token pattern + .env/config never tracked)
+        run: |
+          fail=0
+          for f in automation/.env automation/config.yml; do
+            if git ls-files --error-unmatch "$f" >/dev/null 2>&1; then
+              echo "::error::$f is tracked — it must stay gitignored"; fail=1; fi
+          done
+          if git grep -nE 'EAA[A-Za-z0-9]{30,}' -- . >/dev/null 2>&1; then
+            echo "::error::a Meta access token (EAA…) appears in a tracked file:"
+            git grep -nE 'EAA[A-Za-z0-9]{30,}' -- .; fail=1; fi
+          if [ "$fail" -eq 0 ]; then echo "secret-scan: clean"; fi
+          exit $fail
