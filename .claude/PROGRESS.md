@@ -25,7 +25,7 @@ Style model **formalized** (validated in-app 2026-06-23). **Render rule = realis
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
-2026-06-25 [Claude:repo] **🟢 project structure cleanup (3-agent audit → converged) + pipeline Extensibility/UI-ready design — PASS / committed `PENDING`**
+2026-06-25 [Claude:repo] **🟢 project structure cleanup (3-agent audit → converged) + pipeline Extensibility/UI-ready design — PASS / committed `41d345d`**
   - User: keep the whole tree optimal/clean/minimal-redundant, and design the pipeline UI-extensible. 3 independent structure-audit agents (minimalist / phase-SSoT / maintainability) converged: repo already healthy → a **conformance punch-list, not a restructure**. Applied: added `docs/marketing/README.md`, `references/README.md`, `scripts/README.md`; updated §Source-of-truth in `docs/CONVENTIONS.md` + `CLAUDE.md`/`AGENTS.md` (added `docs/marketing/` + `automation/`); fixed a dangling wikilink (design-reviewer memory) + a stale `outputs/README.md` sidecar field (moodboard→`--sref`); documented the dated-bundle archive-banner exemption + the scripts↔automation boundary; committed the untracked researcher IG-publishing reference. **Archived `moodboards/`** (retired color tool, empty folder, no live refs) → `archive/2026-06-25_moodboards-retired.md` (move-not-delete); future `--p` notes → `docs/style/` or a new `profiles/`.
   - Added an **Extensibility & UI-readiness** section to `automation/ig-publish-pipeline.md`: headless core (`igpub/`) behind a stable internal API, thin CLI now, a UI bolts on later with zero core changes; side-effects behind adapters; config-driven. Standing principle = clean / flexible / low-maintenance.
 
