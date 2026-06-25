@@ -1,8 +1,13 @@
 ---
-updated: 2026-06-24
-status: active
+updated: 2026-06-25
+status: archived
 type: guide
 ---
+
+> **⚠️ ARCHIVED 2026-06-25 — the moodboard was retired as the project's color tool** (color now comes from a
+> single bold `--sref`); the folder held only this README and advertised a dead mechanism. Superseded by the
+> `--sref` color route + `docs/style/` (taste layer). Future trained-`--p` profile notes will live under
+> `docs/style/` or a fresh `profiles/`. Historical only.
 
 # moodboards
 

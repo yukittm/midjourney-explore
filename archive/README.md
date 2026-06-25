@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-23
+updated: 2026-06-25
 status: archived
 type: index
 ---
@@ -20,6 +20,7 @@ loses the thread. Procedure: see `docs/CONVENTIONS.md` → "Archiving".
 |---|---|---|---|
 | `2026-05-11_midjourney-prompt-best-practices/` | 2026-06-23 | V7-era bundle; MJ moved to V8.1, so its V7 parameter specifics are no longer current (kept for the sourced record + still-useful conceptual mechanics). | `docs/research/2026-06-21_midjourney-v8.1-current.md` |
 | `2026-05-13_mj-moodboard-automation-idea.md` | 2026-06-23 | V7-era moodboard-automation idea (carried from marketing-ops); superseded by the current one-pass automation policy. | `automation/README.md` |
+| `2026-06-25_moodboards-retired.md` | 2026-06-25 | Moodboard retired as the color tool (color now via a single bold `--sref`); the `moodboards/` folder held only a README and advertised a dead mechanism. | `--sref` color route + `docs/style/`; future `--p` notes → `docs/style/` or a new `profiles/`. |
 
 ## How to add to the archive
 

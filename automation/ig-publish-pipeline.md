@@ -66,6 +66,22 @@ type: design
                                                             Instagram (owner's own account)
 ```
 
+## Extensibility & UI-readiness
+MVP ships **headless** (git queue + CLI), but the architecture stays **UI-ready** so a front-end can be
+added later **without reworking the core**. Standing principle for this project: **clean, flexible,
+low-maintenance design** that makes customization and a future UI a bolt-on, not a rewrite.
+- **Layered** — a headless core package `automation/igpub/` (models · queue read/write · validate ·
+  Graph publish · status transitions) with **no interface assumptions**, behind a small stable internal
+  API. `publish.py` / `validate.py` are **thin CLI callers**; a future UI (local web app, TUI, or a
+  read-only dashboard) is **another thin caller of the same core** → zero core changes.
+- **Queue = the data contract** — the per-post YAML schema IS the API any front-end reads/writes; the
+  git queue stays the single source of truth regardless of interface.
+- **Side-effects behind adapters** — Graph API, R2 upload, and git ops each sit behind a small interface,
+  so they are swappable + mockable (host/clock/store change without touching core logic; unit-testable).
+- **Config-driven** — account id, defaults, cadence in `config.yml` → behavior customizable without code edits.
+- **Module boundaries** — `igpub/{models,queue,validate,publish,adapters}/` · `cli/` · (future) `web/`.
+  Adding a UI = a new front-end module over the unchanged core.
+
 ## Build roadmap
 **Phase 0 — manual (build the durable core; publishing stays by-hand meanwhile):**
 1. *(assistant)* scaffold `automation/{queue,published}/`, `config.yml`, the YAML schema; `.gitignore` + gitleaks.

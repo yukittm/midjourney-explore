@@ -13,4 +13,4 @@ The style `home base` register (the dominant "home" look) has a load-bearing dec
 
 **Why:** Two competing pressures — the user wants a concrete center of gravity for automation; the SSoT's own deferral clause + LESSONS scar warn against early lock-in on thin evidence.
 
-**How to apply:** When reviewing any edit that changes home-base status, check whether the evidence is a single selection event vs accumulated selection history, and whether the `--p` training loop has actually run. Keep the "deferred"/"provisional"/"decided" wording consistent across BOTH the Home-base section AND the Status block (they have contradicted each other in draft edits). Related: [[style-render-invariant-scope]] if that memory exists.
+**How to apply:** When reviewing any edit that changes home-base status, check whether the evidence is a single selection event vs accumulated selection history, and whether the `--p` training loop has actually run. Keep the "deferred"/"provisional"/"decided" wording consistent across BOTH the Home-base section AND the Status block (they have contradicted each other in draft edits).

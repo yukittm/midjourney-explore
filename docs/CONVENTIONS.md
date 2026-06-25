@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-23
+updated: 2026-06-25
 status: active
 type: index
 ---
@@ -55,9 +55,14 @@ Superseded material is **moved, never deleted, never left in the live tree**. Si
 Goal: after a memory reset, a future reader can tell — from the file itself **and** from
 `/archive/README.md` — **what** it is, **when** + **why** it was archived, and **what replaced it**.
 
+**Dated bundles** (a multi-file snapshot archived as one unit) may carry a single banner in their folder
+`README.md` instead of one per file — the bundle is treated as one archived item.
+
 ## Source of truth
 
 - `docs/style/` — the project's own visual style (SSoT).
+- `docs/marketing/` — own marketing/growth decisions (publish phase): strategy, profile, captions (SSoT).
 - `docs/research/` — external reference, read-only (current only).
+- `automation/` — own IG publish-pipeline design + code (SSoT for the publish mechanics).
 - `/archive/` — superseded / legacy material (see `/archive/README.md`).
 - `.claude/PROGRESS.md` — progress SSoT.
