@@ -25,7 +25,7 @@ Style model **formalized** (validated in-app 2026-06-23). **Render rule = realis
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
-2026-06-25 [Claude:automation] **🟢 Phase-0 pipeline core foundation — models + validation, tested — PASS / committed `PENDING`**
+2026-06-25 [Claude:automation] **🟢 Phase-0 pipeline core foundation — models + validation, tested — PASS / committed `325e2aa`**
   - First code of the IG pipeline (Option 1 DIY). Landed the **headless core** `automation/igpub/`: `models.py` (Post / Status / MediaType + (de)serialization), `imaging.py` (stdlib JPEG dimension read + the 4:5..1.91:1 aspect rule, no Pillow), `validate.py` (commit-time checks: caption ≤2200, ≤30 hashtags, carousel 2..10, image=1, JPEG-only, aspect) + `tests/test_validate.py`. **17 unit tests green** (stdlib only — no auth/network). Verification command set in CLAUDE.md/AGENTS.md (`PYTHONPATH=automation python3 -m unittest discover -s automation/tests`). UI-ready layering per the design doc §Extensibility.
   - **Next slice:** `queue.py`/`config.py` (YAML I/O), the Graph publish layer + `publish.py`/`validate.py` CLIs, the CI workflow, `_EXAMPLE.yml`. **Host note:** R2 custom domain is NOT required (r2.dev rate-limited/dev-only but irrelevant at ~1/day; host is adapter-decoupled) → can start domain-free, decide at Phase 1.
 
