@@ -1,10 +1,8 @@
 id: 2026-06-27_long-way-home
 schema_version: 1
-status: approved
+status: published
 media_type: image
 publish_at: ''
-schedule_mode: pinned
-priority: 0
 assets:
 - kind: image
   key: automation/assets/2026-06-27_long-way-home/01.jpg
@@ -16,11 +14,22 @@ assets:
     params: --chaos 10 --ar 4:5 --sref (private reference image)
     sref: (private reference)
     model: midjourney v8.1
-caption: 'Home, the long way.'
+caption: Home, the long way.
 hashtags:
 - surrealart
 - generativeart
 - digitalart
 - midjourneygallery
 - aiartcommunity
-result: {}
+schedule_mode: pinned
+priority: 0
+result:
+  container_id: '17892243672514972'
+  media_id: '18091953614622428'
+  permalink: https://www.instagram.com/p/DaDhalyn6iM/
+  published_at: '2026-06-26T16:00:57.051086+00:00'
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []
