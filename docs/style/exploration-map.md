@@ -35,6 +35,17 @@ Comprehensively map the within-area sub-approaches → **cross-review with indep
 recommended priorities → generate prompt patterns. Frame → cross-review → prompts; never shallow-solo
 (this is the existing CLAUDE.md verification/agent discipline, applied).
 
+**Per-area sub-dimensions to map** (every area — from the cactus cross-review, 2026-06-26):
+- subject-type / form (the main variety lever)
+- composition & shot-distance (hero / cluster / vast / macro / silhouette)
+- angle (eye-level / low / aerial / top-down / dutch / worm's-eye)
+- **lens / optical treatment** (backlit translucency · shallow macro-bokeh · telephoto compression · refraction) — how the photoreal anchor + abstract color reconcile in one frame
+- **wave-mode** (the 6 above) — the color's *manifestation*
+- **★ bridge-phenomenon = WHERE the color physically lives** (sky / ground·terrain / **on the subject itself**) — LOAD-BEARING; vary it across a batch or color attaches generically → sameness
+- light-behavior (not just time-of-day: backlit rim, raking light on structure…)
+- setting (and don't default to one biome)
+- subject-state (healthy / blooming / fruiting / aged / skeletal…)
+
 ## Parked exploration candidate (NOT a fixed base — one of many things to try)
 **"Reality-defying constructs" lane:** scenes/objects that deliberately break the structural laws of the
 real world (geometry, perspective, gravity, topology, continuity, physics, scale, dimensionality), built so
