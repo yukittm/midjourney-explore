@@ -124,33 +124,17 @@ Rules: front-load the niche keyword in the **first 80 chars**; one **single dire
 **At launch (0 followers) use B (no sell), or A without `prints ↓` — defer the `prints`/`commissions` bio
 lines to Phase 2** (selling before an audience exists converts poorly, §8 #3).
 
-## 10. Caption voice, consistency & templates
+## 10. Caption voice, consistency & templates → see the `caption` skill
 
-> ⚠️ **Evolving (2026-06-27):** the live direction is a **one-line caption, casual register, axis absorbed
-> ~80/20, approach-based** (post #2 = "Home, the long way."). Being codified into a **caption-writing skill**
-> (PROGRESS follow-up); treat the multi-line templates below as reference until that lands, then this section
-> collapses to a pointer.
+**Moved (2026-06-27).** The caption voice, the live one-line/casual/axis-~80/20 form, the
+**anti-sameness rule** (scan the last ~10 in `automation/published/` and deliberately diverge),
+the ≤5-hashtag rotation, the alt-text rule, and templates **T1–T5** are now the SSoT in the
+**`caption` skill** → `.claude/skills/caption/SKILL.md`. It emits the full publish-text bundle
+(caption + ≤5 hashtags + alt_text) ready for `automation/published/<id>.yml`.
 
-**Voice (the caption signature — keep CONSTANT across the feed):** calm, sensory, observational; let the work lead; no hype, no engagement-bait, no hashtag-dump in the body. Restrained, lowercase-leaning.
-**Structure:** L1 = a fresh sensory line specific to THIS image (content-aware — read the actual image first); (optional) L2 = a rotating **axis signature** weaving `Geometry / Wavelength / Objects` — e.g. "Geometry, holding a wavelength" · "Objects, learning to flow" · "Wavelength, folded into geometry" — a recurring motif that **unifies the feed**; don't force it on every post.
-**Consistency ≠ repetition — the ANTI-SAMENESS rule (load-bearing once captions are run at scale/automated):** the VOICE stays constant, the EXPRESSION must vary. BEFORE writing each caption, **scan the last ~10 captions in `automation/published/`** and deliberately diverge — rotate the template (T1–T5 below), vary the opening pattern, don't reuse the same key phrasings or the same axis-pairing back-to-back, and **rotate/omit the emoji (never mandatory — 🌊 included)**. Goal: *one voice, many sentences* — never a template on repeat. This is the caption-level guard against the project's #1 fear (sameness at scale); it mirrors the image cross-diversity concern and MUST be enforced by the future automated/Claude-in-Chrome caption step, not just manual writing.
-
-**Templates (no product story needed):**
-> Across all: **line 1 = hook** (only ~125 chars show before "more"), **white space between lines**,
-> **one specific SAVE/SHARE CTA** (the compounding metrics for art), hashtags last or in first comment,
-> emoji as sparse anchors only (rotate/omit 🌊 — don't make one emoji mandatory). Use a genuine open
-> question OR a save CTA, not both stacked, and skip "👇"-style pointer-bait.
-
-- **T1 — Sensory hook + save CTA (default, short):**
-  `Teal folding into gold, the moment before it spills over.` / `[the feeling it evokes]` / `Save this for a grey day. 🌊`
-- **T2 — Question hook (drives comments):**
-  `[one evocative line]` / `If this were a sound, what would it be?`
-- **T3 — Process / story (occasional, medium; earns saves + follows):**
-  `[what I was chasing]` / `I wanted color to feel like [motion/emotion] — no subject, just the phenomenon.` / `№ [N] in the [series] series. Follow as the palette evolves →`
-- **T4 — Series / collection (gives a reason to follow):**
-  `№[N]. [one sensory line]` / `Part of "[series]" — [the through-line].` / `Save the set. 🔖`
-- **T5 — Pure minimalist (let the art lead):**
-  `Color, mid-sentence.` 🌊
+Use it when writing any post text (manual now; the spec the future automated / Claude-in-Chrome
+caption step follows). The growth-lever context for *why* (keyword-SEO, hashtags-as-label,
+SAVE/SHARE compounding) stays in §§3,4,8 of this doc.
 
 ---
 

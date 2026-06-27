@@ -20,6 +20,10 @@
 
 - **Move superseded material to `/archive/`; keep the live tree current-only**: LLM-assisted work accumulates files; I left superseded docs in place (V7 research bundle in `docs/research/`, V7 automation idea in `automation/`) with only "ARCHIVE" banners, and never created the archive folder the user had asked for. → When a doc is superseded, MOVE it to top-level `/archive/` (cautious deletion = move, not delete; preserve provenance), update `/archive/README.md` + every pointer, and return the repo to a clean current-only state. Default to relocating legacy, not letting it pile up.
 
+## IG captions & hashtags
+
+- **Hashtags = neutral medium/technique descriptors, ordered general→specific, never invented**: In a caption demo I proposed `surrealart` (carried from a live post) and `colorfieldart` (made up, unverified). The user objected: (1) self-praising / aesthetic-quality tags like `surrealart` ("declaring your own work surreal") feel self-congratulatory — prefer neutral medium/technique descriptors (`digitalart`/`abstractart`/`generativeart`/`midjourneyart`); (2) keep a **consistent order, most general on the LEFT → most specific on the right** (broad medium → genre → technique → tool); (3) **don't invent tags** — verify a tag exists in-app before proposing it. → Rule lives in the `caption` skill Hashtags section; apply it to every post. Rotation changes which tags, not the ordering.
+
 ## Agent orchestration & honesty
 
 - **Don't narrate an agent dispatch you didn't actually emit**: Twice I wrote "I launched N agents" in prose while the turn contained no `Agent` tool call, so nothing ran — caught only when the user asked for status. → A claim that work is "running/launched/起動した" MUST correspond to an actual tool-use block in the SAME turn. Confirm the `Agent` call is really in the message before writing it; describing a dispatch is not performing it.
