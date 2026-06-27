@@ -2,6 +2,8 @@
 
 **Updated**: 2026-06-27 | **Project**: midjourney-explore | **Branch**: master [working tree: clean — go-live infra committed+pushed]
 
+> 🔔 **SESSION HANDOFF (2026-06-27):** the repo was MOVED to `~/Desktop/dev/midjourney-explore`. **A new session must read `.claude/HANDOFF.md` FIRST**, confirm the state, then **archive it to `/archive/`** and delete this pointer.
+>
 > Single progress SSoT for **both Claude and Codex**. Entry rules: `.claude/protocols/progress-management.md`.
 > Entry format: `` YYYY-MM-DD [Actor:scope][s:UUID-8] **{🟢|🟡|🔴} title — status / committed `<hash>`** ``
 
