@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-24
+updated: 2026-06-27
 status: active
 type: guide
 ---
@@ -121,6 +121,17 @@ These are the photoreal route's lights — **NOT a second render mode**. The **s
 to a **clean, legible, directional color-flow** (not a muddy smear). Either way the treatment is *decisive*;
 flat/auto light or a directionless blur is the "thin" failure.
 
+## 5c. Scale ↔ abstraction (how literal the subject reads)
+
+Tie the subject's *abstraction* to how large it sits in frame:
+- **Large / filling the frame** → the subject can become the color itself (made-of-wave, half-dissolved into the
+  flowing color); a frame-filling subject also **overrides the sref's native composition**.
+- **Small / scattered** → render it **realistic and solid**; small subjects get absorbed by the sref's template,
+  so keep them literal and let the flowing color live in the terrain/ground around them.
+
+A subject that's small *and* asked to "be the color" tends to collapse back into the sref's default scene — size
+it up, or move the color into the surroundings.
+
 ## 6. Anatomy & slots
 
     [shot/angle] , [photoreal subject + attributes + action] , [real terrain/phenomenon = the register] ,
@@ -133,6 +144,27 @@ Narrow vague → concrete (specify the **few key elements richly**; MJ can't hon
 - **the real background noun** — `a cracked white salt flat` / `stepped rice terraces`, not `a landscape` or
   `an abstract field` (this noun IS the register; §4–5)
 - **time / light**, **framing**
+
+## 6b. Figures — style them on purpose; keep multiples distinct
+
+**Style figures intentionally — anonymous is the default failure.** Left generic ("a skateboarder", "a figure"),
+MJ renders a bland, characterless person. Give every figure a **deliberate, of-the-moment wardrobe identity** —
+a defined fashion / era / subculture aesthetic — kept **muted** so it never competes with the color chord
+(GATE ②). The *specific* aesthetic is a per-piece / per-series art-direction choice (one example among many),
+**not** a fixed rule; commit to ONE look per batch for cohesion. At small scale, identity reads from
+**silhouette, build, posture and a held prop**, not garment detail — spend the words there (logos / fabric /
+brand cues don't survive downscaling, and a literal logo is off-brief).
+
+**Multiple people → de-clone deliberately** (MJ clones repeated same-type figures by default):
+- **Enumerate each as a distinct individual** — vary build / height / skin tone / pose — plus the word
+  *different*; this (not any param) is the lever. State the **shared wardrobe ONCE** for the group, vary only the
+  bodies.
+- **`--chaos` / `--weird` / `--no` do NOT de-clone** (chaos = variety *between* the 4 grid images; `--no
+  identical` is a weak, split-prone negative). Don't rely on them for this.
+- **Keep the count low** — a hard count mildly amplifies cloning, and **small multiple figures also malform**
+  (too few pixels). Prefer **one** figure (cleanest, and on-brand for a lone subject); for 2–3, expect to curate.
+- **Deterministic fallback:** build the group **one figure at a time** with Pan / Vary-Region, or
+  **batch-and-curate** the clean grids. Text alone is probabilistic for multiple distinct people.
 
 ## 7. Length & differentiation — rich is the PRODUCTION default
 
@@ -187,8 +219,26 @@ prompt render the (new) subject with detail, not averaged → **high source-fide
 Validated in-app 2026-06-23 (the dancers / surfer sets: `raw · s110 · sw 220–230 · source in both slots`).
 
 Caveat: it **also inherits the source's composition** — ideal for a subject swap that fits a similar layout. For
-a genuinely different composition or a different palette, use the from-scratch route (§5/§7) or the explore lane
-(§9). Remix **Subtle** = stay very close to the source; **Strong** = let the new prompt push further.
+a genuinely different composition or a different palette, use §9c (sref-only, the prompt owns composition), the from-scratch route (§5/§7),
+or the explore lane (§9). Remix **Subtle** = stay very close to the source; **Strong** = let the new prompt push further.
+
+## 9c. Change the subject (and composition) — keep ONLY the style
+
+The default for moving a fixed style onto a **genuinely new subject/scene** (where §9b's both-slots lane would
+drag a keeper's layout in). Carry the **style only**; let the prompt own the subject AND its composition:
+
+- **Image `--sref` ONLY** (the Style-Reference slot) — put **nothing** in the Image-Prompt / Remix slot.
+  `--sref` transfers *style* (color / medium / texture), **not** subject or composition; the Remix / image-prompt
+  slot is what imports a layout. **Dropping Remix is what frees the new composition** — raising `--sw` will not
+  fix a dragged layout (it only moves color).
+- **A rich, subject-first prompt** describing the new subject AND the composition you want — give the subject
+  enough "mass" that it isn't absorbed into the sref's native scene.
+- **Low `--s` (~90–110)** so the prompt's composition is honored; high `--s` re-averages toward the house look
+  and the sref's layout (the §7 low-differentiation trap). Tune the *palette* with `--sw`, never the subject.
+
+The §9b both-slots lane is the **opposite** tool — reserve it for a subject swap that keeps ~the same layout.
+**Destination (automation):** a trained `--p` profile carries the style as *taste*, compositionally neutral by
+construction (§11) — the cleanest long-term version of this once `--p` is locked.
 
 ## 10. The idea engine
 
