@@ -1,14 +1,14 @@
 ---
-updated: 2026-06-25
+updated: 2026-06-27
 status: active
 type: guide
 ---
 
 # automation
 
-Instagram auto-upload pipeline (code). **Architecture decided 2026-06-25 → see [`ig-publish-pipeline.md`](ig-publish-pipeline.md)** (Option 1: self-owned DIY — git-file queue + Python Graph publisher + GitHub Pages host (R2/Cloudinary swappable later, esp. video); manual-first → scheduled-auto, no connectors on the publish path). **Phase-0 pipeline code complete + tested** (`igpub/` + `validate.py`/`publish.py` CLIs + CI); go-live = user-side token + enable Pages.
+Instagram auto-upload pipeline (code). **Architecture decided 2026-06-25 → see [`ig-publish-pipeline.md`](ig-publish-pipeline.md)** (Option 1: self-owned DIY — git-file queue + Python Graph publisher + GitHub Pages host (R2/Cloudinary swappable later, esp. video); manual-first → scheduled-auto, no connectors on the publish path). **Phase-0 pipeline complete, tested + PROVEN on 2 live posts** (2026-06-25 `color-window`, 2026-06-27 `long-way-home`; `igpub/` + `validate.py`/`publish.py` CLIs + CI). Go-live prerequisites met (token active, GitHub Pages live); manual `publish.py` cadence now underway.
 
-## North star & policy (decided 2026-06-23; observation phase, not yet built)
+## North star & policy (decided 2026-06-23; the publish pipeline is BUILT + live — what's "not yet built" below is the full Claude-driven *automation loop*)
 
 **End goal:** near-full automation — theme/prompt generation → Claude-driven Midjourney operation
 (Claude-in-Chrome) → Instagram publishing. **Roles:** the **user is the creative director** (reacts to
@@ -34,5 +34,6 @@ generate HD (one pass) → **reward-gate score** ([[../docs/style/style-definiti
 → apply LUT → publish. (The `../archive/2026-05-13_mj-moodboard-automation-idea.md` is an archived V7-era
 moodboard idea — historical, NOT the active plan.)
 
-When code lands here, set the project's **Verification commands** (test/lint/build) in
-`.claude/PROGRESS.md` and `CLAUDE.md`. Keep secrets in `.env` (git-ignored), never committed.
+**Verification:** `PYTHONPATH=automation python3 -m unittest discover -s automation/tests` (75 tests; install
+deps first: `pip install -r automation/requirements.txt`) — also set in `CLAUDE.md` + `.claude/PROGRESS.md`.
+Keep secrets in `.env` (git-ignored), never committed.

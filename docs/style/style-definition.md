@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-24
+updated: 2026-06-27
 status: draft
 type: style
 ---
@@ -11,6 +11,10 @@ type: style
 > the same kernel pending the Phase-1 test set) — it supersedes the earlier 2-dial framing: **realism is now
 > scoped to the subject + hard anchors** (one rule, two recipes — see *The render rule*), and variation moves
 > to the **base + sibling register** axis. North star = near-full pipeline automation (below).
+>
+> **Update 2026-06-27:** 2 live posts published; the keep-style × change-subject method ([[prompting]] §9c) and
+> the cosmic / "reality-defying" lane validated in-app. `status: draft` still holds — promotion waits until
+> R1/R2 + both light treatments clear the gate on a fresh-subject set.
 > Craft/how-to: [[prompting]]. Source analysis: [[reference-accounts]]. Current MJ mechanics:
 > `../research/2026-06-21_midjourney-v8.1-current.md`.
 
@@ -68,6 +72,11 @@ Independent: hold the look fixed and vary subjects, or vice versa. **Correction 
 look is no longer set by an averaging **moodboard**, and color is **not** pushed with `--s`. A moodboard
 averages its images toward a muted centre and can't be weighted; a single bold `--sref` carries the bold
 palette and *can* be pushed via `--sw`. See Color channel + `../research/2026-06-21_midjourney-v8.1-current.md` §1.
+
+**Keep the look, change the subject (+ composition)** — the operating method for Axis-B variation: image
+`--sref` **only** (no Remix / image-prompt slot) + a rich subject-first prompt + low `--s`; see [[prompting]]
+§9c. The both-slots/Remix lane ([[prompting]] §9b) is the opposite tool (same-layout subject swaps only) —
+Remix/image-prompt drags the source's composition.
 
 ## The render rule — realism is SCOPED (not a second mode)
 

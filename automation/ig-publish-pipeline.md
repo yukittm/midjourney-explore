@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-25
+updated: 2026-06-27
 status: active
 type: design
 ---
@@ -14,9 +14,9 @@ type: design
 ## Locked decisions
 - **Self-owned DIY**: git-file queue + a small Python publisher + own host + own clock. **No connector on the publish path.**
 - **Trigger (locked):** fully **scheduled auto-publish from a human-APPROVED queue**.
-- **Account:** IG Business/Creator + linked FB Page, **OWN account** → **no App Review** (app stays in Development mode, Standard Access); **non-expiring System User token** (no 60-day refresh machinery).
+- **Account:** IG Business/Creator + linked FB Page, **OWN account** → **no App Review** (app stays in Development mode, Standard Access); **non-expiring System User token** (no 60-day refresh machinery). *(Status 2026-06-27: the token in use today is a **60-day** one, ≈2026-08-24 — confirm/regen non-expiring before then; see `.claude/PROGRESS.md`.)*
 - **Image host = GitHub Pages** (decided 2026-06-25) — images committed to the **public main repo**, served at `https://<user>.github.io/<repo>/...`. Chosen for **$0 / no domain / no extra account / no upload step / permanent URL / git-versioned provenance** (image + queue + provenance in one commit). **Swappable via the host adapter** — R2 (free `r2.dev` or +custom domain) or Cloudinary later, **especially for video/Reels** (Pages is weak for video). NOT Notion (URLs expire ~1h → Graph fetch fails), NOT S3 presigned (expire).
-- **Phasing:** Phase 0 = manual (run by hand / current status quo) · Phase 1 = scheduled-auto.
+- **Phasing:** Phase 0 = manual hand-run — **DONE + operational** (2 live posts, 2026-06-25 / 06-27); the manual `publish.py` cadence is the **current operating mode**. Phase 1 = scheduled-auto (clock deferred until cadence justifies it).
 - **Clock = decided at build time** — Hetzner VPS cron (~$4.6/mo; Phase 0→1 is a true "add a crontab line" swap) **vs** AWS Lambda + EventBridge (free, 99.99% SLA, but a runtime port, not a swap). **NOT** GitHub Actions cron (10–30 min+ delays, dropped at peak, silent **60-day idle auto-disable**); **NOT** local-cron-alone (only fires when the Mac is awake).
 
 ## Components
@@ -87,7 +87,7 @@ low-maintenance design** that makes customization and a future UI a bolt-on, not
   Adding a UI = a new front-end module over the unchanged core.
 
 ## Build roadmap
-**Phase 0 — manual (build the durable core; publishing stays by-hand meanwhile):**
+**Phase 0 — ✅ DONE (durable core built; steps 1–5 complete; proven on 2 live posts 2026-06-25 + 2026-06-27; manual `publish.py` cadence ongoing):**
 1. *(assistant)* scaffold `automation/{queue,published}/`, `config.yml`, the YAML schema; `.gitignore` + the CI secret-scan.
 2. *(assistant)* `publish.py` + `validate.py` + a CI validation workflow.
 3. *(user — auth only)* Meta: confirm IG↔Page link; create a **System User**; generate the **non-expiring token** with `instagram_business_basic` + `instagram_business_content_publish` (+ `pages_show_list`, `business_management`); record the IG user ID.

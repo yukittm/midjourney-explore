@@ -149,7 +149,7 @@ Narrow vague → concrete (specify the **few key elements richly**; MJ can't hon
 
 **Style figures intentionally — anonymous is the default failure.** Left generic ("a skateboarder", "a figure"),
 MJ renders a bland, characterless person. Give every figure a **deliberate, of-the-moment wardrobe identity** —
-a defined fashion / era / subculture aesthetic — kept **muted** so it never competes with the color chord
+a defined aesthetic (a subculture, period or genre — a per-series choice, not a privileged one) — kept **muted** so it never competes with the color chord
 (GATE ②). The *specific* aesthetic is a per-piece / per-series art-direction choice (one example among many),
 **not** a fixed rule; commit to ONE look per batch for cohesion. At small scale, identity reads from
 **silhouette, build, posture and a held prop**, not garment detail — spend the words there (logos / fabric /

@@ -1,10 +1,10 @@
 ---
-updated: 2026-06-25
+updated: 2026-06-27
 status: active
 type: strategy
 ---
 
-# Instagram Growth & Content Strategy (DRAFT)
+# Instagram Growth & Content Strategy
 
 > Research-grounded (3 parallel research passes, 2026-06-24). **Confidence flags inline:**
 > ✅ = Meta-confirmed / first-party · 🟡 = analyst/blog estimate (directional, magnitude unverified).
@@ -49,6 +49,8 @@ penalizes AI-slickness. Our `--style raw` + low `--s` kernel already pushes this
 render risks reading as generic AI.
 
 ## 3b. Phase 0 — cold start (first ~30 days, zero audience)
+> **Status (2026-06-27):** launched — 2 posts live (`color-window`, `long-way-home`); the signature runway is
+> still being built, so the Phase 0 cold-start guidance below remains in effect.
 - **Build a 9-12 piece signature "runway" BEFORE going public** — the first profile visitor must see a
   coherent grid that defines the style, not 3 posts in a ghost town. The single biggest 0-follower lever.
 - **Reels-first + Trial Reels only.** At zero followers, Reels are the *only* cold-reach surface;
@@ -122,6 +124,11 @@ Rules: front-load the niche keyword in the **first 80 chars**; one **single dire
 lines to Phase 2** (selling before an audience exists converts poorly, §8 #3).
 
 ## 10. Caption voice, consistency & templates
+
+> ⚠️ **Evolving (2026-06-27):** the live direction is a **one-line caption, casual register, axis absorbed
+> ~80/20, approach-based** (post #2 = "Home, the long way."). Being codified into a **caption-writing skill**
+> (PROGRESS follow-up); treat the multi-line templates below as reference until that lands, then this section
+> collapses to a pointer.
 
 **Voice (the caption signature — keep CONSTANT across the feed):** calm, sensory, observational; let the work lead; no hype, no engagement-bait, no hashtag-dump in the body. Restrained, lowercase-leaning.
 **Structure:** L1 = a fresh sensory line specific to THIS image (content-aware — read the actual image first); (optional) L2 = a rotating **axis signature** weaving `Geometry / Wavelength / Objects` — e.g. "Geometry, holding a wavelength" · "Objects, learning to flow" · "Wavelength, folded into geometry" — a recurring motif that **unifies the feed**; don't force it on every post.
