@@ -6,7 +6,7 @@ type: guide
 
 # automation
 
-Instagram auto-upload pipeline (code). **Architecture decided 2026-06-25 → see [`ig-publish-pipeline.md`](ig-publish-pipeline.md)** (Option 1: self-owned DIY — git-file queue + Python Graph publisher + GitHub Pages host (R2/Cloudinary swappable later, esp. video); manual-first → scheduled-auto, no connectors on the publish path). **Phase-0 pipeline complete, tested + PROVEN on 2 live posts** (2026-06-25 `color-window`, 2026-06-27 `long-way-home`; `igpub/` + `validate.py`/`publish.py` CLIs + CI). Go-live prerequisites met (token active, GitHub Pages live); manual `publish.py` cadence now underway.
+Instagram auto-upload pipeline (code). **Architecture decided 2026-06-25 → see [`ig-publish-pipeline.md`](ig-publish-pipeline.md)** (Option 1: self-owned DIY — git-file queue + Python Graph publisher + GitHub Pages host (R2/Cloudinary swappable later, esp. video); manual-first → scheduled-auto, no connectors on the publish path). **Phase-0 pipeline complete, tested + PROVEN on 2 published posts** (2026-06-25 `color-window`, 2026-06-27 `long-way-home`; `igpub/` + `validate.py`/`publish.py` CLIs + CI). Go-live prerequisites met (token active, GitHub Pages live); manual `publish.py` cadence now underway.
 
 ## North star & policy (decided 2026-06-23; the publish pipeline is BUILT + live — what's "not yet built" below is the full Claude-driven *automation loop*)
 

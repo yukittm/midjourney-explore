@@ -1,6 +1,6 @@
 id: 2026-06-25_color-window
 schema_version: 1
-status: published
+status: published   # PUBLISHED then DELETED from Instagram 2026-06-27 — see deleted_* at end of file
 media_type: image
 publish_at: ''
 assets:
@@ -38,3 +38,10 @@ result:
   retry_count: 0
   next_retry_at: null
   attempts: []
+
+# --- post-publish curation (manual) ---
+deleted_from_ig: true
+deleted_at: '2026-06-27'
+deleted_reason: 'Color read too similar to 2026-06-27_long-way-home; manually removed in the IG app
+  to keep the grid varied. The publish itself succeeded (see result above) — record kept for audit.
+  (Model has no `deleted` status yet; Status.deleted is the deferred §7 seam.)'
