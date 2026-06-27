@@ -12,7 +12,8 @@ type: style
 > scoped to the subject + hard anchors** (one rule, two recipes — see *The render rule*), and variation moves
 > to the **base + sibling register** axis. North star = near-full pipeline automation (below).
 >
-> **Update 2026-06-27:** 2 live posts published; the keep-style × change-subject method ([[prompting]] §9c) and
+> **Update 2026-06-27:** 2 posts published (post #1 `color-window` since deleted from IG → live grid = 1,
+> `long-way-home`); the keep-style × change-subject method ([[prompting]] §9c) and
 > the cosmic / "reality-defying" lane validated in-app. `status: draft` still holds — promotion waits until
 > R1/R2 + both light treatments clear the gate on a fresh-subject set.
 > Craft/how-to: [[prompting]]. Source analysis: [[reference-accounts]]. Current MJ mechanics:

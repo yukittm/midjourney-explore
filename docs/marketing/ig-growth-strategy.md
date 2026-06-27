@@ -49,8 +49,9 @@ penalizes AI-slickness. Our `--style raw` + low `--s` kernel already pushes this
 render risks reading as generic AI.
 
 ## 3b. Phase 0 — cold start (first ~30 days, zero audience)
-> **Status (2026-06-27):** launched — 2 posts live (`color-window`, `long-way-home`); the signature runway is
-> still being built, so the Phase 0 cold-start guidance below remains in effect.
+> **Status (2026-06-27):** launched — 2 posts published; #1 (`color-window`) deleted as too color-similar →
+> **1 live on the grid** (`long-way-home`); the signature runway is still being built, so the Phase 0
+> cold-start guidance below remains in effect.
 - **Build a 9-12 piece signature "runway" BEFORE going public** — the first profile visitor must see a
   coherent grid that defines the style, not 3 posts in a ghost town. The single biggest 0-follower lever.
 - **Reels-first + Trial Reels only.** At zero followers, Reels are the *only* cold-reach surface;

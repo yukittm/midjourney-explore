@@ -16,7 +16,7 @@ type: design
 |---|---|---|
 | Per-post data model | **`Post → [Asset]`** — Post is a discriminator (`media_type`) over an **ordered `assets` list** | Every IG type = "N ordered assets + which fields apply" → new types are additive (enum + rule + call-mapping), core untouched |
 | Image host | **Images → main-repo GitHub Pages** (`automation/assets/<id>/NN.jpg`, tracked) | $0, atomic (image+queue+provenance in one commit), git-versioned audit |
-| Video host | **Video → Cloudflare R2** (`r2.dev` now → custom domain later) | Pages/LFS/git can't host video (size/bandwidth caps); R2 = zero-egress public URL Meta can fetch |
+| Video host | **Video → Cloudflare R2** (`r2.dev` → custom domain later) — **DEFERRED to FULL (no video yet; images on Pages)** | Pages/LFS/git can't host video (size/bandwidth caps); R2 = zero-egress public URL Meta can fetch |
 | Separate assets repo | **Retire `tim-bankrupt-assets` as primary** (was a push-scope workaround) | Main-repo Pages for images is cleaner (atomic, no cross-repo sync); fixes the asset-URL contradiction |
 | Schedule storage | **Derived, never persisted** — calendar = pure fn(approved posts + `schedule.yml`) | Kills calendar-vs-queue drift; queue YAML stays the only SSoT |
 | Token | **Regenerate the System User token as non-expiring** (drop refresh); `doctor` reads real `expires_at` + warns <14d | **Evidence** (`debug_token` on the SAVED token): it is **60-day** (`expires_at` = issued+60d ≈ 2026-08-24) → it WILL silently die, but a refresh job is the wrong fix; non-expiring regen (uncheck the 60-day box) matches the original design intent |
@@ -44,7 +44,7 @@ a Story is `assets:[1]`, a Reel is `assets:[1 video]`. Plain feed `VIDEO` folds 
 automation/
   assets/         # TRACKED images served by main-repo GitHub Pages
     <id>/01.jpg 02.jpg ...
-  video/          # MP4 staging — BINARIES git-ignored; uploaded.json (R2 url+provenance) TRACKED
+  video/          # (DEFERRED to FULL) MP4 staging — BINARIES git-ignored; uploaded.json (R2 url+provenance) TRACKED
     <id>/clip.mp4  <id>/cover.jpg  <id>/uploaded.json
   queue/          # per-post YAML (one file = one post); the order/schedule/provenance SSoT
   published/<id>.yml          # flat archive (write-back: media_id/permalink/insights)
