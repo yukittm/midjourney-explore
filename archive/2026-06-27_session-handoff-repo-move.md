@@ -1,9 +1,11 @@
 ---
 created: 2026-06-27
 type: handoff
-status: temporary
+status: archived
 lifecycle: read on the next session → confirm continuity → archive to /archive/ (then drop the PROGRESS pointer)
 ---
+
+> **⚠️ ARCHIVED 2026-06-27 — one-shot repo-move continuity note; consumed on the first session opened from the new path (continuity confirmed: working tree clean at the new path, 2 published records + 185 candidates matched the snapshot).** Live SSoT = `.claude/PROGRESS.md`.
 
 # Session Handoff — repo move (2026-06-27)
 
