@@ -137,6 +137,7 @@ class Post:
     schedule_mode: str = MODE_AUTO                      # auto | pinned | hold
     priority: int = 0                                   # higher = assigned a slot first
     approved_at: str | None = None
+    deleted_from_ig: bool = False                       # manually removed from IG post-publish (curation)
     schema_version: int = SCHEMA_VERSION
     result: Result = field(default_factory=Result)
     source_path: str | None = None                      # queue file it came from (not serialized)
@@ -187,6 +188,7 @@ class Post:
             schedule_mode=d.get("schedule_mode", MODE_AUTO) or MODE_AUTO,
             priority=int(d.get("priority") or 0),
             approved_at=d.get("approved_at"),
+            deleted_from_ig=bool(d.get("deleted_from_ig", False)),
             schema_version=SCHEMA_VERSION,
             result=Result.from_dict(d.get("result")),
             source_path=source_path,
@@ -215,5 +217,7 @@ class Post:
         out["priority"] = self.priority
         if self.approved_at:
             out["approved_at"] = self.approved_at
+        if self.deleted_from_ig:
+            out["deleted_from_ig"] = True
         out["result"] = asdict(self.result)
         return out

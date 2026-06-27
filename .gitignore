@@ -45,6 +45,9 @@ references/**/*.mp4
 # Automation: local account config (non-secret but account-specific) — ship config.example.yml
 automation/config.yml
 
+# Automation: generated feed-grid preview (build artifact; regenerate via feed_preview.py)
+automation/feed-preview.html
+
 # Automation: staged source video — keep sidecars (uploaded.json) + cover image, ignore the heavy
 # video binary itself (hosted on Cloudflare R2, not committed). See asset-queue-model.md §2/§10.
 automation/video/**/*.mp4
