@@ -52,6 +52,13 @@ class TestFeedOrder(unittest.TestCase):
         ])
         self.assertEqual([t.id for t in tiles], ["utc", "jst"])  # utc is later → first
 
+    def test_include_drafts_opt_in(self):
+        d = post("d", Status.DRAFT)
+        self.assertEqual(build_tiles([d]), [])                  # excluded by default (static preview)
+        tiles = build_tiles([d], include_drafts=True)            # studio opts in
+        self.assertEqual([t.id for t in tiles], ["d"])
+        self.assertEqual((tiles[0].lane, tiles[0].when), ("upcoming", "draft"))
+
     def test_image_rel_strips_automation_prefix(self):
         t = build_tiles([post("p", Status.PUBLISHED, published_at="2026-06-27T10:00:00+00:00",
                               key="automation/assets/p/01.jpg")])[0]

@@ -2,3 +2,4 @@
 PyYAML>=6.0      # queue + schedule files
 requests>=2.31   # Meta Graph API calls (publish layer)
 tzdata>=2024.1   # IANA tz database for zoneinfo (schedule.py) — portable across OS/CI
+Pillow>=10.0     # Feed Studio ONLY (studio.py): PNG→JPEG convert on "→ selects" (lazy-imported; publish core stays stdlib)

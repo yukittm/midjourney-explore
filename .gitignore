@@ -51,6 +51,9 @@ automation/feed-preview.html
 # Generated candidate contact-sheet (build artifact; regenerate via contact_sheet.py)
 outputs/**/contact-sheet.html
 
+# Feed Studio local selects arrangement (planning state, machine-local)
+outputs/selects/.order.json
+
 # Automation: staged source video — keep sidecars (uploaded.json) + cover image, ignore the heavy
 # video binary itself (hosted on Cloudflare R2, not committed). See asset-queue-model.md §2/§10.
 automation/video/**/*.mp4

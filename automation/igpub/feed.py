@@ -57,23 +57,28 @@ def _image_rel(post: Post) -> str | None:
     return None
 
 
-def build_tiles(posts: list[Post]) -> list[FeedTile]:
-    """Filter to the projected feed and order it as IG will show it (newest first)."""
+def build_tiles(posts: list[Post], include_drafts: bool = False) -> list[FeedTile]:
+    """Filter to the projected feed and order it as IG will show it (newest first). `include_drafts`
+    (used by Feed Studio, not the static preview) also surfaces DRAFT posts as upcoming tiles so a
+    just-committed select doesn't vanish from the grid."""
+    lanes = dict(_LANE)
+    if include_drafts:
+        lanes[Status.DRAFT] = ("upcoming", 3)   # least-scheduled → top of the upcoming block
     rows = []
     for p in posts:
-        if p.status not in _LANE:
+        if p.status not in lanes:
             continue
         if getattr(p, "deleted_from_ig", False):   # removed from the live grid post-publish
             continue
-        lane, rank = _LANE[p.status]
+        lane, rank = lanes[p.status]
         if p.status == Status.PUBLISHED:
             when = p.result.published_at or ""
             sort_ts = _ts(when)
         elif p.status == Status.SCHEDULED:
             when = p.publish_at or ""
             sort_ts = _ts(when)
-        else:  # APPROVED — no time yet
-            when = "unscheduled"
+        else:  # APPROVED or DRAFT — no scheduled time yet
+            when = "draft" if p.status == Status.DRAFT else "unscheduled"
             sort_ts = _NEG_INF
         rows.append((rank, sort_ts, p.priority, p, lane, when))
     # newest first: lane rank desc, then time desc, then priority desc, then id desc (stable)

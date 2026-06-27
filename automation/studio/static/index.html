@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feed Studio — @tim.bankrupt</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+  :root{
+    color-scheme:dark;
+    --bg:#0f0f0f; --surface:#17171b; --surface2:#1f1f25; --media:#0c0c0e;
+    --ink:#f4f4f2; --muted:#9a9a94;
+    --acid:#b4ff3a; --orange:#ff5500; --violet:#9b7bff;
+    --line:rgba(255,255,255,.14); --line-strong:rgba(255,255,255,.30); --wash:rgba(180,255,58,.12);
+    --serif:"Instrument Serif","Times New Roman",serif;
+    --sans:"Helvetica Neue",Arial,sans-serif; --mono:"SFMono-Regular",Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 var(--sans);}
+  .eyebrow,.badge,.tab,button.act,.pill{font-weight:700;letter-spacing:.18em;text-transform:uppercase;}
+  header{position:sticky;top:0;z-index:20;background:#0f0f0fe6;backdrop-filter:blur(10px);
+         border-bottom:1px solid var(--line);display:flex;gap:16px;align-items:center;padding:12px 20px;}
+  h1{margin:0;font-family:var(--serif);font-weight:400;font-size:30px;line-height:.9;letter-spacing:-.01em;}
+  .counts{font:11px/1 var(--mono);color:var(--muted);letter-spacing:.04em;}
+  .tabs{display:flex;gap:1px;background:var(--line);border:1px solid var(--line);}
+  .tab{background:var(--surface);border:0;color:var(--muted);padding:7px 16px;cursor:pointer;font-size:11px;}
+  .tab.on{background:var(--acid);color:#0f0f0f;}
+  .tab:not(.on):hover{background:var(--surface2);color:var(--ink);}
+  select{background:var(--surface);color:var(--ink);border:1px solid var(--line-strong);padding:6px 9px;font:inherit;}
+  select:focus{outline:2px solid var(--acid);outline-offset:2px;}
+  .lbl{font:11px/1 var(--sans);color:var(--muted);letter-spacing:.16em;text-transform:uppercase;}
+  .wrap{max-width:1060px;margin:0 auto;padding:18px 20px 60px;}
+  .view{display:none;} .view.on{display:block;}
+  .hint{color:var(--muted);font-size:12px;margin:2px 0 16px;border-left:3px solid var(--acid);padding-left:10px;}
+  .hint b{color:var(--ink);}
+  h3{font-family:var(--serif);font-weight:400;font-size:22px;color:var(--ink);margin:20px 0 8px;}
+  h3 .n{font:10px/1 var(--mono);color:var(--muted);letter-spacing:.1em;vertical-align:middle;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;align-items:start;}
+  .pool{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:7px;}
+  .card{position:relative;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);}
+  .media{position:relative;aspect-ratio:4/5;background:var(--media);}
+  .media img{width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in;}
+  .card.sel{cursor:grab;border-color:transparent;box-shadow:inset 0 0 0 2px rgba(180,255,58,.5);}
+  .card.sel:active{cursor:grabbing;}
+  .card.sel.s-ghost{opacity:.28;}
+  .card.sel.s-chosen{box-shadow:inset 0 0 0 2px var(--acid),0 16px 44px #000b;}
+  .card.sel.s-drag{opacity:1;}
+  .badge{position:absolute;top:5px;left:5px;font-size:9px;padding:2px 6px;color:#0f0f0f;}
+  .badge.select{background:var(--acid);} .badge.live{background:var(--violet);}
+  .badge.upcoming{background:var(--orange);}
+  .when{position:absolute;bottom:5px;left:5px;font:9px/1 var(--mono);color:#e8e8ea;background:#000a;padding:2px 5px;}
+  .cap{padding:6px 7px;font:11px/1.3 var(--mono);color:var(--muted);
+       display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+  .xbtn{position:absolute;top:4px;right:4px;width:20px;height:20px;line-height:18px;text-align:center;
+        background:#000b;color:#fff;border:1px solid var(--line-strong);cursor:pointer;font-size:12px;opacity:0;transition:.12s;}
+  .card.sel:hover .xbtn{opacity:1;} .xbtn:hover{background:var(--orange);color:#0f0f0f;}
+  .qbtn{position:absolute;left:50%;bottom:6px;transform:translateX(-50%);opacity:0;transition:.12s;white-space:nowrap;
+        background:rgba(18,18,22,.7);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:var(--ink);
+        border:1px solid var(--line-strong);border-radius:999px;padding:4px 11px;cursor:pointer;
+        font:700 9px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;}
+  .card.sel:hover .qbtn{opacity:1;} .qbtn:hover{background:var(--acid);color:#0f0f0f;border-color:var(--acid);}
+  .poolbar{position:absolute;left:0;right:0;bottom:0;padding:9px;opacity:0;transition:.16s;
+           display:flex;justify-content:center;background:linear-gradient(transparent,#000b 85%);}
+  .card:hover .poolbar{opacity:1;}
+  .poolbar button{display:inline-flex;align-items:center;gap:5px;background:rgba(18,18,22,.66);
+                  -webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);color:var(--ink);
+                  border:1px solid var(--line-strong);border-radius:999px;padding:5px 12px;cursor:pointer;
+                  font:700 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;transition:.16s;}
+  .poolbar button:hover{background:var(--acid);color:#0f0f0f;border-color:var(--acid);
+                        transform:translateY(-1px);box-shadow:0 6px 18px rgba(180,255,58,.25);}
+  .poolbar button .ic{font-size:13px;line-height:0;font-weight:400;}
+  .card.picked .media{opacity:.66;} .card.picked{box-shadow:inset 0 0 0 1px rgba(180,255,58,.5);}
+  .check{position:absolute;top:6px;right:6px;width:21px;height:21px;border-radius:999px;background:var(--acid);
+         color:#0f0f0f;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;
+         box-shadow:0 2px 9px #0009;}
+  .toggle{background:var(--surface);border:1px solid var(--line-strong);color:var(--muted);padding:6px 11px;
+          cursor:pointer;font:700 10px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;}
+  .toggle.on{background:var(--acid);color:#0f0f0f;border-color:var(--acid);}
+  .empty{color:var(--muted);padding:14px 0;font-family:var(--mono);font-size:12px;}
+  #lb{position:fixed;inset:0;background:#000e;display:none;flex-direction:column;align-items:center;
+      justify-content:center;gap:12px;z-index:60;cursor:zoom-out;padding:24px;}
+  #lb.on{display:flex;} #lb img{max-width:90vw;max-height:80vh;object-fit:contain;}
+  #lb .lbcap{font:13px/1.4 var(--mono);color:#ddd;max-width:680px;text-align:center;}
+  #toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--surface2);
+         border:1px solid var(--line-strong);padding:9px 14px;z-index:80;display:none;align-items:center;gap:12px;
+         font-size:12px;max-width:80vw;}
+  #toast.on{display:flex;} #toast.err{border-color:var(--orange);}
+  #toast button{background:none;border:0;color:var(--muted);cursor:pointer;font-size:14px;}
+</style></head>
+<body>
+<header>
+  <h1>Feed Studio</h1>
+  <div class="tabs">
+    <button class="tab on" data-view="feed">Feed</button>
+    <button class="tab" data-view="pool">Pool</button>
+  </div>
+  <span class="counts" id="counts"></span>
+  <span style="flex:1"></span>
+  <button id="hidestaged" class="toggle" style="display:none">hide staged</button>
+  <label class="lbl" id="axiswrap" style="display:none">grouping&nbsp; <select id="axis"></select></label>
+</header>
+
+<div class="wrap">
+  <div id="feed" class="view on">
+    <p class="hint">Instagram feed projection — newest top-left. <b>Live</b> posts (violet) are locked;
+      <b>selects</b> (acid) drag to reorder — the image follows your cursor, order saves on drop.
+      Hover a select for <b>×</b> to send it back to the pool. Captions show beneath posts that have one.</p>
+    <div id="grid" class="grid3"></div>
+  </div>
+  <div id="pool" class="view">
+    <p class="hint">Raw candidate pool. <b>→ selects</b> (on hover) converts to JPEG and stages it for the feed
+      (no crop). Already-staged candidates are dimmed. Switch the grouping axis, top-right.</p>
+    <div id="poolbox"></div>
+  </div>
+</div>
+
+<div id="lb"><img alt=""><div class="lbcap"></div></div>
+<div id="toast"></div>
+
+<script src="/vendor/Sortable.min.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+let AXIS="subject", BOARD=null, HIDE_STAGED=false;
+
+function toast(m,{err=false}={}){ const t=$("#toast"); t.className=err?"on err":"on";
+  t.innerHTML=""; const s=document.createElement("span"); s.textContent=m; t.appendChild(s);
+  const b=document.createElement("button"); b.textContent="✕"; b.onclick=()=>t.classList.remove("on"); t.appendChild(b);
+  clearTimeout(t._h); if(!err) t._h=setTimeout(()=>t.classList.remove("on"),2600); }
+function lightbox(u,cap){ const lb=$("#lb"); lb.querySelector("img").src=u;
+  lb.querySelector(".lbcap").textContent=cap||""; lb.classList.add("on"); }
+$("#lb").addEventListener("click",()=>$("#lb").classList.remove("on"));
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") $("#lb").classList.remove("on"); });
+
+async function post(p,b){ const r=await fetch(p,{method:"POST",headers:{"Content-Type":"application/json"},
+  body:JSON.stringify(b)}); const j=await r.json(); if(j.error) throw new Error(j.error); return j; }
+
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===b));
+  const v=b.dataset.view; $("#feed").classList.toggle("on",v==="feed");
+  $("#pool").classList.toggle("on",v==="pool");
+  $("#axiswrap").style.display=v==="pool"?"":"none"; $("#hidestaged").style.display=v==="pool"?"":"none"; }));
+$("#hidestaged").addEventListener("click",()=>{ HIDE_STAGED=!HIDE_STAGED;
+  $("#hidestaged").classList.toggle("on",HIDE_STAGED); renderPool(); });
+
+async function load(){
+  BOARD=await (await fetch("/api/board?axis="+encodeURIComponent(AXIS))).json();
+  if(BOARD.error){ toast("error: "+BOARD.error,{err:true}); return; }
+  const sel=$("#axis");
+  if(!sel.children.length){ for(const a of BOARD.axes){ const o=document.createElement("option");
+    o.value=a;o.textContent=a;sel.appendChild(o);} sel.value=BOARD.axis;
+    sel.addEventListener("change",()=>{AXIS=sel.value;load();}); }
+  $("#counts").textContent=`${BOARD.counts.selects} selects · ${BOARD.counts.live} live · ${BOARD.counts.pool} pool`;
+  renderGrid(); renderPool();
+}
+
+function mediaEl(url,cap){ const m=document.createElement("div"); m.className="media";
+  if(url){ const i=new Image(); i.loading="lazy"; i.src=url;
+    i.addEventListener("click",e=>{e.stopPropagation();lightbox(url,cap);}); m.appendChild(i); }
+  return m; }
+
+function renderGrid(){
+  const g=$("#grid"); g.innerHTML="";
+  if(!BOARD.grid.length){ g.innerHTML='<div class="empty">Nothing yet — stage candidates from the Pool tab.</div>'; return; }
+  for(const t of BOARD.grid){
+    const c=document.createElement("div");
+    c.className="card "+(t.kind==="select"?"sel":"");
+    c.dataset.key=t.key; c.dataset.kind=t.kind;
+    const cap = t.kind==="select" ? "" : (t.caption||"");
+    const m=mediaEl(t.url, t.caption||"");
+    const badge=t.kind==="select"?"select":(t.lane==="live"?"live":"upcoming");
+    m.insertAdjacentHTML("beforeend",`<span class="badge ${badge}">${t.status}</span>`+(t.when?`<span class="when">${t.when}</span>`:""));
+    if(t.kind==="select"){ const x=document.createElement("div"); x.className="xbtn"; x.textContent="×";
+      x.title="send back to pool";
+      x.addEventListener("pointerdown",e=>e.stopPropagation());
+      x.addEventListener("click",async e=>{ e.stopPropagation();
+        if(!confirm("Send this back to the pool? (the staged JPEG is deleted; the raw candidate stays)")) return;
+        try{ await post("/api/from-selects",{name:t.key}); toast("returned to pool"); load(); }
+        catch(err){ toast("error: "+err.message,{err:true}); } });
+      m.appendChild(x);
+      const q=document.createElement("button"); q.className="qbtn"; q.textContent="→ queue";
+      q.title="scaffold a draft post in this grid order";
+      q.addEventListener("pointerdown",e=>e.stopPropagation());
+      q.addEventListener("click",async e=>{ e.stopPropagation();
+        if(!confirm("Create a draft post from this select, in its current grid order?\n(The staged JPEG moves into the queue; write its caption next via the caption skill.)")) return;
+        try{ const r=await post("/api/commit",{select:t.key, slug:t.slug});
+          toast(r.image_status==="out_of_range"
+            ? `queued ${r.id} ⚠ crop to 4:5..1.91:1 before approving`
+            : `queued ${r.id} (priority ${r.priority})`); load();
+        }catch(err){ toast("error: "+err.message,{err:true}); } });
+      m.appendChild(q); }
+    c.appendChild(m);
+    if(cap){ const f=document.createElement("div"); f.className="cap"; f.textContent=cap; c.appendChild(f); }
+    g.appendChild(c);
+  }
+  initSort();
+}
+
+// SortableJS gives the iOS-style "tiles shift out of the way" reorder. Only selects are draggable;
+// locked posts stay put (filter); a select can't land among locked tiles (onMove); order saves onEnd.
+let sortable=null;
+function initSort(){
+  const g=$("#grid");
+  if(sortable){ sortable.destroy(); sortable=null; }
+  if(!window.Sortable) return;           // vendored lib missing → grid still renders, just no reorder
+  sortable=Sortable.create(g,{
+    animation:160, easing:"cubic-bezier(.2,0,0,1)", swapThreshold:0.65,
+    draggable:".card.sel",
+    filter:".card:not(.sel), .xbtn, .qbtn", preventOnFilter:false,
+    dataIdAttr:"data-key",
+    ghostClass:"s-ghost", chosenClass:"s-chosen", dragClass:"s-drag",
+    forceFallback:true, delayOnTouchOnly:true, delay:120,
+    onMove(evt){ return !!evt.related && evt.related.classList.contains("sel"); },
+    async onEnd(){
+      const order=[...g.querySelectorAll(".card.sel")].map(c=>c.dataset.key);
+      try{ await post("/api/order",{order}); toast("order saved"); }
+      catch(err){ toast("error: "+err.message,{err:true}); load(); }
+    },
+  });
+}
+
+function renderPool(){
+  const p=$("#poolbox"); p.innerHTML="";
+  if(!BOARD.pool.length){ p.innerHTML='<div class="empty">No candidates in outputs/candidates/.</div>'; return; }
+  let shown=0;
+  for(const grp of BOARD.pool){
+    const items=HIDE_STAGED?grp.items.filter(it=>!it.in_selects):grp.items;
+    if(!items.length) continue;
+    shown+=items.length;
+    const h=document.createElement("h3"); h.innerHTML=`${grp.label} <span class="n">×${items.length}</span>`;
+    p.appendChild(h);
+    const box=document.createElement("div"); box.className="pool";
+    for(const it of items){ const c=document.createElement("div"); c.className="card"+(it.in_selects?" picked":"");
+      c.appendChild(mediaEl(it.url,""));
+      if(it.in_selects){ c.insertAdjacentHTML("beforeend",'<div class="check">✓</div>'); }
+      const bar=document.createElement("div"); bar.className="poolbar";
+      const b=document.createElement("button");
+      b.innerHTML=it.in_selects?'<span class="ic">+</span> again':'<span class="ic">+</span> selects';
+      b.addEventListener("click",async()=>{ b.disabled=true; try{
+        await post("/api/to-selects",{name:it.name}); toast("staged to selects — see Feed tab"); load();
+      }catch(e){ toast("error: "+e.message,{err:true}); b.disabled=false; } });
+      bar.appendChild(b); c.appendChild(bar); box.appendChild(c); }
+    p.appendChild(box);
+  }
+  if(!shown) p.innerHTML='<div class="empty">All candidates here are staged — toggle off “hide staged” to see them.</div>';
+}
+load();
+</script>
+</body></html>

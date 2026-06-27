@@ -87,7 +87,8 @@ def _is_under(path: str, directory: str) -> bool:
 
 
 def scaffold_post(*, image: str, slug: str, date_str: str, repo_root: str = ".",
-                  media_type: str = "image", remove_select: bool = False) -> ScaffoldResult:
+                  media_type: str = "image", priority: int = 0,
+                  remove_select: bool = False) -> ScaffoldResult:
     """Create a draft queue entry from `image`. Raises ScaffoldError (nothing written) on any
     precondition failure; re-raises other exceptions only after cleaning up a partial asset dir."""
     # 1) Preconditions — NOTHING is written until all pass.
@@ -124,7 +125,7 @@ def scaffold_post(*, image: str, slug: str, date_str: str, repo_root: str = ".",
         created_dir = True
         shutil.copy2(image, os.path.join(assets_dir, "01.jpg"))
         post = Post(id=post_id, status=Status.DRAFT, media_type=MediaType.IMAGE,
-                    assets=[image_asset(asset_key)], caption="", hashtags=[])
+                    assets=[image_asset(asset_key)], caption="", hashtags=[], priority=priority)
         post.source_path = queue_path   # save_post raises without this
         os.makedirs(os.path.dirname(queue_path), exist_ok=True)
         from .queue import save_post     # local import keeps yaml lazy + avoids any import cycle
