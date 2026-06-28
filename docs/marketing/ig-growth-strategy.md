@@ -126,10 +126,12 @@ lines to Phase 2** (selling before an audience exists converts poorly, §8 #3).
 
 ## 10. Caption voice, consistency & templates → see the `caption` skill
 
-**Moved (2026-06-27).** The caption voice, the live one-line/casual/axis-~80/20 form, the
-**anti-sameness rule** (scan the last ~10 in `automation/published/` and deliberately diverge),
-the ≤5-hashtag rotation, the alt-text rule, and templates **T1–T5** are now the SSoT in the
-**`caption` skill** → `.claude/skills/caption/SKILL.md`. It emits the full publish-text bundle
+**Moved (2026-06-27; caption approach revised 2026-06-28).** The caption voice, the form
+(short · keyword-led first line · axis ~80/20), the **anti-sameness rule** (scan the last ~10 in
+`automation/published/` and deliberately diverge — including **grammatical SHAPE**, not just
+words), the **5 caption archetypes** (rotate; replaces the old T1–T5 menu), the ≤5-hashtag
+rotation, and the alt-text-as-SEO rule are now the SSoT in the **`caption` skill** →
+`.claude/skills/caption/SKILL.md`. It emits the full publish-text bundle
 (caption + ≤5 hashtags + alt_text) ready for `automation/published/<id>.yml`.
 
 Use it when writing any post text (manual now; the spec the future automated / Claude-in-Chrome

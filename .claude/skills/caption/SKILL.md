@@ -51,22 +51,42 @@ Calm, sensory, observational; let the work lead. Casual, restrained, lowercase-l
 English by default (the account is EN-primary for reach). Never: hype, engagement-bait,
 a hashtag dump in the body, or 👇-style pointer-bait.
 
-## Form (PROVISIONAL — n=1; revisit after ~10 posts with save/send data)
+## Form — short, keyword-led, ARCHETYPE-rotated
 
-The default below comes from one live post (`long-way-home`) and has no engagement data
-yet. Vary the *expression*, never the Voice.
+Hold the Voice constant; vary the **archetype** (the grammatical SHAPE), not just the
+words. The monotony to avoid: every caption a noun-phrase fragment ("A [noun], [tail]")
+— different words, identical skeleton. So the archetype is the thing you rotate.
 
-- **One line** — a single fresh sensory line about this image (`Home, the long way.`).
-- **Casual, approach-based** — hint at what you chased, not a product pitch.
-- **Axis ~80/20.** The series axis is **Geometry / Wavelength / Objects**. ~80% of posts
-  **absorb** it (felt, not named); ~20% state it in a second line (`Geometry, holding a
-  wavelength.`). *Test: if any of the three words or an obvious synonym appears, it's
-  "stated"; otherwise "absorbed." Default to absorbed.*
-- **Shape rotates** — don't repeat the previous post's shape back-to-back (shape =
-  line-count / structure, i.e. one-line ↔ two-line; not which template).
-- **Emoji optional, rotated** — calm / nature-leaning only (e.g. 🌊); never 🔥/✨/👇, never
-  mandatory.
-- **≤1 CTA or question** — never both; for art, SAVE / SHARE compound.
+- **Short.** Target ~6–14 words (the live posts' length). One line unless the chosen
+  archetype needs two.
+- **Keyword first.** The first ~125 chars carry ONE real keyword — the place / phenomenon
+  / medium (e.g. *hot spring, canyon, saguaro desert, tide*) — woven naturally. A pure-mood
+  line gives the algorithm nothing to index; the noun is what makes the post discoverable.
+  The poetry can still lead, just include the keyword.
+- **Pick an archetype, rotate it.** Choose from the **5 archetypes in `reference.md`**
+  (fragment · full sentence · quiet question · first-person "what I chased" · two-line
+  axis-signature) — they are PEERS, no default. **Use a different archetype from the
+  previous live post; across a batch, give every caption a different one** (and don't
+  repeat the same syntax family back-to-back).
+- **Axis ~80/20.** Series axis = **Geometry / Wavelength / Objects**. ~80% absorb it (felt,
+  not named); ~20% state it (the two-line archetype's job). *Test: any of the three words
+  or an obvious synonym appears → "stated"; else "absorbed."*
+- **Register may flex** within the Voice — mostly calm/sensory, but a plainer or
+  first-person line is welcome (it reads more casual than an elliptical fragment). Don't
+  let every caption sound like a gallery placard.
+- **Emoji optional, rotated** — calm/nature only (🌊); never 🔥/✨/👇, never mandatory.
+- **≤1 CTA or question** per caption (see Reach for the cap).
+
+## Reach (evidence-based; tasteful, never bait)
+
+Few things actually move reach (per the strategy doc): **sends > saves > likes**, and
+**keywords (caption first line + alt text) > hashtags**. So:
+- Front-load the keyword (above) and fill **alt_text with plain keywords** — the free SEO
+  channel that lets the visible caption stay literary (see Alt text).
+- Occasionally earn a *send/save*: ~1 in 5 posts may add ONE short genuine **save/send
+  line** ("one to keep for a grey day") OR use the **quiet-question** archetype — never
+  both, never baity (no "comment below / tag / double-tap"). Don't optimize for likes or
+  hashtags.
 
 ## Post types
 
@@ -106,10 +126,14 @@ Two failure classes — handle them differently.
 
 **Text-fixable** — revise the text, then re-check:
 - [ ] Voice holds (calm / sensory / observational / casual; no hype / bait / dump / 👇).
+- [ ] **Archetype differs** from the previous live post AND from every other caption in
+      this batch — vary the grammatical SHAPE, not just the words (the core anti-monotony
+      check; same-shape ≠ diverged).
+- [ ] **Short** (~6–14 words) and the **first ~125 chars carry a keyword**.
 - [ ] Diverged from the last ~10: opening, phrasing, axis use, and emoji are not a repeat
       of the previous post.
 - [ ] First line is specific to this image.
-- [ ] ≤1 CTA or question.
+- [ ] ≤1 CTA or question (reach beats ~1 in 5 posts max).
 - [ ] Hashtags pass the Hashtags rules (≤5, no `#`, neutral, ordered, rotated, vetted).
 - [ ] alt_text set per image (none for Reels).
 

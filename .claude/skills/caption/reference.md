@@ -7,7 +7,7 @@ read this file when a section there points you here (or when you need an exempla
 - Vetted hashtag library
 - Alt-text exemplar
 - Worked examples (the live grid)
-- Caption template menu (T1–T5)
+- Caption archetypes (5 peers — rotate)
 - Hard constraints (validate.py-owned)
 - AI labeling
 
@@ -38,23 +38,30 @@ Literal, descriptive (subject + colors + composition), one per image:
 - **`color-window`** (published 2026-06-25, deleted 2026-06-27) — two-line, axis explicit:
   `A quiet valley, and a window the color won't sit still in.` / `Geometry, holding a
   wavelength. 🌊` **Deleted because its color read too close to `long-way-home`** — the
-  reason the gate's palette-collision STOP exists. Use the two-line explicit shape
-  sparingly, to vary.
+  reason the gate's palette-collision STOP exists.
 
-## Caption template menu (T1–T5)
+> ⚠️ **Both live captions above are the SAME shape** (a noun-phrase fragment) — they are
+> the historical record, **NOT the variety target**. For *shape*, imitate the 5 archetypes
+> below, not these two.
 
-Rotate; never repeat. **T5 / the one-liner is the live exemplar.** T1–T4 are legacy
-multi-line shapes — reach for them rarely, to break monotony, never as the default.
+## Caption archetypes (5 peers — rotate; no default)
 
-- **T5 — minimalist (live):** `Color, mid-sentence.` 🌊
-- **T1 — sensory + save CTA (legacy):** `Teal folding into gold, the moment before it
-  spills over.` / `Save this for a grey day. 🌊`
-- **T2 — question (legacy):** `[one evocative line]` / `If this were a sound, what would
-  it be?`
-- **T3 — process (legacy):** `[what I chased]` / `I wanted color to feel like [motion] —
-  no subject, just the phenomenon.` / `№[N] in the [series] series.`
-- **T4 — series (legacy):** `№[N]. [one sensory line]` / `Part of "[series]" — [the
-  through-line].` / `Save the set. 🔖`
+All inherit the Voice; each is a DIFFERENT grammatical shape, so rotating them makes
+variety structural. Keep each **short (~6–14 words)** with a **keyword in the first line**.
+Use a different archetype each post and across a batch; never the same shape back-to-back.
+
+- **M1 — fragment** (noun phrase, no verb): `a hot spring, ringed in color. one to keep.`
+- **M2 — full sentence** (has a verb): `color runs downhill through the saguaro desert.`
+- **M3 — quiet question** (a line + one genuine question; a reach beat): `a green river in a
+  red canyon. too calm to be real?`
+- **M4 — first-person "what I chased"** (low-key maker's voice): `i kept the coast road
+  moving and the cyclist still.`
+- **M5 — two-line axis-signature** (line 2 names Geometry / Wavelength / Objects; the ~20%
+  axis-stated quota): `low sun strung across the dunes.` / `objects, learning to flow.`
+
+**Overlay (optional, ~1 in 5 posts max):** a short **save / send** line appended to any
+archetype (e.g. `one to keep for a grey day`) — the only reach CTA besides M3's question;
+never both in one caption, never baity.
 
 ## Hard constraints (owned by `automation/igpub/validate.py`)
 
