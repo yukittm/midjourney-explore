@@ -170,12 +170,12 @@ class TestStudioServer(unittest.TestCase):
         self._cand("surf.png")
         self.studio._to_selects("wave.png")
         self.studio._to_selects("surf.png")
-        order = self.studio._load_order()        # [surf.jpg, wave.jpg] — newest first
-        top = order[0]
-        r = self.studio._commit(top, "")
-        self.assertEqual(r["priority"], 2)        # len 2 - idx 0 → highest
-        self.assertFalse(os.path.exists(os.path.join(self.root, "outputs/selects", top)))
-        self.assertNotIn(top, self.studio._load_order())
+        order = self.studio._load_order()        # [surf.jpg, wave.jpg] — newest first (top→bottom)
+        nxt = order[-1]                           # bottom of grid (nearest live) = next to publish
+        r = self.studio._commit(nxt, "")
+        self.assertEqual(r["priority"], len(order))   # bottom select → highest priority
+        self.assertFalse(os.path.exists(os.path.join(self.root, "outputs/selects", nxt)))
+        self.assertNotIn(nxt, self.studio._load_order())
         from igpub.queue import load_post
         post_obj = load_post(os.path.join(self.root, "automation/queue", r["id"] + ".yml"))
         self.assertEqual(post_obj.priority, 2)

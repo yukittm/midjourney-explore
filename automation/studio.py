@@ -132,8 +132,10 @@ def _commit(select: str, slug: str) -> dict:
     date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     with _ORDER_LOCK:
         order = _load_order()
-        idx = order.index(select) if select in order else len(order)
-        priority = max(1, len(order) - idx)   # grid top-left (index 0) = highest priority = posts first
+        idx = order.index(select) if select in order else len(order) - 1
+        # The select NEAREST the live block (bottom of the grid = end of the order) is next to publish.
+        # So priority increases toward that end: top-left (index 0) publishes last, bottom publishes first.
+        priority = idx + 1
         r = scaffold_post(image=src, slug=slugify(slug or os.path.splitext(select)[0]),
                           date_str=date_str, repo_root=REPO_ROOT, priority=priority, remove_select=True)
         _save_order([n for n in order if n != select])
