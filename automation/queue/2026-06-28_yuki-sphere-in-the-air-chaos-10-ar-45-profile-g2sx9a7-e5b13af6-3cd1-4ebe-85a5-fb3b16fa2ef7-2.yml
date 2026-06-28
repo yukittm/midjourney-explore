@@ -1,0 +1,31 @@
+id: 2026-06-28_yuki-sphere-in-the-air-chaos-10-ar-45-profile-g2sx9a7-e5b13af6-3cd1-4ebe-85a5-fb3b16fa2ef7-2
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-06-28T19:00:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-06-28_yuki-sphere-in-the-air-chaos-10-ar-45-profile-g2sx9a7-e5b13af6-3cd1-4ebe-85a5-fb3b16fa2ef7-2/01.jpg
+  alt_text: A surreal landscape — a coral-red orb low in a deep blue sky above a dark
+    mountain ridge, a band of churning teal-green sea, and rolling grainy dunes of
+    coral, cream and green in the foreground.
+caption: A coral moon, low over a restless sea.
+hashtags:
+- digitalart
+- abstractart
+- generativeart
+- midjourneyart
+- aiartcommunity
+schedule_mode: auto
+priority: 32
+approved_at: '2026-06-28T01:53:45.424583+00:00'
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []
