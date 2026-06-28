@@ -1,0 +1,29 @@
+id: 2026-06-28_saguaro-color-river
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-02T19:00:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-06-28_saguaro-color-river/01.jpg
+  alt_text: A saguaro-cactus desert under a deep blue sky, with a flowing band of
+    violet and white color running downhill between rust-red sand and dark green ground.
+caption: a river of color through the saguaro desert. where does it end?
+hashtags:
+- digitalart
+- abstractart
+- generativeart
+- aiartcommunity
+schedule_mode: auto
+priority: 10
+approved_at: '2026-06-28T16:04:36.350346+00:00'
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

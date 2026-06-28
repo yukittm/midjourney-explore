@@ -1,0 +1,29 @@
+id: 2026-06-28_coast-road-cyclist
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-06-30T19:00:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-06-28_coast-road-cyclist/01.jpg
+  alt_text: A lone cyclist on a rust-orange coast road winding between hills of swirling
+    lilac and chartreuse texture, with a flat blue sea behind.
+caption: a cyclist threads the coast road while the hills keep swirling.
+hashtags:
+- digitalart
+- generativeart
+- midjourneyart
+- aiartcommunity
+schedule_mode: auto
+priority: 30
+approved_at: '2026-06-28T16:04:36.295786+00:00'
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

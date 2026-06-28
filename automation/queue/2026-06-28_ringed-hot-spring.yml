@@ -1,0 +1,32 @@
+id: 2026-06-28_ringed-hot-spring
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-06-29T19:00:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-06-28_ringed-hot-spring/01.jpg
+  alt_text: A turquoise hot spring ringed with concentric green, cream and blue mineral
+    bands, set into red rock and green hills with hazy blue mountains behind.
+caption: 'a hot spring, ringed in quiet color.
+
+
+  wavelength, holding still.'
+hashtags:
+- digitalart
+- abstractart
+- generativeart
+- midjourneyart
+schedule_mode: auto
+priority: 40
+approved_at: '2026-06-28T16:04:36.269638+00:00'
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []
