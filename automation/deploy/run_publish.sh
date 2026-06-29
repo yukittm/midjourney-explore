@@ -8,13 +8,23 @@
 #   IG_SYSTEM_USER_TOKEN  (required)  — Meta System User token (regenerate NON-EXPIRING before ≈2026-08-24)
 #   GIT_PUSH_TOKEN        (optional)  — GitHub fine-grained PAT w/ contents:write, for headless push
 set -uo pipefail
+# launchd runs with a minimal PATH; make git (Homebrew or Apple) + python3 resolvable.
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${PATH:-}"
 REPO="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$REPO" || exit 1
 
 set -a; [ -f automation/.env ] && . automation/.env; set +a
 
-exec 9>"${TMPDIR:-/tmp}/igpub-publish.lock"
-flock -n 9 || { echo "$(date -u +%FT%TZ) another run in progress; skip"; exit 0; }
+# Single instance. macOS has no flock, so use an atomic mkdir lock. A hard crash (SIGKILL) can leave
+# the lockdir behind; reclaim it if older than 30 min (a real run can't exceed the ~5-min poll timeout).
+LOCKDIR="${TMPDIR:-/tmp}/igpub-publish.lock.d"
+if [ -d "$LOCKDIR" ] && [ -z "$(find "$LOCKDIR" -maxdepth 0 -mmin -30 2>/dev/null)" ]; then
+  echo "$(date -u +%FT%TZ) reclaiming stale lock $LOCKDIR"; rmdir "$LOCKDIR" 2>/dev/null || true
+fi
+if ! mkdir "$LOCKDIR" 2>/dev/null; then
+  echo "$(date -u +%FT%TZ) another run in progress; skip"; exit 0
+fi
+trap 'rmdir "$LOCKDIR" 2>/dev/null' EXIT
 
 echo "$(date -u +%FT%TZ) publish run"
 python3 automation/publish.py || true   # publishes any due post; non-zero exit only on a failed post
