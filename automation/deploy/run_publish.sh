@@ -27,9 +27,16 @@ fi
 trap 'rmdir "$LOCKDIR" 2>/dev/null' EXIT
 
 echo "$(date -u +%FT%TZ) publish run"
-python3 automation/publish.py || true   # publishes any due post; non-zero exit only on a failed post
+OUT="$(python3 automation/publish.py 2>&1)"; echo "$OUT"   # publishes any due post
 
-# Persist any state change (queue->published move + media_id write-back) so Pages/remote stay synced.
+# Only persist when a publish actually happened. On an idle tick ("nothing to publish") we must NOT
+# git-add the queue/assets dirs — otherwise the runner would sweep up unrelated in-progress edits
+# (e.g. a human staging/captioning posts) into generic auto-publish commits. Bail before touching git.
+if printf '%s' "$OUT" | grep -q "nothing to publish"; then
+  exit 0
+fi
+
+# A post was published (or failed) → persist the resulting state so Pages/remote stay synced.
 if [ -n "$(git status --porcelain automation/queue automation/published automation/assets 2>/dev/null)" ]; then
   git add automation/queue automation/published automation/assets
   git -c user.name="igpub-bot" -c user.email="noreply@anthropic.com" \

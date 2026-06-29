@@ -9,7 +9,9 @@ clock (launchd, every 60s)
   └─ run_publish.sh  ── mkdir lock (single instance; macOS has no flock)
        ├─ source automation/.env            # IG token (+ optional GitHub push token)
        ├─ python automation/publish.py      # publishes DUE + status:approved posts
-       └─ git add/commit/push               # persist queue→published move + media_id
+       └─ git add/commit/push               # ONLY if a post was actually published —
+                                            # an idle tick ("nothing to publish") touches no git,
+                                            # so it never sweeps in-progress queue edits
 ```
 
 The human gate stays `status: approved` in the committed queue (set via Feed Studio). The clock
