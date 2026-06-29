@@ -42,6 +42,20 @@ GIT_PUSH_TOKEN=<GitHub fine-grained PAT, contents:write on yukittm/midjourney-ex
   this one repo with **Contents: Read and write**. Without it the publish still happens and is
   committed locally, but the push fails (logged) until the next run with a token set.
 
+### 1.5. macOS TCC — REQUIRED if the repo is under ~/Desktop, ~/Documents, or ~/Downloads
+
+macOS protects those three folders: a launchd agent canNOT read files inside them by default, so
+`run_publish.sh` fails with `Operation not permitted` (the job runs, but every tick errors). This repo
+lives under `~/Desktop/`, so you must do ONE of:
+
+- **Grant Full Disk Access to the interpreter** (fast): System Settings → Privacy & Security → Full
+  Disk Access → `+` → `Cmd+Shift+G` → `/bin/bash` → add + enable. Then reload the agent
+  (`launchctl bootout …` then `bootstrap …`, step 2). *Tradeoff: all bash scripts then get FDA.*
+- **Move the repo off the protected folders** (cleaner, no special permission): e.g. `~/dev/…`, and
+  update the two absolute paths in the plist. A future Linux host (Oracle VM) has no TCC at all.
+
+Symptom check: `tail automation/deploy/igpub.log` shows `Operation not permitted` → TCC, not a code bug.
+
 ### 2. Install the launchd agent
 
 Edit the two absolute paths in `com.tim-bankrupt.igpublish.plist` if your checkout differs from
