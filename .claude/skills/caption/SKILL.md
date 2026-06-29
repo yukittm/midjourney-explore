@@ -47,9 +47,12 @@ read it when a section points you there.
 
 ## Voice (constant — never varies)
 
-Calm, sensory, observational; let the work lead. Casual, restrained, lowercase-leaning.
-English by default (the account is EN-primary for reach). Never: hype, engagement-bait,
-a hashtag dump in the body, or 👇-style pointer-bait.
+Calm, sensory, observational; let the work lead. Casual, restrained. **Capitalization =
+standard sentence case**: capitalize the first letter of every sentence (and the pronoun
+"I" / proper nouns); everything else stays lowercase. So `A hot spring, ringed in quiet
+color.` and `A river of color through the saguaro desert. Where does it end?` — NOT all-lowercase,
+NOT Title Case, NOT ALL CAPS. English by default (the account is EN-primary for reach). Never:
+hype, engagement-bait, a hashtag dump in the body, or 👇-style pointer-bait.
 
 ## Form — short, keyword-led, ARCHETYPE-rotated
 

@@ -50,17 +50,17 @@ All inherit the Voice; each is a DIFFERENT grammatical shape, so rotating them m
 variety structural. Keep each **short (~6–14 words)** with a **keyword in the first line**.
 Use a different archetype each post and across a batch; never the same shape back-to-back.
 
-- **M1 — fragment** (noun phrase, no verb): `a hot spring, ringed in color. one to keep.`
-- **M2 — full sentence** (has a verb): `color runs downhill through the saguaro desert.`
-- **M3 — quiet question** (a line + one genuine question; a reach beat): `a green river in a
-  red canyon. too calm to be real?`
-- **M4 — first-person "what I chased"** (low-key maker's voice): `i kept the coast road
+- **M1 — fragment** (noun phrase, no verb): `A hot spring, ringed in color. One to keep.`
+- **M2 — full sentence** (has a verb): `Color runs downhill through the saguaro desert.`
+- **M3 — quiet question** (a line + one genuine question; a reach beat): `A green river in a
+  red canyon. Too calm to be real?`
+- **M4 — first-person "what I chased"** (low-key maker's voice): `I kept the coast road
   moving and the cyclist still.`
 - **M5 — two-line axis-signature** (line 2 names Geometry / Wavelength / Objects; the ~20%
-  axis-stated quota): `low sun strung across the dunes.` / `objects, learning to flow.`
+  axis-stated quota): `Low sun strung across the dunes.` / `Objects, learning to flow.`
 
 **Overlay (optional, ~1 in 5 posts max):** a short **save / send** line appended to any
-archetype (e.g. `one to keep for a grey day`) — the only reach CTA besides M3's question;
+archetype (e.g. `One to keep for a grey day.`) — the only reach CTA besides M3's question;
 never both in one caption, never baity.
 
 ## Hard constraints (owned by `automation/igpub/validate.py`)
