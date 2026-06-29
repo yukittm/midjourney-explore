@@ -5,7 +5,10 @@
 timezone: "Asia/Tokyo"          # IANA tz; slot times below are wall-clock in this zone (DST-correct)
 
 slots:                          # one post is placed per slot, earliest-free first
-  - time: "19:00"               # 19:00 JST daily (evening engagement window)
+  - window: ["08:00", "23:30"]  # post at a DETERMINISTIC-random time inside this JST window each day —
+                                #   avoids JST deep night, fine for a global audience, reads human (not on
+                                #   the dot). Use `time: "19:00"` instead for a fixed slot (pairable with a
+                                #   jitter: block). The chosen time is written into publish_at (auditable).
     # days: [mon, tue, wed, thu, fri, sat, sun]   # optional — default: every day
     # media_types: [image, carousel, reels]       # optional — default: any type
 
@@ -16,7 +19,5 @@ rate:
 horizon_days: 21                # how far ahead the planner will fill
 blackout: []                    # YYYY-MM-DD dates to skip, e.g. [2026-12-31]
 
-jitter:                         # human-like nudge so posts don't fire on the exact minute (e.g. 19:00 sharp)
-  min_minutes: -15              # earliest offset from the slot time
-  max_minutes: 30               # latest offset (back-weighted: a bit late reads more human)
-                                # deterministic per post+day, written into publish_at (auditable); 0/0 = off
+# jitter: {min_minutes: -15, max_minutes: 30}   # optional per-post nudge for a FIXED `time:` slot
+#                                                 (the `window:` slot above already spreads the time)

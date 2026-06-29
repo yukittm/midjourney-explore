@@ -40,6 +40,25 @@ class TestJitter(unittest.TestCase):
         self.assertIn("T19:00:00", p.publish_at)
 
 
+class TestWindow(unittest.TestCase):
+    SCHED_W = {"timezone": "Asia/Tokyo", "slots": [{"window": ["08:00", "23:30"]}],
+               "rate": {"max_per_24h": 22, "min_gap_minutes": 180}, "horizon_days": 14, "blackout": []}
+
+    def test_time_inside_window_and_deterministic(self):
+        from datetime import datetime as _dt
+        a = approved("w1"); assign_slots([a], self.SCHED_W, NOW)
+        b = approved("w1again"); assign_slots([b], self.SCHED_W, NOW)  # same first-free day → same seeded time
+        self.assertEqual(a.publish_at[11:], b.publish_at[11:])
+        t = _dt.fromisoformat(a.publish_at); mins = t.hour * 60 + t.minute
+        self.assertTrue(8 * 60 <= mins <= 23 * 60 + 30)               # within [08:00, 23:30] JST
+        self.assertFalse(a.publish_at.endswith("19:00:00+09:00") and "T19:00:00" in a.publish_at)  # not the old fixed slot
+
+    def test_consecutive_posts_land_on_different_days(self):
+        ps = [approved("d1"), approved("d2")]
+        assign_slots(ps, self.SCHED_W, NOW)                           # min_gap pushes the 2nd to the next day
+        self.assertNotEqual(ps[0].publish_at[:10], ps[1].publish_at[:10])
+
+
 class TestAssignSlots(unittest.TestCase):
     def test_assigns_future_slot_and_marks_scheduled(self):
         p = approved("a")

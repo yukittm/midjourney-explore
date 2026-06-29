@@ -73,6 +73,26 @@ class Plan:
         return "\n".join(lines)
 
 
+def _hm_to_min(s: str) -> int:
+    h, m = str(s).split(":")
+    return int(h) * 60 + int(m)
+
+
+def _slot_datetime(slot: dict, day, tz) -> datetime:
+    """A slot's local datetime for `day`. `time: "19:00"` → that exact minute. `window: ["08:00","23:30"]`
+    → a DETERMINISTIC-random minute inside the window, seeded by the day (so each day differs and re-plan
+    is stable). The window is the human-like spread (global audience → any time except JST deep night)."""
+    win = slot.get("window")
+    if win and len(win) == 2:
+        lo, hi = _hm_to_min(win[0]), _hm_to_min(win[1])
+        if hi < lo:
+            lo, hi = hi, lo
+        m = random.Random(f"slotwin|{day.isoformat()}|{lo}-{hi}").randint(lo, hi)
+        return datetime(day.year, day.month, day.day, m // 60, m % 60, tzinfo=tz)
+    hh, mm = str(slot.get("time", "19:00")).split(":")
+    return datetime(day.year, day.month, day.day, int(hh), int(mm), tzinfo=tz)
+
+
 def _candidate_slots(schedule: dict, now_local: datetime, tz) -> list[tuple[datetime, list]]:
     """Future slot datetimes (local, tz-aware) over the horizon, each with its allowed media types."""
     slots = schedule.get("slots") or DEFAULT_SCHEDULE["slots"]
@@ -89,8 +109,7 @@ def _candidate_slots(schedule: dict, now_local: datetime, tz) -> list[tuple[date
             allowed_days = [d.lower() for d in (slot.get("days") or _DAYS)]
             if dow not in allowed_days:
                 continue
-            hh, mm = str(slot.get("time", "19:00")).split(":")
-            cand = datetime(day.year, day.month, day.day, int(hh), int(mm), tzinfo=tz)
+            cand = _slot_datetime(slot, day, tz)
             if cand <= now_local:
                 continue
             allowed_types = [t.lower() for t in (slot.get("media_types") or [])]
