@@ -25,6 +25,12 @@ Style model **formalized** (validated in-app 2026-06-23). **Render rule = realis
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
+2026-06-29 [Claude:fix] **🟡 REVERTED the 7-selects enqueue to pre-edit state (user couldn't verify original order after my churn) — pushed**
+  - User: my edits changed the Studio selects view so the original feed order was no longer visible; revert to before. **Un-queued the 6 staged posts** (deleted 2026-06-29_* ymls + assets), **restored green-river→7/1 / saguaro-color→7/2** (orig priority 20/10) from e449de0. Queue back to: coast (tonight 23:53) · green-river 7/1 · saguaro-color 7/2 (3/3 valid). **Restored outputs/selects/ to the original 30-item .order.json + all 30 jpgs** (the 7 enqueued sources had been deleted by remove_select; recovered from the committed cropped assets + git) so the Studio shows the user's original arrangement again. Published ringed + tonight's coast untouched.
+  - The 7 captions I wrote are preserved in the entry below + chat — re-apply when the user re-arranges and re-queues, this time honoring the Studio direction (`priority = idx+1`, .order.json END publishes first).
+  - REPEAT MISTAKE acknowledged: order direction reversed again → reinforced in LESSONS (Automation). Pending: user to confirm/re-arrange the order; caption-display mock pick (A/B/C/D).
+
+
 2026-06-29 [Claude:fix] **🟢 corrected reversed feed order + removed duplicate saguaro + runner no longer sweeps + caption-display mocks shown — pushed**
   - **Feed order was REVERSED (my bug, now fixed):** my bulk-enqueue set priority highest→`.order.json[0]`, but the Studio convention (`studio.py _commit`, `priority=idx+1`) is **end-of-order publishes FIRST, index 0 (top-left/newest) publishes LAST**. Re-introduced the earlier Studio direction bug (1c27000) in a new path → logged in LESSONS. Re-assigned priorities to match. **Correct publish order now:** coast 6/29 · green-river 6/30 · saguaro-color 7/1 · cyclist-contour 7/2 · dancers 7/3 · cyclist-cypress 7/4 · cyclist-rolling 7/5 · skater 7/6 · cyclist-color-rings 7/7 (existing batch first, then the new selects batch in the user's arranged order; daily, no gap; green-river/saguaro pulled 1 day earlier to close the gap).
   - **Removed duplicate saguaro** (saguaro-pale-river) — too close to saguaro-color-river.
