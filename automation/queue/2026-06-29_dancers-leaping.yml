@@ -1,8 +1,8 @@
 id: 2026-06-29_dancers-leaping
 schema_version: 1
-status: approved
+status: scheduled
 media_type: image
-publish_at: ''
+publish_at: '2026-07-07T08:20:00+09:00'
 assets:
 - kind: image
   key: automation/assets/2026-06-29_dancers-leaping/01.jpg

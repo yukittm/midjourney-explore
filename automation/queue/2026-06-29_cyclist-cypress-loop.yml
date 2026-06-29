@@ -1,8 +1,8 @@
 id: 2026-06-29_cyclist-cypress-loop
 schema_version: 1
-status: approved
+status: scheduled
 media_type: image
-publish_at: ''
+publish_at: '2026-07-06T23:10:00+09:00'
 assets:
 - kind: image
   key: automation/assets/2026-06-29_cyclist-cypress-loop/01.jpg
