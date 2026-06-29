@@ -74,12 +74,18 @@ words. The monotony to avoid: every caption a noun-phrase fragment ("A [noun], [
   axis-signature) — they are PEERS, no default. **Use a different archetype from the
   previous live post; across a batch, give every caption a different one** (and don't
   repeat the same syntax family back-to-back).
+- **Pick a LENS too, and rotate it (the second axis).** Archetype = shape; lens = angle of
+  meaning. **Do NOT let every caption be a straight description of the subject** — that's the
+  real monotony (and reads pretentious). Vary the lens across the batch from the palette in
+  `reference.md` (favor the human/playful ones: character's-inner-voice, relatable-daily,
+  genuine-question, deadpan-travelogue, dry-juxtaposition, light-wordplay; keep meta/feeling/wry
+  in the mix; plain description only sparingly).
 - **Axis ~80/20.** Series axis = **Geometry / Wavelength / Objects**. ~80% absorb it (felt,
   not named); ~20% state it (the two-line archetype's job). *Test: any of the three words
   or an obvious synonym appears → "stated"; else "absorbed."*
-- **Register may flex** within the Voice — mostly calm/sensory, but a plainer or
-  first-person line is welcome (it reads more casual than an elliptical fragment). Don't
-  let every caption sound like a gallery placard.
+- **Register: rotate warmth in (~1 in 3).** Mostly calm/sensory, but roughly every third caption
+  should land **warm / friendly / casual** — talk like a person, not a gallery placard. If a draft
+  batch is uniformly wistful/poetic, it's wrong; break it with a friendly or playful line.
 - **Emoji optional, rotated** — calm/nature only (🌊); never 🔥/✨/👇, never mandatory.
 - **≤1 CTA or question** per caption (see Reach for the cap).
 

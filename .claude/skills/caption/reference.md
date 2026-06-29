@@ -63,6 +63,37 @@ Use a different archetype each post and across a batch; never the same shape bac
 archetype (e.g. `One to keep for a grey day.`) — the only reach CTA besides M3's question;
 never both in one caption, never baity.
 
+## Lens / angle — the SECOND axis (rotate this too)
+
+Archetype = the *shape*. Lens = the *angle of meaning*. The failure mode: every caption is a
+straight **description of the subject** ("a cyclist on a road…"), so even with rotated shapes the
+batch feels same-y and a bit poemy/pretentious. Fix: vary the LENS across the batch, and keep the
+**register** human — mostly calm-observational, but **rotate in warmth, play, and wit** so it
+doesn't read as uniformly artsy. The world is surreal color-landscapes with a small figure (or
+none); these lenses fit it.
+
+**Favor (lead with these — human + playful, they cut the pretension):**
+- **Character's inner voice** — give the figure a thought: `He's pretty sure this is a shortcut.`
+- **Relatable / daily hook** — tie to the viewer's life: `Monday could use a road like this.`
+- **Genuine question** — invite imagination (NOT bait): `Where would you point this road?`
+- **Deadpan travelogue** — treat the impossible place as a real destination: `Postcard from a place that isn't there.`
+- **Dry juxtaposition** — contrast two truths: `Extreme sport, gentlest palette.`
+- **Light wordplay** — a small pun, e.g. on the grainy texture: `Going against the grain.`
+
+**Keep (already in rotation):** meta-illusion / medium / viewer's-eye (`The arch is real; the river
+is only light.`), the figure's obliviousness (`He rides like the hills aren't melting.`),
+quiet feeling/mood, wry aside, and plain description — used **sparingly**, not as the default.
+
+**Occasional (sprinkle, not every batch):** synesthetic (`Looks the way a held chord sounds.`),
+scale-awe (`One small rider, an enormous idea.`), ultra-short punch (`Downhill, in every color.`).
+
+**Avoid / rare:** stacking more meta than the keep-set; the "generative wink" (`No drone reached
+this one.`) only **very rarely** — the account leads with its OWN style, not "this is AI."
+
+**Register rule:** ~1-in-3 captions should land warm/friendly/casual (talk like a person), the rest
+calm-observational. If a draft batch is all wistful/poetic, it's wrong — break it with a friendly or
+playful one.
+
 ## Hard constraints (owned by `automation/igpub/validate.py`)
 
 - Caption ≤ 2200 chars; the **first line is the hook** (~125 chars show before "more" —
