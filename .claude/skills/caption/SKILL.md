@@ -158,12 +158,16 @@ Two failure classes — handle them differently.
       from each of the last ~6 live posts (and any batch siblings) on **opening move**,
       **rhetorical move / angle**, and **shape** — not just a different category name on a
       similar sentence (a relabel is not a diverge).
-- [ ] **No visible rotor, no single-register grid.** The recent set isn't an obvious cycle
-      (fragment→question→…) and isn't all-description or all-wistful; calm stays the majority
-      and warmth is present (~1 in 3, not dominant).
+- [ ] **No visible rotor, no single-register grid.** Reading the recent set: it isn't an
+      obvious cycle (fragment→question→…), isn't all-description or all-wistful, and isn't
+      all-quippy — calm stays the majority and warmth is present but not dominant. *(Per-post
+      test: does adding THIS caption keep the recent ~6 majority-calm and varied? If it tips
+      the grid all-one-way, change it.)*
 - [ ] **Short** (~6–14 words) and the **first ~125 chars carry a keyword**.
-- [ ] Diverged from the last ~10: opening, phrasing, axis use, and emoji are not a repeat
-      of the previous post.
+- [ ] **Mechanical backstop** (a check *after* the read-test above, never instead of it):
+      emoji and axis-word aren't a straight repeat of the previous live post; the hashtag set
+      is rotated. (Opening / phrasing / shape / angle are already covered by the read-the-grid
+      check, judged across the last ~6 live posts.)
 - [ ] First line is specific to this image.
 - [ ] ≤1 CTA or question (reach beats ~1 in 5 posts max).
 - [ ] Hashtags pass the Hashtags rules (≤5, no `#`, neutral, ordered, rotated, vetted).

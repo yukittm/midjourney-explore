@@ -13,11 +13,13 @@ read this file when a section there points you here (or when you need an exempla
 
 ## Variation palette — the two axes
 
-Variety is structural: rotate **Shape** (the grammatical form) and **Angle** (the lens of
-meaning) independently, so two captions almost never coincide on both. Pick one of each per
-caption; never repeat either back-to-back or within a batch. The recurring trap is letting
-the angle default to plain subject-description — keep that rare and lead with the
-human/playful angles instead.
+Variety is structural, built on two dials: **Shape** (the grammatical form) and **Angle**
+(the lens of meaning). Use them as a **generation menu** — pick one of each to write *from* —
+but judge variety by **reading the recent grid**, not by avoiding the last label. Keep repeats
+**non-adjacent** rather than banning them (a batch larger than the 5 shapes *must* repeat
+shapes — that's fine; just no two alike adjacent, and no visible rotor across the set). The
+recurring trap is letting the angle default to plain subject-description — keep that rare and
+lead with the human/playful angles instead.
 
 ### Axis 1 — Shapes (5 peers; rotate, no default)
 
