@@ -2,7 +2,7 @@ id: 2026-06-29_cyclist-cypress-loop
 schema_version: 1
 status: scheduled
 media_type: image
-publish_at: '2026-07-05T15:17:00+09:00'
+publish_at: '2026-07-04T17:06:00+09:00'
 assets:
 - kind: image
   key: automation/assets/2026-06-29_cyclist-cypress-loop/01.jpg
@@ -19,7 +19,7 @@ hashtags:
 - midjourneyart
 - aiartcommunity
 schedule_mode: auto
-priority: 3
+priority: 40
 result:
   container_id: null
   media_id: null

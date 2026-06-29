@@ -25,6 +25,13 @@ Style model **formalized** (validated in-app 2026-06-23). **Render rule = realis
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
+2026-06-29 [Claude:fix] **🟢 corrected reversed feed order + removed duplicate saguaro + runner no longer sweeps + caption-display mocks shown — pushed**
+  - **Feed order was REVERSED (my bug, now fixed):** my bulk-enqueue set priority highest→`.order.json[0]`, but the Studio convention (`studio.py _commit`, `priority=idx+1`) is **end-of-order publishes FIRST, index 0 (top-left/newest) publishes LAST**. Re-introduced the earlier Studio direction bug (1c27000) in a new path → logged in LESSONS. Re-assigned priorities to match. **Correct publish order now:** coast 6/29 · green-river 6/30 · saguaro-color 7/1 · cyclist-contour 7/2 · dancers 7/3 · cyclist-cypress 7/4 · cyclist-rolling 7/5 · skater 7/6 · cyclist-color-rings 7/7 (existing batch first, then the new selects batch in the user's arranged order; daily, no gap; green-river/saguaro pulled 1 day earlier to close the gap).
+  - **Removed duplicate saguaro** (saguaro-pale-river) — too close to saguaro-color-river.
+  - **launchd runner no longer sweeps in-progress edits:** `run_publish.sh` now bails before any git op on an idle "nothing to publish" tick (verified). Only persists on an actual publish.
+  - **Caption display: 4 style mocks shown** (A current mono / B serif editorial / C soft card / D serif+accent) — awaiting the user's pick to implement in `studio/static/index.html` `.cap`.
+
+
 2026-06-29 [Claude:content] **🟢 7 staged selects captioned (sentence-case + emoji rule) & scheduled 6/30–7/8 + ringed re-published; launchd now a 2nd git writer — pushed**
   - **ringed-hot-spring re-published** at 17:14 (the capitalized re-queue) → media_id `18098121064948420`, https://www.instagram.com/p/DaKaci1k276/. coast-road-cyclist still due 23:53.
   - **Captioned the user's next-7 staged selects** (kept the picks AS-IS per the user — I overstepped by proposing a re-curation; corrected, see LESSONS "Scope of authority"). Scaffolded → 4:5 crop (1968×2460) → sentence-case captions, the **4 cyclist shots differentiated** by archetype/angle/opening (rings/rolling/loop+cypress/contour), 1 trailing 🌊 on contour-waves. Hashtags from the vetted set. `plan.py` scheduled: cyclist-color-rings 6/30 09:32 · saguaro-pale-river 7/3 · skater-pink-path 7/4 · cyclist-rolling-color 7/5 · cyclist-cypress-loop 7/6 · dancers-leaping 7/7 · cyclist-contour-lines 7/8. 10/10 queue valid. Dropped the 7 from `outputs/selects/.order.json` (23 left).

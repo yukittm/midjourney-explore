@@ -2,7 +2,7 @@ id: 2026-06-29_skater-pink-path
 schema_version: 1
 status: scheduled
 media_type: image
-publish_at: '2026-07-03T14:09:00+09:00'
+publish_at: '2026-07-06T23:10:00+09:00'
 assets:
 - kind: image
   key: automation/assets/2026-06-29_skater-pink-path/01.jpg
@@ -15,7 +15,7 @@ hashtags:
 - midjourneyart
 - aiartcommunity
 schedule_mode: auto
-priority: 5
+priority: 20
 result:
   container_id: null
   media_id: null

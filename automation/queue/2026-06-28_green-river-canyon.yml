@@ -2,7 +2,7 @@ id: 2026-06-28_green-river-canyon
 schema_version: 1
 status: scheduled
 media_type: image
-publish_at: '2026-07-01T10:39:00+09:00'
+publish_at: '2026-06-30T09:32:00+09:00'
 assets:
 - kind: image
   key: automation/assets/2026-06-28_green-river-canyon/01.jpg
@@ -15,7 +15,7 @@ hashtags:
 - midjourneyart
 - aiartcommunity
 schedule_mode: auto
-priority: 20
+priority: 80
 approved_at: '2026-06-28T16:04:36.324357+00:00'
 result:
   container_id: null
