@@ -21,8 +21,8 @@ headless spec — when an automated caption step is built, enforce the recent-po
 
 **Ownership:** this skill owns the *voice + procedure*. Policy numbers and hard limits
 are owned by `docs/marketing/ig-growth-strategy.md` and `automation/igpub/validate.py`;
-if they ever disagree with this file, they win. Reference tables (hashtag library,
-examples, templates, full constraint list, AI labeling) live in **`reference.md`** —
+if they ever disagree with this file, they win. Reference tables (the variation palette,
+hashtag library, examples, full constraint list, AI labeling) live in **`reference.md`** —
 read it when a section points you there.
 
 ## Procedure (in order; steps 1–2 are load-bearing)
@@ -33,61 +33,65 @@ read it when a section points you there.
 2. **Scan recent posts.** Read the last ~10 `automation/published/*.yml`, newest first
    by the **filename date prefix** (not `publish_at`, often empty); **include
    `deleted_from_ig: true` records** (the deletion reason is a lesson). Note their
-   openings, phrasings, axis use, emoji, hashtag sets, and **palette + subject**, then
-   diverge (→ gate). **"The previous post"** (used by every rotation / divergence check
-   below) **= the most-recent _live_ record**; deleted records inform the scan but are
-   not the rotation baseline. *First post / empty folder: skip this scan; apply only
-   Voice + content-aware + ≤5 tags.*
-3. **Draft the caption** in the Voice and Form below.
+   openings, shapes, **angles**, axis use, emoji, hashtag sets, and **palette + subject**,
+   then diverge (→ gate). **"The previous post"** (used by every rotation / divergence
+   check below) **= the most-recent _live_ record**; deleted records inform the scan but
+   are not the rotation baseline. *First post / empty folder: skip this scan; apply only
+   Voice + Form + ≤5 tags.*
+3. **Draft the caption** in the Voice + Form below.
 4. **Choose ≤5 hashtags** (→ Hashtags).
 5. **Write alt_text** (→ Alt text; skip for Reels).
 6. **Run the gate** (→ Anti-sameness gate) and revise per its branch.
 7. **Emit the bundle** (→ Output): the field values, their yml locations, and one line
    on how this post diverges from the last.
 
-## Voice (constant — never varies)
+## Voice (the constant — never varies)
 
-Calm, sensory, observational; let the work lead. Casual, restrained. **Capitalization =
-standard sentence case**: capitalize the first letter of every sentence (and the pronoun
-"I" / proper nouns); everything else stays lowercase. So `A hot spring, ringed in quiet
-color.` and `A river of color through the saguaro desert. Where does it end?` — NOT all-lowercase,
-NOT Title Case, NOT ALL CAPS. **Emoji: rare and single** — most captions have NONE; occasionally
-(≈1 in 5 at most) end the FINAL sentence with exactly ONE mood-fitting emoji (e.g. 🌊 for
-water/wavelength), never more than one, never mid-caption, never as decoration or bait. English by
-default (the account is EN-primary for reach). Never: hype, engagement-bait, a hashtag dump in the
-body, or 👇-style pointer-bait.
+Calm, sensory, observational; let the work lead — casual and restrained, never hype or
+sales. **Capitalization = standard sentence case:** capitalize the first letter of each
+sentence (and the pronoun "I" / proper nouns); everything else lowercase. So `A hot
+spring, ringed in quiet color.` and `A river of color through the saguaro desert. Where
+does it end?` — never all-lowercase, Title Case, or ALL CAPS. English by default (the
+account is EN-primary for reach). **Never** hype, engagement-bait, a hashtag dump in the
+body, or 👇-pointer-bait. *(Two things flex on top of this constant voice — the angle and
+the warmth of register — see Form. The Voice is the floor they all stand on.)*
 
-## Form — short, keyword-led, ARCHETYPE-rotated
+## Form — variety from two axes, kept short
 
-Hold the Voice constant; vary the **archetype** (the grammatical SHAPE), not just the
-words. The monotony to avoid: every caption a noun-phrase fragment ("A [noun], [tail]")
-— different words, identical skeleton. So the archetype is the thing you rotate.
+Sameness is the enemy, and it has one root cause: **letting both axes default** — the same
+grammatical shape, and a flat description of the subject. That reads monotonous and
+pretentious at once. So every caption is built by rotating **two independent axes**, then
+trimmed to size.
 
-- **Short.** Target ~6–14 words (the live posts' length). One line unless the chosen
-  archetype needs two.
-- **Keyword first.** The first ~125 chars carry ONE real keyword — the place / phenomenon
-  / medium (e.g. *hot spring, canyon, saguaro desert, tide*) — woven naturally. A pure-mood
-  line gives the algorithm nothing to index; the noun is what makes the post discoverable.
-  The poetry can still lead, just include the keyword.
-- **Pick an archetype, rotate it.** Choose from the **5 archetypes in `reference.md`**
-  (fragment · full sentence · quiet question · first-person "what I chased" · two-line
-  axis-signature) — they are PEERS, no default. **Use a different archetype from the
-  previous live post; across a batch, give every caption a different one** (and don't
-  repeat the same syntax family back-to-back).
-- **Pick a LENS too, and rotate it (the second axis).** Archetype = shape; lens = angle of
-  meaning. **Do NOT let every caption be a straight description of the subject** — that's the
-  real monotony (and reads pretentious). Vary the lens across the batch from the palette in
-  `reference.md` (favor the human/playful ones: character's-inner-voice, relatable-daily,
-  genuine-question, deadpan-travelogue, dry-juxtaposition, light-wordplay; keep meta/feeling/wry
-  in the mix; plain description only sparingly).
-- **Axis ~80/20.** Series axis = **Geometry / Wavelength / Objects**. ~80% absorb it (felt,
-  not named); ~20% state it (the two-line archetype's job). *Test: any of the three words
-  or an obvious synonym appears → "stated"; else "absorbed."*
-- **Register: rotate warmth in (~1 in 3).** Mostly calm/sensory, but roughly every third caption
-  should land **warm / friendly / casual** — talk like a person, not a gallery placard. If a draft
-  batch is uniformly wistful/poetic, it's wrong; break it with a friendly or playful line.
-- **Emoji optional, rotated** — calm/nature only (🌊); never 🔥/✨/👇, never mandatory.
-- **≤1 CTA or question** per caption (see Reach for the cap).
+- **Axis 1 — Shape (archetype):** the grammatical form. Five peers in `reference.md`
+  (fragment · full sentence · quiet question · first-person · two-line axis-signature).
+  No default; they are equals.
+- **Axis 2 — Angle (lens):** the angle of meaning — *whose view, what it's about*. Palette
+  in `reference.md`. **Favor the human / playful angles** (a character's thought, a
+  daily-life hook, a real question, a deadpan travelogue, a dry juxtaposition, light
+  wordplay); keep meta / feeling / wry in the mix; use **plain subject-description only
+  sparingly**. Description-as-default IS the monotony to kill.
+- **Rotate both, every time.** Each caption takes a **different shape AND a different angle**
+  from the previous live post and from every other caption in the same batch — never the
+  same shape or the same angle back-to-back.
+
+Then trim every caption to these:
+
+- **Short** — ~6–14 words; one line unless the shape needs two.
+- **Keyword first** — the first ~125 chars carry one real noun (place / phenomenon /
+  medium, e.g. *hot spring, canyon, saguaro desert, peloton*). The angle can lead, but the
+  noun must be there — it's what makes the post discoverable.
+- **Register — rotate warmth in (~1 in 3).** The baseline is calm/observational, but
+  roughly every third caption should land **warm / friendly / casual** — talk like a
+  person, not a gallery placard. A batch that's uniformly wistful or poetic is wrong; break
+  it with a friendly or playful one.
+- **Axis ~80/20** — series axis = **Geometry / Wavelength / Objects**. ~80% absorb it (felt,
+  not named); ~20% state it (the two-line shape's job). *Test: any of the three words or an
+  obvious synonym appears → "stated"; else "absorbed."*
+- **Emoji — rare and single.** Most captions have none; at most ~1 in 5 ends the FINAL
+  sentence with exactly ONE calm/nature emoji (🌊). Never more than one, never mid-caption,
+  never 🔥/✨/👇, never as decoration or bait.
+- **≤1 question or CTA** per caption (see Reach for the cap).
 
 ## Reach (evidence-based; tasteful, never bait)
 
@@ -96,9 +100,8 @@ Few things actually move reach (per the strategy doc): **sends > saves > likes**
 - Front-load the keyword (above) and fill **alt_text with plain keywords** — the free SEO
   channel that lets the visible caption stay literary (see Alt text).
 - Occasionally earn a *send/save*: ~1 in 5 posts may add ONE short genuine **save/send
-  line** ("one to keep for a grey day") OR use the **quiet-question** archetype — never
-  both, never baity (no "comment below / tag / double-tap"). Don't optimize for likes or
-  hashtags.
+  line** ("one to keep for a grey day") OR use the **quiet-question** shape — never both,
+  never baity (no "comment below / tag / double-tap"). Don't optimize for likes or hashtags.
 
 ## Post types
 
@@ -138,9 +141,11 @@ Two failure classes — handle them differently.
 
 **Text-fixable** — revise the text, then re-check:
 - [ ] Voice holds (calm / sensory / observational / casual; no hype / bait / dump / 👇).
-- [ ] **Archetype differs** from the previous live post AND from every other caption in
-      this batch — vary the grammatical SHAPE, not just the words (the core anti-monotony
-      check; same-shape ≠ diverged).
+- [ ] **Shape AND angle both differ** from the previous live post AND from every other
+      caption in this batch — vary the grammatical SHAPE *and* the lens, not just the words
+      (the core anti-monotony check; same shape or all-description ≠ diverged).
+- [ ] **Not all-description / not uniformly poemy** — at least the batch's ~1-in-3 warmth
+      is present.
 - [ ] **Short** (~6–14 words) and the **first ~125 chars carry a keyword**.
 - [ ] Diverged from the last ~10: opening, phrasing, axis use, and emoji are not a repeat
       of the previous post.
@@ -172,5 +177,5 @@ record — normally the **`automation/queue/<id>.yml` draft** (created by
   Reels).
 
 Then validate: `PYTHONPATH=automation python3 -m unittest discover -s automation/tests`.
-End with one line on how this post diverges from the last (shape, opening, palette,
+End with one line on how this post diverges from the last (shape, angle, opening, palette,
 hashtag rotation). *Optional:* persist it as a `divergence_note` in the record.

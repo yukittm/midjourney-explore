@@ -4,12 +4,64 @@ Detail tables for the `caption` skill. The method, voice, and rules live in `SKI
 read this file when a section there points you here (or when you need an exemplar).
 
 ## Contents
+- Variation palette (the two axes: shapes × angles)
 - Vetted hashtag library
 - Alt-text exemplar
 - Worked examples (the live grid)
-- Caption archetypes (5 peers — rotate)
 - Hard constraints (validate.py-owned)
 - AI labeling
+
+## Variation palette — the two axes
+
+Variety is structural: rotate **Shape** (the grammatical form) and **Angle** (the lens of
+meaning) independently, so two captions almost never coincide on both. Pick one of each per
+caption; never repeat either back-to-back or within a batch. The recurring trap is letting
+the angle default to plain subject-description — keep that rare and lead with the
+human/playful angles instead.
+
+### Axis 1 — Shapes (5 peers; rotate, no default)
+
+Each is a different grammatical form, so rotating them makes variety structural. Keep each
+**short (~6–14 words)** with a keyword in the first line.
+
+- **S1 — fragment** (noun phrase, no verb): `A hot spring, ringed in color. One to keep.`
+- **S2 — full sentence** (has a verb): `Color runs downhill through the saguaro desert.`
+- **S3 — quiet question** (a line + one genuine question; doubles as a reach beat):
+  `A green river in a red canyon. Too calm to be real?`
+- **S4 — first-person** (low-key maker's voice): `I kept the coast road moving and the
+  cyclist still.`
+- **S5 — two-line axis-signature** (line 2 names Geometry / Wavelength / Objects — the ~20%
+  axis-stated quota): `Low sun strung across the dunes.` / `Objects, learning to flow.`
+
+### Axis 2 — Angles (the lens; rotate, favor human/playful)
+
+The angle decides *whose view it is and what it's really about*. Spread these across a
+batch. Tiers below are how often to reach for each — not a ranking of quality.
+
+**Favor (lead here — human + playful; these cut the pretension):**
+- **Character's inner voice** — give the figure a thought: `He's pretty sure this is a shortcut.`
+- **Relatable / daily hook** — tie it to the viewer's life: `Some Mondays need a road like this.`
+- **Genuine question** — invite imagination, NOT bait: `Where would you point this road?`
+- **Deadpan travelogue** — treat the impossible place as a real destination:
+  `Found this arch on the color coast. Not real, sadly.`
+- **Dry juxtaposition** — set two truths against each other: `Extreme sport, gentlest palette.`
+- **Light wordplay** — a small pun (e.g. on the grainy texture): `Going against the grain.`
+
+**Keep in the mix (don't over-rely):** meta — illusion / medium / the viewer's eye
+(`The arch is real; the river is only light.`); the figure's obliviousness (`He rides like
+the hills aren't melting.`); quiet feeling / mood; a wry aside; and **plain description —
+sparingly**, never the default.
+
+**Occasional (a sprinkle, not every batch):** synesthetic (`Looks the way a held chord
+sounds.`); scale-awe (`One small rider, an enormous idea.`); ultra-short punch
+(`Color, finding the sea.`).
+
+**Rare:** the "generative wink" (`No drone reached this one.`) — only once in a long while;
+the account leads with its OWN style, not "this is AI."
+
+**Save/send overlay (optional, ~1 in 5 max):** any caption may append ONE short save/send
+line (`one to keep for a grey day`). It's the only reach CTA besides the S3 question — never
+use both in one caption, never make it baity.
 
 ## Vetted hashtag library
 
@@ -31,68 +83,17 @@ Literal, descriptive (subject + colors + composition), one per image:
 
 ## Worked examples (the live grid)
 
-- **`long-way-home`** (live) — one line, axis absorbed (the default): `Home, the long
-  way.` Villa on an islet, winding color path; wavelength/objects felt in "the long way,"
-  never named. *(Posted with `surrealart` + an unordered tag set — now superseded by the
-  Hashtags rules.)*
-- **`color-window`** (published 2026-06-25, deleted 2026-06-27) — two-line, axis explicit:
+- **`long-way-home`** (live) — S1 fragment, axis absorbed: `Home, the long way.` Villa on an
+  islet, winding color path; wavelength/objects felt in "the long way," never named.
+  *(Posted with `surrealart` + an unordered tag set — now superseded by the Hashtags rules.)*
+- **`color-window`** (published 2026-06-25, deleted 2026-06-27) — S5 two-line, axis explicit:
   `A quiet valley, and a window the color won't sit still in.` / `Geometry, holding a
   wavelength. 🌊` **Deleted because its color read too close to `long-way-home`** — the
   reason the gate's palette-collision STOP exists.
 
-> ⚠️ **Both live captions above are the SAME shape** (a noun-phrase fragment) — they are
-> the historical record, **NOT the variety target**. For *shape*, imitate the 5 archetypes
-> below, not these two.
-
-## Caption archetypes (5 peers — rotate; no default)
-
-All inherit the Voice; each is a DIFFERENT grammatical shape, so rotating them makes
-variety structural. Keep each **short (~6–14 words)** with a **keyword in the first line**.
-Use a different archetype each post and across a batch; never the same shape back-to-back.
-
-- **M1 — fragment** (noun phrase, no verb): `A hot spring, ringed in color. One to keep.`
-- **M2 — full sentence** (has a verb): `Color runs downhill through the saguaro desert.`
-- **M3 — quiet question** (a line + one genuine question; a reach beat): `A green river in a
-  red canyon. Too calm to be real?`
-- **M4 — first-person "what I chased"** (low-key maker's voice): `I kept the coast road
-  moving and the cyclist still.`
-- **M5 — two-line axis-signature** (line 2 names Geometry / Wavelength / Objects; the ~20%
-  axis-stated quota): `Low sun strung across the dunes.` / `Objects, learning to flow.`
-
-**Overlay (optional, ~1 in 5 posts max):** a short **save / send** line appended to any
-archetype (e.g. `One to keep for a grey day.`) — the only reach CTA besides M3's question;
-never both in one caption, never baity.
-
-## Lens / angle — the SECOND axis (rotate this too)
-
-Archetype = the *shape*. Lens = the *angle of meaning*. The failure mode: every caption is a
-straight **description of the subject** ("a cyclist on a road…"), so even with rotated shapes the
-batch feels same-y and a bit poemy/pretentious. Fix: vary the LENS across the batch, and keep the
-**register** human — mostly calm-observational, but **rotate in warmth, play, and wit** so it
-doesn't read as uniformly artsy. The world is surreal color-landscapes with a small figure (or
-none); these lenses fit it.
-
-**Favor (lead with these — human + playful, they cut the pretension):**
-- **Character's inner voice** — give the figure a thought: `He's pretty sure this is a shortcut.`
-- **Relatable / daily hook** — tie to the viewer's life: `Monday could use a road like this.`
-- **Genuine question** — invite imagination (NOT bait): `Where would you point this road?`
-- **Deadpan travelogue** — treat the impossible place as a real destination: `Postcard from a place that isn't there.`
-- **Dry juxtaposition** — contrast two truths: `Extreme sport, gentlest palette.`
-- **Light wordplay** — a small pun, e.g. on the grainy texture: `Going against the grain.`
-
-**Keep (already in rotation):** meta-illusion / medium / viewer's-eye (`The arch is real; the river
-is only light.`), the figure's obliviousness (`He rides like the hills aren't melting.`),
-quiet feeling/mood, wry aside, and plain description — used **sparingly**, not as the default.
-
-**Occasional (sprinkle, not every batch):** synesthetic (`Looks the way a held chord sounds.`),
-scale-awe (`One small rider, an enormous idea.`), ultra-short punch (`Downhill, in every color.`).
-
-**Avoid / rare:** stacking more meta than the keep-set; the "generative wink" (`No drone reached
-this one.`) only **very rarely** — the account leads with its OWN style, not "this is AI."
-
-**Register rule:** ~1-in-3 captions should land warm/friendly/casual (talk like a person), the rest
-calm-observational. If a draft batch is all wistful/poetic, it's wrong — break it with a friendly or
-playful one.
+> ⚠️ Both live captions above are the **same shape** (a fragment) **and the same angle**
+> (plain description) — they are the historical record, **NOT the variety target**. Imitate
+> the palette above, not these two.
 
 ## Hard constraints (owned by `automation/igpub/validate.py`)
 
