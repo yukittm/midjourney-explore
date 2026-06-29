@@ -2,6 +2,7 @@
 
 - [Studio front-end & drag-reorder](reference_studio-frontend-dnd.md) — studio = no-build vanilla static html; current drag = hand-rolled no-anim; SortableJS = FLIP pick (filter+onMove lock, toArray order); stay no-build (Alpine if needed), not React+Vite
 - [Web access constraints](reference_web-access-constraints.md) — Reddit fully blocked; docs.midjourney 403; updates.midjourney OK; use search snippets for doc wording
+- [IG cron host options](reference_ig-cron-host-options.md) — once-daily publish.py clock: WINNER Hetzner VPS+cron / RUNNER-UP Lambda+EventBridge Rule (free) / Render $1; GHA still rejected; jitter = folklore-not-evidence
 - [MJ API & automation state](reference_mj-api-automation-state.md) — no official public API (Enterprise still "investigating"); unofficial APIs wrap Discord/web (ToS risk); inpaint scriptable via base64 mask
 - [MJ --sv style-reference version](reference_mj-sv-style-reference-version.md) — sv7 is the V8.1 DEFAULT & --hd-compatible (NOT rejected); in-app error = sv7+numeric-CODE mismatch; doc's "omit sv / sv7 rejected" reasoning is WRONG
 - [MJ image-URL --sref behavior](reference_mj-sref-image-url-behavior.md) — sref = STYLE ONLY (no composition/subject); --sw 0–1000 def 100 (strong-color band ~150–300); sref+image-prompt combine on diff axes; V8.1 still current

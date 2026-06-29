@@ -95,8 +95,12 @@ low-maintenance design** that makes customization and a future UI a bolt-on, not
 5. *(user + assistant)* Phase-0 test: hand-run `publish.py` on one approved post → verify it goes live, the write-back lands, and a deliberate bad URL hits the failed+alert path.
 
 **Phase 1 — scheduled-auto (flip the clock):**
-6. *(decide at build time)* clock = Hetzner VPS cron **or** AWS Lambda+EventBridge; deploy `publish.py` there; token in the host's secret store; wire the healthcheck.
-7. flip to scheduled; verify auto-publish from the approved queue; **rollback = disable the clock** (manual path still works).
+- **Repo side DONE (2026-06-29):** `publish.py` (no `--id`) is already a due-poller; **human-like jitter** is implemented in `schedule.py`/`schedule.yml` (`jitter: {min_minutes:-15, max_minutes:30}` → each post's `publish_at` is nudged off the exact slot by a *deterministic per-post-per-day* offset, written into the record so it's auditable; `0/0` = off; default off). No `publish.py` change is needed to go clock-driven.
+- **BLOCKER before deploying a standing clock:** regenerate the token **non-expiring** (the saved one is 60-day, ≈2026-08-24) — a ~2-min Business-Settings step (user-only; assistant never touches the token).
+6. *(user picks the host)* **free = AWS Lambda + EventBridge** (~$0, token in a Lambda env var; more setup) **or** **Hetzner VPS cron** (~$5/mo, simplest; token in a root-only `/etc/igpub.env`). Cron line (poll every 5 min; `flock` prevents overlap; env sourced, never inline):
+   `*/5 * * * * cd <repo> && . /etc/igpub.env && flock -n /tmp/igpub.lock python automation/publish.py`
+7. set `config.yml: healthcheck_url` (free healthchecks.io dead-man's-switch); flip to scheduled; verify auto-publish from the approved queue; **rollback = disable the clock** (manual path still works). *No fire-time human gate — approval = the commit that set `status: approved`.*
+   - *Deferred (not needed at 1/day, assets are pushed days ahead so Pages lag rarely bites): treating a HEAD-probe miss as keep-SCHEDULED-retry instead of FAILED. Revisit if a fire-time propagation lag actually causes a miss.*
 
 ## Open decisions / dependencies
 - **Clock** (VPS vs Lambda) — at build time.

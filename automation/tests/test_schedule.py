@@ -22,6 +22,24 @@ SCHED = {"timezone": "Asia/Tokyo", "slots": [{"time": "19:00"}],
 NOW = datetime(2026, 6, 25, 0, 0, tzinfo=timezone.utc)  # 09:00 JST on 2026-06-25
 
 
+class TestJitter(unittest.TestCase):
+    SCHED_J = {**SCHED, "jitter": {"min_minutes": -15, "max_minutes": 30}}
+
+    def test_offset_within_window_and_deterministic(self):
+        from datetime import datetime as _dt
+        a = approved("jitterpost"); assign_slots([a], self.SCHED_J, NOW)
+        b = approved("jitterpost"); assign_slots([b], self.SCHED_J, NOW)  # same id+day → same offset
+        self.assertEqual(a.publish_at, b.publish_at)                       # deterministic across re-plans
+        fire = _dt.fromisoformat(a.publish_at)
+        self.assertEqual((fire.hour, fire.minute) >= (18, 45) or fire.hour == 19, True)
+        mins = fire.hour * 60 + fire.minute
+        self.assertTrue(18 * 60 + 45 <= mins <= 19 * 60 + 30)             # within [18:45, 19:30]
+
+    def test_off_by_default_keeps_exact_slot(self):
+        p = approved("nojit"); assign_slots([p], SCHED, NOW)               # SCHED has no jitter → off
+        self.assertIn("T19:00:00", p.publish_at)
+
+
 class TestAssignSlots(unittest.TestCase):
     def test_assigns_future_slot_and_marks_scheduled(self):
         p = approved("a")

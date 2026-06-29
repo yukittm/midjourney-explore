@@ -8,6 +8,7 @@ Rolling-window math is done in UTC; slot wall-clock times are resolved in the co
 from __future__ import annotations
 
 import os
+import random
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from typing import Optional
@@ -24,6 +25,7 @@ DEFAULT_SCHEDULE = {
     "rate": {"max_per_24h": 22, "min_gap_minutes": 180},
     "horizon_days": 21,
     "blackout": [],
+    "jitter": {"min_minutes": 0, "max_minutes": 0},  # OFF by default; production enables it in schedule.yml
 }
 
 
@@ -97,6 +99,21 @@ def _candidate_slots(schedule: dict, now_local: datetime, tz) -> list[tuple[date
     return out
 
 
+def _jittered(cand_local: datetime, post_id: str, jcfg: dict, now_local: datetime) -> datetime:
+    """Nudge a slot off its exact minute by a DETERMINISTIC per-post-per-day offset (human-like — posts
+    don't fire on the dot). Seeded by post id + slot date, so it's identical across re-plans and is
+    written into publish_at (fully auditable). Never pushed into the past. min==max==0 → no jitter."""
+    lo = int((jcfg or {}).get("min_minutes", 0))
+    hi = int((jcfg or {}).get("max_minutes", 0))
+    if lo == 0 and hi == 0:
+        return cand_local
+    if hi < lo:
+        lo, hi = hi, lo
+    off = random.Random(f"{post_id}|{cand_local.date().isoformat()}").randint(lo, hi)
+    jittered = cand_local + timedelta(minutes=off)
+    return jittered if jittered > now_local else cand_local
+
+
 def assign_slots(posts: list[Post], schedule: dict, now: datetime) -> Plan:
     """Place AUTO posts into the next free slots; reserve PINNED/already-SCHEDULED times. Mutates the
     placed posts in place (publish_at + status=SCHEDULED) so the caller can save them; returns a Plan."""
@@ -105,6 +122,7 @@ def assign_slots(posts: list[Post], schedule: dict, now: datetime) -> Plan:
     rate = schedule.get("rate") or {}
     max_per_24h = int(rate.get("max_per_24h", 22))
     min_gap_s = int(rate.get("min_gap_minutes", 180)) * 60
+    jcfg = schedule.get("jitter") or {}
 
     plan = Plan()
     taken: list[datetime] = []  # occupied times, UTC-aware
@@ -138,10 +156,11 @@ def assign_slots(posts: list[Post], schedule: dict, now: datetime) -> Plan:
             # (publish.py runner); a rigorous rolling-window planner is deferred to the FULL build.
             if sum(1 for t in taken if abs((cand_utc - t).total_seconds()) < 24 * 3600) >= max_per_24h:
                 continue
-            p.publish_at = cand_local.isoformat()
+            fire_local = _jittered(cand_local, p.id, jcfg, now_local)  # human-like offset, recorded
+            p.publish_at = fire_local.isoformat()
             p.status = Status.SCHEDULED
-            taken.append(cand_utc)
-            plan.assignments.append((p, cand_local))
+            taken.append(fire_local.astimezone(timezone.utc))
+            plan.assignments.append((p, fire_local))
             placed = True
             break
         if not placed:

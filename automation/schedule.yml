@@ -15,3 +15,8 @@ rate:
 
 horizon_days: 21                # how far ahead the planner will fill
 blackout: []                    # YYYY-MM-DD dates to skip, e.g. [2026-12-31]
+
+jitter:                         # human-like nudge so posts don't fire on the exact minute (e.g. 19:00 sharp)
+  min_minutes: -15              # earliest offset from the slot time
+  max_minutes: 30               # latest offset (back-weighted: a bit late reads more human)
+                                # deterministic per post+day, written into publish_at (auditable); 0/0 = off
