@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- launchd agent: poll the publish queue every 15 min and auto-publish due posts.
+<!-- launchd agent: poll the publish queue every 60s and auto-publish due posts.
+     Why 60s (not 15min): publish_at carries a human-ish jittered minute (e.g. 15:02); a coarse poll
+     would round the ACTUAL post time up to the next tick and waste the jitter. A 60s poll fires at
+     the planned minute. It's free: when nothing is due the run is a sub-second local file read with
+     NO Graph API call. StartInterval is offset from load time, so ticks are never on a round :00.
      Install: edit the two absolute paths below to your checkout, then:
        cp automation/deploy/com.tim-bankrupt.igpublish.plist ~/Library/LaunchAgents/
        launchctl load ~/Library/LaunchAgents/com.tim-bankrupt.igpublish.plist
@@ -14,7 +18,7 @@
     <string>/bin/bash</string>
     <string>/Users/tatsumiyuuki/Desktop/dev/midjourney-explore/automation/deploy/run_publish.sh</string>
   </array>
-  <key>StartInterval</key><integer>900</integer>
+  <key>StartInterval</key><integer>60</integer>
   <key>RunAtLoad</key><true/>
   <key>StandardOutPath</key><string>/Users/tatsumiyuuki/Desktop/dev/midjourney-explore/automation/deploy/igpub.log</string>
   <key>StandardErrorPath</key><string>/Users/tatsumiyuuki/Desktop/dev/midjourney-explore/automation/deploy/igpub.log</string>

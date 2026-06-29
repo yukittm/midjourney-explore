@@ -1,12 +1,12 @@
 # Auto-publish deployment (Phase 1, $0)
 
 Unattended publishing of approved+due posts. **No manual publish step.** A clock (launchd on this
-Mac) runs `run_publish.sh` every 15 min; it publishes anything due and commits+pushes the result so
+Mac) runs `run_publish.sh` every 60s; it publishes anything due and commits+pushes the result so
 GitHub Pages and the remote record stay in sync.
 
 ```
-clock (launchd, every 15m)
-  └─ run_publish.sh  ── flock (single instance)
+clock (launchd, every 60s)
+  └─ run_publish.sh  ── mkdir lock (single instance; macOS has no flock)
        ├─ source automation/.env            # IG token (+ optional GitHub push token)
        ├─ python automation/publish.py      # publishes DUE + status:approved posts
        └─ git add/commit/push               # persist queue→published move + media_id
@@ -15,6 +15,13 @@ clock (launchd, every 15m)
 The human gate stays `status: approved` in the committed queue (set via Feed Studio). The clock
 never publishes a draft. Scheduling = the derived calendar's window slot (`automation/schedule.yml`),
 so posts fire at a human-ish minute inside the daytime window, not on a robotic boundary.
+
+**Why poll every 60s, not every 15 min:** `publish_at` carries a jittered, human-ish minute (e.g.
+`15:02`). A coarse poll would round the *actual* post time up to the next tick and throw the jitter
+away; a 60s poll fires at the planned minute. It is free — when nothing is due the run is a
+sub-second local file read with **no Graph API call** ([publish.py](../publish.py) only calls the API
+once a post is actually due). `StartInterval` counts from load time, so ticks never land on a round
+`:00` either.
 
 ---
 
@@ -45,7 +52,7 @@ cp automation/deploy/com.tim-bankrupt.igpublish.plist ~/Library/LaunchAgents/
 launchctl load ~/Library/LaunchAgents/com.tim-bankrupt.igpublish.plist
 ```
 
-It runs immediately (`RunAtLoad`) and every 15 min thereafter. Logs → `automation/deploy/igpub.log`
+It runs immediately (`RunAtLoad`) and every 60s thereafter. Logs → `automation/deploy/igpub.log`
 (gitignored).
 
 ### 3. Verify
