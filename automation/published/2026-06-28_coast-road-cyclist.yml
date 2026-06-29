@@ -1,6 +1,6 @@
 id: 2026-06-28_coast-road-cyclist
 schema_version: 1
-status: scheduled
+status: published
 media_type: image
 publish_at: '2026-06-29T16:51:00+09:00'
 assets:
@@ -18,10 +18,10 @@ schedule_mode: auto
 priority: 30
 approved_at: '2026-06-28T16:04:36.295786+00:00'
 result:
-  container_id: null
-  media_id: null
-  permalink: null
-  published_at: null
+  container_id: '17892685734514972'
+  media_id: '18110959991303073'
+  permalink: https://www.instagram.com/p/DaKX4f9E_XA/
+  published_at: '2026-06-29T07:52:12.783718+00:00'
   error: null
   error_class: null
   retry_count: 0
