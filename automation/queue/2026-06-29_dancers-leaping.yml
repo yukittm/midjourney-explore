@@ -1,0 +1,28 @@
+id: 2026-06-29_dancers-leaping
+schema_version: 1
+status: approved
+media_type: image
+publish_at: ''
+assets:
+- kind: image
+  key: automation/assets/2026-06-29_dancers-leaping/01.jpg
+  alt_text: A line of dancers leaping in unison across a rust-red slope, with streams
+    of blue and green color flowing through the sky above.
+caption: A line of dancers, leaping into the streaming sky.
+hashtags:
+- digitalart
+- generativeart
+- midjourneyart
+- aiartcommunity
+schedule_mode: auto
+priority: 2
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []
