@@ -83,22 +83,31 @@ Literal, descriptive (subject + colors + composition), one per image:
 
 ## Worked examples (the live grid)
 
-- **`long-way-home`** (live) — S1 fragment, axis absorbed: `Home, the long way.` Villa on an
-  islet, winding color path; wavelength/objects felt in "the long way," never named.
-  *(Posted with `surrealart` + an unordered tag set — now superseded by the Hashtags rules.)*
-- **`color-window`** (published 2026-06-25, deleted 2026-06-27) — S5 two-line, axis explicit:
-  `A quiet valley, and a window the color won't sit still in.` / `Geometry, holding a
-  wavelength. 🌊` **Deleted because its color read too close to `long-way-home`** — the
-  reason the gate's palette-collision STOP exists.
+The live set changes — **step 2's scan finds the real current baseline at runtime**; treat
+these as illustrations of shape/angle, not a fixed list.
 
-> ⚠️ Both live captions above are the **same shape** (a fragment) **and the same angle**
-> (plain description) — they are the historical record, **NOT the variety target**. Imitate
-> the palette above, not these two.
+- **`long-way-home`** — S1 fragment, plain-description angle, axis absorbed: `Home, the long
+  way.` *(Posted with `surrealart` + an unordered tag set — superseded by the Hashtags rules.)*
+- **`sphere-in-the-air`** — S1 fragment, plain-description: `A coral moon, low over a
+  restless sea.`
+- **`ringed-hot-spring`** — S5 two-line, axis stated (Wavelength): `A hot spring, ringed in
+  quiet color.` / `Wavelength, holding still.`
+- **`color-window`** (published 2026-06-25, **deleted 2026-06-27**) — S5 two-line: `A quiet
+  valley, and a window the color won't sit still in.` / `Geometry, holding a wavelength. 🌊`
+  **Deleted because its color read too close to `long-way-home`** — the reason the gate's
+  palette-collision STOP exists.
+
+> ⚠️ Notice these early posts cluster on **shape (mostly fragment / two-line) and angle
+> (plain description)** — that clustering IS the monotony to beat. They are the historical
+> record, **NOT the variety target**: generate from the full palette above, and check by
+> reading the recent grid (not by matching a label).
 
 ## Hard constraints (owned by `automation/igpub/validate.py`)
 
-- Caption ≤ 2200 chars; the **first line is the hook** (~125 chars show before "more" —
-  front-load the payload, which matters for two-line shapes).
+- **Caption + hashtags ≤ 2200 combined** — `validate.py` budgets the *assembled* string
+  (caption + blank line + space-joined `#tags`), not the caption alone. The **first line is
+  the hook** (~125 chars show before "more" — front-load the payload, and for two-line shapes
+  keep the discoverable noun in line 1, not line 2).
 - Hashtags: cap **5** (the platform cap is also 5 as of Dec 2025); **no leading `#`**.
 - Image assets JPEG, aspect 4:5 .. 1.91:1; **carousels must be single-aspect-ratio**.
 

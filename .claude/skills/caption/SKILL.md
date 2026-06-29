@@ -71,9 +71,18 @@ trimmed to size.
   daily-life hook, a real question, a deadpan travelogue, a dry juxtaposition, light
   wordplay); keep meta / feeling / wry in the mix; use **plain subject-description only
   sparingly**. Description-as-default IS the monotony to kill.
-- **Rotate both, every time.** Each caption takes a **different shape AND a different angle**
-  from the previous live post and from every other caption in the same batch — never the
-  same shape or the same angle back-to-back.
+- **Use the two axes as a generation MENU — then check by READING, not by ticking labels.**
+  Pick a shape + an angle to *generate* from. But the bar is **not** "a different label from
+  last time" — it's that the finished caption **reads differently from the recent grid**. The
+  real failure is the grid forming a visible pattern (an every-few-posts rotor, or
+  all-description, or all-wistful) — and a mechanical label-rotation *creates* exactly that.
+  So vary the **opening move** and the **rhetorical move**, judged by reading the recent
+  captions, not by trusting your own category labels.
+- **Single post vs batch.** *Single post* (the default): differ from the **last ~6 live posts**
+  (from the step-2 scan) on opening move, rhetorical move, shape, and angle. *Batch (writing
+  several at once):* also spread shapes + angles across the set — none adjacent alike and no
+  obvious rotor across the whole set; with more posts than shapes the shapes WILL repeat
+  (that's fine — keep repeats non-adjacent and every opening distinct).
 
 Then trim every caption to these:
 
@@ -81,10 +90,11 @@ Then trim every caption to these:
 - **Keyword first** — the first ~125 chars carry one real noun (place / phenomenon /
   medium, e.g. *hot spring, canyon, saguaro desert, peloton*). The angle can lead, but the
   noun must be there — it's what makes the post discoverable.
-- **Register — rotate warmth in (~1 in 3).** The baseline is calm/observational, but
-  roughly every third caption should land **warm / friendly / casual** — talk like a
-  person, not a gallery placard. A batch that's uniformly wistful or poetic is wrong; break
-  it with a friendly or playful one.
+- **Register — calm stays the MAJORITY; rotate warmth in (~1 in 3), don't let it take over.**
+  Calm/observational is the baseline and the majority voice; roughly every third caption
+  lands **warm / friendly / casual** (talk like a person, not a placard) — present, not
+  dominant. Both extremes are wrong: a batch that's uniformly wistful/poetic, AND one that's
+  all quippy/casual. The friendly note is spice, not the default.
 - **Axis ~80/20** — series axis = **Geometry / Wavelength / Objects**. ~80% absorb it (felt,
   not named); ~20% state it (the two-line shape's job). *Test: any of the three words or an
   obvious synonym appears → "stated"; else "absorbed."*
@@ -134,6 +144,9 @@ Few things actually move reach (per the strategy doc): **sends > saves > likes**
 
 Describe the actual scene for accessibility + SEO: subject + colors + composition,
 plainly. One per image asset. Keep the poetry in the caption. Example → `reference.md`.
+**⚠️ `validate.py` does NOT enforce non-empty alt_text on images** (it only rejects alt on
+video) — an empty alt passes silently, so never rely on validation to catch a missing one;
+it's your strongest free SEO lever, always write it.
 
 ## Anti-sameness gate
 
@@ -141,11 +154,13 @@ Two failure classes — handle them differently.
 
 **Text-fixable** — revise the text, then re-check:
 - [ ] Voice holds (calm / sensory / observational / casual; no hype / bait / dump / 👇).
-- [ ] **Shape AND angle both differ** from the previous live post AND from every other
-      caption in this batch — vary the grammatical SHAPE *and* the lens, not just the words
-      (the core anti-monotony check; same shape or all-description ≠ diverged).
-- [ ] **Not all-description / not uniformly poemy** — at least the batch's ~1-in-3 warmth
-      is present.
+- [ ] **Reads different from the recent grid — judged by READING, not by labels.** Differs
+      from each of the last ~6 live posts (and any batch siblings) on **opening move**,
+      **rhetorical move / angle**, and **shape** — not just a different category name on a
+      similar sentence (a relabel is not a diverge).
+- [ ] **No visible rotor, no single-register grid.** The recent set isn't an obvious cycle
+      (fragment→question→…) and isn't all-description or all-wistful; calm stays the majority
+      and warmth is present (~1 in 3, not dominant).
 - [ ] **Short** (~6–14 words) and the **first ~125 chars carry a keyword**.
 - [ ] Diverged from the last ~10: opening, phrasing, axis use, and emoji are not a repeat
       of the previous post.
@@ -154,7 +169,8 @@ Two failure classes — handle them differently.
 - [ ] Hashtags pass the Hashtags rules (≤5, no `#`, neutral, ordered, rotated, vetted).
 - [ ] alt_text set per image (none for Reels).
 
-**Not text-fixable — STOP and surface to the user** (no caption edit fixes these):
+**Not text-fixable — STOP and surface to the user** (no caption edit fixes these; both are
+image-level, so you can check them up front at step 1 before drafting):
 - [ ] **Palette / subject collides with the previous post.** The image is already chosen
       → recommend holding or reordering it. (This is what got post #1 deleted.)
 - [ ] **Carousel images don't share one aspect ratio** → pre-crop the set.
@@ -171,7 +187,9 @@ record — normally the **`automation/queue/<id>.yml` draft** (created by
 `automation/published/2026-06-27_long-way-home.yml`):
 
 - `caption:` → top-level. A multi-line caption needs yml quoting (a quoted scalar;
-  doubled `''` for apostrophes). **Caption ≤ 2200 chars.**
+  doubled `''` for apostrophes). **Caption + hashtags ≤ 2200 combined** — `validate.py`
+  budgets the *assembled* string (caption + blank line + space-joined `#tags`), not the
+  caption alone. (Our captions are short, so this is slack; stated for correctness.)
 - `hashtags:` → top-level list, bare tags (no `#`).
 - `alt_text:` → under each image asset as `assets[i].alt_text` (one per image; none for
   Reels).
