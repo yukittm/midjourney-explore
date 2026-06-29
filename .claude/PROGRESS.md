@@ -1,6 +1,6 @@
 # PROGRESS.md
 
-**Updated**: 2026-06-27 | **Project**: midjourney-explore | **Branch**: master [working tree: clean — go-live infra committed+pushed]
+**Updated**: 2026-06-29 | **Project**: midjourney-explore | **Branch**: master [working tree: DIRTY — Phase-1 launchd deploy artifacts + doc reframe uncommitted]
 
 > Single progress SSoT for **both Claude and Codex**. Entry rules: `.claude/protocols/progress-management.md`.
 > Entry format: `` YYYY-MM-DD [Actor:scope][s:UUID-8] **{🟢|🟡|🔴} title — status / committed `<hash>`** ``
@@ -25,6 +25,14 @@ Style model **formalized** (validated in-app 2026-06-23). **Render rule = realis
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
+2026-06-29 [Claude:automation] **🟢 Phase-1 auto-publish clock DECIDED = local launchd ($0) + git-persistence gap CLOSED + 2 no-bias arch audits converged — deploy artifacts in working tree**
+  - **Two no-preservation-bias audits** (greenfield best-arch + adversarial) **converged**: (1) the CORE is best-in-class → KEEP on merit (publish_one idempotency/crash-STOP · Post→Asset model · derived-calendar+window · pure-logic/injected-IO); (2) git-YAML SSoT is correct **for now** but is a *phase store*, not a permanent invariant — migrate to a networked store (Supabase) only at the hosted-UI milestone (2nd writer); (3) **VERIFIED gap: no git commit/push anywhere in Python** → a launchd auto-run would mutate local files that never reach GitHub/Pages.
+  - **Decision (user delegated the drive): clock = local launchd, $0.** Minimum unattended auto-publish, no new host/account. Built `automation/deploy/`: `run_publish.sh` (flock + source `.env` + `publish.py` + **git add/commit/push** — closes the persistence gap; git stays an OPS concern, Python git-free), `com.tim-bankrupt.igpublish.plist` (15-min `StartInterval`+`RunAtLoad`), `README.md` (install/verify/caveats). **Upgrade path (still $0): Oracle Cloud Always-Free VM** under cron if always-on needed (host-agnostic script, no code change). 136 tests green (Python untouched). Docs reframed: `ig-publish-pipeline.md` Phase-1 → launchd + **Store roadmap** (git-YAML → `QueueStore` seam → networked store).
+  - **USER prerequisites (2, assistant cannot do):** (a) set `GIT_PUSH_TOKEN` (fine-grained GitHub PAT, contents:write) in `automation/.env` + install the launchd plist; (b) regenerate the IG token **non-expiring** before ≈2026-08-24 (60-day works until then). After (a) the due posts auto-publish.
+  - **⚠️ `ringed-hot-spring` moved to DUE 2026-06-29 13:55 JST** (user bumped from 15:02 to verify the launchd auto-run sooner) — once launchd is installed it publishes on the first tick after 13:55. The 4 queued posts **carry the FRESH approved captions** (verified: ringed-hot-spring/coast-road-cyclist/green-river-canyon/saguaro-color-river).
+  - **Next architectural step (Tier-3, both audits' #1): extract a `QueueStore` Protocol** (`FsQueueStore` wrapping `queue.py`; route `plan/publish/studio/scaffold`) — cheap now, costlier per future caller; separable from the auto-publish goal. Deferred per audits: DB migration, hosted FastAPI UI, `reconcile.py`. Cleanup candidates (Studio likely supersedes): `feed_preview.py`, `contact_sheet.py`.
+
+
 2026-06-29 [Claude:automation] **🟢 schedule time-spread reworked to a WINDOW (global audience, avoid JST night) + 4 posts re-jittered — in working tree**
   - User: drop the fixed-19:00 model — audience is global, so any time is fine EXCEPT JST deep night. Implemented a **`window:` slot** (`schedule.py _slot_datetime` + `schedule.yml window:["08:00","23:30"]`): each day's post gets a **deterministic-random time inside the window** (seeded by day → stable, auditable in `publish_at`), superseding the 19:00±jitter for production (the `time:`+`jitter:` path stays available). Tests **134→136**.
   - **Re-jittered the 4 scheduled posts** into the window (priority order preserved): ringed-hot-spring 06-29 15:02 · coast-road-cyclist 06-30 09:32 · green-river-canyon 07-01 10:39 · saguaro-color-river 07-02 19:33 (JST). All in [08:00,23:30], varied, human-like.

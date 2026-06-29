@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- launchd agent: poll the publish queue every 15 min and auto-publish due posts.
+     Install: edit the two absolute paths below to your checkout, then:
+       cp automation/deploy/com.tim-bankrupt.igpublish.plist ~/Library/LaunchAgents/
+       launchctl load ~/Library/LaunchAgents/com.tim-bankrupt.igpublish.plist
+     A run on wake catches any post that came due while the Mac was asleep (publishes a bit late,
+     never silently dropped). See automation/deploy/README.md. -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.tim-bankrupt.igpublish</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/tatsumiyuuki/Desktop/dev/midjourney-explore/automation/deploy/run_publish.sh</string>
+  </array>
+  <key>StartInterval</key><integer>900</integer>
+  <key>RunAtLoad</key><true/>
+  <key>StandardOutPath</key><string>/Users/tatsumiyuuki/Desktop/dev/midjourney-explore/automation/deploy/igpub.log</string>
+  <key>StandardErrorPath</key><string>/Users/tatsumiyuuki/Desktop/dev/midjourney-explore/automation/deploy/igpub.log</string>
+</dict>
+</plist>
