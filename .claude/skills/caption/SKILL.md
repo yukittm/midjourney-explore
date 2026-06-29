@@ -51,8 +51,11 @@ Calm, sensory, observational; let the work lead. Casual, restrained. **Capitaliz
 standard sentence case**: capitalize the first letter of every sentence (and the pronoun
 "I" / proper nouns); everything else stays lowercase. So `A hot spring, ringed in quiet
 color.` and `A river of color through the saguaro desert. Where does it end?` — NOT all-lowercase,
-NOT Title Case, NOT ALL CAPS. English by default (the account is EN-primary for reach). Never:
-hype, engagement-bait, a hashtag dump in the body, or 👇-style pointer-bait.
+NOT Title Case, NOT ALL CAPS. **Emoji: rare and single** — most captions have NONE; occasionally
+(≈1 in 5 at most) end the FINAL sentence with exactly ONE mood-fitting emoji (e.g. 🌊 for
+water/wavelength), never more than one, never mid-caption, never as decoration or bait. English by
+default (the account is EN-primary for reach). Never: hype, engagement-bait, a hashtag dump in the
+body, or 👇-style pointer-bait.
 
 ## Form — short, keyword-led, ARCHETYPE-rotated
 
