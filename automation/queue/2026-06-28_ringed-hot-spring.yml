@@ -1,17 +1,19 @@
+# re-queued 2026-06-29: prior publish (media_id 18107400941053938) was deleted from IG by the
+# user; republishing with capitalized caption at a new time.
 id: 2026-06-28_ringed-hot-spring
 schema_version: 1
-status: published
+status: scheduled
 media_type: image
-publish_at: '2026-06-29T14:36:00+09:00'
+publish_at: '2026-06-29T17:14:00+09:00'
 assets:
 - kind: image
   key: automation/assets/2026-06-28_ringed-hot-spring/01.jpg
   alt_text: A turquoise hot spring ringed with concentric green, cream and blue mineral
     bands, set into red rock and green hills with hazy blue mountains behind.
-caption: 'a hot spring, ringed in quiet color.
+caption: 'A hot spring, ringed in quiet color.
 
 
-  wavelength, holding still.'
+  Wavelength, holding still.'
 hashtags:
 - digitalart
 - abstractart
@@ -21,10 +23,10 @@ schedule_mode: auto
 priority: 40
 approved_at: '2026-06-28T16:04:36.269638+00:00'
 result:
-  container_id: '17892684177514972'
-  media_id: '18107400941053938'
-  permalink: https://www.instagram.com/p/DaKV1NpE9Pg/
-  published_at: '2026-06-29T07:34:14.397853+00:00'
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
   error: null
   error_class: null
   retry_count: 0
