@@ -1,8 +1,6 @@
-# re-queued 2026-06-29: prior publish (media_id 18110959991303073) was deleted from IG by the
-# user; republishing with capitalized caption near midnight tonight.
 id: 2026-06-28_coast-road-cyclist
 schema_version: 1
-status: scheduled
+status: published
 media_type: image
 publish_at: '2026-06-29T23:53:00+09:00'
 assets:
@@ -20,10 +18,10 @@ schedule_mode: auto
 priority: 30
 approved_at: '2026-06-28T16:04:36.295786+00:00'
 result:
-  container_id: null
-  media_id: null
-  permalink: null
-  published_at: null
+  container_id: '17892743694514972'
+  media_id: '18019368923854211'
+  permalink: https://www.instagram.com/p/DaLIKXGibAc/
+  published_at: '2026-06-29T14:54:15.825321+00:00'
   error: null
   error_class: null
   retry_count: 0
