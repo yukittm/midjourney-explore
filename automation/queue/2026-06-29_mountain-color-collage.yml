@@ -1,0 +1,31 @@
+id: 2026-06-29_mountain-color-collage
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-03T14:09:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-06-29_mountain-color-collage/01.jpg
+  alt_text: 'A collage-like surreal landscape: red-and-green mountains with a green
+    diamond inset framing a white S-curve of color, over red rocky terrain.'
+caption: 'A mountain, mostly held together by color.
+
+
+  Geometry, showing off.'
+hashtags:
+- digitalart
+- abstractart
+- generativeart
+- midjourneyart
+schedule_mode: auto
+priority: 10
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

@@ -1,0 +1,28 @@
+id: 2026-06-29_cyclist-red-slope
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-05T15:17:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-06-29_cyclist-red-slope/01.jpg
+  alt_text: A lone cyclist in white on a red slope, with undulating grainy bands of
+    red, green and white color rolling behind under a blue sky.
+caption: The cyclist's pretty sure this is a shortcut.
+hashtags:
+- digitalart
+- generativeart
+- midjourneyart
+- aiartcommunity
+schedule_mode: auto
+priority: 8
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

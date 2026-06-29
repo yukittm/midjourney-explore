@@ -1,0 +1,29 @@
+id: 2026-06-29_skater-halfpipe
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-07T08:20:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-06-29_skater-halfpipe/01.jpg
+  alt_text: A skateboarder in pale clothes carving a steep curve on a halfpipe-like
+    hill of swirling teal, red and violet color.
+caption: Honestly, I'd skate this one.
+hashtags:
+- digitalart
+- abstractart
+- generativeart
+- midjourneyart
+- aiartcommunity
+schedule_mode: auto
+priority: 6
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

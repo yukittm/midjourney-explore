@@ -1,0 +1,28 @@
+id: 2026-06-29_skier-color-drop
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-06T23:10:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-06-29_skier-color-drop/01.jpg
+  alt_text: A downhill skier mid-turn throwing up spray, descending a slope of flowing
+    green, blue and peach rivers of color.
+caption: A skier drops in — snow, or paint?
+hashtags:
+- digitalart
+- abstractart
+- midjourneyart
+- aiartcommunity
+schedule_mode: auto
+priority: 7
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

@@ -1,0 +1,29 @@
+id: 2026-06-29_stone-arch-postcard
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-04T17:06:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-06-29_stone-arch-postcard/01.jpg
+  alt_text: A weathered pale stone archway on a crimson-flowered green plain, with
+    a wide blue, teal and cream striped band of color curving across the ground toward
+    it.
+caption: A stone arch on the color coast, straight off a postcard.
+hashtags:
+- digitalart
+- abstractart
+- generativeart
+- aiartcommunity
+schedule_mode: auto
+priority: 9
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

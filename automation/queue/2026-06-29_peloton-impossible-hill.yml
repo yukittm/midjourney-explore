@@ -1,0 +1,28 @@
+id: 2026-06-29_peloton-impossible-hill
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-11T12:29:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-06-29_peloton-impossible-hill/01.jpg
+  alt_text: A tight pack of cyclists in blue racing on a grey road through rolling
+    hills banded in blue, rust-red and sand color.
+caption: I sent a whole peloton down a hill that isn't there.
+hashtags:
+- digitalart
+- abstractart
+- midjourneyart
+- aiartcommunity
+schedule_mode: auto
+priority: 2
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

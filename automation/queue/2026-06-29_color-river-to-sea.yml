@@ -1,0 +1,28 @@
+id: 2026-06-29_color-river-to-sea
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-12T13:04:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-06-29_color-river-to-sea/01.jpg
+  alt_text: A flowing white, green and teal river of color winding through rust-red
+    and green hills toward a pale blue sky and sea.
+caption: Just color, finding its own way to the sea.
+hashtags:
+- digitalart
+- abstractart
+- generativeart
+- midjourneyart
+schedule_mode: auto
+priority: 1
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []
