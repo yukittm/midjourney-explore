@@ -25,6 +25,13 @@ Style model **formalized** (validated in-app 2026-06-23). **Render rule = realis
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
+2026-06-30 [Claude:feature] **🟢 content-based image classifier — FOUNDATION built (computed color + tag store + CLI); 6-agent design cross-checked — pushed**
+  - **Design converged via 6 cross-check agents** (2 rounds): subject+scene = in-session VISION (semantic), **color = COMPUTED from pixels** (photometric — vision color-buckets miss the documented same-bucket collisions + drift); controlled vocab (no free tags); sticky/incremental content-hash-keyed sidecar; human edits locked. Several agents self-derailed into "wait for siblings" — re-ran; conclusion robust.
+  - **Built + committed (`5e5ba21`):** `automation/taxonomy.yml` (subject/scene vocab + aliases for retroactive rename/merge) · `igpub/color.py` (PIL+colorsys, no numpy: dominant+accent of 8 hue families + 8-bin hue vector + L1 distance) · `igpub/classify_logic.py` (pure: plan/merge/sticky/human-lock) · `automation/classify.py` (CLI: `color`/`emit`/`ingest`/`status`) · 18 tests (155 total) · sidecar `outputs/candidates/.classes.json` gitignored.
+  - **Color computed over all 201** (blue 77 / green 47 / red-orange 38 / teal 32; top pair **blue+red-orange** = the deleted-post chord → validates accent+distance over coarse buckets). subject/scene still 0 (vision pass pending).
+  - **Remaining:** (a) run the 201-image subject/scene VISION pass (emit→agents tag→ingest) — needs the user's vocab OK first; (b) Studio integration — add subject/scene/palette axes + the deferred **palette-adjacency collision warning** on the feed grid (uses color distance).
+
+
 2026-06-30 [Claude:automation] **🟢 coast auto-published overnight (unattended) + cadence → 1/day, today's gap filled — in working tree**
   - **Unattended auto-publish confirmed:** coast-road-cyclist went live 2026-06-29 23:54 JST on its own (launchd, media_id `18019368923854211`, /p/DaLIKXGibAc/, commit `25d7b82`). Live grid = 4 (long-way-home, sphere-in-the-air, ringed-hot-spring, coast-road-cyclist; color-window deleted earlier).
   - **Cadence reverted 2/day → 1/day** (user: "明日から1日に投稿") and **today's 6/30 gap filled** (user: "今日はあと一投稿"). `schedule.yml` back to one daily window. Re-pinned all 12 pending, 1/day from today: green-river-canyon **6/30 ~20:16** (fires tonight) · saguaro 7/1 · then the 10 captioned selects 7/2→7/11 (mountain-collage … color-river), same idx29→idx20 order. 12/12 valid.
