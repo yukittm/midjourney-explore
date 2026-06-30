@@ -18,6 +18,11 @@ from dataclasses import dataclass
 _UUID_TAIL = re.compile(
     r"_[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}_\d+\.[A-Za-z0-9]+$")
 _IMG_EXT = (".png", ".jpg", ".jpeg", ".webp", ".gif")
+# Clean the subject for grouping: drop Midjourney flags (`--chaos 10 --ar 45 …`) and the noise
+# prefixes MJ prepends (`Yuki `, an `httpss.mj.run<id>` URL token), then lowercase — so trivial
+# prefix differences (Yuki/non-Yuki) collapse into one readable group instead of fragmenting.
+_PARAMS = re.compile(r"\s*--.*$")                                  # everything from the first `--`
+_JUNK_PREFIX = re.compile(r"^(?:yuki|https*[.\s]*mj[.\s]*run\S*)\s+", re.I)
 
 
 @dataclass
@@ -29,7 +34,10 @@ class Candidate:
 def subject_of(filename: str) -> str:
     m = _UUID_TAIL.search(filename)
     base = filename[: m.start()] if m else filename.rsplit(".", 1)[0]
-    base = base.strip("_").replace("_", " ").strip()
+    base = base.strip("_").replace("_", " ")
+    base = _PARAMS.sub("", base)          # drop `--chaos 10 --ar 45 …`
+    base = _JUNK_PREFIX.sub("", base)     # drop leading `Yuki ` / `httpss.mj.run<id> `
+    base = re.sub(r"\s+", " ", base).strip().lower()
     return base or "(misc)"
 
 

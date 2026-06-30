@@ -12,8 +12,21 @@ MJ = ("Yuki_a_surfer_carving_large_in_the_frame_down_a_steep_flowing_"
 
 class TestSubjectGrouping(unittest.TestCase):
     def test_strips_uuid_tail(self):
+        # subject is normalized: UUID tail stripped, leading "Yuki " dropped, lowercased
         self.assertEqual(subject_of(MJ),
-                         "Yuki a surfer carving large in the frame down a steep flowing")
+                         "a surfer carving large in the frame down a steep flowing")
+
+    def test_strips_mj_params_and_junk_prefix(self):
+        # `--chaos 10 --ar 45 …` flags and an httpss.mj.run<id> URL prefix are dropped so trivial
+        # prefix differences collapse into one readable group key.
+        self.assertEqual(
+            subject_of("Yuki_geometric_scene_--chaos_10_--ar_45_--profile_g2sx9a7_"
+                       "--styliz_0a248e6d-6f8c-4cef-ade2-a40837ab0985_3.png"),
+            "geometric scene")
+        self.assertEqual(
+            subject_of("geometric_scene_--chaos_10_--ar_45_"
+                       "6e58d03b-1bb9-4c09-8f11-ccef281ca016_2.png"),
+            "geometric scene")
 
     def test_same_subject_groups_together(self):
         a = MJ

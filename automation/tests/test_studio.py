@@ -52,7 +52,7 @@ class TestClassify(unittest.TestCase):
 
     def test_subject(self):
         g = classify([MJ], "subject")
-        self.assertEqual(g[0][0], "Yuki a surfer carving")
+        self.assertEqual(g[0][0], "a surfer carving")  # normalized: "Yuki " dropped, lowercased
 
     def test_aspect_buckets(self):
         dims = {"p.png": (1080, 1350), "s.png": (1000, 1000), "l.png": (1910, 1000)}
