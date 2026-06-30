@@ -1,0 +1,37 @@
+# Image-classifier vocabulary (editorial, version-worthy). The classifier assigns SUBJECT + SCENE
+# from these controlled lists; COLOR is computed from pixels (igpub/color.py), not listed here.
+# Add/rename/merge categories by editing this file — `aliases` resolve old/synonym tags to the
+# canonical key at read time, so renames are retroactive and need no re-tagging. Rule of thumb:
+# prefer SPECIFIC leaf categories (a general->specific split is the only non-retroactive change).
+schema_version: 1
+
+# SUBJECT = the hero / activity in frame. "heroless" is first-class (no figure).
+subject:
+  cyclist:       {label: "Cyclist",        aliases: [bike, rider, single-cyclist]}
+  peloton:       {label: "Cyclist pack",   aliases: [cyclists, group-cyclists, race]}
+  skateboarder:  {label: "Skateboarder",   aliases: [skater, skateboarders, skating]}
+  skier:         {label: "Skier",          aliases: [skiing, snowboarder]}
+  surfer:        {label: "Surfer",         aliases: [surfing]}
+  windsurfer:    {label: "Windsurfer",     aliases: [windsurf, sailboard]}
+  kayaker:       {label: "Kayaker",        aliases: [kayak, canoe, paddler]}
+  dancers:       {label: "Dancers",        aliases: [dancer, leaping-figures]}
+  soccer:        {label: "Soccer player",  aliases: [footballer, football]}
+  figures:       {label: "Figures / walkers", aliases: [walkers, people, crowd, hiker]}
+  heroless:      {label: "Heroless (no figure)", aliases: [none, no-figure, landscape-only]}
+
+# SCENE = the setting / landform.
+scene:
+  color-river:   {label: "Color river / ribbon", aliases: [ribbon, flowing-color, river]}
+  color-waves:   {label: "Color waves / hills",  aliases: [color-hills, rolling-color, dunes-color]}
+  desert:        {label: "Desert / saguaro",     aliases: [dunes, sand, cactus-desert]}
+  canyon:        {label: "Canyon (red rock)",    aliases: [gorge, red-rock]}
+  mountain:      {label: "Mountain / ridge",     aliases: [ridge, peak, range]}
+  coast:         {label: "Coast / sea",          aliases: [sea, shore, ocean, beach]}
+  fields:        {label: "Fields / plains",      aliases: [hills, meadow, plain, grass]}
+  architecture:  {label: "Architecture / arch",  aliases: [arch, structure, building, ruins]}
+  macro:         {label: "Macro / close-up",     aliases: [closeup, detail, cactus-macro]}
+
+# COLOR = computed from pixels (igpub/color.py): a dominant + accent family from this fixed set,
+# plus an 8-bin hue-proportion vector for the feed-grid palette-collision distance check.
+# Listed for reference only — NOT human-assigned, NOT editable-as-vocab (it's photometric).
+color_families: [red-orange, yellow, green, teal, blue, violet, magenta, neutral]
