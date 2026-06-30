@@ -4,12 +4,11 @@
 
 timezone: "Asia/Tokyo"          # IANA tz; slot times below are wall-clock in this zone (DST-correct)
 
-slots:                          # one post is placed per slot, earliest-free first → 2 posts/day
-  - window: ["08:00", "13:00"]  # morning slot — DETERMINISTIC-random time inside this JST window
-  - window: ["16:30", "23:30"]  # evening slot — kept ≥3h after the morning one (rate.min_gap_minutes)
-                                #   Both avoid JST deep night, read human (not on the dot); the chosen
-                                #   times are written into publish_at (auditable). Use `time: "19:00"`
-                                #   for a fixed slot instead. Drop to one slot for 1 post/day.
+slots:                          # one post is placed per slot, earliest-free first → 1 post/day
+  - window: ["08:00", "23:30"]  # post at a DETERMINISTIC-random time inside this JST window each day —
+                                #   avoids JST deep night, fine for a global audience, reads human (not on
+                                #   the dot). Use `time: "19:00"` for a fixed slot. Add a second window
+                                #   block for 2 posts/day (keep them ≥rate.min_gap_minutes apart).
     # days: [mon, tue, wed, thu, fri, sat, sun]   # optional — default: every day
     # media_types: [image, carousel, reels]       # optional — default: any type
 

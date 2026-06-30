@@ -25,6 +25,12 @@ Style model **formalized** (validated in-app 2026-06-23). **Render rule = realis
 - [ ] Build Instagram auto-upload pipeline (one-pass path first) → `automation/`
 
 ## Entries (newest first)
+2026-06-30 [Claude:automation] **🟢 coast auto-published overnight (unattended) + cadence → 1/day, today's gap filled — in working tree**
+  - **Unattended auto-publish confirmed:** coast-road-cyclist went live 2026-06-29 23:54 JST on its own (launchd, media_id `18019368923854211`, /p/DaLIKXGibAc/, commit `25d7b82`). Live grid = 4 (long-way-home, sphere-in-the-air, ringed-hot-spring, coast-road-cyclist; color-window deleted earlier).
+  - **Cadence reverted 2/day → 1/day** (user: "明日から1日に投稿") and **today's 6/30 gap filled** (user: "今日はあと一投稿"). `schedule.yml` back to one daily window. Re-pinned all 12 pending, 1/day from today: green-river-canyon **6/30 ~20:16** (fires tonight) · saguaro 7/1 · then the 10 captioned selects 7/2→7/11 (mountain-collage … color-river), same idx29→idx20 order. 12/12 valid.
+  - Agent paused during the re-pin to avoid the runner sweeping mid-edit; resumed after (green-river publishes on resume).
+
+
 2026-06-29 [Claude:content] **🟢 caption skill reconstructed (2-axis) + /verify Full passed + 10 bottom-selects captioned & scheduled 7/3–7/12 — pushed**
   - **Caption skill cleanly RE-ARCHITECTED** (not appended): Voice = constant floor; Form = one system on **two rotated axes — Shape (S1–S5) × Angle (lens palette)** + shared constraints (short, keyword-first, register calm-majority/~1-in-3-warm bounded both sides, axis 80/20, rare emoji); reference.md = single "Variation palette." §10 pointer + LESSONS updated. Added per user feedback this session: sentence case, rare 🌊, lens/angle axis, friendly register, adopted angle palette (character-voice, daily-hook, question, travelogue, juxtaposition, wordplay; meta/feeling/wry; occasional synesthetic/scale/ultra-short).
   - **/verify Full (5 agents) + re-verify (3) → CONDITIONAL PASS / converged.** Key fix from the review: the anti-sameness engine was **label-rotation** (manufactures a visible grid "rotor" + unsatisfiable for batch>5 + vacuous single-post) → reframed to **read-the-last-~6 judgment** (palette = generation menu, gate judges by reading not labels, no-rotor/grid check, single-vs-batch defined). Also: `2200` = caption+hashtags combined; alt not validator-enforced (noted); examples refreshed. C confirmed all hard rules mirror validate.py (136 tests green).
