@@ -30,6 +30,7 @@ scene:
   fields:        {label: "Fields / plains",      aliases: [hills, meadow, plain, grass]}
   architecture:  {label: "Architecture / arch",  aliases: [arch, structure, building, ruins]}
   macro:         {label: "Macro / close-up",     aliases: [closeup, detail, cactus-macro]}
+  loop-ribbon:   {label: "Loop / ribbon (abstract)", aliases: [loop, vortex, mobius, figure-eight]}
 
 # COLOR = computed from pixels (igpub/color.py): a dominant + accent family from this fixed set,
 # plus an 8-bin hue-proportion vector for the feed-grid palette-collision distance check.
