@@ -77,12 +77,27 @@ def _candidate_dims(names: list[str]) -> dict:
     return out
 
 
+def _load_classes() -> dict:
+    """{filename: tag-record} from the classifier store (outputs/candidates/.classes.json), or {}."""
+    p = os.path.join(REPO_ROOT, "outputs", "candidates", ".classes.json")
+    if not os.path.exists(p):
+        return {}
+    try:
+        with open(p, encoding="utf-8") as f:
+            from igpub.classify_logic import index_by_filename
+            return index_by_filename(json.load(f))
+    except Exception:  # noqa: BLE001 — a missing/broken store just falls back to filename grouping
+        return {}
+
+
 def _build_board(axis: str) -> dict:
     cand = _list_images(ALLOWED_ROOTS["candidates"])
     sel = _list_images(ALLOWED_ROOTS["selects"])
     posts = list_posts(REPO_ROOT, QUEUE_DIR) + list_posts(REPO_ROOT, PUBLISHED_DIR)
     dims = _candidate_dims(cand) if axis == "aspect" else None
-    return assemble_board(cand, sel, posts, axis=axis, dims=dims, selects_order=_load_order())
+    classes = _load_classes() if axis in ("subject", "scene", "palette") else None
+    return assemble_board(cand, sel, posts, axis=axis, dims=dims,
+                          selects_order=_load_order(), classes=classes)
 
 
 def _reorder(order: list) -> dict:

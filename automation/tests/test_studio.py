@@ -54,6 +54,29 @@ class TestClassify(unittest.TestCase):
         g = classify([MJ], "subject")
         self.assertEqual(g[0][0], "a surfer carving")  # normalized: "Yuki " dropped, lowercased
 
+    def test_subject_uses_tag_over_filename(self):
+        # a content tag wins over the filename-derived subject; untagged falls back to filename
+        classes = {MJ: {"subject": "cyclist"}}
+        g = dict(classify([MJ, "b.png"], "subject", classes=classes))
+        self.assertIn("cyclist", g)          # MJ grouped by its tag
+        self.assertIn("b", g)                # b.png falls back to filename-derived "b"
+        self.assertNotIn("a surfer carving", g)
+
+    def test_scene_axis_and_untagged_last(self):
+        classes = {"a.png": {"scene": "desert"}}
+        g = classify(["a.png", "b.png"], "scene", classes=classes)
+        self.assertEqual(g[0], ("desert", ["a.png"]))
+        self.assertEqual(g[-1][0], "untagged")   # b.png has no scene -> untagged, pinned last
+        self.assertEqual(g[-1][1], ["b.png"])
+
+    def test_palette_axis_groups_by_dominant(self):
+        classes = {"a.png": {"color": {"dominant": "blue"}},
+                   "b.png": {"color": {"dominant": "blue"}},
+                   "c.png": {"color": {"dominant": "green"}}}
+        g = dict(classify(["a.png", "b.png", "c.png"], "palette", classes=classes))
+        self.assertEqual(sorted(g["blue"]), ["a.png", "b.png"])
+        self.assertEqual(g["green"], ["c.png"])
+
     def test_aspect_buckets(self):
         dims = {"p.png": (1080, 1350), "s.png": (1000, 1000), "l.png": (1910, 1000)}
         g = dict(classify(["p.png", "s.png", "l.png"], "aspect", dims=dims))

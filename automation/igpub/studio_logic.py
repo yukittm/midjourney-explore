@@ -7,7 +7,7 @@ import os
 import re
 from urllib.parse import quote
 
-from .contact import build_candidates
+from .contact import subject_of
 from .feed import build_tiles
 
 # image roots the server is allowed to read, by short key
@@ -16,7 +16,7 @@ ALLOWED_ROOTS = {
     "selects": "outputs/selects",
     "assets": "automation/assets",
 }
-AXES = ("subject", "aspect", "flat")
+AXES = ("subject", "scene", "palette", "aspect", "flat")
 _IMG_EXT = (".png", ".jpg", ".jpeg", ".webp", ".gif")
 
 
@@ -57,9 +57,23 @@ def _aspect_bucket(dims: "tuple[int, int] | None") -> str:
     return "square"
 
 
-def classify(filenames, axis: str, dims: dict | None = None) -> list[tuple[str, list[str]]]:
-    """Group candidate filenames by the chosen axis. Returns [(label, [filename,...]), ...]."""
+def _biggest_first(groups: dict, *, last: str | None = None) -> list:
+    """Sort groups biggest-set-first then alphabetical; pin `last` (e.g. 'untagged') to the end."""
+    items = [(k, v) for k, v in groups.items() if k != last]
+    items.sort(key=lambda kv: (-len(kv[1]), kv[0]))
+    if last and last in groups:
+        items.append((last, groups[last]))
+    return items
+
+
+def classify(filenames, axis: str, dims: dict | None = None,
+             classes: dict | None = None) -> list[tuple[str, list[str]]]:
+    """Group candidate filenames by the chosen axis. Returns [(label, [filename,...]), ...].
+    `classes` = {filename: tag-record} from the classifier store (igpub/classify_logic.index_by_filename);
+    the content axes (subject/scene/palette) read it. subject falls back to the filename-derived subject
+    for any image not yet vision-tagged, so the axis works before/without a classify pass."""
     names = sorted(f for f in filenames if f.lower().endswith(_IMG_EXT))
+    classes = classes or {}
     if axis == "flat":
         return [("All images", names)] if names else []
     if axis == "aspect":
@@ -69,11 +83,20 @@ def classify(filenames, axis: str, dims: dict | None = None) -> list[tuple[str, 
         for f in names:
             buckets.setdefault(_aspect_bucket(dims.get(f)), []).append(f)
         return [(b, buckets[b]) for b in order if b in buckets]
-    # default: subject (prompt prefix), biggest sets first
-    groups: dict[str, list[str]] = {}
-    for c in build_candidates(names):
-        groups.setdefault(c.subject, []).append(c.filename)
-    return sorted(groups.items(), key=lambda kv: (-len(kv[1]), kv[0]))
+    if axis in ("scene", "palette"):
+        groups: dict[str, list[str]] = {}
+        for f in names:
+            rec = classes.get(f) or {}
+            label = (rec.get("scene") if axis == "scene"
+                     else (rec.get("color") or {}).get("dominant")) or "untagged"
+            groups.setdefault(label, []).append(f)
+        return _biggest_first(groups, last="untagged")
+    # subject (default): vision tag if present, else filename-derived — biggest sets first
+    groups = {}
+    for f in names:
+        rec = classes.get(f) or {}
+        groups.setdefault(rec.get("subject") or subject_of(f), []).append(f)
+    return _biggest_first(groups)
 
 
 def reconcile_order(saved_order, selects_names) -> list[str]:
@@ -86,7 +109,7 @@ def reconcile_order(saved_order, selects_names) -> list[str]:
 
 
 def assemble_board(candidate_names, selects_names, posts, axis: str = "subject",
-                   dims: dict | None = None, selects_order=None) -> dict:
+                   dims: dict | None = None, selects_order=None, classes: dict | None = None) -> dict:
     """Build the JSON the frontend renders. The feed grid is ONE Instagram-style projection, newest
     top-left: the draggable `select` tiles (user order) on top, then any committed upcoming posts, then
     the locked `live` published tiles. The pool (raw candidates) is returned separately for its own tab."""
@@ -101,7 +124,7 @@ def assemble_board(candidate_names, selects_names, posts, axis: str = "subject",
     pool = [{"label": label,
              "items": [{"name": n, "url": _img_url("candidates", n), "in_selects": _in_selects(n)}
                        for n in items]}
-            for label, items in classify(candidate_names, axis, dims)]
+            for label, items in classify(candidate_names, axis, dims, classes)]
 
     ordered_selects = reconcile_order(selects_order, selects_names)
     grid = [{"key": n, "kind": "select", "draggable": True, "url": _img_url("selects", n),
