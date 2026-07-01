@@ -1,6 +1,6 @@
 id: 2026-06-28_saguaro-color-river
 schema_version: 1
-status: scheduled
+status: published
 media_type: image
 publish_at: '2026-07-01T10:39:00+09:00'
 assets:
@@ -18,10 +18,10 @@ schedule_mode: auto
 priority: 10
 approved_at: '2026-06-28T16:04:36.350346+00:00'
 result:
-  container_id: null
-  media_id: null
-  permalink: null
-  published_at: null
+  container_id: '17892993987514972'
+  media_id: '18596329060036391'
+  permalink: https://www.instagram.com/p/DaO2yzvDlZm/
+  published_at: '2026-07-01T01:39:18.222403+00:00'
   error: null
   error_class: null
   retry_count: 0
