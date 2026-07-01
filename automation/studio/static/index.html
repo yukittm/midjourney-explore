@@ -4,32 +4,62 @@
 <title>Feed Studio — @tim.bankrupt</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+  /* LIGHT theme (default, on :root). Dark theme lives under [data-theme="dark"] below. */
   :root{
+    color-scheme:light;
+    --bg:#f6f6f4; --surface:#ffffff; --surface2:#ececea; --media:#e7e7e4;
+    --ink:#161616; --muted:#5f5f58;
+    /* --acid stays the lime highlight (used as a fill behind dark text); --acid-ink is the
+       darkened, legible-on-white variant used where the accent is text/border/glow. */
+    --acid:#b4ff3a; --acid-ink:#4f7a00; --orange:#c93b00; --violet:#6a4bd6;
+    --on-acid:#0f0f0f;                    /* text that sits ON an --acid fill */
+    --line:rgba(0,0,0,.14); --line-strong:rgba(0,0,0,.30); --wash:rgba(120,170,0,.14);
+    --header-bg:rgba(246,246,244,.90);    /* sticky header wash */
+    --overlay:rgba(20,20,20,.62);         /* lightbox backdrop */
+    --chip-bg:rgba(255,255,255,.86); --chip-ink:#161616;   /* .when timestamp chip */
+    --lbcap:#3a3a36;                      /* lightbox caption text */
+    --glass:rgba(255,255,255,.82);        /* hover pill / poolbar buttons */
+    --scrim:linear-gradient(transparent,rgba(0,0,0,.10) 85%); /* poolbar gradient */
+    --shadow-strong:0 16px 44px rgba(0,0,0,.22);
+    --shadow-check:0 2px 9px rgba(0,0,0,.28);
+    --acid-glow:rgba(120,170,0,.28);
+    --serif:"Instrument Serif","Times New Roman",serif;
+    --sans:"Helvetica Neue",Arial,sans-serif; --mono:"SFMono-Regular",Consolas,monospace;
+  }
+  [data-theme="dark"]{
     color-scheme:dark;
     --bg:#0f0f0f; --surface:#17171b; --surface2:#1f1f25; --media:#0c0c0e;
     --ink:#f4f4f2; --muted:#9a9a94;
-    --acid:#b4ff3a; --orange:#ff5500; --violet:#9b7bff;
+    --acid:#b4ff3a; --acid-ink:#b4ff3a; --orange:#ff5500; --violet:#9b7bff;
+    --on-acid:#0f0f0f;
     --line:rgba(255,255,255,.14); --line-strong:rgba(255,255,255,.30); --wash:rgba(180,255,58,.12);
-    --serif:"Instrument Serif","Times New Roman",serif;
-    --sans:"Helvetica Neue",Arial,sans-serif; --mono:"SFMono-Regular",Consolas,monospace;
+    --header-bg:rgba(15,15,15,.90);
+    --overlay:rgba(0,0,0,.93);
+    --chip-bg:rgba(0,0,0,.66); --chip-ink:#e8e8ea;
+    --lbcap:#dddddd;
+    --glass:rgba(18,18,22,.70);
+    --scrim:linear-gradient(transparent,rgba(0,0,0,.72) 85%);
+    --shadow-strong:0 16px 44px rgba(0,0,0,.70);
+    --shadow-check:0 2px 9px rgba(0,0,0,.60);
+    --acid-glow:rgba(180,255,58,.25);
   }
   *{box-sizing:border-box;}
   body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 var(--sans);}
   .eyebrow,.badge,.tab,button.act,.pill{font-weight:700;letter-spacing:.18em;text-transform:uppercase;}
-  header{position:sticky;top:0;z-index:20;background:#0f0f0fe6;backdrop-filter:blur(10px);
+  header{position:sticky;top:0;z-index:20;background:var(--header-bg);backdrop-filter:blur(10px);
          border-bottom:1px solid var(--line);display:flex;gap:16px;align-items:center;padding:12px 20px;}
   h1{margin:0;font-family:var(--serif);font-weight:400;font-size:30px;line-height:.9;letter-spacing:-.01em;}
   .counts{font:11px/1 var(--mono);color:var(--muted);letter-spacing:.04em;}
   .tabs{display:flex;gap:1px;background:var(--line);border:1px solid var(--line);}
   .tab{background:var(--surface);border:0;color:var(--muted);padding:7px 16px;cursor:pointer;font-size:11px;}
-  .tab.on{background:var(--acid);color:#0f0f0f;}
+  .tab.on{background:var(--acid);color:var(--on-acid);}
   .tab:not(.on):hover{background:var(--surface2);color:var(--ink);}
   select{background:var(--surface);color:var(--ink);border:1px solid var(--line-strong);padding:6px 9px;font:inherit;}
-  select:focus{outline:2px solid var(--acid);outline-offset:2px;}
+  select:focus{outline:2px solid var(--acid-ink);outline-offset:2px;}
   .lbl{font:11px/1 var(--sans);color:var(--muted);letter-spacing:.16em;text-transform:uppercase;}
   .wrap{max-width:1060px;margin:0 auto;padding:18px 20px 60px;}
   .view{display:none;} .view.on{display:block;}
-  .hint{color:var(--muted);font-size:12px;margin:2px 0 16px;border-left:3px solid var(--acid);padding-left:10px;}
+  .hint{color:var(--muted);font-size:12px;margin:2px 0 16px;border-left:3px solid var(--acid-ink);padding-left:10px;}
   .hint b{color:var(--ink);}
   h3{font-family:var(--serif);font-weight:400;font-size:22px;color:var(--ink);margin:20px 0 8px;}
   h3 .n{font:10px/1 var(--mono);color:var(--muted);letter-spacing:.1em;vertical-align:middle;}
@@ -38,53 +68,64 @@
   .card{position:relative;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);}
   .media{position:relative;aspect-ratio:4/5;background:var(--media);}
   .media img{width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in;}
-  .card.sel{cursor:grab;border-color:transparent;box-shadow:inset 0 0 0 2px rgba(180,255,58,.5);}
+  .card.sel{cursor:grab;border-color:transparent;box-shadow:inset 0 0 0 2px var(--acid-ink);}
   .card.sel:active{cursor:grabbing;}
   .card.sel.s-ghost{opacity:.28;}
-  .card.sel.s-chosen{box-shadow:inset 0 0 0 2px var(--acid),0 16px 44px #000b;}
+  .card.sel.s-chosen{box-shadow:inset 0 0 0 2px var(--acid-ink),var(--shadow-strong);}
   .card.sel.s-drag{opacity:1;}
-  .badge{position:absolute;top:5px;left:5px;font-size:9px;padding:2px 6px;color:#0f0f0f;}
-  .badge.select{background:var(--acid);} .badge.live{background:var(--violet);}
-  .badge.upcoming{background:var(--orange);}
-  .when{position:absolute;bottom:5px;left:5px;font:9px/1 var(--mono);color:#e8e8ea;background:#000a;padding:2px 5px;}
+  .badge{position:absolute;top:5px;left:5px;font-size:9px;padding:2px 6px;color:var(--on-acid);}
+  .badge.select{background:var(--acid);color:var(--on-acid);}
+  .badge.live{background:var(--violet);color:#fff;} .badge.upcoming{background:var(--orange);color:#fff;}
+  .when{position:absolute;bottom:5px;left:5px;font:9px/1 var(--mono);color:var(--chip-ink);background:var(--chip-bg);padding:2px 5px;}
   .cap{padding:6px 7px;font:11px/1.3 var(--mono);color:var(--muted);
        display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
   .xbtn{position:absolute;top:4px;right:4px;width:20px;height:20px;line-height:18px;text-align:center;
-        background:#000b;color:#fff;border:1px solid var(--line-strong);cursor:pointer;font-size:12px;opacity:0;transition:.12s;}
-  .card.sel:hover .xbtn{opacity:1;} .xbtn:hover{background:var(--orange);color:#0f0f0f;}
+        background:rgba(0,0,0,.66);color:#fff;border:1px solid var(--line-strong);cursor:pointer;font-size:12px;opacity:0;transition:.12s;}
+  .card.sel:hover .xbtn{opacity:1;} .xbtn:hover{background:var(--orange);color:#fff;}
   .qbtn{position:absolute;left:50%;bottom:6px;transform:translateX(-50%);opacity:0;transition:.12s;white-space:nowrap;
-        background:rgba(18,18,22,.7);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:var(--ink);
+        background:var(--glass);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:var(--ink);
         border:1px solid var(--line-strong);border-radius:999px;padding:4px 11px;cursor:pointer;
         font:700 9px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;}
-  .card.sel:hover .qbtn{opacity:1;} .qbtn:hover{background:var(--acid);color:#0f0f0f;border-color:var(--acid);}
+  .card.sel:hover .qbtn{opacity:1;} .qbtn:hover{background:var(--acid);color:var(--on-acid);border-color:var(--acid);}
   .poolbar{position:absolute;left:0;right:0;bottom:0;padding:9px;opacity:0;transition:.16s;
-           display:flex;justify-content:center;background:linear-gradient(transparent,#000b 85%);}
+           display:flex;justify-content:center;background:var(--scrim);}
   .card:hover .poolbar{opacity:1;}
-  .poolbar button{display:inline-flex;align-items:center;gap:5px;background:rgba(18,18,22,.66);
+  .poolbar button{display:inline-flex;align-items:center;gap:5px;background:var(--glass);
                   -webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);color:var(--ink);
                   border:1px solid var(--line-strong);border-radius:999px;padding:5px 12px;cursor:pointer;
                   font:700 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;transition:.16s;}
-  .poolbar button:hover{background:var(--acid);color:#0f0f0f;border-color:var(--acid);
-                        transform:translateY(-1px);box-shadow:0 6px 18px rgba(180,255,58,.25);}
+  .poolbar button:hover{background:var(--acid);color:var(--on-acid);border-color:var(--acid);
+                        transform:translateY(-1px);box-shadow:0 6px 18px var(--acid-glow);}
   .poolbar button .ic{font-size:13px;line-height:0;font-weight:400;}
-  .card.picked .media{opacity:.66;} .card.picked{box-shadow:inset 0 0 0 1px rgba(180,255,58,.5);}
+  .card.picked .media{opacity:.66;} .card.picked{box-shadow:inset 0 0 0 1px var(--acid-ink);}
   .check{position:absolute;top:6px;right:6px;width:21px;height:21px;border-radius:999px;background:var(--acid);
-         color:#0f0f0f;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;
-         box-shadow:0 2px 9px #0009;}
+         color:var(--on-acid);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;
+         box-shadow:var(--shadow-check);}
   .toggle{background:var(--surface);border:1px solid var(--line-strong);color:var(--muted);padding:6px 11px;
           cursor:pointer;font:700 10px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;}
-  .toggle.on{background:var(--acid);color:#0f0f0f;border-color:var(--acid);}
+  .toggle.on{background:var(--acid);color:var(--on-acid);border-color:var(--acid);}
   .empty{color:var(--muted);padding:14px 0;font-family:var(--mono);font-size:12px;}
-  #lb{position:fixed;inset:0;background:#000e;display:none;flex-direction:column;align-items:center;
+  #lb{position:fixed;inset:0;background:var(--overlay);display:none;flex-direction:column;align-items:center;
       justify-content:center;gap:12px;z-index:60;cursor:zoom-out;padding:24px;}
   #lb.on{display:flex;} #lb img{max-width:90vw;max-height:80vh;object-fit:contain;}
-  #lb .lbcap{font:13px/1.4 var(--mono);color:#ddd;max-width:680px;text-align:center;}
-  #toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--surface2);
+  #lb .lbcap{font:13px/1.4 var(--mono);color:var(--lbcap);max-width:680px;text-align:center;}
+  #toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--surface2);color:var(--ink);
          border:1px solid var(--line-strong);padding:9px 14px;z-index:80;display:none;align-items:center;gap:12px;
          font-size:12px;max-width:80vw;}
   #toast.on{display:flex;} #toast.err{border-color:var(--orange);}
   #toast button{background:none;border:0;color:var(--muted);cursor:pointer;font-size:14px;}
-</style></head>
+  .themebtn{background:var(--surface);border:1px solid var(--line-strong);color:var(--muted);padding:6px 11px;
+            cursor:pointer;font:700 10px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;display:flex;
+            align-items:center;gap:6px;}
+  .themebtn:hover{color:var(--ink);border-color:var(--ink);}
+  .themebtn .ic{font-size:12px;line-height:0;}
+</style>
+<script>
+  // Apply saved theme before first paint (default: light) to avoid a flash-of-wrong-theme.
+  (function(){ try{ var t=localStorage.getItem("studio-theme"); if(t!=="dark") t="light";
+    document.documentElement.dataset.theme=t; }catch(e){ document.documentElement.dataset.theme="light"; } })();
+</script>
+</head>
 <body>
 <header>
   <h1>Feed Studio</h1>
@@ -94,6 +135,8 @@
   </div>
   <span class="counts" id="counts"></span>
   <span style="flex:1"></span>
+  <button id="themetoggle" class="themebtn" title="Toggle light/dark theme" aria-label="Toggle theme">
+    <span class="ic" id="themeicon"></span><span id="themelabel"></span></button>
   <button id="hidestaged" class="toggle" style="display:none">hide staged</button>
   <label class="lbl" id="axiswrap" style="display:none">grouping&nbsp; <select id="axis"></select></label>
 </header>
@@ -120,6 +163,21 @@
 const $=s=>document.querySelector(s);
 let AXIS="subject", BOARD=null, HIDE_STAGED=false;
 
+// ---- Theme toggle (persists to localStorage "studio-theme"; default light, applied pre-paint in <head>) ----
+function applyThemeUI(theme){
+  const icon=$("#themeicon"), label=$("#themelabel");
+  if(icon) icon.textContent = theme==="dark" ? "☀" : "☾";
+  if(label) label.textContent = theme==="dark" ? "light" : "dark";  // label = the mode you'd switch TO
+}
+function currentTheme(){ return document.documentElement.dataset.theme==="dark" ? "dark" : "light"; }
+function setTheme(theme){
+  document.documentElement.dataset.theme = theme;
+  try{ localStorage.setItem("studio-theme", theme); }catch(e){}
+  applyThemeUI(theme);
+}
+applyThemeUI(currentTheme());   // sync button glyph/label with the pre-paint theme
+$("#themetoggle").addEventListener("click",()=>setTheme(currentTheme()==="dark"?"light":"dark"));
+
 function toast(m,{err=false}={}){ const t=$("#toast"); t.className=err?"on err":"on";
   t.innerHTML=""; const s=document.createElement("span"); s.textContent=m; t.appendChild(s);
   const b=document.createElement("button"); b.textContent="✕"; b.onclick=()=>t.classList.remove("on"); t.appendChild(b);
@@ -132,11 +190,20 @@ document.addEventListener("keydown",e=>{ if(e.key==="Escape") $("#lb").classList
 async function post(p,b){ const r=await fetch(p,{method:"POST",headers:{"Content-Type":"application/json"},
   body:JSON.stringify(b)}); const j=await r.json(); if(j.error) throw new Error(j.error); return j; }
 
-document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{
-  document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===b));
-  const v=b.dataset.view; $("#feed").classList.toggle("on",v==="feed");
+// ---- Tabs (active view persists to localStorage "studio-tab"; default feed) ----
+function setView(v,{persist=true}={}){
+  if(v!=="feed" && v!=="pool") v="feed";
+  document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x.dataset.view===v));
+  $("#feed").classList.toggle("on",v==="feed");
   $("#pool").classList.toggle("on",v==="pool");
-  $("#axiswrap").style.display=v==="pool"?"":"none"; $("#hidestaged").style.display=v==="pool"?"":"none"; }));
+  $("#axiswrap").style.display=v==="pool"?"":"none"; $("#hidestaged").style.display=v==="pool"?"":"none";
+  if(persist){ try{ localStorage.setItem("studio-tab",v); }catch(e){} }
+}
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>setView(b.dataset.view)));
+// Restore the last-active tab on load (default feed). Runs immediately so axis/hide-staged
+// visibility is correct even before the board data arrives.
+(function(){ let v="feed"; try{ v=localStorage.getItem("studio-tab")||"feed"; }catch(e){}
+  setView(v,{persist:false}); })();
 $("#hidestaged").addEventListener("click",()=>{ HIDE_STAGED=!HIDE_STAGED;
   $("#hidestaged").classList.toggle("on",HIDE_STAGED); renderPool(); });
 
