@@ -223,6 +223,18 @@ function mediaEl(url,cap){ const m=document.createElement("div"); m.className="m
     i.addEventListener("click",e=>{e.stopPropagation();lightbox(url,cap);}); m.appendChild(i); }
   return m; }
 
+// Human-format the tile's schedule stamp: ISO publish_at/published_at -> "Fri 7/11 12:29" in the
+// browser's local tz (JST). "draft"/"unscheduled" pass through; empty -> "".
+function fmtWhen(w){
+  if(!w) return "";
+  if(w==="draft"||w==="unscheduled") return w;
+  const d=new Date(w);
+  if(isNaN(d.getTime())) return w;
+  const wd=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][d.getDay()];
+  const hh=String(d.getHours()).padStart(2,"0"), mm=String(d.getMinutes()).padStart(2,"0");
+  return `${wd} ${d.getMonth()+1}/${d.getDate()} ${hh}:${mm}`;
+}
+
 function renderGrid(){
   const g=$("#grid"); g.innerHTML="";
   if(!BOARD.grid.length){ g.innerHTML='<div class="empty">Nothing yet — stage candidates from the Pool tab.</div>'; return; }
@@ -233,7 +245,8 @@ function renderGrid(){
     const cap = t.kind==="select" ? "" : (t.caption||"");
     const m=mediaEl(t.url, t.caption||"");
     const badge=t.kind==="select"?"select":(t.lane==="live"?"live":"upcoming");
-    m.insertAdjacentHTML("beforeend",`<span class="badge ${badge}">${t.status}</span>`+(t.when?`<span class="when">${t.when}</span>`:""));
+    const whenTxt=fmtWhen(t.when);
+    m.insertAdjacentHTML("beforeend",`<span class="badge ${badge}">${t.status}</span>`+(whenTxt?`<span class="when">${whenTxt}</span>`:""));
     if(t.kind==="select"){ const x=document.createElement("div"); x.className="xbtn"; x.textContent="×";
       x.title="send back to pool";
       x.addEventListener("pointerdown",e=>e.stopPropagation());

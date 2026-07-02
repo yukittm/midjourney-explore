@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-27
+updated: 2026-07-02
 status: active
 type: guide
 ---
@@ -35,9 +35,7 @@ scored against the **reward gate** (§10) before shipping.
 
 Color = a **single bold image `--sref`** (a saturated reference image), **not** the moodboard — a moodboard
 *averages* toward a muted centre and **can't be weighted** (`--sw`/`--sv` don't apply to it). Push color with
-**`--sw` (~150–250)**. **Do NOT write `--sv`** for an image-URL sref on V8.1 → it defaults to **sv7** (the V8.1
-default, `--hd`-compatible). Writing `--sv 7` explicitly errored in-app; numeric CODES need sv4/sv6.
-To make color more vivid, raise **`--sw`** — **never `--s`**.
+**`--sw`** — never `--s` (full `--sw`/`--sv` rules: §8).
 
 **Convention: set the `--sref` IMAGE in the MJ UI** (Style Reference slot) — do **not** paste `--sref <URL>`
 into the prompt body (a placeholder URL won't run). When a reference image is needed, state it **separately**
@@ -64,6 +62,19 @@ Real flowing/blocked-color phenomena to name (the noun, not "abstract" / "gradie
 - **contour-plowed** or terraced fields
 - **salt-evaporation ponds** (color-block grids)
 - **aerial color bands** of farmland / coastline
+
+**Wave WAVELENGTH is a PROMPT lever, not `--raw`/`--s` (verified in-app at identical params, 2026-07-01):**
+- **BROAD signature swell** = name a **3D rolling landform** (`vast rolling hills` / `great dunes` / `sweeping
+  swells`, with volume + cast shadow) and the color as **broad bands draping over it** — reinforce with a
+  broad-band phenomenon (`Zhangye Danxia strata` · `slow ocean groundswell` · `slow molten poured glass` ·
+  `banded agate` · `wind-sculpted Navajo sandstone`) + `broad, large-amplitude, only a few swells`.
+- **FINE zebra combing (the failure)** = a *flat* plane + a surface-pattern word — `rippling`, `combed`,
+  `corrugated`, `fluted`, `zebra`, `wood-grain`. Flatness + the combing word is the failure, NOT the landform
+  noun ("dunes / hills / swells" as volume is fine — the validated viaduct keeper came from a "dunes" prompt).
+- **Presence vs character:** the wave appears only where the prompt names a carrier (ground / water / structure)
+  as the flowing-color field; color routed into glass/floor gives no ground-wave (a per-scene choice, not a bug).
+- **Color count:** ≤2–3 named hues, or let the `--sref` own color — spectrum chains ("X-to-Y-to-Z bands") go
+  rainbow. Don't smooth combing with high `--s` (it washes the sref palette — §8); fix the landform/simile instead.
 
 > **Breakpoint:** drone-photographable → one-pass works. Pure paint / gradient / no real referent → not
 > one-pass; defer to a 2-step composite (out of the automated path).
@@ -94,16 +105,19 @@ Geometry from **real geometric land** — terraced fields, basalt columns, salt-
       --style raw --s 110 --sw 150 --ar 4:5 --no painting, illustration, 3d render, cgi
 
 ### R3 — Chromatic Wave  (BASE — Flowing Color Waves; validated)
-The flowing multicolor "wave" world. **Two routes:** **photoreal** (the bridge §4 — a real flowing-color
-phenomenon behind a photo-textured subject) or **smooth-painterly** (profile `--p` + higher `--s` + no-raw —
-subject clean/legible; this is the keepers' route).
-- **Params (photoreal route):** `--style raw --s 100–110 --sw 220–250 --ar 4:5 --no painting, illustration, 3d render, cgi`
-- **Params (smooth-wave route):** `--p <profile> --s ~250 --c 10 --ar 4:5` (no raw)
+The flowing multicolor "wave" world. **Two routes — never mix their params:**
+- **Photoreal route** (the bridge §4 — a real flowing-color phenomenon behind a photo-textured subject):
+  `--style raw --s 100–110 --sw 220–250 --ar 4:5 --no painting, illustration, 3d render, cgi`
+- **Smooth-wave route** (subject clean/legible; the keepers' route): `--p <profile> --s ~250 --c 10 --ar 4:5`
+  (no raw, **NO image sref** — the palette comes from the profile). **High `--s` is safe ONLY here**; combined
+  with an image sref it washes the palette to rainbow (§8) — verified in-app 2026-07-01.
 - **Example (photoreal route):**
 
       a dancer in white mid-turn before sweeping multicolor tulip-field bands stretching to the horizon,
       editorial photograph, sharp realistic skin, 85mm f/1.8, Cinestill 800T
       --style raw --s 105 --sw 240 --ar 4:5 --no painting, illustration, 3d render, cgi
+
+- **Wavelength & wave form: §4.** `--sref` supplies palette only; the wave form is always prompt-owned.
 
 ### Deferred — Pure Color-Field
 A true paint/gradient field with no real referent → needs a **2-step composite**; **out of the automated
@@ -176,20 +190,24 @@ Two different jobs — don't conflate them:
   subject + attributes + action · the **named flowing phenomenon / terrain** · light · composition (fore /
   mid / background) · atmosphere · camera. The detail is what makes each variant genuinely distinct.
 
-**Default to a rich ~80-word prompt for production.** (Short is the exception.) This requires **low `--s`** so
-the detail is honored — **high `--s` (the smooth-wave / profile route) overrides prompt detail and re-averages**,
-so it is the LOW-differentiation route. For differentiated scenes use the **bridge / photoreal route**
-(raw + low `--s` + rich prompt + sref).
-
-- Front-load load-bearing words; the ~74-token influence cap still applies — spend the budget on the *scene*,
-  not filler. **Never ship a short, under-specified prompt for production** (it averages → sameness).
+**Default to a rich ~80-word prompt for production.** This requires **low `--s`** so the detail is honored —
+high `--s` overrides prompt detail and re-averages (the LOW-differentiation route). Front-load load-bearing
+words (the ~74-token influence cap applies); never ship a short, under-specified prompt for production (it
+averages → sameness). **EXCEPTION — §9d motion-dissolve REQUIRES a short prompt**: there the photo image-prompt
++ sref carry the look, and rich text breaks the lane (rainbow / over-dissolve).
 
 ## 8. Knobs (quick reference — full table in `../research/2026-06-21_midjourney-v8.1-current.md`)
 
 - **`--style raw`** — always on (kernel); the photographic base.
 - **`--s` (stylize, ~90–120)** — literalness only. Low = prompt-faithful; high overrides prompt detail and
-  re-muddies. Never use it for realism or color.
-- **`--sw` (~150–250)** — the color channel; raise `--sw` to push color. **Omit `--sv`** for an image-URL sref (it defaults to sv7, the V8.1 default; writing `--sv 7` errored in-app; numeric codes need sv4/sv6).
+  re-muddies — and **with an image `--sref`, high `--s` also washes the sref palette to rainbow** (verified
+  in-app 2026-07-01). High `--s` is valid only on the `--p` profile route (no image sref). Never use `--s` for
+  realism or color.
+- **`--sw` (0–1000, default 100; production band ~150–250)** — the color channel; raise to push the sref
+  palette. **Requires an active image/code sref** (errors without one); **ignored under `--p`**. **Low `--sw`
+  (~20–60) = texture-yes-palette-no** — the sref keeps its medium/texture while ≤3 text color words win the
+  palette (the recolor lever; §9d). **Omit `--sv`** for an image-URL sref (defaults to sv7, the V8.1 default;
+  writing `--sv 7` errored in-app; numeric codes need sv4/sv6).
 - **`--no painting, illustration, 3d render, cgi`** — one flag, comma-list; each word parsed independently
   (moderation trap: `--no modern clothing` = "no modern" + "no clothing").
 - **`--c` (chaos)** — 0 for production; **15–30 for the explore lane** (§9).
@@ -197,7 +215,17 @@ so it is the LOW-differentiation route. For differentiated scenes use the **brid
 - **`--iw` (0–3)** — to copy a real reference's composition, use the image as an image prompt (`--iw ~2`); far
   more faithful than words. (`--oref` is **V7-only and invalid on V8.1** — use `--iw`.)
 
-## 9. Explore lane (un-preset discovery)
+## 9. Lanes — pick by intent
+
+| Intent | Lane |
+|---|---|
+| Discover new looks (un-preset) | §9 explore (`--c 15–30`) |
+| Vary a keeper, ~same layout | §9b Remix-Fidelity (keeper in both slots) |
+| New subject + new composition, keep the style | §9c sref-only |
+| Middle expression (real subject, moving parts dissolve) | §9d motion-dissolve |
+| Recolor a keeper, keep composition + treatment | §9d recolor (Remix Subtle + low `--sw`) |
+
+### The explore lane (un-preset discovery)
 
 Separate from the production registers: a discovery lane that drops the fixed sref/params and opens variety
 with **`--c 15–30`** to find new looks. Surface candidates here; once something lands, re-express it through the
@@ -218,9 +246,12 @@ Why it works: the source in **both slots** locks the look (color + composition);
 prompt render the (new) subject with detail, not averaged → **high source-fidelity + a differentiated subject**.
 Validated in-app 2026-06-23 (the dancers / surfer sets: `raw · s110 · sw 220–230 · source in both slots`).
 
-Caveat: it **also inherits the source's composition** — ideal for a subject swap that fits a similar layout. For
-a genuinely different composition or a different palette, use §9c (sref-only, the prompt owns composition), the from-scratch route (§5/§7),
-or the explore lane (§9). Remix **Subtle** = stay very close to the source; **Strong** = let the new prompt push further.
+Caveat: it **also inherits the source's composition** — ideal for a subject swap that fits a similar layout;
+for a new composition or palette use §9c or §9. **Remix mechanics** (docs-verified 2026-07-02): Remix re-runs
+the prompt with the source as visual anchor — **Subtle** keeps the layout, **Strong** re-composes; the original
+text + image-prompt + sref + params **repopulate editable** in the bar (Reset Prompt reverts). **Editor tools
+run V6.1**: Retexture (strongest structure lock) and Vary Region will shift a V8.1 look — prefer Remix Subtle
+for V8.1 keepers.
 
 ## 9c. Change the subject (and composition) — keep ONLY the style
 
@@ -239,6 +270,25 @@ drag a keeper's layout in). Carry the **style only**; let the prompt own the sub
 The §9b both-slots lane is the **opposite** tool — reserve it for a subject swap that keeps ~the same layout.
 **Destination (automation):** a trained `--p` profile carries the style as *taste*, compositionally neutral by
 construction (§11) — the cleanest long-term version of this once `--p` is locked.
+
+## 9d. Motion-dissolve lane (middle expression — validated in-app 2026-07-02)
+
+Subject **partially real, its fast-moving parts dissolving into flowing color** (a footballer whose kicking leg
+and ball melt into the wave). A third slot config — and the ONE exception to §7's rich-prompt default:
+
+- **Slots:** a PHOTO-real action shot in the **image-prompt** slot (structure + realism floor) × the
+  abstract-wave image in the **Style-Reference** slot (dissolve texture + palette).
+- **Text: SHORT** — `a footballer` (+ at most ONE motion clause: `his fast legs and the ball dissolving into
+  flowing color`). Rich text or spectrum color words break the lane (rainbow / over-dissolve).
+- **Params:** `--raw --hd --ar 4:5 --no painting, illustration, 3d render, cgi` — **no `--sw`** (default 100).
+- **New motions:** generate the photo base first (`a footballer mid-volley, editorial sports photograph
+  --ar 4:5 --hd`, no sref) — vary the camera angle here — then Use → Image + wave sref + short text.
+- **Recolor a keeper (keep composition + dissolve):** **Remix Subtle** on the keeper; text = short subject + ≤3
+  color words (`natural football colors — grass green, white kit, warm skin tones, matte film grain`) +
+  **`--sw 30`** (floor ~15–20). Never add realism words ("photorealistic", "editorial photograph", lens names)
+  in this lane — they pull 3D-real and kill the dissolve; "matte film grain, flat" is the safe texture cue.
+- **Links:** §5c's "become the color" is the *scale* dissolve; this is the *motion* dissolve — different levers.
+  Unlike §9b, the image-prompt here is a *photo base*, not a keeper.
 
 ## 10. The idea engine
 
@@ -261,6 +311,7 @@ construction (§11) — the cleanest long-term version of this once `--p` is loc
 4. **Mundane act on a vast stage** — everyday action made monumental by the setting.
 5. **Object as monument** — an everyday object huge / central in a landscape.
 6. **Figure-on-animal composite** — a figure fused with an animal as one hero.
+7. **Motion-dissolve** — a real subject's fast-moving parts melt into flowing color (§9d).
 
 > Method: pick a subject × one move → a strong idea. Keep subjects **fresh** (don't recycle a specific prior
 > subject; see `.claude/rules/LESSONS.md`).
@@ -270,6 +321,9 @@ construction (§11) — the cleanest long-term version of this once `--p` is loc
 - **Abstract style words for the background** — "geometric", "minimalist", "abstract", "gradient" don't render
   reliably; name a **real noun** (terraces, basalt columns, tulip bands) — §4.
 - **Color pushed via `--s`** — re-muddies; push color with `--sw`.
+- **Spectrum color words** — "X-to-Y-to-Z chromatic bands" induces rainbow; ≤2–3 named hues, or let the
+  `--sref` own color (§4).
+- **High `--s` with an image sref** — washes the sref palette to rainbow; high `--s` only on the `--p` route (§8).
 - **Moodboard used as the color channel** — it averages to a muted centre and can't be weighted; use a bold
   image `--sref`.
 - **Artist name in the prompt or vocabulary** — never; use the neutral register names.
@@ -306,7 +360,8 @@ For a stable house look across many images (the IG-automation goal), stack deter
 `--sref` juggling alone:
 
 - **Trained Personalization `--p`** — the platform's stable-taste layer (trained via the like/dislike loop).
-- **Fixed image `--sref --sw`** — pin the exact palette with one bold reference image (omit `--sv` on V8.1).
+- **Fixed image `--sref --sw`** — pin the exact palette with one bold reference image (omit `--sv` on V8.1;
+  note `--sw` is ignored while `--p` is active — the profile owns the weighting there, §8).
 - **Deterministic post-grade LUT** — a saved Lightroom/Capture One preset or a LUT in `automation/` gives the
   *exact* editorial color reproducibly (MJ color sampling is not deterministic).
 

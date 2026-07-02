@@ -1,5 +1,5 @@
 ---
-updated: 2026-06-27
+updated: 2026-07-02
 status: draft
 type: style
 ---
@@ -170,7 +170,7 @@ subject-dominance freely (heroless → photoreal hero).
 
 | Register | Tier | What it is | Params (one-pass) |
 |---|---|---|---|
-| **R3 Chromatic Wave** | **BASE** | The flowing multicolor "wave" world (*Flowing Color Waves*). | photoreal route: `--style raw --s 100–110 --sw 220–250` + the bridge · smooth-wave route: profile (`--p`) + higher `--s` + no-raw |
+| **R3 Chromatic Wave** | **BASE** | The flowing multicolor "wave" world (*Flowing Color Waves*). | photoreal route: `--style raw --s 100–110 --sw 220–250` + the bridge · smooth-wave route: profile (`--p`) + higher `--s` + no-raw, NO image sref · motion-dissolve route: photo image-prompt × wave sref × short text + raw/hd (`prompting.md` §9d) |
 | **R1 Color-Block Terrain** | SIBLING | Bold saturated color on **real photographable terrain** — salt flats, badlands, dunes, ridgelines. | `--style raw --s 110 --sw 180` |
 | **R2 Geometric Landform** | SIBLING | Clean **real** geometric land — stepped terraces, basalt columns, salt-pond grids, conical volcano. Geometry from real *nouns*, **not** "geometric/minimalist" *style* words. | `--style raw --s 100–120 --sw 150` |
 
@@ -206,11 +206,14 @@ not the *theme*.
 
 Subject range (breadth within unity):
 - **Terrain (base)**: hills, plains, desert, water, rock, plateau, salt flats, badlands, dunes.
-- **Architecture / structure**: a lone tiny house/cottage on a hill; a geometric pavilion / cube.
+- **Architecture / structure**: structures **engulfed by / formed from** the wave ("believable parts,
+  impossible whole" — the validated framing); a lone structure on a wave-draped landform. (Static
+  "structure beside color hills" was rejected 2026-07-01 as too simple.)
 - **Flora**: cacti, a lone iconic tree, flowering shrubs.
 - **Fauna**: horse, antelope, birds; a **figure-on-animal composite** as one hero.
 - **Figures**: a lone person, dancers, small groups. (Subjects + hard anchors read as real — photo-textured on the kernel route, clean/legible on the wave route — per the render rule.)
-- **Devices**: scale-play, mirroring, motion, color-blocking.
+- **Devices**: scale-play, mirroring, motion (incl. **motion-dissolve** — fast-moving parts melt into flowing
+  color, `prompting.md` §9d), color-blocking.
 
 **Heroless color-field landscapes are first-class**, not a defect — and the feed **leans heroless / balanced**
 (mostly landscapes with occasional human/animal subjects; the *idea*, not a hero, carries the frame). **Keep
