@@ -1,6 +1,6 @@
 id: 2026-06-29_skier-color-drop
 schema_version: 1
-status: scheduled
+status: published
 media_type: image
 publish_at: '2026-07-03T09:10:00+09:00'
 assets:
@@ -17,10 +17,10 @@ hashtags:
 schedule_mode: auto
 priority: 7
 result:
-  container_id: null
-  media_id: null
-  permalink: null
-  published_at: null
+  container_id: '17893306671514972'
+  media_id: '18453028027184092'
+  permalink: https://www.instagram.com/p/DaT2MuKmU3k/
+  published_at: '2026-07-03T00:10:22.909267+00:00'
   error: null
   error_class: null
   retry_count: 0
