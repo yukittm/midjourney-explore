@@ -1,6 +1,6 @@
 id: 2026-06-29_white-rider-blue
 schema_version: 1
-status: scheduled
+status: published
 media_type: image
 publish_at: '2026-07-04T19:40:00+09:00'
 assets:
@@ -20,10 +20,10 @@ hashtags:
 schedule_mode: auto
 priority: 4
 result:
-  container_id: null
-  media_id: null
-  permalink: null
-  published_at: null
+  container_id: '17893512603514972'
+  media_id: '18094776680367033'
+  permalink: https://www.instagram.com/p/DaXjGjhmxKS/
+  published_at: '2026-07-04T10:40:28.549519+00:00'
   error: null
   error_class: null
   retry_count: 0
