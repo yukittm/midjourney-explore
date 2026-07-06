@@ -1,0 +1,27 @@
+id: 2026-07-06_pastel-desert-river
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-08T08:55:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-07-06_pastel-desert-river/01.jpg
+  alt_text: A striped pastel river of white, green, gold and blue winding through
+    a pink desert valley dotted with saguaro cacti.
+caption: The desert runs in pastel wavelengths this season.
+hashtags:
+- digitalart
+- abstractart
+- generativeart
+schedule_mode: pinned
+priority: 20
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

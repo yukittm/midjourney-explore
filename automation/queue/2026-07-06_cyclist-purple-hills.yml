@@ -1,0 +1,27 @@
+id: 2026-07-06_cyclist-purple-hills
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-07T09:20:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-07-06_cyclist-purple-hills/01.jpg
+  alt_text: A cyclist in white rides a teal road at the foot of giant grainy purple
+    and maroon rolling hills under a deep blue sky.
+caption: Quiet climb, loud geometry.
+hashtags:
+- digitalart
+- abstractart
+- aiartcommunity
+schedule_mode: pinned
+priority: 22
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

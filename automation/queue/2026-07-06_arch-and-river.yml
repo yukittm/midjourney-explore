@@ -1,0 +1,29 @@
+id: 2026-07-06_arch-and-river
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-10T09:05:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-07-06_arch-and-river/01.jpg
+  alt_text: A white stone arch on a plain of red flowers, with a striped ribbon of
+    teal, blue, orange and cream flowing from the arch toward the foreground, dark
+    green hill behind.
+caption: The arch pours its own road. 🌊
+hashtags:
+- digitalart
+- abstractart
+- generativeart
+- aiartcommunity
+schedule_mode: pinned
+priority: 16
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

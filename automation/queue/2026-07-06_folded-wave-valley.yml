@@ -1,0 +1,28 @@
+id: 2026-07-06_folded-wave-valley
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-10T20:25:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-07-06_folded-wave-valley/01.jpg
+  alt_text: A smooth banded wave of white, blue and brown folded into a V-shaped valley
+    between two gravelly slopes, with a tree, blue sea and a mountain behind.
+caption: How long has this wave been parked here?
+hashtags:
+- digitalart
+- abstractart
+- midjourneyart
+- aiartcommunity
+schedule_mode: pinned
+priority: 15
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

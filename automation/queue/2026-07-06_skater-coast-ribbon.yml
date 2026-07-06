@@ -1,0 +1,28 @@
+id: 2026-07-06_skater-coast-ribbon
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-06T20:35:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-07-06_skater-coast-ribbon/01.jpg
+  alt_text: A skateboarder in white carving down a winding ribbon road striped pink,
+    green and red, above a blue sea with distant mountains.
+caption: A skater carving the long way down to the sea.
+hashtags:
+- digitalart
+- abstractart
+- generativeart
+- midjourneyart
+schedule_mode: pinned
+priority: 23
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

@@ -1,0 +1,28 @@
+id: 2026-07-06_hill-door-cyclist
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-11T09:15:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-07-06_hill-door-cyclist/01.jpg
+  alt_text: A cyclist on a red dirt path curving under a green speckled hill that
+    folds over itself like an arch, with a tree, rocks and dark blue sea seen through
+    the opening.
+caption: The hill made a door, so he took it.
+hashtags:
+- digitalart
+- generativeart
+- midjourneyart
+schedule_mode: pinned
+priority: 14
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

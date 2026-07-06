@@ -1,0 +1,29 @@
+id: 2026-07-06_skater-orbit-loop
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-08T20:15:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-07-06_skater-orbit-loop/01.jpg
+  alt_text: A skateboarder in white rides a giant looping ribbon striped teal and
+    orange, floating against a starry night sky above an orange cliff with flowering
+    shrubs.
+caption: Late session on the orbit ramp.
+hashtags:
+- abstractart
+- generativeart
+- midjourneyart
+- aiartcommunity
+schedule_mode: pinned
+priority: 19
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

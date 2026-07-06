@@ -1,0 +1,28 @@
+id: 2026-07-06_cyclist-soft-hills
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-07T19:45:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-07-06_cyclist-soft-hills/01.jpg
+  alt_text: A cyclist in white on a red path between rounded mint-green hills shaped
+    like soft loops, red flowering shrubs in the foreground, sea on the horizon.
+caption: Where do the hills end and the soft-serve begin?
+hashtags:
+- digitalart
+- generativeart
+- midjourneyart
+- aiartcommunity
+schedule_mode: pinned
+priority: 21
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []
