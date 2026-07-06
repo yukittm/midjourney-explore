@@ -1,6 +1,6 @@
 id: 2026-07-06_skater-coast-ribbon
 schema_version: 1
-status: scheduled
+status: published
 media_type: image
 publish_at: '2026-07-06T20:35:00+09:00'
 assets:
@@ -17,10 +17,10 @@ hashtags:
 schedule_mode: pinned
 priority: 23
 result:
-  container_id: null
-  media_id: null
-  permalink: null
-  published_at: null
+  container_id: '17893823733514972'
+  media_id: '18166212445452446'
+  permalink: https://www.instagram.com/p/Dacy-dFAXSO/
+  published_at: '2026-07-06T11:35:21.693078+00:00'
   error: null
   error_class: null
   retry_count: 0
