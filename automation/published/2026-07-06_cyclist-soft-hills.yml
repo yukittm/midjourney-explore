@@ -1,6 +1,6 @@
 id: 2026-07-06_cyclist-soft-hills
 schema_version: 1
-status: scheduled
+status: published
 media_type: image
 publish_at: '2026-07-07T19:45:00+09:00'
 assets:
@@ -17,10 +17,10 @@ hashtags:
 schedule_mode: pinned
 priority: 21
 result:
-  container_id: null
-  media_id: null
-  permalink: null
-  published_at: null
+  container_id: '17893968336514972'
+  media_id: '18015156641913393'
+  permalink: https://www.instagram.com/p/DafSEGrEQCl/
+  published_at: '2026-07-07T10:45:27.239183+00:00'
   error: null
   error_class: null
   retry_count: 0
