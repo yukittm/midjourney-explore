@@ -1,6 +1,6 @@
 id: 2026-07-06_cyclist-purple-hills
 schema_version: 1
-status: scheduled
+status: published
 media_type: image
 publish_at: '2026-07-07T09:20:00+09:00'
 assets:
@@ -16,10 +16,10 @@ hashtags:
 schedule_mode: pinned
 priority: 22
 result:
-  container_id: null
-  media_id: null
-  permalink: null
-  published_at: null
+  container_id: '17893901670514972'
+  media_id: '17897171772472929'
+  permalink: https://www.instagram.com/p/DaeKi9DASD2/
+  published_at: '2026-07-07T00:20:35.580945+00:00'
   error: null
   error_class: null
   retry_count: 0
