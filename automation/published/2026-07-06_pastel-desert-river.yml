@@ -1,6 +1,6 @@
 id: 2026-07-06_pastel-desert-river
 schema_version: 1
-status: scheduled
+status: published
 media_type: image
 publish_at: '2026-07-08T08:55:00+09:00'
 assets:
@@ -16,10 +16,10 @@ hashtags:
 schedule_mode: pinned
 priority: 20
 result:
-  container_id: null
-  media_id: null
-  permalink: null
-  published_at: null
+  container_id: '17894064537514972'
+  media_id: '17886077982664800'
+  permalink: https://www.instagram.com/p/Dagvm2MFIlE/
+  published_at: '2026-07-08T00:22:55.353416+00:00'
   error: null
   error_class: null
   retry_count: 0
