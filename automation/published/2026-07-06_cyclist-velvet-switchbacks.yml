@@ -1,6 +1,6 @@
 id: 2026-07-06_cyclist-velvet-switchbacks
 schema_version: 1
-status: scheduled
+status: published
 media_type: image
 publish_at: '2026-07-09T19:35:00+09:00'
 assets:
@@ -16,10 +16,10 @@ hashtags:
 schedule_mode: pinned
 priority: 17
 result:
-  container_id: null
-  media_id: null
-  permalink: null
-  published_at: null
+  container_id: '17894260998514972'
+  media_id: '17949976638014510'
+  permalink: https://www.instagram.com/p/DakajbuFzyE/
+  published_at: '2026-07-09T10:35:47.515355+00:00'
   error: null
   error_class: null
   retry_count: 0
