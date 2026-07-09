@@ -1,6 +1,6 @@
 id: 2026-07-06_cyclist-wave-arch
 schema_version: 1
-status: scheduled
+status: published
 media_type: image
 publish_at: '2026-07-09T09:30:00+09:00'
 assets:
@@ -17,10 +17,10 @@ hashtags:
 schedule_mode: pinned
 priority: 18
 result:
-  container_id: null
-  media_id: null
-  permalink: null
-  published_at: null
+  container_id: '17894203110514972'
+  media_id: '17869089483569735'
+  permalink: https://www.instagram.com/p/DajVV3Fmdrh/
+  published_at: '2026-07-09T00:31:03.155141+00:00'
   error: null
   error_class: null
   retry_count: 0
