@@ -1,6 +1,6 @@
 id: 2026-07-06_arch-and-river
 schema_version: 1
-status: scheduled
+status: published
 media_type: image
 publish_at: '2026-07-10T09:05:00+09:00'
 assets:
@@ -18,10 +18,10 @@ hashtags:
 schedule_mode: pinned
 priority: 16
 result:
-  container_id: null
-  media_id: null
-  permalink: null
-  published_at: null
+  container_id: '17894343132514972'
+  media_id: '18123767686706153'
+  permalink: https://www.instagram.com/p/Dal3Q7sj6z7/
+  published_at: '2026-07-10T00:05:55.289323+00:00'
   error: null
   error_class: null
   retry_count: 0
