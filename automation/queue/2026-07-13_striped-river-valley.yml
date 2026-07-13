@@ -1,0 +1,31 @@
+id: 2026-07-13_striped-river-valley
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-14T19:50:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-07-13_striped-river-valley/01.jpg
+  alt_text: A banded river of blue, white and tan makes an S-curve through a geometric
+    notch between grainy green slopes, with a rocky mountain and a tree.
+caption: 'A striped river rehearsing its S-curve.
+
+
+  Geometry, off duty.'
+hashtags:
+- digitalart
+- generativeart
+- midjourneyart
+- aiartcommunity
+schedule_mode: pinned
+priority: 11
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

@@ -1,0 +1,28 @@
+id: 2026-07-13_dancers-orange-hill
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-15T20:10:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-07-13_dancers-orange-hill/01.jpg
+  alt_text: Six dancers leap in a line up an orange hillside while a wave of green
+    and white lines flows across the deep blue sky.
+caption: Six dancers, one long gust of color.
+hashtags:
+- abstractart
+- generativeart
+- midjourneyart
+- aiartcommunity
+schedule_mode: pinned
+priority: 9
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

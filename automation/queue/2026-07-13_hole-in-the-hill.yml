@@ -1,0 +1,28 @@
+id: 2026-07-13_hole-in-the-hill
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-16T09:25:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-07-13_hole-in-the-hill/01.jpg
+  alt_text: A cyclist rides a red S-shaped track over a speckled green hill pierced
+    by a round hole, with cypress trees and a dark blue sea behind.
+caption: Who approved the hole in this hill?
+hashtags:
+- digitalart
+- abstractart
+- midjourneyart
+- aiartcommunity
+schedule_mode: pinned
+priority: 8
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

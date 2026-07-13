@@ -1,0 +1,27 @@
+id: 2026-07-13_soft-wave-bowl
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-16T19:40:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-07-13_soft-wave-bowl/01.jpg
+  alt_text: A blurred cyclist rides inside giant soft airbrushed waves of green, peach
+    and blue rolling like dunes.
+caption: Somewhere between a hill and a sigh.
+hashtags:
+- digitalart
+- generativeart
+- aiartcommunity
+schedule_mode: pinned
+priority: 7
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

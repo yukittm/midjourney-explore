@@ -1,0 +1,28 @@
+id: 2026-07-13_peloton-marbled-hill
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-13T20:20:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-07-13_peloton-marbled-hill/01.jpg
+  alt_text: A pack of cyclists climbs a road over marbled green and white swirling
+    hills, with a red flower field swirling in the foreground.
+caption: The peloton climbs a marbled wave, single file.
+hashtags:
+- digitalart
+- abstractart
+- generativeart
+- aiartcommunity
+schedule_mode: pinned
+priority: 13
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

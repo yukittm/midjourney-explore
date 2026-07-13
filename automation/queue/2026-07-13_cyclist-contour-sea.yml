@@ -1,0 +1,27 @@
+id: 2026-07-13_cyclist-contour-sea
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-15T08:50:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-07-13_cyclist-contour-sea/01.jpg
+  alt_text: A cyclist on a red dirt path below vast teal sea-swells drawn as flowing
+    contour lines, under a violet sky.
+caption: He rides the shoreline while the sea rearranges itself.
+hashtags:
+- digitalart
+- abstractart
+- generativeart
+schedule_mode: pinned
+priority: 10
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []

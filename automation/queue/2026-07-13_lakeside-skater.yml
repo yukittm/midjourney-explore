@@ -1,0 +1,27 @@
+id: 2026-07-13_lakeside-skater
+schema_version: 1
+status: scheduled
+media_type: image
+publish_at: '2026-07-17T20:30:00+09:00'
+assets:
+- kind: image
+  key: automation/assets/2026-07-13_lakeside-skater/01.jpg
+  alt_text: A skateboarder in white carves a pink path along a deep blue lake, past
+    a slope of pale flowers and a flowering tree.
+caption: Lakeside detour, worth being late for.
+hashtags:
+- digitalart
+- abstractart
+- aiartcommunity
+schedule_mode: pinned
+priority: 5
+result:
+  container_id: null
+  media_id: null
+  permalink: null
+  published_at: null
+  error: null
+  error_class: null
+  retry_count: 0
+  next_retry_at: null
+  attempts: []
