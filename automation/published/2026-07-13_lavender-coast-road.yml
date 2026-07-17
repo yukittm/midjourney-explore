@@ -1,6 +1,6 @@
 id: 2026-07-13_lavender-coast-road
 schema_version: 1
-status: scheduled
+status: published
 media_type: image
 publish_at: '2026-07-17T09:10:00+09:00'
 assets:
@@ -17,10 +17,10 @@ hashtags:
 schedule_mode: pinned
 priority: 6
 result:
-  container_id: null
-  media_id: null
-  permalink: null
-  published_at: null
+  container_id: '17895402777514972'
+  media_id: '18133478530580592'
+  permalink: https://www.instagram.com/p/Da35VIjiaKX/
+  published_at: '2026-07-17T00:10:23.818399+00:00'
   error: null
   error_class: null
   retry_count: 0
