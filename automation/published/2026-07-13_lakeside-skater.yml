@@ -1,6 +1,6 @@
 id: 2026-07-13_lakeside-skater
 schema_version: 1
-status: scheduled
+status: published
 media_type: image
 publish_at: '2026-07-17T20:30:00+09:00'
 assets:
@@ -16,10 +16,10 @@ hashtags:
 schedule_mode: pinned
 priority: 5
 result:
-  container_id: null
-  media_id: null
-  permalink: null
-  published_at: null
+  container_id: '17895468345514972'
+  media_id: '17897700828488521'
+  permalink: https://www.instagram.com/p/Da5HQVNCf0q/
+  published_at: '2026-07-17T11:31:20.171098+00:00'
   error: null
   error_class: null
   retry_count: 0
